@@ -7,7 +7,7 @@ const Header = () => {
     <header>
       <div className="mx-auto px-4">
         <nav className="flex justify-between items-center p-4">
-          <div>
+          <div style={{width: '280px'}}>
             <PureImage />
           </div>
           <div>

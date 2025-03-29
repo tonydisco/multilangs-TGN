@@ -1,8 +1,12 @@
 {
-  "name": "example-app-router",
+  "name": "tgn-frontend",
+  "version": "1.0.0",
+  "description": "Landing page for TNG",
+  "main": "index.js",
+  "author": "tai.ngotan",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev --turbo -p 2723",
     "lint": "eslint src && tsc && prettier src --check",
     "test": "pnpm run test:playwright && pnpm run test:jest",
     "test:playwright": "playwright test",

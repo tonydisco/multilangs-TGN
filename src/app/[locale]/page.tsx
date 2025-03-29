@@ -7,7 +7,7 @@ type Props = {
   params: Promise<{locale: Locale}>;
 };
 
-export default function IndexPage({params}: Props) {
+export default function IndexPage({params}: Readonly<Props>) {
   const {locale} = use(params);
 
   // Enable static rendering

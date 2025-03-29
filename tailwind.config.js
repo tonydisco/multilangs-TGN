@@ -26,7 +26,9 @@ module.exports = {
         slate: {
           850: 'hsl(222deg 47% 16%)'
         },
-        primary: '#5fc3e7'
+        primary: '#5fc3e7',
+        main: '#212121', // Added main color
+        browMain: '#6D3E2F'
       }
     }
   },

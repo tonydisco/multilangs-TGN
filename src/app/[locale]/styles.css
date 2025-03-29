@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.custom-nav-menu li {
+  position: relative;
+}
+
+.line-btw {
+  width: 1px;
+  height: 20px;
+  background-color: #6d3e2f;
+  opacity: 0.5;
+}
+
+.fade-line-element {
+  border-bottom: 1px solid;
+  border-image-source: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #6d3e2f 50%,
+    #ffffff 100%
+  );
+  border-image-slice: 1;
+}

@@ -1,10 +1,10 @@
 {
   "Error": {
-    "description": "<p>Es ist leider ein Problem aufgetreten.</p><p>Du kannst versuchen <retry>diese Seite neu zu laden</retry>.</p>",
-    "title": "Etwas ist schief gelaufen!"
+    "description": "<p>Không tìm thấy trang này</p>",
+    "title": "Lỗi!"
   },
   "IndexPage": {
-    "description": "Dies ist ein Beispiel, das die Verwendung von <code>next-intl</code> mit dem Next.js App Router demonstriert. Bei Ändern der Sprache rechts oben ändert sich der Inhalt dieser Seite.",
+    "description": "Thế Giới Nhà Group - hoạt động trong lĩnh vực sản xuất và cung cấp vật liệu xây dựng tại Việt Nam.Khởi đầu từ một doanh nghiệp nhỏ vào năm 2008, trong suốt hơn 15 năm qua, TGN group đã không ngừng phát triển và khẳng định thương hiệu, uy tín trong ngành xây dựng.",
     "title": "TNG | Thế giới nhà"
   },
   "LocaleLayout": {
@@ -22,8 +22,8 @@
     "pathnames": "Pfadnamen"
   },
   "NotFoundPage": {
-    "description": "Bitte überprüfe die Addressleiste deines Browsers oder verwende die Navigation um zu einer bekannten Seite zu wechseln.",
-    "title": "Seite nicht gefunden"
+    "description": "Không tìm thấy trang này",
+    "title": "Lỗi!"
   },
   "PageLayout": {
     "links": {

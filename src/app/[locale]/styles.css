@@ -4,6 +4,7 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
+  background-color: #fff;
 }
 
 .app-container {
@@ -82,6 +83,12 @@ body {
   flex: 1;
   position: relative;
 }
+
 .b-card-inner-mg {
   margin-left: 35px;
+}
+.gradient-border {
+  border: 1px solid;
+  border-image-source: linear-gradient(180deg, #ffc6b5 0%, #7c4838 100%);
+  border-image-slice: 1; /* Đảm bảo gradient áp dụng đúng cho viền */
 }

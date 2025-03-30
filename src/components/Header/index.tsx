@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React, {Fragment} from 'react';
 import {PureImage} from '../Common/Images';
+import {rmockRoute} from '@/config';
 
 const Header = () => {
   return (
@@ -65,13 +66,3 @@ const Header = () => {
 };
 
 export default Header;
-
-const rmockRoute = [
-  {name: 'Giới thiệu', path: '/about-us'},
-  {name: 'Lĩnh vực hoạt động', path: '/linh-vuc-hoat-dong'},
-  {name: 'Năng lực sản xuất', path: '/nang-luc-san-xuat'},
-  {name: 'Sản phẩm', path: '/san-pham'},
-  {name: 'Dự án', path: '/du-an'},
-  {name: 'Tin tức', path: '/tin-tuc'},
-  {name: 'Liên hệ - tuyển dụng', path: '/lienhe-tuyendung'}
-];

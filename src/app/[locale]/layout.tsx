@@ -6,6 +6,7 @@ import Header from '@/components/Header';
 import {notFound} from 'next/navigation';
 import {Locale, hasLocale, NextIntlClientProvider} from 'next-intl';
 import {getTranslations, setRequestLocale} from 'next-intl/server';
+import Footer from '@/components/Footer';
 
 type Props = {
   children: ReactNode;
@@ -53,6 +54,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider>
           <Header />
           {children}
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

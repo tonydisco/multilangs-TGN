@@ -68,7 +68,7 @@ export default function PageLayout({children, title}: Readonly<Props>) {
       <section className="about-us">
         <div
           style={{
-            background: 'url(/landing/ABOUT-US-BD.png)',
+            background: 'url(/landing/ABOUT-US/ABOUT-US-BD.png)',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
@@ -141,13 +141,13 @@ export default function PageLayout({children, title}: Readonly<Props>) {
               width: '100%'
             }}
           >
-            <PureImage url="/landing/GRID-VISION.png" />
+            <PureImage url="/landing/VISION-MISSION/GRID-VISION.png" />
           </div>
           <div className="flex justify-center  mx-auto p-10 max-w-6xl gap-5 item-stretch">
             <div
               className="rounded-[24px] bg-browMain p-4 text-white flex-1 relative"
               style={{
-                background: 'url(/landing/VISION.png)',
+                background: 'url(/landing/VISION-MISSION/VISION.png)',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center'
@@ -166,7 +166,7 @@ export default function PageLayout({children, title}: Readonly<Props>) {
               />
               <div style={{position: 'relative', zIndex: 2}}>
                 <div style={{width: 80, marginBottom: 40}}>
-                  <PureImage url="/landing/ICON-VISION.svg" />
+                  <PureImage url="/landing/VISION-MISSION/ICON-VISION.svg" />
                 </div>
                 <div>
                   <h2 className="text-3xl font-bold uppercase mb-3">sứ mệnh</h2>
@@ -184,7 +184,7 @@ export default function PageLayout({children, title}: Readonly<Props>) {
             <div
               className="rounded-[24px] bg-browMain p-4 text-white flex-1 relative"
               style={{
-                background: 'url(/landing/MISSION.png)',
+                background: 'url(/landing/VISION-MISSION/MISSION.png)',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center'
@@ -203,7 +203,7 @@ export default function PageLayout({children, title}: Readonly<Props>) {
               />
               <div style={{position: 'relative', zIndex: 2}}>
                 <div style={{width: 80, marginBottom: 40}}>
-                  <PureImage url="/landing/ICON-MISSION.svg" />
+                  <PureImage url="/landing/VISION-MISSION/ICON-MISSION.svg" />
                 </div>
                 <div>
                   <h2 className="text-3xl font-bold uppercase mb-3">sứ mệnh</h2>

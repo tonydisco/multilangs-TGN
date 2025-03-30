@@ -61,6 +61,11 @@ const AboutUsView = () => {
       </section>
       <VisionMission />
       <BusinessPhysolophy />
+      <div
+        style={{
+          height: 300
+        }}
+      ></div>
     </>
   );
 };

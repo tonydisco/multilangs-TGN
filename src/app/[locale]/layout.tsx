@@ -1,20 +1,16 @@
+import './styles.css';
+import {clsx} from 'clsx';
+import {ReactNode} from 'react';
+import {routing} from '@/i18n/routing';
+import Header from '@/components/Header';
 import {notFound} from 'next/navigation';
 import {Locale, hasLocale, NextIntlClientProvider} from 'next-intl';
 import {getTranslations, setRequestLocale} from 'next-intl/server';
-import {ReactNode} from 'react';
-import {clsx} from 'clsx';
-// import {Inter} from 'next/font/google';
-import {routing} from '@/i18n/routing';
-// import Navigation from '@/components/Navigation';
-import './styles.css';
-import Header from '@/components/Header';
 
 type Props = {
   children: ReactNode;
   params: Promise<{locale: Locale}>;
 };
-
-// const inter = Inter({subsets: ['latin']});
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({locale}));
@@ -55,7 +51,6 @@ export default async function LocaleLayout({
       </head>
       <body className={clsx('flex h-full flex-col')}>
         <NextIntlClientProvider>
-          {/* <Navigation /> */}
           <Header />
           {children}
         </NextIntlClientProvider>

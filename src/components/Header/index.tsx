@@ -8,7 +8,9 @@ const Header = () => {
       <div className="mx-auto px-4">
         <nav className="flex justify-between items-center p-4">
           <div style={{width: '280px'}}>
-            <PureImage />
+            <Link href="/">
+              <PureImage />
+            </Link>
           </div>
           <div>
             <div className="mb-4">
@@ -42,7 +44,7 @@ const Header = () => {
                     <li className="relative">
                       <Link
                         href={item.path}
-                        className="text-main text-sm uppercase font-semibold"
+                        className="text-main text-sm uppercase font-semibold text-nowrap"
                       >
                         {item.name}
                       </Link>
@@ -65,11 +67,11 @@ const Header = () => {
 export default Header;
 
 const rmockRoute = [
-  {name: 'Giới thiệu', path: '/'},
-  {name: 'Lĩnh vực hoạt động', path: '/page/linh-vuc-hoat-dong'},
-  {name: 'Năng lực sản xuất', path: '/page/nang-luc-san-xuat'},
-  {name: 'Sản phẩm', path: '/page/san-pham'},
-  {name: 'Dự án', path: '/page/du-an'},
-  {name: 'Tin tức', path: '/page/tin-tuc'},
-  {name: 'Liên hệ - tuyển dụng', path: '/page/lienhe-tuyendung'}
+  {name: 'Giới thiệu', path: '/about-us'},
+  {name: 'Lĩnh vực hoạt động', path: '/linh-vuc-hoat-dong'},
+  {name: 'Năng lực sản xuất', path: '/nang-luc-san-xuat'},
+  {name: 'Sản phẩm', path: '/san-pham'},
+  {name: 'Dự án', path: '/du-an'},
+  {name: 'Tin tức', path: '/tin-tuc'},
+  {name: 'Liên hệ - tuyển dụng', path: '/lienhe-tuyendung'}
 ];

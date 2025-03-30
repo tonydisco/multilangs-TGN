@@ -1,4 +1,5 @@
-import Opening from '@/components/Opening';
+import AboutUsView from '@/components/About-us';
+import {TitleView} from '@/components/Hero';
 import PageLayout from '@/components/PageLayout';
 import {Locale} from 'next-intl';
 import {setRequestLocale} from 'next-intl/server';
@@ -8,14 +9,15 @@ type Props = {
   params: Promise<{locale: Locale}>;
 };
 
-export default function IndexPage({params}: Readonly<Props>) {
+export default function PathnamesPage({params}: Readonly<Props>) {
   const {locale} = use(params);
+
   // Enable static rendering
   setRequestLocale(locale);
 
   return (
-    <PageLayout>
-      <Opening />
+    <PageLayout title={<TitleView />} className="about-us-wrapper">
+      <AboutUsView />
     </PageLayout>
   );
 }

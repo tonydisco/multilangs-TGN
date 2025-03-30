@@ -54,18 +54,24 @@ const BusinessPhysolophy = () => {
           />
         </div>
         <div
+          className="app-container"
           style={{
-            maxWidth: '1280px',
             width: '100%',
             height: '100%',
-            margin: '0 auto',
             position: 'relative',
-            zIndex: 2,
-            padding: '100px 0'
+            zIndex: 2
           }}
         >
           <div className="w-full h-full flex justify-center">
-            <div style={{width: '100%', height: '100%'}}>
+            <div
+              style={{
+                width: '100%',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-evenly'
+              }}
+            >
               <div>
                 <h2
                   style={{
@@ -73,8 +79,7 @@ const BusinessPhysolophy = () => {
                     fontWeight: 700,
                     color: '#000',
                     textAlign: 'center',
-                    textTransform: 'uppercase',
-                    padding: '20px 0'
+                    textTransform: 'uppercase'
                   }}
                 >
                   Triết lý kinh doanh
@@ -82,10 +87,7 @@ const BusinessPhysolophy = () => {
               </div>
               <div
                 style={{
-                  position: 'relative',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: 20
+                  position: 'relative'
                 }}
               >
                 <div
@@ -227,15 +229,14 @@ const BusinessPhysolophy = () => {
                   }}
                 >
                   <div style={{position: 'relative'}}>
-                    <div
-                      style={{
-                        width: '480px',
-                        height: '135px'
-                      }}
-                    >
+                    <div>
                       <PureImage
                         url="/landing/BUSINESS-PHILOSOPHY/CARD-CENTER.png"
                         mode="fill"
+                        style={{
+                          width: '490px',
+                          height: '125px'
+                        }}
                       />
                     </div>
                     <div

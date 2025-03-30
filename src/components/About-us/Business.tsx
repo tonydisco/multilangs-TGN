@@ -99,7 +99,7 @@ const BusinessPhysolophy = () => {
                   <div className="b-card-wrapper">
                     <div>
                       <PureImage
-                        url="/landing/BUSINESS-PHILOSOPHY/CARD.png"
+                        url="/landing/BUSINESS-PHILOSOPHY/CARD.svg"
                         style={{height: 250}}
                         mode="fill"
                       />
@@ -127,7 +127,7 @@ const BusinessPhysolophy = () => {
                       }}
                     >
                       <PureImage
-                        url="/landing/BUSINESS-PHILOSOPHY/CARD.png"
+                        url="/landing/BUSINESS-PHILOSOPHY/CARD.svg"
                         style={{height: 250}}
                         mode="fill"
                       />
@@ -157,7 +157,7 @@ const BusinessPhysolophy = () => {
                   <div className="b-card-wrapper">
                     <div>
                       <PureImage
-                        url="/landing/BUSINESS-PHILOSOPHY/CARD-BOTTOM.png"
+                        url="/landing/BUSINESS-PHILOSOPHY/CARD-BOTTOM.svg"
                         style={{height: 250}}
                         mode="fill"
                       />
@@ -177,7 +177,7 @@ const BusinessPhysolophy = () => {
                   <div className="b-card-wrapper">
                     <div>
                       <PureImage
-                        url="/landing/BUSINESS-PHILOSOPHY/CARD-CENTER.png"
+                        url="/landing/BUSINESS-PHILOSOPHY/CARD-CENTER.svg"
                         style={{height: 178}}
                         mode="fill"
                       />
@@ -201,7 +201,7 @@ const BusinessPhysolophy = () => {
                       }}
                     >
                       <PureImage
-                        url="/landing/BUSINESS-PHILOSOPHY/CARD-BOTTOM.png"
+                        url="/landing/BUSINESS-PHILOSOPHY/CARD-BOTTOM.svg"
                         style={{height: 250}}
                         mode="fill"
                       />

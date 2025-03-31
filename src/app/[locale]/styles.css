@@ -91,7 +91,10 @@ body {
   background: linear-gradient(266.58deg, #6e3e2f -12.36%, #925846 132.15%);
   border-radius: 24px;
   color: #fff;
-  padding: 8px 16px;
+  padding: 10px 18px;
+  box-shadow:
+    4px 4px 8px 0px #73423366,
+    -4px -4px 8px 0px #73423366;
 }
 
 .default-vertical-line {
@@ -100,34 +103,53 @@ body {
 }
 
 .base-card {
-  /* Layout */
-  width: 400px;
-  height: 220px;
-  padding: 24px 40px;
-  box-sizing: border-box; /* Ensures padding is included in the width/height */
-
-  /* Flexbox for justify: space-between */
-  display: flex;
-  justify-content: space-between;
-
-  /* Colors */
-  background-color: #ffffff;
-
-  /* Shadows and Blurs */
-  backdrop-filter: blur(12px);
-
-  /* Positioning for Pseudo-Element */
+  width: 100%;
+  padding: 15px 30px;
   position: relative;
+  z-index: 0;
+  background-color: white;
+  border-radius: 16px;
 }
+
+/* Tạo viền gradient ở phía dưới bằng ::before */
 .base-card::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+  padding: 1px;
   border-radius: 16px;
-  border: 1px solid transparent;
-  background: linear-gradient(to bottom, #ffefef, #ffc6b5) border-box;
   z-index: -1;
+  background: linear-gradient(to bottom, #ffffff, #ffc6b5);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+.base-video {
+  width: 800px;
+  height: 500px;
+  z-index: 0;
+  background-color: white;
+  border-radius: 16px;
+  position: relative;
+}
+
+/* Tạo viền gradient ở phía dưới bằng ::before */
+.base-video::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1px;
+  border-radius: 24px;
+  z-index: -1;
+  background: linear-gradient(to bottom, #ffc6b5, #7c4838);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
 }

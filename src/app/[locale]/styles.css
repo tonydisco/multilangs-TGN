@@ -87,8 +87,47 @@ body {
 .b-card-inner-mg {
   margin-left: 35px;
 }
-.gradient-border {
-  border: 1px solid;
-  border-image-source: linear-gradient(180deg, #ffc6b5 0%, #7c4838 100%);
-  border-image-slice: 1; /* Đảm bảo gradient áp dụng đúng cho viền */
+.app-btn-default {
+  background: linear-gradient(266.58deg, #6e3e2f -12.36%, #925846 132.15%);
+  border-radius: 24px;
+  color: #fff;
+  padding: 8px 16px;
+}
+
+.default-vertical-line {
+  width: 1px;
+  background-color: #6d3e2f;
+}
+
+.base-card {
+  /* Layout */
+  width: 400px;
+  height: 220px;
+  padding: 24px 40px;
+  box-sizing: border-box; /* Ensures padding is included in the width/height */
+
+  /* Flexbox for justify: space-between */
+  display: flex;
+  justify-content: space-between;
+
+  /* Colors */
+  background-color: #ffffff;
+
+  /* Shadows and Blurs */
+  backdrop-filter: blur(12px);
+
+  /* Positioning for Pseudo-Element */
+  position: relative;
+}
+.base-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  background: linear-gradient(to bottom, #ffefef, #ffc6b5) border-box;
+  z-index: -1;
 }

@@ -1,6 +1,5 @@
-import React, {Fragment} from 'react';
-import {PureImage} from '../Common/Images';
 import Link from 'next/link';
+import {PureImage} from '../Common/Images';
 
 const Construction = () => {
   return (

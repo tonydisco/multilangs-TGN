@@ -26,7 +26,7 @@ const HeroView = ({title}: {title?: React.ReactNode}) => {
               padding: '6rem'
             }}
           >
-            {title ?? <TitleView />}
+            {title ?? <HeaderTitleView />}
           </div>
           <div>
             <PureImage url="/landing/HERO-BANNER.png" />
@@ -37,7 +37,7 @@ const HeroView = ({title}: {title?: React.ReactNode}) => {
   );
 };
 
-const TitleView = () => {
+const HeaderTitleView = () => {
   return (
     <div>
       <div
@@ -63,5 +63,26 @@ const TitleView = () => {
     </div>
   );
 };
+const TitlePageView = ({title}: {title?: React.ReactNode | string}) => {
+  return (
+    <div>
+      {typeof title === 'string' ? (
+        <h2
+          style={{
+            fontSize: '52px',
+            fontWeight: 700,
+            textAlign: 'center',
+            color: '#6E3E2F',
+            textTransform: 'uppercase'
+          }}
+        >
+          {title}
+        </h2>
+      ) : (
+        title
+      )}
+    </div>
+  );
+};
 
-export {HeroView, TitleView};
+export {HeroView, HeaderTitleView, TitlePageView};

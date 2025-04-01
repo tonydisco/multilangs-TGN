@@ -1,6 +1,6 @@
-import AboutUsView from '@/components/About-us';
-import {HeaderTitleView} from '@/components/Hero';
+import {TitlePageView} from '@/components/Hero';
 import PageLayout from '@/components/PageLayout';
+import NangLucSXPage from '@/components/Pages/Nanglucsx';
 import {Locale} from 'next-intl';
 import {setRequestLocale} from 'next-intl/server';
 import {use} from 'react';
@@ -16,8 +16,11 @@ export default function PathnamesPage({params}: Readonly<Props>) {
   setRequestLocale(locale);
 
   return (
-    <PageLayout title={<HeaderTitleView />} className="about-us-wrapper">
-      <AboutUsView />
+    <PageLayout
+      title={<TitlePageView title="liên hệ tuyển dụng" />}
+      className="lhtd-wrapper"
+    >
+      <NangLucSXPage />
     </PageLayout>
   );
 }

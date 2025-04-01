@@ -6,9 +6,7 @@ const Construction = () => {
     <section
       style={{
         backgroundColor: '#EDDFD8',
-        position: 'relative',
-        paddingBottom: 150,
-        height: 1500
+        position: 'relative'
       }}
     >
       <div
@@ -260,7 +258,12 @@ const Construction = () => {
           </div>
         </div>
       </div>
-      <div>block 3</div>
+      <div
+        style={{
+          height: 300,
+          backgroundColor: 'white'
+        }}
+      ></div>
     </section>
   );
 };

@@ -30,10 +30,11 @@ function ProductionSlider() {
     slidesToShow: 2,
     slidesToScroll: 1,
     speed: 500,
-    autoplay: true,
+    // autoplay: true,
     autoplaySpeed: 2000,
     cssEase: 'linear',
-    dot: false
+    dot: false,
+    arrows: false
   };
   return (
     <div className="app-container">
@@ -89,7 +90,8 @@ function ProductionSlider() {
                     padding: 24,
                     position: 'relative',
                     overflow: 'hidden',
-                    width: '100%'
+                    width: '100%',
+                    borderRadius: 24
                   }}
                 >
                   <div

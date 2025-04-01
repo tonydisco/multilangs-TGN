@@ -12,12 +12,26 @@ const ProductionCapacity = () => {
         padding: '150px 0'
       }}
     >
+      <div
+        style={{
+          position: 'absolute',
+          height: '100%',
+          left: 0,
+          transform: 'rotate(180deg)',
+          top: 10,
+          zIndex: 1
+        }}
+      >
+        <PureImage url="/landing/CONSTRUCTION/OVERLAY.svg" />
+      </div>
       <div className="app-container">
         <div
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: 20
+            gap: 20,
+            position: 'relative',
+            zIndex: 2
           }}
         >
           <div style={{flex: 1}}>
@@ -116,7 +130,7 @@ const ProductionCapacity = () => {
           />
         </div>
       </div>
-      <div style={{padding: '40px 0'}}>
+      <div style={{padding: '40px 0', position: 'relative', zIndex: 2}}>
         <ProductionSlider />
       </div>
     </section>

@@ -30,7 +30,7 @@ function ProductionSlider() {
     slidesToShow: 2,
     slidesToScroll: 1,
     speed: 500,
-    // autoplay: true,
+    autoplay: true,
     autoplaySpeed: 2000,
     cssEase: 'linear',
     dot: false,

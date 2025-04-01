@@ -9,8 +9,7 @@ const Introduce = () => {
         style={{
           backgroundColor: '#FAFAFA',
           position: 'relative',
-          overflow: 'hidden',
-          paddingBottom: 150
+          overflow: 'hidden'
         }}
       >
         <div
@@ -129,7 +128,19 @@ const Introduce = () => {
             </div>
           </div>
         </div>
-        <div className="app-container">
+        <div style={{position: 'relative', padding: '0 0 150px 0'}}>
+          <div
+            style={{
+              position: 'absolute',
+              height: '100%',
+              right: 0,
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
+            <PureImage url="/landing/CONSTRUCTION/OVERLAY.svg" />
+          </div>
           <div
             style={{
               position: 'relative',

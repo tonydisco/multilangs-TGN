@@ -202,9 +202,6 @@ body {
 }
 
 .overlay-introduce {
-  /* border: 1px solid;
-
-  border-image-source: linear-gradient(180deg, #ffc6b5 0%, #7c4838 100%); */
   backdrop-filter: blur(12px);
   background: linear-gradient(
     93.45deg,
@@ -214,4 +211,23 @@ body {
   );
   width: 700px;
   height: 700px;
+}
+
+/* Container chính */
+.grid-container {
+  display: flex;
+  flex-wrap: wrap; /* Cho phép các item xuống hàng khi hết chiều rộng */
+  width: 100%; /* Tổng chiều rộng của grid */
+  gap: 16px; /* Khoảng cách giữa các hàng và cột */
+  margin: 0 auto; /* Căn giữa container nếu cần */
+  max-width: 1280px;
+}
+
+/* Item trong grid */
+.grid-item {
+  flex: 1 0 calc((100% - 16px * 4) / 5); /* Tính toán chiều rộng mỗi cột */
+  height: 130px; /* Chiều cao tùy chỉnh, bạn có thể thay đổi */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

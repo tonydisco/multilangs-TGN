@@ -9,7 +9,7 @@ const ProductionCapacity = () => {
       style={{
         backgroundColor: '#fff',
         position: 'relative',
-        padding: '150px 0'
+        padding: '150px 0 0 0'
       }}
     >
       <div

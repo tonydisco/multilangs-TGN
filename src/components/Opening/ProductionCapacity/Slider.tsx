@@ -102,7 +102,7 @@ function ProductionSlider() {
                       position: 'absolute'
                     }}
                   >
-                    <PureImage url={item?.img} />
+                    <PureImage url={item?.img} style={{borderRadius: 24}} />
                   </div>
                   <div
                     style={{

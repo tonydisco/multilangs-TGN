@@ -1,6 +1,5 @@
 'use client';
 import {PureImage} from '@/components/Common/Images';
-import Link from 'next/link';
 import {useRef} from 'react';
 import Slider from 'react-slick';
 // Add this type definition
@@ -123,21 +122,3 @@ function PartnersSlider() {
 }
 
 export default PartnersSlider;
-
-const sliderMock = [
-  {
-    title: 'Hệ thống nhà máy sản xuất bê tông',
-    sub: 'Thế Giới Nhà Group sở hữu 19  trạm trộn hiện đại, sẵn sàng cung cấp bê tông thương phẩm đạt tiêu chuẩn chất lượng cao.',
-    img: '/landing/PRODUCTION-CAPACITY/SLIDER-1.png'
-  },
-  {
-    title: 'Hệ thống Sản xuất sản phẩm cầu kiện',
-    sub: 'Thế Giới Nhà Group sở hữu 9 nhà máy cấu kiện bê tông đúc sẵn với công nghệ tiên tiến, đáp ứng yêu cầu kỹ thuật và tiến độ xây dựng.',
-    img: '/landing/PRODUCTION-CAPACITY/SLIDER-2.png'
-  },
-  {
-    title: 'Hệ thống Sản xuất sản phẩm cầu kiện',
-    sub: 'Thế Giới Nhà Group sở hữu hệ thống kiểm định đạt chuẩn, kiểm soát chặt chẽ chất lượng sản phẩm từ nguyên liệu đầu vào đến thành phẩm, đảm bảo độ bền và an toàn cao nhất.',
-    img: '/landing/PRODUCTION-CAPACITY/SLIDER-2.png'
-  }
-];

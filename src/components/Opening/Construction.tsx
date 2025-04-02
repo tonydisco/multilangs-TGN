@@ -23,7 +23,7 @@ const Construction = () => {
             justifyContent: 'space-between',
             alignItems: 'center',
             position: 'relative',
-            height: 500,
+            height: 380,
             gap: 50
           }}
         >
@@ -36,7 +36,7 @@ const Construction = () => {
           >
             <div
               style={{
-                width: 740,
+                width: 440,
                 position: 'absolute',
                 right: 120,
                 zIndex: 0,
@@ -50,7 +50,7 @@ const Construction = () => {
                 position: 'absolute',
                 bottom: 0,
                 zIndex: 1,
-                width: 700,
+                width: 480,
                 right: 15
               }}
             >
@@ -59,10 +59,10 @@ const Construction = () => {
             <div
               style={{
                 position: 'absolute',
-                bottom: -40,
+                bottom: -25,
                 zIndex: 2,
-                width: 550,
-                right: 320
+                width: 350,
+                right: 280
               }}
             >
               <PureImage url="/landing/CONSTRUCTION/XE.png" />
@@ -144,7 +144,7 @@ const Construction = () => {
       <div
         style={{
           backgroundColor: '#E8E4E3',
-          height: 480,
+          height: 380,
           width: '100%',
           position: 'relative',
           overflow: 'hidden'
@@ -255,7 +255,7 @@ const Construction = () => {
       </div>
       <div
         style={{
-          height: 480,
+          height: 380,
           position: 'relative',
           width: '100%'
         }}

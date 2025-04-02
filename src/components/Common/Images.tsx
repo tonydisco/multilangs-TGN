@@ -1,9 +1,11 @@
 import Image from 'next/image';
 import React from 'react';
 
+export type ImageMode = 'contain' | 'fill' | 'cover' | 'none' | 'scale-down';
+
 interface ILogoProps {
   url?: string;
-  mode?: 'contain' | 'cover' | 'fill' | 'none' | 'scale-down';
+  mode?: ImageMode;
   className?: string;
   style?: React.CSSProperties;
 }

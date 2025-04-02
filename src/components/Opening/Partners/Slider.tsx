@@ -28,11 +28,13 @@ function PartnersSlider() {
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    speed: 500,
+    speed: 1000,
     autoplaySpeed: 2000,
     cssEase: 'linear',
     dot: false,
-    arrows: false
+    arrows: false,
+    autoplay: true,
+    rtl: true
   };
   return (
     <div style={{padding: '50px 0', position: 'relative'}}>

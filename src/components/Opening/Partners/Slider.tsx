@@ -28,8 +28,8 @@ function PartnersSlider() {
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    speed: 1000,
-    autoplaySpeed: 2000,
+    speed: 3000,
+    autoplaySpeed: 5000,
     cssEase: 'linear',
     dot: false,
     arrows: false,
@@ -97,7 +97,10 @@ function PartnersSlider() {
 
           return (
             <div key={index}>
-              <div className="grid-container">
+              <div
+                className="grid-container"
+                style={{margin: '0 10px', padding: '0 10px'}}
+              >
                 {Array.from({length: itemsPerSlide}).map((_, idx) => {
                   const itemIndex = startIndex + idx;
                   if (itemIndex >= 59) return null; // Stop rendering after 60 items

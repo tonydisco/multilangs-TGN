@@ -159,15 +159,14 @@ const Introduce = () => {
               <iframe
                 src="https://www.youtube.com/embed/AJFkU1bC3C0?si=ZmPXd6J_k3iaOqPa"
                 title="YouTube video player"
-                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
                 style={{
                   position: 'absolute',
-                  height: 500 - 24,
+                  height: 600 - 24,
                   borderRadius: 24,
-                  width: 800 - 24,
+                  width: 992 - 24,
                   zIndex: 1
                 }}
               />

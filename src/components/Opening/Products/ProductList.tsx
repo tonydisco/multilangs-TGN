@@ -89,6 +89,7 @@ const ProductList = () => {
                       overflow: 'hidden',
                       borderRadius: 16
                     }}
+                    className="card-img-wrapper"
                   >
                     <PureImage url={item.image} />
                   </div>

@@ -85,10 +85,7 @@ const Products = () => {
           zIndex: -1
         }}
       >
-        <PureImage
-          style={{maxWidth: 600}}
-          url="/landing/PROJECTS/FULL-CIRCLE-ICON.png"
-        />
+        <PureImage style={{maxWidth: 600}} url="/icon/CIRCLE-FULL-ICO.svg" />
       </div>
     </section>
   );

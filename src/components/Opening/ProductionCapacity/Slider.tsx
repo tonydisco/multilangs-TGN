@@ -91,7 +91,7 @@ function ProductionSlider() {
                     position: 'relative',
                     overflow: 'hidden',
                     width: '100%',
-                    borderRadius: 24
+                    borderRadius: 16
                   }}
                 >
                   <div
@@ -99,10 +99,11 @@ function ProductionSlider() {
                       right: 0,
                       bottom: 0,
                       height: '100%',
-                      position: 'absolute'
+                      position: 'absolute',
+                      zIndex: -2
                     }}
                   >
-                    <PureImage url={item?.img} style={{borderRadius: 24}} />
+                    <PureImage url={item?.img} style={{borderRadius: 16}} />
                   </div>
                   <div
                     style={{

@@ -4,6 +4,7 @@ import ProductionCapacity from './ProductionCapacity';
 import Partners from './Partners';
 import Projects from './Projects';
 import Products from './Products';
+import News from './News';
 
 const Opening = () => {
   return (
@@ -17,6 +18,7 @@ const Opening = () => {
       <ProductionCapacity />
       <Projects />
       <Products />
+      <News />
       <Partners />
     </section>
   );

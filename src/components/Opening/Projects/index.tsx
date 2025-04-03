@@ -50,9 +50,10 @@ const Projects = () => {
               padding: '12px 0'
             }}
           >
-            Minh chứng cho chất lượng sản phẩm của Thế Giới Nhà Group chính là
-            hàng loạt dự án tiêu biểu đã tin tưởng sử dụng sản phẩm và dịch vụ
-            của chúng tôi. Tiêu biểu có thể kể đến các công trình lớn như:
+            Minh chứng cho chất lượng sản phẩm của{' '}
+            <strong>Thế Giới Nhà Group</strong> chính là hàng loạt dự án tiêu
+            biểu đã tin tưởng sử dụng sản phẩm và dịch vụ của chúng tôi. Tiêu
+            biểu có thể kể đến các công trình lớn như:
           </p>
         </div>
         <div

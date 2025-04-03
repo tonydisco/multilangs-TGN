@@ -12,8 +12,7 @@ body {
   margin: 0px auto;
 }
 .part-container {
-  max-width: 430px;
-  margin: 0px auto;
+  max-width: 500px;
   width: 100%;
 }
 
@@ -100,6 +99,10 @@ body {
   box-shadow:
     4px 4px 8px 0px #73423366,
     -4px -4px 8px 0px #73423366;
+  transition: all 0.3s ease-in-out;
+}
+.app-btn-default:hover {
+  transform: scale(1.05);
 }
 
 .default-vertical-line {
@@ -165,6 +168,7 @@ body {
   background-color: white;
   border-radius: 16px;
   position: relative;
+  transition: all 0.3s ease-in-out;
 }
 
 /* Tạo viền gradient ở phía dưới bằng ::before */
@@ -182,6 +186,19 @@ body {
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
   mask-composite: exclude;
+}
+
+.base-card-full-border img,
+.card-img-wrapper img {
+  transition: all 0.3s ease-in-out;
+}
+.base-card-full-border:hover img {
+  transform: scale(1.15) rotate(-3deg);
+  cursor: pointer;
+}
+.card-img-wrapper:hover img {
+  transform: scale(1.2) rotate(3deg);
+  cursor: pointer;
 }
 
 .block-wrapper::before {

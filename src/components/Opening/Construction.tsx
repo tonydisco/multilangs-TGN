@@ -150,105 +150,105 @@ const Construction = () => {
           overflow: 'hidden'
         }}
       >
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: '100%',
-            gap: 50
-          }}
-        >
+        <div className="app-container" style={{height: '100%'}}>
           <div
             style={{
-              position: 'relative',
-              flex: 1,
-              height: '100%',
               display: 'flex',
-              alignItems: 'center'
+              justifyContent: 'center',
+              alignItems: 'center',
+              height: '100%',
+              gap: 50
             }}
           >
-            <div className="part-container">
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: 20,
-                  alignItems: 'flex-start'
-                }}
-              >
-                <h2
+            <div
+              style={{
+                position: 'relative',
+                flex: 1,
+                height: '100%',
+                display: 'flex',
+                alignItems: 'center'
+              }}
+            >
+              <div style={{position: 'relative', zIndex: 2}}>
+                <div
                   style={{
-                    fontWeight: '700',
-                    fontSize: '32px',
-                    textTransform: 'uppercase'
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 20,
+                    alignItems: 'flex-start'
                   }}
+                  className="part-container"
                 >
-                  Lĩnh Vực kinh doanh
-                </h2>
-                <p style={{fontSize: 14}}>
-                  <strong>Thế Giới Nhà Group</strong> vận hành hệ thống Siêu thị
-                  vật liệu xây dựng quy mô lớn, cung cấp giải pháp toàn diện với
-                  danh mục sản phẩm phong phú từ thô đến hoàn thiện.
-                </p>
-                <button className="app-btn-default" style={{marginTop: 50}}>
-                  <Link href="/about-us">
-                    <div
-                      style={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                        gap: 8
-                      }}
-                    >
-                      <span
+                  <h2
+                    style={{
+                      fontWeight: '700',
+                      fontSize: '32px',
+                      textTransform: 'uppercase'
+                    }}
+                  >
+                    Lĩnh Vực kinh doanh
+                  </h2>
+                  <p style={{fontSize: 14}}>
+                    <strong>Thế Giới Nhà Group</strong> vận hành hệ thống Siêu
+                    thị vật liệu xây dựng quy mô lớn, cung cấp giải pháp toàn
+                    diện với danh mục sản phẩm phong phú từ thô đến hoàn thiện.
+                  </p>
+                  <button className="app-btn-default" style={{marginTop: 25}}>
+                    <Link href="/about-us">
+                      <div
                         style={{
-                          fontSize: 14,
-                          fontWeight: 500
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          alignItems: 'center',
+                          gap: 8
                         }}
                       >
-                        Xem thêm
-                      </span>
-                      <PureImage
-                        style={{width: 12}}
-                        url="/landing/ICON-ARROW.svg"
-                      />
-                    </div>
-                  </Link>
-                </button>
+                        <span
+                          style={{
+                            fontSize: 14,
+                            fontWeight: 500
+                          }}
+                        >
+                          Xem thêm
+                        </span>
+                        <PureImage
+                          style={{width: 12}}
+                          url="/landing/ICON-ARROW.svg"
+                        />
+                      </div>
+                    </Link>
+                  </button>
+                </div>
+              </div>
+              <div
+                style={{
+                  width: '100%',
+                  position: 'absolute',
+                  bottom: 0,
+                  transform: 'rotateX(180deg)'
+                }}
+              >
+                <PureImage url="/landing/BUSINESS-PHILOSOPHY/BUSINESS-TEXTURE-1.png" />
               </div>
             </div>
             <div
               style={{
-                width: '100%',
-                position: 'absolute',
-                bottom: 0,
-                transform: 'rotateX(180deg)'
+                flex: 1,
+                height: '100%',
+                position: 'relative'
               }}
             >
-              <PureImage url="/landing/BUSINESS-PHILOSOPHY/BUSINESS-TEXTURE-1.png" />
-            </div>
-          </div>
-          <div
-            style={{
-              flex: 1,
-              height: '100%',
-              position: 'relative'
-            }}
-          >
-            <div
-              style={{
-                position: 'absolute',
-                bottom: 0,
-                left: 0,
-                zIndex: 1,
-                height: 400
-              }}
-            >
-              <PureImage
-                url="/landing/CONSTRUCTION/SHOW-ROOM.png"
-                mode="cover"
-              />
+              <div
+                style={{
+                  position: 'absolute',
+                  bottom: 0,
+                  left: 0,
+                  zIndex: 1,
+                  height: 400
+                }}
+              >
+                <PureImage url="/landing/CONSTRUCTION/SHOW-ROOM.png" />
+              </div>
             </div>
           </div>
         </div>

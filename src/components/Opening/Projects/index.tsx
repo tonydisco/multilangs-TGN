@@ -189,6 +189,7 @@ const CardProject = ({
         width: '100%',
         ...style
       }}
+      className="card-img-wrapper"
     >
       <PureImage url={img} mode={mode} />
       <div

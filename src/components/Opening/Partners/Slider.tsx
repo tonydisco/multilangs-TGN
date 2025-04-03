@@ -28,7 +28,7 @@ function PartnersSlider() {
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    speed: 3000,
+    speed: 100,
     autoplaySpeed: 5000,
     cssEase: 'linear',
     dot: false,
@@ -108,8 +108,21 @@ function PartnersSlider() {
                     <div
                       className="grid-item base-card-full-border"
                       key={itemIndex}
+                      style={{
+                        overflow: 'hidden',
+                        backgroundColor: '#fff'
+                      }}
                     >
-                      <div style={{padding: 24, width: '100%', height: '100%'}}>
+                      <div
+                        style={{
+                          padding: 24,
+                          width: '100%',
+                          height: '100%',
+                          display: 'flex',
+                          justifyContent: 'center',
+                          alignItems: 'center'
+                        }}
+                      >
                         <PureImage
                           url={`/landing/PARTNER/PARTNER_LOGO_${itemIndex + 1}.png`}
                         />

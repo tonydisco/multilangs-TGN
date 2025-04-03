@@ -338,7 +338,6 @@ const Construction = () => {
                 zIndex: 20,
                 position: 'relative',
                 display: 'flex',
-                justifyContent: 'center',
                 alignItems: 'center',
                 height: '100%',
                 flex: 1,

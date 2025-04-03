@@ -8,7 +8,7 @@ const News = () => {
       style={{
         backgroundColor: '#FFF6F2',
         position: 'relative',
-        padding: '50px 30px',
+        padding: '75px',
         overflow: 'hidden'
       }}
       className="section-news"
@@ -39,7 +39,7 @@ const News = () => {
         <div
           style={{
             position: 'relative',
-            padding: '50px 0'
+            padding: '75px 0'
           }}
         >
           <div

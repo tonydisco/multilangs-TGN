@@ -8,7 +8,7 @@ const Products = () => {
     <section
       style={{
         position: 'relative',
-        padding: '150px 0 0 0'
+        padding: '100px 0'
       }}
     >
       <div className="app-container">

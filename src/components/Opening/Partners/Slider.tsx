@@ -37,7 +37,7 @@ function PartnersSlider() {
     rtl: true
   };
   return (
-    <div style={{padding: '50px 0', position: 'relative'}}>
+    <div style={{padding: '75px 0', position: 'relative'}}>
       <div
         style={{
           display: 'flex',

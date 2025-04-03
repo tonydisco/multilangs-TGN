@@ -7,7 +7,7 @@ const Partners = () => {
     <section
       style={{
         position: 'relative',
-        padding: '50px 0 0 0'
+        padding: '75px 0 0 0'
       }}
     >
       <div className="app-container">

@@ -36,9 +36,9 @@ const Construction = () => {
           >
             <div
               style={{
-                width: 440,
+                width: 540,
                 position: 'absolute',
-                right: 120,
+                right: 100,
                 zIndex: 0,
                 top: -90
               }}
@@ -61,7 +61,7 @@ const Construction = () => {
                 position: 'absolute',
                 bottom: -25,
                 zIndex: 2,
-                width: 350,
+                width: 400,
                 right: 280
               }}
             >
@@ -85,7 +85,9 @@ const Construction = () => {
                 flexDirection: 'column',
                 gap: 20,
                 alignItems: 'flex-start',
-                marginLeft: 150
+                zIndex: 20,
+                position: 'relative',
+                marginLeft: 100
               }}
             >
               <h2
@@ -102,7 +104,7 @@ const Construction = () => {
                 đại, sản xuất đa dạng vật liệu xây dựng đạt tiêu chuẩn chất
                 lượng cao, đáp ứng nhu cầu cho mọi công trình.
               </p>
-              <button className="app-btn-default" style={{marginTop: 50}}>
+              <button className="app-btn-default" style={{marginTop: 35}}>
                 <Link href="/about-us">
                   <div
                     style={{
@@ -138,6 +140,43 @@ const Construction = () => {
             >
               <PureImage url="/landing/BUSINESS-PHILOSOPHY/BUSINESS-TEXTURE-1.png" />
             </div>
+          </div>
+          <div
+            style={{
+              position: 'absolute',
+              zIndex: 1,
+              height: '100%',
+              width: '200px',
+              left: '50%',
+              top: 0,
+              transform: 'translateX(-50%)',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              flexDirection: 'column',
+              gap: 20
+            }}
+          >
+            <AssetItem
+              url="/landing/CONSTRUCTION/ASSET-1.png"
+              posStyle={{left: -100, top: 10}}
+            />
+            <AssetItem
+              url="/landing/CONSTRUCTION/ASSET-2.png"
+              posStyle={{left: -40, top: -10}}
+            />
+            <AssetItem
+              url="/landing/CONSTRUCTION/ASSET-3.png"
+              posStyle={{top: -10}}
+            />
+            <AssetItem
+              url="/landing/CONSTRUCTION/ASSET-4.png"
+              posStyle={{left: 20, top: -10}}
+            />
+            <AssetItem
+              url="/landing/CONSTRUCTION/ASSET-5.png"
+              posStyle={{left: 20, bottom: 10}}
+            />
           </div>
         </div>
       </div>
@@ -193,7 +232,7 @@ const Construction = () => {
                     thị vật liệu xây dựng quy mô lớn, cung cấp giải pháp toàn
                     diện với danh mục sản phẩm phong phú từ thô đến hoàn thiện.
                   </p>
-                  <button className="app-btn-default" style={{marginTop: 25}}>
+                  <button className="app-btn-default" style={{marginTop: 35}}>
                     <Link href="/about-us">
                       <div
                         style={{
@@ -270,7 +309,8 @@ const Construction = () => {
               display: 'flex',
               height: '100%',
               justifyContent: 'center',
-              alignItems: 'center'
+              alignItems: 'center',
+              gap: 50
             }}
           >
             <div
@@ -295,13 +335,14 @@ const Construction = () => {
             </div>
             <div
               style={{
-                flex: 1,
+                zIndex: 20,
                 position: 'relative',
-                height: '100%',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                flexDirection: 'column'
+                height: '100%',
+                flex: 1,
+                overflow: 'hidden'
               }}
             >
               <div
@@ -310,7 +351,7 @@ const Construction = () => {
                   flexDirection: 'column',
                   gap: 20,
                   alignItems: 'flex-start',
-                  marginLeft: 150
+                  marginLeft: 100
                 }}
                 className="part-container"
               >
@@ -328,7 +369,7 @@ const Construction = () => {
                   cung ứng nguồn nguyên vật liệu chất lượng, đảm bảo chuỗi cung
                   ứng bền vững và tối ưu chi phí cho khách hàng.
                 </p>
-                <button className="app-btn-default" style={{marginTop: 50}}>
+                <button className="app-btn-default" style={{marginTop: 35}}>
                   <Link href="/about-us">
                     <div
                       style={{
@@ -358,8 +399,9 @@ const Construction = () => {
                 style={{
                   width: '100%',
                   position: 'absolute',
-                  bottom: 0,
-                  transform: 'rotateX(180deg)'
+                  bottom: -150,
+                  transform: 'rotateX(180deg)',
+                  height: '100%'
                 }}
               >
                 <PureImage url="/landing/BUSINESS-PHILOSOPHY/BUSINESS-TEXTURE-1.png" />
@@ -373,3 +415,36 @@ const Construction = () => {
 };
 
 export default Construction;
+
+const AssetItem = ({
+  posStyle,
+  url
+}: {
+  posStyle?: React.CSSProperties;
+  url: string;
+}) => {
+  return (
+    <div
+      style={{
+        position: 'relative',
+        width: '65px',
+        height: '65px',
+        ...posStyle
+      }}
+    >
+      <div className="eclipse">
+        <div
+          style={{
+            zIndex: 10,
+            position: 'absolute',
+            top: -5,
+            left: -15,
+            width: '100px'
+          }}
+        >
+          <PureImage url={url ?? '/landing/CONSTRUCTION/ASSET-1.png'} />
+        </div>
+      </div>
+    </div>
+  );
+};

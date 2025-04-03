@@ -137,8 +137,8 @@ body {
   mask-composite: exclude;
 }
 .base-video {
-  width: 800px;
-  height: 500px;
+  width: 992px;
+  height: 600px;
   z-index: 0;
   background-color: white;
   border-radius: 16px;
@@ -272,4 +272,27 @@ body {
   background: url('/landing/NEWS/NEWS-BG.png') no-repeat center center;
   background-size: cover;
   z-index: 1;
+}
+
+.eclipse {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* width: 60px;
+  height: 60px;
+  background: linear-gradient(266.58deg, #6e3e2f -12.36%, #925846 132.15%);
+  border-radius: 50%;
+  opacity: 0.5; */
+}
+.eclipse::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(266.58deg, #6e3e2f -12.36%, #925846 132.15%);
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  opacity: 0.5;
+  z-index: -1;
 }

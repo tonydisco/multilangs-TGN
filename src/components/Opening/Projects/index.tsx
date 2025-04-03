@@ -140,28 +140,30 @@ const Projects = () => {
             </div>
           </div>
         </div>
-        <button className="app-btn-default" style={{textAlign: 'center'}}>
-          <Link href="/du-an">
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                gap: 8
-              }}
-            >
-              <span
+        <div style={{textAlign: 'center'}}>
+          <button className="app-btn-default">
+            <Link href="/du-an">
+              <div
                 style={{
-                  fontSize: 14,
-                  fontWeight: 500
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  gap: 8
                 }}
               >
-                Xem thêm tất cả dự án
-              </span>
-              <PureImage style={{width: 12}} url="/landing/ICON-ARROW.svg" />
-            </div>
-          </Link>
-        </button>
+                <span
+                  style={{
+                    fontSize: 14,
+                    fontWeight: 500
+                  }}
+                >
+                  Xem thêm tất cả dự án
+                </span>
+                <PureImage style={{width: 12}} url="/landing/ICON-ARROW.svg" />
+              </div>
+            </Link>
+          </button>
+        </div>
       </div>
     </section>
   );

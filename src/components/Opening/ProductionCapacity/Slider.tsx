@@ -30,7 +30,7 @@ function ProductionSlider() {
     slidesToShow: 2,
     slidesToScroll: 1,
     speed: 500,
-    autoplay: true,
+    // autoplay: true,
     autoplaySpeed: 2000,
     cssEase: 'linear',
     dot: false,
@@ -96,62 +96,80 @@ function ProductionSlider() {
                 >
                   <div
                     style={{
-                      right: 0,
-                      bottom: 0,
-                      height: '100%',
-                      position: 'absolute',
-                      zIndex: -2
-                    }}
-                  >
-                    <PureImage url={item?.img} style={{borderRadius: 16}} />
-                  </div>
-                  <div
-                    style={{
                       display: 'flex',
-                      flexDirection: 'column',
-                      gap: 16,
                       justifyContent: 'space-between',
-                      height: '100%',
-                      alignItems: 'flex-start'
+                      alignItems: 'stretch',
+                      gap: 16,
+                      height: '100%'
                     }}
                   >
-                    <div style={{maxWidth: 300}}>
-                      <h2
-                        style={{
-                          fontSize: 24,
-                          fontWeight: 700,
-                          textTransform: 'uppercase'
-                        }}
-                      >
-                        {item.title}
-                      </h2>
-                      <p>{item.sub}</p>
-                    </div>
-                    <button className="app-btn-default">
-                      <Link href="/nang-luc-san-xuat">
-                        <div
+                    <div
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: 16,
+                        justifyContent: 'space-between',
+                        height: '100%',
+                        alignItems: 'flex-start'
+                      }}
+                    >
+                      <div style={{maxWidth: 300}}>
+                        <h2
                           style={{
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            alignItems: 'center',
-                            gap: 8
+                            fontSize: 24,
+                            fontWeight: 700,
+                            textTransform: 'uppercase'
                           }}
                         >
-                          <span
+                          {item.title}
+                        </h2>
+                        <div
+                          style={{
+                            fontSize: 14,
+                            marginTop: 15
+                          }}
+                        >
+                          {item.sub}
+                        </div>
+                      </div>
+                      <button className="app-btn-default">
+                        <Link href="/nang-luc-san-xuat">
+                          <div
                             style={{
-                              fontSize: 14,
-                              fontWeight: 500
+                              display: 'flex',
+                              justifyContent: 'space-between',
+                              alignItems: 'center',
+                              gap: 8
                             }}
                           >
-                            Xem thêm
-                          </span>
-                          <PureImage
-                            style={{width: 12}}
-                            url="/landing/ICON-ARROW.svg"
-                          />
-                        </div>
-                      </Link>
-                    </button>
+                            <span
+                              style={{
+                                fontSize: 14,
+                                fontWeight: 500
+                              }}
+                            >
+                              Xem thêm
+                            </span>
+                            <PureImage
+                              style={{width: 12}}
+                              url="/landing/ICON-ARROW.svg"
+                            />
+                          </div>
+                        </Link>
+                      </button>
+                    </div>
+
+                    <div
+                      style={{
+                        flex: 1,
+                        borderRadius: 16,
+                        overflow: 'hidden',
+                        width: '100%',
+                        height: '100%'
+                      }}
+                    >
+                      <PureImage url={item?.img} mode="fill" />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -168,17 +186,56 @@ export default ProductionSlider;
 const sliderMock = [
   {
     title: 'Hệ thống nhà máy sản xuất bê tông',
-    sub: 'Thế Giới Nhà Group sở hữu 19  trạm trộn hiện đại, sẵn sàng cung cấp bê tông thương phẩm đạt tiêu chuẩn chất lượng cao.',
+    sub: (
+      <p>
+        <strong>Thế Giới Nhà Group</strong> sở hữu 19 trạm trộn hiện đại, sẵn
+        sàng cung cấp bê tông thương phẩm đạt tiêu chuẩn chất lượng cao.
+      </p>
+    ),
     img: '/landing/PRODUCTION-CAPACITY/SLIDER-1.png'
   },
   {
     title: 'Hệ thống Sản xuất sản phẩm cầu kiện',
-    sub: 'Thế Giới Nhà Group sở hữu 9 nhà máy cấu kiện bê tông đúc sẵn với công nghệ tiên tiến, đáp ứng yêu cầu kỹ thuật và tiến độ xây dựng.',
+    sub: (
+      <p>
+        <strong>Thế Giới Nhà Group</strong> sở hữu 9 nhà máy cấu kiện bê tông
+        đúc sẵn với công nghệ tiên tiến, đáp ứng yêu cầu kỹ thuật và tiến độ xây
+        dựng.
+      </p>
+    ),
     img: '/landing/PRODUCTION-CAPACITY/SLIDER-2.png'
   },
   {
-    title: 'Hệ thống Sản xuất sản phẩm cầu kiện',
-    sub: 'Thế Giới Nhà Group sở hữu hệ thống kiểm định đạt chuẩn, kiểm soát chặt chẽ chất lượng sản phẩm từ nguyên liệu đầu vào đến thành phẩm, đảm bảo độ bền và an toàn cao nhất.',
-    img: '/landing/PRODUCTION-CAPACITY/SLIDER-2.png'
+    title: 'phòng kiểm định chất lượng',
+    sub: (
+      <p>
+        <strong>Thế Giới Nhà Group</strong> sở hữu hệ thống kiểm định đạt chuẩn,
+        kiểm soát chặt chẽ chất lượng sản phẩm từ nguyên liệu đầu vào đến thành
+        phẩm, đảm bảo độ đánh giá kết quả chính xác và nhanh chóng.
+      </p>
+    ),
+    img: '/landing/PRODUCTION-CAPACITY/SLIDER-3.png'
+  },
+  {
+    title: 'hệ thống trang - thiết bị',
+    sub: (
+      <p>
+        <strong>Thế Giới Nhà Group</strong> sở hữu hệ thống các trang - thiết bị
+        hiện đại, đa dạng đảm bảo cho chất lượng và tiến độ của sản phẩm ở trạng
+        thái tốt nhất.
+      </p>
+    ),
+    img: '/landing/PRODUCTION-CAPACITY/SLIDER-4.png'
+  },
+  {
+    title: 'giấy chứng nhận',
+    sub: (
+      <p>
+        <strong>Thế Giới Nhà Group</strong> sở hữu hệ thống kiểm định đạt chuẩn,
+        kiểm soát chặt chẽ chất lượng sản phẩm từ nguyên liệu đầu vào đến thành
+        phẩm, đảm bảo độ bền và an toàn cao nhất.
+      </p>
+    ),
+    img: '/landing/PRODUCTION-CAPACITY/SLIDER-5.png'
   }
 ];

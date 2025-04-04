@@ -175,7 +175,7 @@ const Construction = () => {
             />
             <AssetItem
               url="/landing/CONSTRUCTION/ASSET-5.png"
-              posStyle={{left: 20, bottom: 10}}
+              posStyle={{right: -15, bottom: 10}}
               mode="cover"
             />
           </div>
@@ -288,7 +288,7 @@ const Construction = () => {
             >
               <AssetItem
                 url="/landing/CONSTRUCTION/ASSET-6.png"
-                posStyle={{right: -75, top: 5}}
+                posStyle={{right: -90, top: 5}}
               />
               <AssetItem
                 url="/landing/CONSTRUCTION/ASSET-7.png"
@@ -296,15 +296,15 @@ const Construction = () => {
               />
               <AssetItem
                 url="/landing/CONSTRUCTION/ASSET-8.png"
-                posStyle={{top: -5, right: -30}}
+                posStyle={{top: -5, right: -15}}
               />
               <AssetItem
                 url="/landing/CONSTRUCTION/ASSET-9.png"
-                posStyle={{left: 20, top: -5}}
+                posStyle={{top: -5}}
               />
               <AssetItem
                 url="/landing/CONSTRUCTION/ASSET-10.png"
-                posStyle={{left: 20, bottom: 10}}
+                posStyle={{bottom: 10}}
               />
             </div>
             <div
@@ -369,6 +369,73 @@ const Construction = () => {
               >
                 <PureImage url="/landing/CONSTRUCTION/MODA.png" mode="cover" />
               </div>
+            </div>
+            <div
+              style={{
+                position: 'absolute',
+                zIndex: 10,
+                height: '100%',
+                width: '150px',
+                left: '50%',
+                top: 0,
+                transform: 'translateX(-50%)',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'flex-end',
+                flexDirection: 'column',
+                gap: 20
+              }}
+            >
+              <AssetItem
+                url="/landing/CONSTRUCTION/ASSET-11.png"
+                posStyle={{left: -100, top: 10}}
+                eclStyle={{
+                  overflow: 'hidden',
+                  borderRadius: '50%',
+                  border: '3px solid rgba(146, 88, 70,0.6)'
+                }}
+                mode="cover"
+              />
+              <AssetItem
+                url="/landing/CONSTRUCTION/ASSET-12.png"
+                posStyle={{left: -40, top: -10}}
+                eclStyle={{
+                  overflow: 'hidden',
+                  borderRadius: '50%',
+                  border: '3px solid rgba(146, 88, 70,0.6)'
+                }}
+                mode="cover"
+              />
+              <AssetItem
+                url="/landing/CONSTRUCTION/ASSET-13.png"
+                posStyle={{top: -15}}
+                eclStyle={{
+                  overflow: 'hidden',
+                  borderRadius: '50%',
+                  border: '3px solid rgba(146, 88, 70,0.6)'
+                }}
+                mode="cover"
+              />
+              <AssetItem
+                url="/landing/CONSTRUCTION/ASSET-14.png"
+                posStyle={{left: 20, top: -15}}
+                eclStyle={{
+                  overflow: 'hidden',
+                  borderRadius: '50%',
+                  border: '3px solid rgba(146, 88, 70,0.6)'
+                }}
+                mode="cover"
+              />
+              <AssetItem
+                url="/landing/CONSTRUCTION/ASSET-15.png"
+                posStyle={{right: -15, bottom: 10}}
+                eclStyle={{
+                  overflow: 'hidden',
+                  borderRadius: '50%',
+                  border: '3px solid rgba(146, 88, 70,0.6)'
+                }}
+                mode="cover"
+              />
             </div>
             <div
               style={{
@@ -455,9 +522,11 @@ export default Construction;
 const AssetItem = ({
   posStyle,
   url,
-  mode
+  mode,
+  eclStyle
 }: {
   posStyle?: React.CSSProperties;
+  eclStyle?: React.CSSProperties;
   url: string;
   mode?: ImageMode;
 }) => {
@@ -470,7 +539,12 @@ const AssetItem = ({
         ...posStyle
       }}
     >
-      <div className="eclipse">
+      <div
+        className="eclipse"
+        style={{
+          ...eclStyle
+        }}
+      >
         <div
           style={{
             zIndex: 10,

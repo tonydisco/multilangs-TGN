@@ -24,7 +24,7 @@ const News = () => {
       >
         <PureImage url="/icon/CIRCLE-FULL-ICO.svg" />
       </div>
-      <div className="app-container">
+      <div className="app-container" style={{position: 'relative', zIndex: 2}}>
         <div style={{textAlign: 'center'}}>
           <h2
             style={{
@@ -45,7 +45,8 @@ const News = () => {
           <div
             className="base-card-full-border"
             style={{
-              padding: 16
+              padding: 16,
+              backgroundColor: 'rgba(255, 255, 255, 0.8)'
             }}
           >
             <div style={{display: 'flex', gap: 20}}>

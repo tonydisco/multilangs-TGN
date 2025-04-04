@@ -29,9 +29,8 @@ function ProductionSlider() {
     infinite: true,
     slidesToShow: 2,
     slidesToScroll: 1,
-    speed: 500,
-    // autoplay: true,
-    autoplaySpeed: 2000,
+    autoplay: true,
+    autoplaySpeed: 3000,
     cssEase: 'linear',
     dot: false,
     arrows: false
@@ -118,7 +117,8 @@ function ProductionSlider() {
                           style={{
                             fontSize: 24,
                             fontWeight: 700,
-                            textTransform: 'uppercase'
+                            textTransform: 'uppercase',
+                            whiteSpace: 'pre-line'
                           }}
                         >
                           {item.title}
@@ -217,7 +217,7 @@ const sliderMock = [
     img: '/landing/PRODUCTION-CAPACITY/SLIDER-3.png'
   },
   {
-    title: 'hệ thống trang - thiết bị',
+    title: 'hệ thống\n trang - thiết bị',
     sub: (
       <p>
         <strong>Thế Giới Nhà Group</strong> sở hữu hệ thống các trang - thiết bị

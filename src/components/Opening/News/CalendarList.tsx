@@ -3,14 +3,9 @@ import React from 'react';
 const CalendarList = () => {
   return (
     <div>
-      {[1, 2, 3, 4, 5].map((item, idx) => {
+      {[1, 2, 3, 4, 5].map((_, idx) => {
         return (
-          <div
-            key={idx}
-            style={{
-              padding: '10px 0'
-            }}
-          >
+          <div key={idx} className="news-item" style={{padding: '15px 0'}}>
             <CalendarItem />
           </div>
         );

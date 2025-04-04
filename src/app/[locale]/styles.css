@@ -291,3 +291,13 @@ body {
   opacity: 0.5;
   z-index: -1;
 }
+
+.news-item {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+.news-item:hover {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  border-radius: 8px;
+}

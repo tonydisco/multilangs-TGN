@@ -439,7 +439,7 @@ const Construction = () => {
             </div>
             <div
               style={{
-                zIndex: 20,
+                zIndex: 21,
                 position: 'relative',
                 display: 'flex',
                 alignItems: 'center',
@@ -504,7 +504,8 @@ const Construction = () => {
                   position: 'absolute',
                   bottom: -150,
                   transform: 'rotateX(180deg)',
-                  height: '100%'
+                  height: '100%',
+                  zIndex: -1
                 }}
               >
                 <PureImage url="/landing/BUSINESS-PHILOSOPHY/BUSINESS-TEXTURE-1.png" />

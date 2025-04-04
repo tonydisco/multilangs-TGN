@@ -34,7 +34,7 @@ const NewsList = () => {
         {tabs.map((item, index) => {
           const actived = index === tabSelected;
           return (
-            <div style={{position: 'relative'}} key={index}>
+            <div key={index}>
               <button style={{}} onClick={() => setTabSelected(index)}>
                 <h3
                   style={{
@@ -82,10 +82,14 @@ const NewsList = () => {
 
       <div className="news-content">
         <div style={{paddingTop: 16}}>
-          <div style={{display: 'flex', gap: 20, flexDirection: 'column'}}>
+          <div style={{}}>
             {Array.from({length: 5}).map((_, index) => {
               return (
-                <div key={index}>
+                <div
+                  key={index}
+                  className="news-item"
+                  style={{padding: '15px'}}
+                >
                   <NewsItem />
                 </div>
               );

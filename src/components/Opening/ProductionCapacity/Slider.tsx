@@ -29,7 +29,7 @@ function ProductionSlider() {
     infinite: true,
     slidesToShow: 2,
     slidesToScroll: 1,
-    // autoplay: true,
+    autoplay: true,
     autoplaySpeed: 3000,
     cssEase: 'linear',
     dot: false,

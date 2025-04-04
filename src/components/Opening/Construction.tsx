@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import {PureImage} from '../Common/Images';
+import {ImageMode, PureImage} from '../Common/Images';
 
 const Construction = () => {
   return (
@@ -146,13 +146,13 @@ const Construction = () => {
               position: 'absolute',
               zIndex: 1,
               height: '100%',
-              width: '200px',
+              width: '150px',
               left: '50%',
               top: 0,
               transform: 'translateX(-50%)',
               display: 'flex',
               justifyContent: 'space-between',
-              alignItems: 'center',
+              alignItems: 'flex-end',
               flexDirection: 'column',
               gap: 20
             }}
@@ -167,15 +167,16 @@ const Construction = () => {
             />
             <AssetItem
               url="/landing/CONSTRUCTION/ASSET-3.png"
-              posStyle={{top: -10}}
+              posStyle={{top: -15}}
             />
             <AssetItem
               url="/landing/CONSTRUCTION/ASSET-4.png"
-              posStyle={{left: 20, top: -10}}
+              posStyle={{left: 20, top: -15}}
             />
             <AssetItem
               url="/landing/CONSTRUCTION/ASSET-5.png"
               posStyle={{left: 20, bottom: 10}}
+              mode="cover"
             />
           </div>
         </div>
@@ -269,6 +270,42 @@ const Construction = () => {
               >
                 <PureImage url="/landing/BUSINESS-PHILOSOPHY/BUSINESS-TEXTURE-1.png" />
               </div>
+            </div>
+            <div
+              style={{
+                position: 'absolute',
+                zIndex: 10,
+                height: '100%',
+                width: '200px',
+                left: '50%',
+                top: 0,
+                transform: 'translateX(-50%)',
+                display: 'flex',
+                justifyContent: 'space-between',
+                flexDirection: 'column',
+                gap: 20
+              }}
+            >
+              <AssetItem
+                url="/landing/CONSTRUCTION/ASSET-6.png"
+                posStyle={{right: -75, top: 5}}
+              />
+              <AssetItem
+                url="/landing/CONSTRUCTION/ASSET-7.png"
+                posStyle={{right: -45, top: -5}}
+              />
+              <AssetItem
+                url="/landing/CONSTRUCTION/ASSET-8.png"
+                posStyle={{top: -5, right: -30}}
+              />
+              <AssetItem
+                url="/landing/CONSTRUCTION/ASSET-9.png"
+                posStyle={{left: 20, top: -5}}
+              />
+              <AssetItem
+                url="/landing/CONSTRUCTION/ASSET-10.png"
+                posStyle={{left: 20, bottom: 10}}
+              />
             </div>
             <div
               style={{
@@ -417,17 +454,19 @@ export default Construction;
 
 const AssetItem = ({
   posStyle,
-  url
+  url,
+  mode
 }: {
   posStyle?: React.CSSProperties;
   url: string;
+  mode?: ImageMode;
 }) => {
   return (
     <div
       style={{
         position: 'relative',
-        width: '65px',
-        height: '65px',
+        width: '60px',
+        height: '60px',
         ...posStyle
       }}
     >
@@ -436,12 +475,20 @@ const AssetItem = ({
           style={{
             zIndex: 10,
             position: 'absolute',
-            top: -5,
-            left: -15,
-            width: '100px'
+            top: 0,
+            left: 0,
+            width: '60px',
+            height: '60px'
           }}
         >
-          <PureImage url={url ?? '/landing/CONSTRUCTION/ASSET-1.png'} />
+          <PureImage
+            url={url ?? '/landing/CONSTRUCTION/ASSET-1.png'}
+            style={{
+              width: 'inherit',
+              height: 'inherit'
+            }}
+            mode={mode}
+          />
         </div>
       </div>
     </div>

@@ -29,7 +29,7 @@ function ProductionSlider() {
     infinite: true,
     slidesToShow: 2,
     slidesToScroll: 1,
-    autoplay: true,
+    // autoplay: true,
     autoplaySpeed: 3000,
     cssEase: 'linear',
     dot: false,
@@ -85,12 +85,12 @@ function ProductionSlider() {
                 <div
                   className="base-card-full-border"
                   style={{
-                    height: 330,
-                    padding: 24,
+                    padding: 16,
                     position: 'relative',
                     overflow: 'hidden',
                     width: '100%',
-                    borderRadius: 16
+                    borderRadius: 16,
+                    height: 300
                   }}
                 >
                   <div
@@ -163,12 +163,10 @@ function ProductionSlider() {
                       style={{
                         flex: 1,
                         borderRadius: 16,
-                        overflow: 'hidden',
-                        width: '100%',
-                        height: '100%'
+                        overflow: 'hidden'
                       }}
                     >
-                      <PureImage url={item?.img} mode="fill" />
+                      <PureImage url={item?.img} mode="cover" />
                     </div>
                   </div>
                 </div>

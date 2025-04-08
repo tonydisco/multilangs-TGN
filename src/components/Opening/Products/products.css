@@ -1,0 +1,130 @@
+/* Products Component Styles */
+.tgn-products-section {
+  position: relative;
+  padding: 100px 0;
+}
+
+.tgn-products-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tgn-products-info {
+  
+}
+
+.tgn-products-title {
+  font-weight: 700;
+  font-size: 32px;
+  text-transform: uppercase;
+}
+
+.tgn-products-desc {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 14px;
+  padding: 12px 0;
+}
+
+.tgn-products-btn-container {
+  text-align: center;
+}
+
+.tgn-products-btn-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.tgn-products-btn-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.tgn-products-arrow {
+  width: 12px;
+}
+
+.tgn-products-bg-circle {
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  top: 0;
+  left: -52%;
+  z-index: -1;
+}
+
+.tgn-products-bg-image {
+  max-width: 600px;
+}
+
+/* ProductList Component Styles */
+.tgn-product-list-container {
+  padding: 50px 0;
+}
+
+.tgn-product-grid-container {
+  margin: 0 10px;
+  padding: 0 10px;
+}
+
+.tgn-product-grid-item {
+  overflow: hidden;
+  background-color: #fff;
+  height: auto;
+}
+
+.tgn-product-item-content {
+  padding: 12px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.tgn-product-item-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.tgn-product-item-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+}
+
+.tgn-product-item-btn {
+  text-align: center;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tgn-product-item-btn-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.tgn-product-item-arrow {
+  width: 12px;
+}
+
+.tgn-product-item-image-wrapper {
+  background-color: #DFDFDF;
+  overflow: hidden;
+  border-radius: 16px;
+}

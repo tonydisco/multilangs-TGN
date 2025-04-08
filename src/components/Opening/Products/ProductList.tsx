@@ -1,81 +1,32 @@
 import {PureImage} from '@/components/Common/Images';
 import Link from 'next/link';
 import React from 'react';
+import './products.css';
 
 const ProductList = () => {
   return (
-    <div style={{padding: '50px 0'}}>
+    <div className="tgn-product-list-container">
       <div>
-        <div
-          className="grid-container"
-          style={{margin: '0 10px', padding: '0 10px'}}
-        >
+        <div className="tgn-product-grid-container grid-container">
           {mockProducts.map((item, idx) => {
             const itemIndex = 1 + idx;
             if (itemIndex > 10) return null; // Stop rendering after 60 items
             return (
               <div
-                className="grid-item base-card-full-border"
-                key={itemIndex}
-                style={{
-                  overflow: 'hidden',
-                  backgroundColor: '#fff',
-                  height: 'auto'
-                }}
+                className="tgn-product-grid-item grid-item base-card-full-border"
+                key={`product-${itemIndex}`}
               >
-                <div
-                  style={{
-                    padding: 12,
-                    width: '100%',
-                    height: '100%',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    flexDirection: 'column',
-                    gap: 30
-                  }}
-                >
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      gap: 30
-                    }}
-                  >
-                    <div
-                      style={{
-                        fontSize: 14,
-                        fontWeight: 700,
-                        color: '#000',
-                        textTransform: 'uppercase'
-                      }}
-                    >
+                <div className="tgn-product-item-content">
+                  <div className="tgn-product-item-header">
+                    <div className="tgn-product-item-title">
                       {item.title}
                     </div>
                     <div>
-                      <button
-                        className="app-btn-default"
-                        style={{
-                          textAlign: 'center',
-                          padding: 5,
-                          width: 30,
-                          height: 30,
-                          borderRadius: '100%',
-                          display: 'flex',
-                          justifyContent: 'center',
-                          alignItems: 'center'
-                        }}
-                      >
+                      <button className="app-btn-default tgn-product-item-btn">
                         <Link href="/du-an">
-                          <div
-                            style={{
-                              display: 'flex',
-                              justifyContent: 'space-between',
-                              alignItems: 'center',
-                              gap: 8
-                            }}
-                          >
+                          <div className="tgn-product-item-btn-content">
                             <PureImage
-                              style={{width: 12}}
+                              className="tgn-product-item-arrow"
                               url="/landing/ICON-ARROW.svg"
                             />
                           </div>
@@ -83,14 +34,7 @@ const ProductList = () => {
                       </button>
                     </div>
                   </div>
-                  <div
-                    style={{
-                      backgroundColor: '#DFDFDF',
-                      overflow: 'hidden',
-                      borderRadius: 16
-                    }}
-                    className="card-img-wrapper"
-                  >
+                  <div className="tgn-product-item-image-wrapper card-img-wrapper">
                     <PureImage url={item.image} />
                   </div>
                 </div>

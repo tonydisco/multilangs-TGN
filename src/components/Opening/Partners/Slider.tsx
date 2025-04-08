@@ -2,6 +2,8 @@
 import {PureImage} from '@/components/Common/Images';
 import {useRef} from 'react';
 import Slider from 'react-slick';
+import './partners.css';
+
 // Add this type definition
 type SlickRefType = {
   slickPrev: () => void;
@@ -37,55 +39,14 @@ function PartnersSlider() {
     rtl: true
   };
   return (
-    <div style={{padding: '75px 0', position: 'relative'}}>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'flex-end',
-          alignItems: 'center',
-          gap: 20,
-          zIndex: 20,
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          left: -50
-        }}
-      >
-        <button
-          style={{
-            right: 0,
-            bottom: 0,
-            height: '20px',
-            width: '20px'
-          }}
-          onClick={onNext}
-        >
+    <div className="tgn-partners-slider-container">
+      <div className="tgn-partners-slider-btn-left">
+        <button className="tgn-partners-btn" onClick={onNext}>
           <PureImage url="/icon/ARROW-ICON.svg" />
         </button>
       </div>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'flex-end',
-          alignItems: 'center',
-          gap: 20,
-          zIndex: 20,
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          right: -50
-        }}
-      >
-        <button
-          style={{
-            right: 0,
-            bottom: 0,
-            height: '25px',
-            width: '25px',
-            transform: 'rotate(180deg)'
-          }}
-          onClick={onPrev}
-        >
+      <div className="tgn-partners-slider-btn-right">
+        <button className="tgn-partners-btn-prev" onClick={onPrev}>
           <PureImage url="/icon/ARROW-ICON.svg" />
         </button>
       </div>
@@ -96,33 +57,17 @@ function PartnersSlider() {
           // const endIndex = startIndex + itemsPerSlide;
 
           return (
-            <div key={index}>
-              <div
-                className="grid-container"
-                style={{margin: '0 10px', padding: '0 10px'}}
-              >
+            <div key={`partner-slide-${index}`}>
+              <div className="tgn-partners-grid-container grid-container">
                 {Array.from({length: itemsPerSlide}).map((_, idx) => {
                   const itemIndex = startIndex + idx;
                   if (itemIndex >= 59) return null; // Stop rendering after 60 items
                   return (
                     <div
-                      className="grid-item base-card-full-border"
-                      key={itemIndex}
-                      style={{
-                        overflow: 'hidden',
-                        backgroundColor: '#fff'
-                      }}
+                      className="tgn-partners-grid-item grid-item base-card-full-border"
+                      key={`partner-${itemIndex}`}
                     >
-                      <div
-                        style={{
-                          padding: 24,
-                          width: '100%',
-                          height: '100%',
-                          display: 'flex',
-                          justifyContent: 'center',
-                          alignItems: 'center'
-                        }}
-                      >
+                      <div className="tgn-partners-logo-container">
                         <PureImage
                           url={`/landing/PARTNER/PARTNER_LOGO_${itemIndex + 1}.png`}
                         />

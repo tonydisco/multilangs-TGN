@@ -4,6 +4,7 @@ export const host = process.env.VERCEL_PROJECT_PRODUCTION_URL
   : `http://localhost:${port}`;
 
 export const rmockRoute = [
+  {name: 'Trang chủ', path: '/'},
   {name: 'Giới thiệu', path: '/about-us'},
   {name: 'Lĩnh vực hoạt động', path: '/linh-vuc-hoat-dong'},
   {name: 'Năng lực sản xuất', path: '/nang-luc-san-xuat'},

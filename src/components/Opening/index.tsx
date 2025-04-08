@@ -1,18 +1,15 @@
+import News from './News';
+import Partners from './Partners';
+import Products from './Products';
+import Projects from './Projects';
 import Introduce from './Introduce';
 import Construction from './Construction';
 import ProductionCapacity from './ProductionCapacity';
-import Partners from './Partners';
-import Projects from './Projects';
-import Products from './Products';
-import News from './News';
+import './Opening.css';
 
 const Opening = () => {
   return (
-    <section
-      style={{
-        marginBottom: 120
-      }}
-    >
+    <section className="tgn-opening-section">
       <Introduce />
       <Construction />
       <ProductionCapacity />

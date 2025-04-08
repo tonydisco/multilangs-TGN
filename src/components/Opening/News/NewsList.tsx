@@ -1,19 +1,57 @@
 'use client';
 import {PureImage} from '@/components/Common/Images';
 import React, {useState} from 'react';
+import '../News/news.css';
 
 const tabs = [
   {
     title: 'tất cả',
-    value: 'all'
+    value: 'all',
+    id: 'tab-all'
   },
   {
     title: 'tin tức nổi bật',
-    value: 'all'
+    value: 'featured',
+    id: 'tab-featured'
   },
   {
     title: 'tin tức thị trường',
-    value: 'all'
+    value: 'market',
+    id: 'tab-market'
+  }
+];
+
+// Define news items with unique IDs
+const newsItems = [
+  {
+    id: 'news-1',
+    title: 'Cung cấp bê tông tươi cho dự án ABC tại Biên Hòa, Đồng Nai',
+    date: '1/3/2025',
+    imageUrl: '/landing/NEWS/NEWS-THUMB.png'
+  },
+  {
+    id: 'news-2',
+    title: 'Khai trương showroom tại quận 9, TP.HCM',
+    date: '5/3/2025',
+    imageUrl: '/landing/NEWS/NEWS-THUMB.png'
+  },
+  {
+    id: 'news-3',
+    title: 'Ký kết hợp tác với đối tác chiến lược mới',
+    date: '10/3/2025',
+    imageUrl: '/landing/NEWS/NEWS-THUMB.png'
+  },
+  {
+    id: 'news-4',
+    title: 'Giới thiệu sản phẩm mới - Bê tông chất lượng cao',
+    date: '15/3/2025',
+    imageUrl: '/landing/NEWS/NEWS-THUMB.png'
+  },
+  {
+    id: 'news-5',
+    title: 'Tham gia triển lãm vật liệu xây dựng quốc tế 2025',
+    date: '20/3/2025',
+    imageUrl: '/landing/NEWS/NEWS-THUMB.png'
   }
 ];
 
@@ -21,79 +59,38 @@ const NewsList = () => {
   const [tabSelected, setTabSelected] = useState(0);
 
   return (
-    <div style={{}}>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: 30,
-          padding: '0 20px',
-          position: 'relative'
-        }}
-      >
+    <div className="tgn-newslist-container">
+      <div className="tgn-newslist-tabs">
         {tabs.map((item, index) => {
           const actived = index === tabSelected;
           return (
-            <div key={index}>
-              <button style={{}} onClick={() => setTabSelected(index)}>
+            <div key={item.id}>
+              <button onClick={() => setTabSelected(index)}>
                 <h3
-                  style={{
-                    fontWeight: 'bold',
-                    textTransform: 'capitalize',
-                    transition: 'all 0.3s ease',
-                    color: actived ? '#000' : '#828282',
-                    padding: '15px 0'
-                  }}
+                  className={`tgn-newslist-tab ${actived ? 'tgn-newslist-tab-active' : 'tgn-newslist-tab-inactive'}`}
                 >
                   {item.title}
                 </h3>
               </button>
-              {actived && (
-                <div
-                  className="ink-line-bottom"
-                  style={{
-                    position: 'absolute',
-                    bottom: 0,
-                    left: 0,
-                    width: '100%',
-                    height: 2,
-                    backgroundColor: '#6D3E2F',
-                    transition: 'all 0.3s ease'
-                    // transform: `translateX(${index * 100}%)`
-                  }}
-                />
-              )}
+              {actived && <div className="tgn-active-ink-line" />}
             </div>
           );
         })}
-        <div
-          className="ink-line-bottom"
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            width: '100%',
-            height: 1,
-            backgroundColor: '#828282',
-            transition: 'all 0.3s ease'
-          }}
-        />
+        <div className="tgn-newslist-bottom-line" />
       </div>
 
-      <div className="news-content">
-        <div style={{paddingTop: 16}}>
-          <div style={{}}>
-            {Array.from({length: 5}).map((_, index) => {
-              return (
-                <div
-                  key={index}
-                  className="news-item"
-                  style={{padding: '15px'}}
-                >
-                  <NewsItem />
-                </div>
-              );
-            })}
+      <div className="tgn-newslist-content">
+        <div>
+          <div>
+            {newsItems.map((item) => (
+              <div key={item.id} className="tgn-news-item">
+                <NewsItem
+                  title={item.title}
+                  date={item.date}
+                  imageUrl={item.imageUrl}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -103,75 +100,35 @@ const NewsList = () => {
 
 export default NewsList;
 
-const NewsItem = () => {
+const NewsItem = ({
+  title,
+  date,
+  imageUrl
+}: {
+  title: string;
+  date: string;
+  imageUrl: string;
+}) => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        gap: 30
-      }}
-    >
-      <div
-        style={{
-          overflow: 'hidden',
-          borderRadius: 8,
-          width: 300,
-          height: 140
-        }}
-      >
-        <PureImage url="/landing/NEWS/NEWS-THUMB.png" mode="cover" />
+    <div className="tgn-newsitem-container">
+      <div className="tgn-newsitem-image-container">
+        <PureImage url={imageUrl} mode="cover" />
       </div>
-      <div
-        style={{
-          color: '#212121',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 10,
-          justifyContent: 'space-between'
-        }}
-      >
+      <div className="tgn-newsitem-content">
         <div>
-          <h5 style={{fontSize: 15, fontWeight: 700, marginBottom: 10}}>
-            Cung cấp bê tông tươi cho dự án ABC tại Biên Hòa, Đồng Nai
-          </h5>
-          <p
-            className="elipses-2-lines"
-            style={{
-              fontSize: 14,
-              color: '#828282',
-              lineHeight: '20px',
-              maxWidth: 600,
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              display: '-webkit-box',
-              WebkitBoxOrient: 'vertical',
-              WebkitLineClamp: 2
-            }}
-          >
+          <h5 className="tgn-newsitem-title">{title}</h5>
+          <p className="tgn-newsitem-description">
             Trong quá trình xây dựng, việc chọn vật liệu phù hợp đóng vai trò
             quan trọng trong việc đảm bảo chất lượng và độ bền của công trình
             xây dựng. Bê tông tươi là một trong những vật liệu xây dựng phổ biến
             nhất hiện nay, được sử dụng rộng rãi trong các
           </p>
         </div>
-        <div
-          style={{
-            display: 'flex',
-            gap: 10,
-            alignItems: 'center',
-            fontSize: 12,
-            color: '#616161'
-          }}
-        >
-          <div
-            style={{
-              width: 12,
-              height: 12
-            }}
-          >
+        <div className="tgn-newsitem-footer">
+          <div className="tgn-newsitem-calendar-icon">
             <PureImage url="/icon/ICON-CALENDAR.svg" />
           </div>
-          <div>1/3/2025</div>
+          <div>{date}</div>
         </div>
       </div>
     </div>

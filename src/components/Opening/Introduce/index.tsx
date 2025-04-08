@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import {PureImage} from '../Common/Images';
+import {PureImage} from '../../Common/Images';
 import Link from 'next/link';
 
 const Introduce = () => {

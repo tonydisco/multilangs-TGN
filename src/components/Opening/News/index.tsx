@@ -1,86 +1,31 @@
 import {PureImage} from '@/components/Common/Images';
 import CalendarList from './CalendarList';
 import NewsList from './NewsList';
+import './news.css';
 
 const News = () => {
   return (
-    <section
-      style={{
-        backgroundColor: '#FFF6F2',
-        position: 'relative',
-        padding: '75px',
-        overflow: 'hidden'
-      }}
-      className="section-news"
-    >
-      <div
-        style={{
-          position: 'absolute',
-          width: 500,
-          height: 500,
-          bottom: -200,
-          right: -100
-        }}
-      >
+    <section className="tgn-news-section">
+      <div className="tgn-news-circle">
         <PureImage url="/icon/CIRCLE-FULL-ICO.svg" />
       </div>
-      <div className="app-container" style={{position: 'relative', zIndex: 2}}>
-        <div style={{textAlign: 'center'}}>
-          <h2
-            style={{
-              fontWeight: '700',
-              fontSize: '32px',
-              textTransform: 'uppercase'
-            }}
-          >
-            tin tức
-          </h2>
+      <div className="app-container tgn-news-container">
+        <div className="tgn-news-header">
+          <h2 className="tgn-news-title">tin tức</h2>
         </div>
-        <div
-          style={{
-            position: 'relative',
-            padding: '75px 0'
-          }}
-        >
-          <div
-            className="base-card-full-border"
-            style={{
-              padding: 16,
-              backgroundColor: 'rgba(255, 255, 255, 0.8)'
-            }}
-          >
-            <div style={{display: 'flex', gap: 20}}>
-              <div style={{flex: 2.8}}>
+        <div className="tgn-news-content-wrapper">
+          <div className="base-card-full-border tgn-news-card">
+            <div className="tgn-news-flex-container">
+              <div className="tgn-news-list-container">
                 <NewsList />
               </div>
-              <div style={{flex: 1.2}}>
+              <div className="tgn-news-calendar-container">
                 <div>
-                  <div style={{position: 'relative'}}>
-                    <h3
-                      style={{
-                        fontWeight: 'bold',
-                        textTransform: 'capitalize',
-                        transition: 'all 0.3s ease',
-                        color: '#6D3E2F',
-                        padding: '15px 0'
-                      }}
-                    >
-                      Lịch sự kiện
-                    </h3>
-                    <div
-                      className="ink-line-bottom"
-                      style={{
-                        position: 'absolute',
-                        bottom: 0,
-                        left: 0,
-                        width: '100%',
-                        height: 1,
-                        backgroundColor: '#6D3E2F',
-                        transition: 'all 0.3s ease'
-                      }}
-                    />
+                  <div className="tgn-news-event-header">
+                    <h3 className="tgn-news-event-title">Lịch sự kiện</h3>
+                    <div className="tgn-news-event-line" />
                   </div>
-                  <div style={{paddingTop: 16}}>
+                  <div className="tgn-news-event-content">
                     <CalendarList />
                   </div>
                 </div>

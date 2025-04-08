@@ -2,63 +2,27 @@ import React from 'react';
 import {PureImage} from '@/components/Common/Images';
 import Link from 'next/link';
 import ProductList from './ProductList';
+import './products.css';
 
 const Products = () => {
   return (
-    <section
-      style={{
-        position: 'relative',
-        padding: '100px 0'
-      }}
-    >
+    <section className="tgn-products-section">
       <div className="app-container">
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between'
-          }}
-        >
-          <div className="part-container">
-            <h2
-              style={{
-                fontWeight: '700',
-                fontSize: '32px',
-                textTransform: 'uppercase'
-              }}
-            >
-              sản phẩm
-            </h2>
-            <p
-              style={{
-                maxWidth: 600,
-                margin: '0 auto',
-                fontSize: 14,
-                padding: '12px 0'
-              }}
-            >
+        <div className="tgn-products-content">
+          <div className="tgn-products-info">
+            <h2 className="tgn-products-title">sản phẩm</h2>
+            <p className="tgn-products-desc">
               <strong>Thế Giới Nhà Group</strong> cung cấp đa dạng sản phẩm vật
               liệu xây dựng, từ bê tông thương phẩm, cấu kiện bê tông đúc sẵn
               đến các vật liệu hoàn thiện, đáp ứng mọi nhu cầu của công trình
               với chất lượng cao và độ bền vượt trội.
             </p>
           </div>
-          <div>
-            <button className="app-btn-default" style={{textAlign: 'center'}}>
+          <div className="tgn-products-btn-container">
+            <button className="app-btn-default">
               <Link href="/du-an">
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    gap: 8
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: 14,
-                      fontWeight: 500
-                    }}
-                  >
+                <div className="tgn-products-btn-content">
+                  <span className="tgn-products-btn-text">
                     Xem thêm tất cả sản phẩm
                   </span>
                   <PureImage

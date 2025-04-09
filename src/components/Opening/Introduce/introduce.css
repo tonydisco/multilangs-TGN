@@ -1,6 +1,6 @@
-/* Introduce Component Styles */
+/* Introduce Section */
 .tgn-introduce-section {
-  background-color: #FAFAFA;
+  background-color: #fafafa;
   position: relative;
   overflow: hidden;
 }
@@ -9,7 +9,7 @@
   padding: 150px 0;
 }
 
-.tgn-introduce-card-content {
+.tgn-introduce-card {
   display: flex;
   justify-content: space-between;
   gap: 40px;
@@ -21,7 +21,7 @@
   flex: 1;
 }
 
-.tgn-introduce-content-wrap {
+.tgn-introduce-content {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -38,7 +38,7 @@
   font-size: 14px;
 }
 
-.tgn-introduce-btn-content {
+.tgn-introduce-btn {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -50,21 +50,13 @@
   font-weight: 500;
 }
 
-.tgn-introduce-arrow {
-  width: 12px;
-}
-
-.tgn-introduce-right {
-  flex: 1.5;
-}
-
-.tgn-stats-container {
+.tgn-introduce-statistics {
   display: flex;
   justify-content: flex-end;
   gap: 30px;
 }
 
-.tgn-stat-item {
+.tgn-introduce-stat-item {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -72,31 +64,29 @@
   text-align: center;
 }
 
-.tgn-stat-icon {
+.tgn-introduce-stat-icon {
   width: 50px;
   height: 50px;
 }
 
-.tgn-stat-content {
-  margin-top: 20px;
-}
-
-.tgn-stat-number {
+.tgn-introduce-stat-title {
   font-size: 32px;
   font-weight: 700;
   color: #925846;
+  margin-top: 20px;
 }
 
-.tgn-stat-text {
+.tgn-introduce-stat-sub {
   font-size: 14px;
 }
 
-.tgn-video-section {
+.tgn-introduce-video-section {
   position: relative;
   padding: 0 0 150px 0;
+  z-index: 2;
 }
 
-.tgn-video-overlay {
+.tgn-introduce-video-overlay {
   position: absolute;
   height: 100%;
   right: 0;
@@ -105,21 +95,19 @@
   align-items: center;
 }
 
-.tgn-video-container {
-  position: relative;
+.tgn-introduce-video-container {
   display: flex;
+  position: relative;
   justify-content: center;
 }
 
-.tgn-video-frame {
-  position: absolute;
-  height: 576px;
-  border-radius: 24px;
-  width: 968px;
-  z-index: 1;
+.tgn-introduce-video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.tgn-video-grid {
+.tgn-introduce-video-grid {
   position: absolute;
   bottom: 0;
   width: 100%;

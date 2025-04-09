@@ -67,7 +67,7 @@ const NewsList = () => {
             <div key={item.id}>
               <button onClick={() => setTabSelected(index)}>
                 <h3
-                  className={`tgn-newslist-tab ${actived ? 'tgn-newslist-tab-active' : 'tgn-newslist-tab-inactive'}`}
+                  className={`tgn-newslist-tab tgn-title m-0 ${actived ? 'tgn-newslist-tab-active' : 'tgn-newslist-tab-inactive'}`}
                 >
                   {item.title}
                 </h3>

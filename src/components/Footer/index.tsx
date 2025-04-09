@@ -168,7 +168,7 @@ const Footer = () => {
                     >
                       {rmockRoute.map((item, index) => {
                         return (
-                          <p key={index}>
+                          <div key={index}>
                             <Link
                               href={item.path}
                               style={{
@@ -178,7 +178,7 @@ const Footer = () => {
                             >
                               {item.name}
                             </Link>
-                          </p>
+                          </div>
                         );
                       })}
                     </div>

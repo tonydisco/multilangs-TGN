@@ -62,7 +62,14 @@ const BusinessPhysolophy = () => {
             zIndex: 2
           }}
         >
-          <div className="w-full h-full flex justify-center">
+          <div
+            style={{
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              justifyContent: 'center'
+            }}
+          >
             <div
               style={{
                 width: '100%',
@@ -111,8 +118,10 @@ const BusinessPhysolophy = () => {
                         <div className="b-card-title">Chất lượng</div>
                         <p className="b-card-content ">
                           Với phương châm{' '}
-                          <strong>{`"Chất lượng hàng đầu, tiến độ đảm bảo,
-                          an toàn tuyệt đối"`}</strong>
+                          <strong>
+                            &quot;Chất lượng hàng đầu, tiến độ đảm bảo, an toàn
+                            tuyệt đối&quot;
+                          </strong>
                           , TGN Group không ngừng đầu tư vào thiết bị hiện đại,
                           ứng dụng công nghệ tiên tiến trong sản xuất và quản
                           lý. Chúng tôi coi chất lượng không chỉ là yếu tố cạnh

@@ -1,5 +1,5 @@
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif !important;
   background-color: #fff;
 }
 /* over write  bootstrap style */
@@ -69,6 +69,18 @@ button {
   border-top-left-radius: 20px; /* Rounded corner for the cutout */
 }
 /* Mutual class */
+.tgn-text-base-color {
+  color: #212121;
+}
+.tgn-text-gray-color {
+  color: #616161;
+}
+.tgn-text-gradient-color {
+  background: linear-gradient(266.58deg, #6e3e2f -12.36%, #925846 132.15%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
 /* business phylosophy */
 .b-card-title {

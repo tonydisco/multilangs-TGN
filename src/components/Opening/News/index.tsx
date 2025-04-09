@@ -20,9 +20,11 @@ const News = () => {
                 <NewsList />
               </div>
               <div className="tgn-news-calendar-container">
-                <div>
-                  <div className="tgn-news-event-header">
-                    <h3 className="tgn-news-event-title">Lịch sự kiện</h3>
+                <div className="tgn-news-event-header">
+                  <div style={{padding: '15px 0', position: 'relative'}}>
+                    <h3 className="tgn-news-event-title tgn-title m-0">
+                      Lịch sự kiện
+                    </h3>
                     <div className="tgn-news-event-line" />
                   </div>
                   <div className="tgn-news-event-content">

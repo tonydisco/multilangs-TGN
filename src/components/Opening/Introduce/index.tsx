@@ -1,187 +1,90 @@
 import React, {Fragment} from 'react';
 import {PureImage} from '../../Common/Images';
 import Link from 'next/link';
+import './introduce.css';
 
 const Introduce = () => {
   return (
-    <section>
-      <div
-        style={{
-          backgroundColor: '#FAFAFA',
-          position: 'relative',
-          overflow: 'hidden'
-        }}
-      >
-        <div
-          className="app-container"
-          style={{
-            padding: '150px 0'
-          }}
-        >
-          <div className="base-card">
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                gap: 40,
-                alignItems: 'center',
-                padding: '15px 25px'
-              }}
-            >
-              <div style={{flex: 1}}>
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: 20,
-                    alignItems: 'flex-start'
-                  }}
-                >
-                  <h2
-                    style={{
-                      fontWeight: '700',
-                      fontSize: '32px',
-                      textTransform: 'uppercase'
-                    }}
-                  >
-                    giới thiệu
-                  </h2>
-                  <p style={{fontSize: 14}}>
-                    <strong>Thế Giới Nhà Group</strong> hệ thống Siêu thị vật
-                    liệu xây dựng hàng đầu, cung cấp giải pháp toàn diện cho mọi
-                    công trình.
-                  </p>
-                  <button className="app-btn-default">
-                    <Link href="/about-us">
-                      <div
-                        style={{
-                          display: 'flex',
-                          justifyContent: 'space-between',
-                          alignItems: 'center',
-                          gap: 8
-                        }}
-                      >
-                        <span
-                          style={{
-                            fontSize: 14,
-                            fontWeight: 500
-                          }}
-                        >
-                          Về chúng tôi
-                        </span>
-                        <PureImage
-                          style={{width: 12}}
-                          url="/landing/ICON-ARROW.svg"
-                        />
+    <section className="tgn-introduce-section">
+      <div className="tgn-introduce-container">
+        <div className="app-container base-card">
+          <div className="tgn-introduce-card">
+            <div className="tgn-introduce-left">
+              <div className="tgn-introduce-content">
+                <h2 className="tgn-introduce-title">giới thiệu</h2>
+                <p className="tgn-introduce-desc">
+                  <strong>Thế Giới Nhà Group</strong> hệ thống Siêu thị vật liệu
+                  xây dựng hàng đầu, cung cấp giải pháp toàn diện cho mọi công
+                  trình.
+                </p>
+                <button className="app-btn-default">
+                  <Link href="/about-us">
+                    <div className="tgn-introduce-btn">
+                      <span className="tgn-introduce-btn-text">
+                        Về chúng tôi
+                      </span>
+                      <PureImage
+                        style={{width: 12}}
+                        url="/landing/ICON-ARROW.svg"
+                      />
+                    </div>
+                  </Link>
+                </button>
+              </div>
+            </div>
+            <div className="tgn-introduce-right">
+              <div className="tgn-introduce-statistics">
+                {statistics.map((item, index) => (
+                  <Fragment key={index}>
+                    <div className="tgn-introduce-stat-item">
+                      <PureImage
+                        url={item.icon}
+                        style={{width: 50, height: '50px'}}
+                      />
+                      <div>
+                        <h2 className="tgn-introduce-stat-title">
+                          {item.title}
+                        </h2>
+                        <p className="tgn-introduce-stat-sub">{item.sub}</p>
                       </div>
-                    </Link>
-                  </button>
-                </div>
-              </div>
-              <div style={{flex: 1.5}}>
-                <div>
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'flex-end',
-                      gap: 30
-                    }}
-                  >
-                    {statistics.map((item, index) => {
-                      return (
-                        <Fragment key={index}>
-                          <div
-                            style={{
-                              flex: 1,
-                              display: 'flex',
-                              flexDirection: 'column',
-                              alignItems: 'center',
-                              textAlign: 'center'
-                            }}
-                          >
-                            <PureImage
-                              url={item.icon}
-                              style={{width: 50, height: '50px'}}
-                            />
-                            <div style={{marginTop: 20}}>
-                              <h2
-                                style={{
-                                  fontSize: 32,
-                                  fontWeight: 700,
-                                  color: '#925846'
-                                }}
-                              >
-                                {item.title}
-                              </h2>
-                              <p style={{fontSize: 14}}>{item.sub}</p>
-                            </div>
-                          </div>
-                          {index !== statistics.length - 1 && (
-                            <div className="default-vertical-line" />
-                          )}
-                        </Fragment>
-                      );
-                    })}
-                  </div>
-                </div>
+                    </div>
+                    {index !== statistics.length - 1 && (
+                      <div className="default-vertical-line" />
+                    )}
+                  </Fragment>
+                ))}
               </div>
             </div>
           </div>
         </div>
-        <div style={{position: 'relative', padding: '0 0 150px 0'}}>
-          <div
-            style={{
-              position: 'absolute',
-              height: '100%',
-              right: 0,
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center'
-            }}
-          >
-            <PureImage url="/landing/CONSTRUCTION/OVERLAY.svg" />
-          </div>
-          <div
-            style={{
-              position: 'relative',
-              display: 'flex',
-              justifyContent: 'center'
-            }}
-          >
-            <div
-              className="base-video"
+      </div>
+
+      <div className="tgn-introduce-video-section">
+        <div className="tgn-introduce-video-overlay">
+          <PureImage url="/landing/CONSTRUCTION/OVERLAY.svg" />
+        </div>
+        <div className="tgn-introduce-video-container">
+          <div className="base-video tgn-introduce-video">
+            <iframe
+              // className="tgn-introduce-iframe"
+              src="https://www.youtube.com/embed/AJFkU1bC3C0?si=ZmPXd6J_k3iaOqPa"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
               style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center'
+                position: 'absolute',
+                height: 600 - 24,
+                borderRadius: 24,
+                width: 992 - 24,
+                zIndex: 1
               }}
-            >
-              <iframe
-                src="https://www.youtube.com/embed/AJFkU1bC3C0?si=ZmPXd6J_k3iaOqPa"
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-                style={{
-                  position: 'absolute',
-                  height: 600 - 24,
-                  borderRadius: 24,
-                  width: 992 - 24,
-                  zIndex: 1
-                }}
-              />
-            </div>
+            />
           </div>
         </div>
-        <div
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            width: '100%'
-          }}
-        >
-          <PureImage url="/landing/VIDEO-GRID.png" />
-        </div>
+      </div>
+      <div className="tgn-introduce-video-grid">
+        <PureImage url="/landing/VIDEO-GRID.png" />
       </div>
     </section>
   );

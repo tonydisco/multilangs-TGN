@@ -6,46 +6,134 @@ import {rmockRoute} from '@/config';
 const Header = () => {
   return (
     <header>
-      <div className="mx-auto px-4">
-        <nav className="flex justify-between items-center p-4">
+      <div
+        style={{
+          margin: '0 auto',
+          padding: '0 1rem'
+        }}
+      >
+        <nav
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            padding: '1rem'
+          }}
+        >
           <div style={{width: '280px'}}>
             <Link href="/">
               <PureImage />
             </Link>
           </div>
           <div>
-            <div className="mb-4">
+            <div
+              style={{
+                marginBottom: '1rem'
+              }}
+            >
               <div>
-                <div className="flex items-center gap-4 justify-end">
-                  <div className="w-[20px] h-[20px] cursor-pointer hover:opacity-50">
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'flex-end',
+                    alignItems: 'center',
+                    gap: '1rem'
+                  }}
+                >
+                  <div
+                    style={{
+                      width: '20px',
+                      cursor: 'pointer',
+                      opacity: 1,
+                      transition: 'opacity 0.3s ease'
+                    }}
+                  >
                     <PureImage url="/icon/SEARCH.svg" />
                   </div>
-                  <div className="rounded-[8px] border border-browMain px-4 py-0.5 text-browMain cursor-pointer hover:bg-browMain  hover:text-white transition-all duration-300">
-                    <span className="uppercase text-sm font-semibold">
+                  <div
+                    style={{
+                      borderRadius: '8px',
+                      border: '1px solid #6D3E2F',
+                      padding: '0.125rem 1rem',
+                      color: '#6D3E2F',
+                      cursor: 'pointer',
+                      transition: 'background-color 0.3s ease, color 0.3s ease'
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontSize: '14px',
+                        lineHeight: '20px',
+                        textTransform: 'uppercase',
+                        fontWeight: 600
+                      }}
+                    >
                       Liên hệ
                     </span>
                   </div>
-                  <div className="w-[20px] h-[20px] cursor-pointer hover:opacity-50">
+                  <div
+                    style={{
+                      width: '20px',
+                      cursor: 'pointer',
+                      opacity: 1,
+                      transition: 'opacity 0.3s ease'
+                    }}
+                  >
                     <PureImage url="/icon/FB.svg" />
                   </div>
-                  <div className="w-[20px] h-[20px] cursor-pointer hover:opacity-50">
+                  <div
+                    style={{
+                      width: '20px',
+                      cursor: 'pointer',
+                      opacity: 1,
+                      transition: 'opacity 0.3s ease'
+                    }}
+                  >
                     <PureImage url="/icon/ZALO.svg" />
                   </div>
                   <div className="line-btw"></div>
-                  <div className="w-[20px] h-[20px] cursor-pointer hover:opacity-50">
+                  <div
+                    style={{
+                      width: '20px',
+                      cursor: 'pointer',
+                      opacity: 1,
+                      transition: 'opacity 0.3s ease'
+                    }}
+                  >
                     <PureImage url="/icon/FLAG-VI.svg" />
                   </div>
                 </div>
               </div>
             </div>
-            <ul className="flex gap-4 items-center relative">
+            <ul
+              style={{
+                display: 'flex',
+                gap: '1rem',
+                alignItems: 'center',
+                position: 'relative',
+                listStyle: 'none',
+                marginBottom: '0'
+              }}
+            >
               {rmockRoute.map((item, index) => {
                 return (
                   <Fragment key={index}>
-                    <li className="relative">
+                    <li
+                      style={{
+                        position: 'relative'
+                      }}
+                    >
                       <Link
                         href={item.path}
-                        className="text-main text-sm uppercase font-semibold text-nowrap"
+                        style={{
+                          color: '#212121',
+                          fontSize: '14px',
+                          lineHeight: '20px',
+                          textTransform: 'uppercase',
+                          fontWeight: 600,
+                          textWrap: 'nowrap',
+                          textDecoration: 'none'
+                        }}
                       >
                         {item.name}
                       </Link>

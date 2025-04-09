@@ -43,6 +43,10 @@ export default async function LocaleLayout({
   return (
     <html className="h-full" lang={locale}>
       <head>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
@@ -61,7 +65,7 @@ export default async function LocaleLayout({
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
         />
       </head>
-      <body className={clsx('flex h-full flex-col')}>
+      <body>
         <NextIntlClientProvider>
           <Header />
           {children}

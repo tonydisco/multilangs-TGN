@@ -1,0 +1,41 @@
+.tgn-hero {
+  position: relative;
+}
+
+.tgn-hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+}
+
+.tgn-hero-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 6rem;
+}
+
+.tgn-header-title {
+  margin: 0 auto;
+  max-width: 36rem;
+}
+
+.tgn-header-title-text {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 2rem;
+  color: #6e3e2f;
+}
+
+.tgn-title-page {
+  font-size: 52px;
+  font-weight: 700;
+  text-align: center;
+  color: #6e3e2f;
+  text-transform: uppercase;
+}

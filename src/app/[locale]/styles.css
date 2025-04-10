@@ -82,6 +82,17 @@ button {
   background-clip: text;
 }
 
+.tgn-dashed {
+  background-image: linear-gradient(
+    to right,
+    #6d3e2f 65%,
+    rgba(255, 255, 255, 0) 0%
+  );
+  background-position: bottom;
+  background-size: 20px 1px;
+  background-repeat: repeat-x;
+}
+
 /* business phylosophy */
 .b-card-title {
   background: linear-gradient(266.58deg, #6e3e2f -12.36%, #925846 132.15%);
@@ -322,4 +333,28 @@ button {
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   border-radius: 8px;
+}
+
+/* TIME LINE */
+
+.line-w-dot {
+  position: relative;
+  height: 100%;
+}
+.line-w-dot::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: #6d3e2f;
+  border-radius: 100%;
+}
+.line-w-dot::after {
+  content: '';
+  position: absolute;
+  background: linear-gradient(180deg, #6d3e2f 0%, rgba(109, 62, 47, 0) 100%);
+  width: 1px;
+  height: 150%;
+  top: 3px;
+  left: 1.5px;
 }

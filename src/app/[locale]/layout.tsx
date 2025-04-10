@@ -1,12 +1,11 @@
-import './styles.css';
-import {clsx} from 'clsx';
-import {ReactNode} from 'react';
-import {routing} from '@/i18n/routing';
-import Header from '@/components/Header';
-import {notFound} from 'next/navigation';
-import {Locale, hasLocale, NextIntlClientProvider} from 'next-intl';
-import {getTranslations, setRequestLocale} from 'next-intl/server';
 import Footer from '@/components/Footer';
+import Header from '@/components/Header';
+import {routing} from '@/i18n/routing';
+import {hasLocale, Locale, NextIntlClientProvider} from 'next-intl';
+import {getTranslations, setRequestLocale} from 'next-intl/server';
+import {notFound} from 'next/navigation';
+import {ReactNode} from 'react';
+import './styles.css';
 
 type Props = {
   children: ReactNode;

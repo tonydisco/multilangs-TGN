@@ -131,31 +131,29 @@ function PartnersSlider() {
         className="tgn-dashed"
       >
         <div className="position-relative container">
-          <div
-            className="tgn-partners-slider-btn-left"
+          <button
+            className="tgn-partners-btn"
+            onClick={onNext}
             style={{
               position: 'absolute',
               top: -13,
               left: -85
             }}
           >
-            <button className="tgn-partners-btn" onClick={onNext}>
-              <PureImage url="/icon/ARROW-ICON.svg" />
-            </button>
-          </div>
-          <div
-            className="tgn-partners-slider-btn-right"
+            <PureImage url="/icon/ARROW-ICON.svg" />
+          </button>
+          <button
+            className="tgn-partners-btn-prev"
             style={{
-              position: 'absolute',
+              transform: 'rotate(180deg)',
               top: -13,
               right: -85,
-              transform: 'rotate(180deg)'
+              position: 'absolute'
             }}
+            onClick={onPrev}
           >
-            <button className="tgn-partners-btn-prev" onClick={onPrev}>
-              <PureImage url="/icon/ARROW-ICON.svg" />
-            </button>
-          </div>
+            <PureImage url="/icon/ARROW-ICON.svg" />
+          </button>
         </div>
       </div>
 

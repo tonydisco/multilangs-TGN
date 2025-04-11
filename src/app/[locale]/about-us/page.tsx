@@ -1,20 +1,8 @@
 import AboutUsView from '@/components/About-us';
 import {HeaderTitleView} from '@/components/Hero';
 import PageLayout from '@/components/PageLayout';
-import {Locale} from 'next-intl';
-import {setRequestLocale} from 'next-intl/server';
-import {use} from 'react';
 
-type Props = {
-  params: Promise<{locale: Locale}>;
-};
-
-export default function PathnamesPage({params}: Readonly<Props>) {
-  const {locale} = use(params);
-
-  // Enable static rendering
-  setRequestLocale(locale);
-
+export default function PathnamesPage() {
   return (
     <PageLayout title={<HeaderTitleView />} className="about-us-wrapper">
       <AboutUsView />

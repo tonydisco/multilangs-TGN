@@ -137,7 +137,7 @@ function PartnersSlider() {
             style={{
               position: 'absolute',
               top: -13,
-              left: -85
+              left: -50
             }}
           >
             <PureImage url="/icon/ARROW-ICON.svg" />
@@ -147,7 +147,7 @@ function PartnersSlider() {
             style={{
               transform: 'rotate(180deg)',
               top: -13,
-              right: -85,
+              right: -50,
               position: 'absolute'
             }}
             onClick={onPrev}

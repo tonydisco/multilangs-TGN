@@ -135,7 +135,7 @@ function PartnersSlider() {
             className="tgn-partners-slider-btn-left"
             style={{
               position: 'absolute',
-              top: -12,
+              top: -13,
               left: -85
             }}
           >
@@ -147,7 +147,7 @@ function PartnersSlider() {
             className="tgn-partners-slider-btn-right"
             style={{
               position: 'absolute',
-              top: -12,
+              top: -13,
               right: -85,
               transform: 'rotate(180deg)'
             }}
@@ -184,32 +184,30 @@ function PartnersSlider() {
                   </div>
                   <div>
                     <div className="position-relative">
-                      <p
-                        style={{
-                          fontSize: '1rem',
-                          marginBottom: '1.5rem'
-                        }}
-                      >
-                        {item.text}
-                      </p>
+                      <PureImage
+                        url={item.imageSrc}
+                        className="img-fluid"
+                        style={{borderRadius: 16}}
+                      />
                       <div
                         style={{
                           zIndex: 2,
                           top: -75,
                           left: -30,
                           position: 'absolute',
-                          height: '100%'
+                          height: '200px'
                         }}
                       >
                         <div className="line-w-dot"></div>
                       </div>
-                    </div>
-                    <div style={{textAlign: 'center'}}>
-                      <PureImage
-                        url={item.imageSrc}
-                        className="img-fluid"
-                        style={{borderRadius: 16}}
-                      />
+                      <p
+                        style={{
+                          fontSize: '1rem',
+                          marginTop: '1.5rem'
+                        }}
+                      >
+                        {item.text}
+                      </p>
                     </div>
                   </div>
                 </div>

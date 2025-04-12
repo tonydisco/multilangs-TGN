@@ -1,6 +1,6 @@
 import {TitlePageView} from '@/components/Hero';
 import PageLayout from '@/components/PageLayout';
-import NangLucSXPage from '@/components/Pages/Nanglucsx';
+import NangLucSXPage from '@/components/FieldOfConstruction';
 
 export default function PathnamesPage() {
   return (

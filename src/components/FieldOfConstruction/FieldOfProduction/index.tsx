@@ -85,7 +85,7 @@ const FieldOfProduction = () => {
                     style={{
                       padding: 24,
                       position: 'relative',
-                      height: 320
+                      height: 300
                     }}
                   >
                     <div className="d-flex align-items-stretch h-100 gap-3">
@@ -98,6 +98,7 @@ const FieldOfProduction = () => {
                                 color: '#616161',
                                 marginTop: 20
                               }}
+                              className="fs-12px md:fs-14px"
                             >
                               {item.content}
                             </div>

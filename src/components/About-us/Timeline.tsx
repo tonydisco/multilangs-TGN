@@ -145,10 +145,10 @@ function PartnersSlider() {
           <button
             className="tgn-partners-btn-prev"
             style={{
-              transform: 'rotate(180deg)',
               top: -13,
               right: -50,
-              position: 'absolute'
+              position: 'absolute',
+              transform: 'rotate(180deg)'
             }}
             onClick={onPrev}
           >

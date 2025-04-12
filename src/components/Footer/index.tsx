@@ -27,10 +27,11 @@ const Footer = () => {
           }}
         >
           <div
-            style={{
-              width: '100%',
-              padding: '3rem 7rem'
-            }}
+            // style={{
+            //   width: '100%',
+            //   padding: '3rem 7rem'
+            // }}
+            className="container"
           >
             <div
               style={{

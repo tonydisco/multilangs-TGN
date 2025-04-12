@@ -3,7 +3,21 @@ import React, {Fragment} from 'react';
 import {PureImage} from '../Common/Images';
 import {rmockRoute} from '@/config';
 
-const Header = () => {
+const _url = 'https://tgn-api.vikiworld.vn/api/';
+const getLangs = async () => {
+  const res = await fetch(`${_url}public/languages`);
+  if (!res.ok) {
+    throw new Error('Failed to fetch data');
+  }
+  return res.json();
+};
+
+const Header = async () => {
+  const langs = await getLangs();
+  console.log('====================================');
+  console.log({langs});
+  console.log('====================================');
+
   return (
     <header>
       <div

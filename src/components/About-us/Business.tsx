@@ -80,17 +80,7 @@ const BusinessPhysolophy = () => {
               }}
             >
               <div>
-                <h2
-                  style={{
-                    fontSize: 40,
-                    fontWeight: 700,
-                    color: '#000',
-                    textAlign: 'center',
-                    textTransform: 'uppercase'
-                  }}
-                >
-                  Triết lý kinh doanh
-                </h2>
+                <h2 className="tgn-page-title">Triết lý kinh doanh</h2>
               </div>
               <div
                 style={{

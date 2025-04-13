@@ -1,6 +1,5 @@
 import {TitlePageView} from '@/components/Hero';
 import PageLayout from '@/components/PageLayout';
-import NangLucSXPage from '@/components/FieldOfConstruction';
 import {Locale} from 'next-intl';
 import {setRequestLocale} from 'next-intl/server';
 import {use} from 'react';
@@ -20,7 +19,7 @@ export default function PathnamesPage({params}: Readonly<Props>) {
       title={<TitlePageView title="liên hệ tuyển dụng" />}
       className="lhtd-wrapper"
     >
-      <NangLucSXPage />
+      <div style={{height: 300}}></div>
     </PageLayout>
   );
 }

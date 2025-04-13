@@ -1,6 +1,5 @@
 import {TitlePageView} from '@/components/Hero';
 import PageLayout from '@/components/PageLayout';
-import NangLucSXPage from '@/components/FieldOfConstruction';
 
 export default function PathnamesPage() {
   return (
@@ -8,7 +7,7 @@ export default function PathnamesPage() {
       title={<TitlePageView title="Năng lực sản xuất" />}
       className="nlsx-wrapper"
     >
-      <NangLucSXPage />
+      <div style={{height: 300}}></div>
     </PageLayout>
   );
 }

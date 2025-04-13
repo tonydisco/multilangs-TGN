@@ -1,22 +1,16 @@
-import Link from 'next/link';
-import React, {Fragment} from 'react';
-import {PureImage} from '../Common/Images';
+import {getLangs} from '@/apis/langs';
 import {rmockRoute} from '@/config';
+import Link from 'next/link';
+import {Fragment} from 'react';
+import {PureImage} from '../Common/Images';
+import Languages from './Langs';
+import {Locale} from 'next-intl';
 
-const _url = 'https://tgn-api.vikiworld.vn/api/';
-const getLangs = async () => {
-  const res = await fetch(`${_url}public/languages`);
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
-  return res.json();
+type Props = {
+  locale: Locale;
 };
-
-const Header = async () => {
-  const langs = await getLangs();
-  console.log('====================================');
-  console.log({langs});
-  console.log('====================================');
+const Header = async ({locale}: Readonly<Props>) => {
+  const langsResult = await getLangs();
 
   return (
     <header>
@@ -106,16 +100,17 @@ const Header = async () => {
                     <PureImage url="/icon/ZALO.svg" />
                   </div>
                   <div className="line-btw"></div>
-                  <div
-                    style={{
-                      width: '20px',
-                      cursor: 'pointer',
-                      opacity: 1,
-                      transition: 'opacity 0.3s ease'
-                    }}
-                  >
-                    <PureImage url="/icon/FLAG-VI.svg" />
-                  </div>
+                  {(() => {
+                    if (langsResult.isSuccess) {
+                      return (
+                        <Languages
+                          locale={locale}
+                          data={langsResult?.result?.languages}
+                        />
+                      );
+                    }
+                    return null;
+                  })()}
                 </div>
               </div>
             </div>

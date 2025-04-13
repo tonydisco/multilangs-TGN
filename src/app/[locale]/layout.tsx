@@ -1,12 +1,14 @@
 /* eslint-disable @next/next/no-page-custom-font */
+import './styles.css';
+import {ReactNode} from 'react';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import {routing} from '@/i18n/routing';
+import {notFound} from 'next/navigation';
+import {getSettings} from '@/apis/settings';
+import {GoogleAnalytics} from '@next/third-parties/google';
 import {hasLocale, Locale, NextIntlClientProvider} from 'next-intl';
 import {getTranslations, setRequestLocale} from 'next-intl/server';
-import {notFound} from 'next/navigation';
-import {ReactNode} from 'react';
-import './styles.css';
 
 type Props = {
   children: ReactNode;
@@ -33,9 +35,22 @@ export default async function LocaleLayout({
 }: Readonly<Props>) {
   // Ensure that the incoming `locale` is valid
   const {locale} = await params;
+
+  let GGkey = '';
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
+  const setting = await getSettings();
+  const findGGKey = setting?.result?.data.find(
+    (item) => item.key === 'General'
+  );
+  if (findGGKey) {
+    const findGGKeyValue = JSON.parse(findGGKey.value);
+    if (findGGKeyValue?.gA4Id) {
+      GGkey = findGGKeyValue.gA4Id;
+    }
+  }
+  // "{\"siteTitle\":\"TNG Group\",\"siteIcon\":\"\",\"tagline\":\"Sự hài lòng của bạn là thước đo sự tồn tại và phát triển của chúng tôi!\",\"gA4Id\":\"-\"}"
 
   // Enable static rendering
   setRequestLocale(locale);
@@ -74,6 +89,7 @@ export default async function LocaleLayout({
           {children}
           <Footer />
         </NextIntlClientProvider>
+        {GGkey && <GoogleAnalytics gaId={GGkey} />}
       </body>
     </html>
   );

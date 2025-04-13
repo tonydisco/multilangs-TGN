@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-page-custom-font */
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import {routing} from '@/i18n/routing';
@@ -69,7 +70,7 @@ export default async function LocaleLayout({
       </head>
       <body>
         <NextIntlClientProvider>
-          <Header />
+          <Header locale={locale} />
           {children}
           <Footer />
         </NextIntlClientProvider>

@@ -7,6 +7,11 @@ const withNextIntl = createNextIntlPlugin({
   }
 });
 
-const config: NextConfig = {};
+const config: NextConfig = {
+  env: {
+    NEXT_PUBLIC_API_URL: 'https://tgn-api.vikiworld.vn/api/',
+    PORT: '2723'
+  }
+};
 
 export default withNextIntl(config);

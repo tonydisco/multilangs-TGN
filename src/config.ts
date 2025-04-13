@@ -4,7 +4,7 @@ export const host =
 
 export const rmockRoute = [
   {name: 'Trang chủ', path: '/'},
-  {name: 'Giới thiệu', path: '/about-us'},
+  {name: 'Giới thiệu', path: '/gioi-thieu'},
   {name: 'Lĩnh vực hoạt động', path: '/linh-vuc-hoat-dong'},
   {name: 'Năng lực sản xuất', path: '/nang-luc-san-xuat'},
   {name: 'Sản phẩm', path: '/san-pham'},

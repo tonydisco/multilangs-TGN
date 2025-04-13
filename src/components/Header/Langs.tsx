@@ -1,9 +1,8 @@
 'use client';
-import React, {useRef, useState} from 'react';
+import {usePathname, useRouter} from 'next/navigation';
+import {useRef, useState} from 'react';
 import {PureImage} from '../Common/Images';
 import './style.css';
-import {useRouter} from 'next/navigation';
-import {usePathname} from 'next/navigation';
 
 const mapping = {
   'vi-VN': 'vi',
@@ -24,14 +23,22 @@ const Languages = (props: {data: Array<any>; locale: string}) => {
   const pathname = usePathname();
 
   const onUpdateLang = (lang: any) => {
-    if (onMappingLocale(lang.code) === activedLang) {
-      return;
-    }
+    let newPathname = '';
     setActivedLang(onMappingLocale(lang?.code));
-    const newPathname = pathname.replace(
-      `/${onMappingLocale(locale)}`,
-      `/${onMappingLocale(lang.code)}`
-    );
+
+    if (onMappingLocale(lang.code) === activedLang) {
+      const foundLocale = refLang.current.find(
+        (item) => onMappingLocale(item.code) !== locale
+      );
+      if (foundLocale) {
+        newPathname = pathname.replace(
+          locale,
+          onMappingLocale(foundLocale.code)
+        );
+      }
+    } else {
+      newPathname = pathname.replace(locale, onMappingLocale(lang.code));
+    }
     router.push(newPathname);
   };
 

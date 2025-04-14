@@ -10,5 +10,5 @@ export const rmockRoute = [
   {name: 'Sản phẩm', path: '/san-pham'},
   {name: 'Dự án', path: '/du-an'},
   {name: 'Tin tức', path: '/tin-tuc'},
-  {name: 'Liên hệ - tuyển dụng', path: '/lienhe-tuyendung'}
+  {name: 'Liên hệ - tuyển dụng', path: '/lien-he-tuyen-dung'}
 ];

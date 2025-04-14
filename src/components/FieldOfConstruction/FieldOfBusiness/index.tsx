@@ -1,7 +1,5 @@
-import React from 'react';
+import {CardBase} from '@/components/Common/Card';
 import './style.css';
-import Link from 'next/link';
-import {PureImage} from '@/components/Common/Images';
 
 const FieldOfBusiness = () => {
   return (
@@ -31,58 +29,18 @@ const FieldOfBusiness = () => {
                     key={item.title}
                     className={`col-12 col-md-6 col-lg-6 ${index > 1 ? 'mt-4' : ''}`}
                   >
-                    <div
-                      className="base-card-full-border base-card-full-border-fop"
-                      style={{
-                        padding: 24,
-                        position: 'relative',
-                        height: 340
+                    <CardBase
+                      item={{
+                        title: item.title,
+                        content: item.content,
+                        image: item.image,
+                        linkTo: item.linkTo,
+                        btnText: 'Xem chi tiết',
+                        cardStyle: {
+                          height: 340
+                        }
                       }}
-                    >
-                      <div className="d-flex align-items-stretch h-100 gap-3">
-                        <div className="field-of-production-item__content h-100 w-100">
-                          <div className="d-flex flex-column justify-content-between h-100">
-                            <div>
-                              <h3
-                                className="tgn-box-title text-start"
-                                style={{fontSize: 22}}
-                              >
-                                {item.title}
-                              </h3>
-                              <div
-                                style={{
-                                  color: '#616161',
-                                  marginTop: 20
-                                }}
-                                className="text-start fs-12px md:fs-14px"
-                              >
-                                {item.content}
-                              </div>
-                            </div>
-                            <div className="text-start">
-                              <button className="app-btn-default">
-                                <Link href={item.linkTo}>
-                                  <div className="app-btn-default-flex">
-                                    <span style={{fontWeight: 500}}>
-                                      Xem chi tiết
-                                    </span>
-                                    <PureImage
-                                      style={{width: 12}}
-                                      url="/landing/ICON-ARROW.svg"
-                                    />
-                                  </div>
-                                </Link>
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="field-of-production-item__image w-100">
-                          <div className="w-100 h-100 overflow-hidden rounded-4">
-                            <PureImage url={item.image} mode="cover" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    />
                   </div>
                 );
               })}

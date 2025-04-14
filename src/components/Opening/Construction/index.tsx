@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import {ImageMode, PureImage} from '../../Common/Images';
+import {PureImage} from '../../Common/Images';
+import {ImageMode} from '@/models/types';
 
 const Construction = () => {
   return (

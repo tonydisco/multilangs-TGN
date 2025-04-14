@@ -11,6 +11,14 @@ const config: NextConfig = {
   env: {
     NEXT_PUBLIC_API_URL: 'https://tgn-api.vikiworld.vn/api/',
     PORT: '2723'
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'tgn-cdn.vikiworld.vn'
+      }
+    ]
   }
 };
 

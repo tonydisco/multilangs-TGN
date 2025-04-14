@@ -1,6 +1,6 @@
 'use client';
+import {CardBase} from '@/components/Common/Card';
 import {PureImage} from '@/components/Common/Images';
-import Link from 'next/link';
 import {useRef} from 'react';
 import Slider from 'react-slick';
 // Add this type definition
@@ -82,94 +82,25 @@ function ProductionSlider() {
                   margin: 10
                 }}
               >
-                <div
-                  className="base-card-full-border"
-                  style={{
-                    padding: 16,
-                    position: 'relative',
-                    overflow: 'hidden',
-                    width: '100%',
-                    borderRadius: 16,
-                    height: 300
+                <CardBase
+                  item={{
+                    title: item.title,
+                    content: item.sub,
+                    image: item.img,
+                    linkTo: '/nang-luc-san-xuat',
+                    btnText: 'Xem thêm',
+                    cardStyle: {
+                      padding: 16,
+                      borderRadius: 16,
+                      height: 300
+                    },
+                    imageStyle: {
+                      flex: 1,
+                      borderRadius: 16,
+                      overflow: 'hidden'
+                    }
                   }}
-                >
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'stretch',
-                      gap: 16,
-                      height: '100%'
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: 16,
-                        justifyContent: 'space-between',
-                        height: '100%',
-                        alignItems: 'flex-start'
-                      }}
-                    >
-                      <div style={{maxWidth: 300}}>
-                        <h2
-                          style={{
-                            fontSize: 24,
-                            fontWeight: 700,
-                            textTransform: 'uppercase',
-                            whiteSpace: 'pre-line'
-                          }}
-                        >
-                          {item.title}
-                        </h2>
-                        <div
-                          style={{
-                            fontSize: 14,
-                            marginTop: 15
-                          }}
-                        >
-                          {item.sub}
-                        </div>
-                      </div>
-                      <button className="app-btn-default">
-                        <Link href="/nang-luc-san-xuat">
-                          <div
-                            style={{
-                              display: 'flex',
-                              justifyContent: 'space-between',
-                              alignItems: 'center',
-                              gap: 8
-                            }}
-                          >
-                            <span
-                              style={{
-                                fontSize: 14,
-                                fontWeight: 500
-                              }}
-                            >
-                              Xem thêm
-                            </span>
-                            <PureImage
-                              style={{width: 12}}
-                              url="/landing/ICON-ARROW.svg"
-                            />
-                          </div>
-                        </Link>
-                      </button>
-                    </div>
-
-                    <div
-                      style={{
-                        flex: 1,
-                        borderRadius: 16,
-                        overflow: 'hidden'
-                      }}
-                    >
-                      <PureImage url={item?.img} mode="cover" />
-                    </div>
-                  </div>
-                </div>
+                />
               </div>
             </div>
           );

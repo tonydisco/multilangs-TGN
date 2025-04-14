@@ -1,7 +1,6 @@
+import {ImageMode} from '@/models/types';
 import Image from 'next/image';
 import React from 'react';
-
-export type ImageMode = 'contain' | 'fill' | 'cover' | 'none' | 'scale-down';
 
 interface ILogoProps {
   url?: string;

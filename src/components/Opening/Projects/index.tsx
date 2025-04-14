@@ -1,4 +1,5 @@
-import {ImageMode, PureImage} from '@/components/Common/Images';
+import {PureImage} from '@/components/Common/Images';
+import {ImageMode} from '@/models/types';
 import Link from 'next/link';
 import React from 'react';
 

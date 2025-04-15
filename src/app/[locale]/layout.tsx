@@ -1,17 +1,12 @@
-/* eslint-disable @next/next/no-page-custom-font */
 import {getSettings} from '@/apis/settings';
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
 import {routing} from '@/i18n/routing';
-import {GoogleAnalytics} from '@next/third-parties/google';
-import {hasLocale, Locale, NextIntlClientProvider} from 'next-intl';
+import {hasLocale, Locale} from 'next-intl';
 import {getTranslations, setRequestLocale} from 'next-intl/server';
 import {notFound} from 'next/navigation';
 import {ReactNode} from 'react';
-import './styles.css';
 
+import RootLayout from '@/components/Layout';
 import {Montserrat} from 'next/font/google';
-import {AppProvider} from '@/Providers';
 
 type Props = {
   children: ReactNode;
@@ -60,8 +55,6 @@ export default async function LocaleLayout({
       GGkey = findGGKeyValue.gA4Id;
     }
   }
-  // "{\"siteTitle\":\"TNG Group\",\"siteIcon\":\"\",\"tagline\":\"Sự hài lòng của bạn là thước đo sự tồn tại và phát triển của chúng tôi!\",\"gA4Id\":\"-\"}"
-
   // Enable static rendering
   setRequestLocale(locale);
 
@@ -88,16 +81,9 @@ export default async function LocaleLayout({
         />
       </head>
       <body className={montserrat.className}>
-        <NextIntlClientProvider>
-          <AppProvider locale={locale}>
-            <>
-              <Header locale={locale} />
-              {children}
-              <Footer />
-            </>
-          </AppProvider>
-        </NextIntlClientProvider>
-        {GGkey && <GoogleAnalytics gaId={GGkey} />}
+        <RootLayout locale={locale} GGkey={GGkey}>
+          {children}
+        </RootLayout>
       </body>
     </html>
   );

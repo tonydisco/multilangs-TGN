@@ -18,6 +18,11 @@ export interface ICardProps {
   imageStyle?: React.CSSProperties;
   className?: string;
   imgMode?: ImageMode;
+  flex?: {
+    left: number | string;
+    right: number | string;
+  };
+  isReverse?: boolean;
 }
 export interface IButtonProps {
   text: string;

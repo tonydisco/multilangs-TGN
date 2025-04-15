@@ -1,6 +1,6 @@
 import {TitlePageView} from '@/components/Hero';
 import PageLayout from '@/components/PageLayout';
-import FieldOfConstruction from '@/components/FieldOfConstruction';
+import FieldOfConstruction from './FieldOfConstruction';
 import {getLvhd} from '@/apis/pages';
 
 export default async function Page() {

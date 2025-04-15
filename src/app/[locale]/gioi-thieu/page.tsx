@@ -1,4 +1,4 @@
-import AboutUsView from '@/components/About-us';
+import AboutUsView from './About-us';
 import {HeaderTitleView} from '@/components/Hero';
 import PageLayout from '@/components/PageLayout';
 

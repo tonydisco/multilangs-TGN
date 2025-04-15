@@ -1,0 +1,25 @@
+.field-of-production-wrapper {
+  position: relative;
+  z-index: 1;
+  min-height: 960px;
+}
+
+.field-of-production-wrapper::before,
+.field-of-production-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.field-of-production-wrapper::before {
+  background: url('/landing/LVHD/LVSX/BG.png') no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+}
+.field-of-production-wrapper::after {
+  /* background overlay */
+  background: rgba(255, 255, 255, 0.8);
+  z-index: -1;
+}

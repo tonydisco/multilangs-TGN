@@ -35,8 +35,15 @@ const CardBase = (props: {item: ICardProps}) => {
         ...item?.cardStyle
       }}
     >
-      <div className="d-flex align-items-stretch h-100 gap-3">
-        <div className="field-of-production-item__content h-100 w-100">
+      <div
+        className={`d-flex align-items-stretch h-100 gap-3 ${item?.isReverse ? 'flex-row-reverse' : ''}`}
+      >
+        <div
+          className="field-of-production-item__content h-100 w-100"
+          style={{
+            flex: item?.flex?.left ?? 1
+          }}
+        >
           <div className="d-flex flex-column justify-content-between h-100">
             <div>
               <h3 className="tgn-box-title text-start">{item?.title}</h3>
@@ -60,7 +67,12 @@ const CardBase = (props: {item: ICardProps}) => {
             </div>
           </div>
         </div>
-        <div className="field-of-production-item__image w-100">
+        <div
+          className="field-of-production-item__image w-100"
+          style={{
+            flex: item?.flex?.right ?? 1
+          }}
+        >
           <div className="w-100 h-100 overflow-hidden rounded-4">
             <PureImage
               url={item?.image}

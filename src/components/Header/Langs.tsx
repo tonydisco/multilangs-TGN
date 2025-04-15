@@ -5,8 +5,8 @@ import {PureImage} from '../Common/Images';
 import './style.css';
 
 const mapping = {
-  'vi-VN': 'vi',
-  'en-US': 'en'
+  vi: 'vi',
+  en: 'en'
 };
 
 const onMappingLocale = (locale: string) => {

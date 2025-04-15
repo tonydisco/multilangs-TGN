@@ -25,8 +25,9 @@ export interface ICardProps {
   isReverse?: boolean;
 }
 export interface IButtonProps {
-  text: string;
+  text?: string;
   content?: React.ReactNode;
   linkTo?: string;
   onBtn?: () => void;
+  style?: React.CSSProperties;
 }

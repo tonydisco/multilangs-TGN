@@ -1,0 +1,33 @@
+.card-item-wrapper {
+  overflow: hidden;
+  background-color: #fff;
+  height: auto;
+}
+
+.card-item-content {
+  padding: 12px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-item-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+.card-item-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+}
+
+.card-image-wrapper {
+  background-color: #dfdfdf;
+  overflow: hidden;
+  border-radius: 16px;
+}

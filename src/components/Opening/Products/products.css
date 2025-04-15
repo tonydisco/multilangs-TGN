@@ -9,10 +9,6 @@
   justify-content: space-between;
 }
 
-.tgn-products-info {
-  
-}
-
 .tgn-products-title {
   font-weight: 700;
   font-size: 32px;
@@ -67,11 +63,6 @@
   padding: 50px 0;
 }
 
-.tgn-product-grid-container {
-  margin: 0 10px;
-  padding: 0 10px;
-}
-
 .tgn-product-grid-item {
   overflow: hidden;
   background-color: #fff;
@@ -124,7 +115,7 @@
 }
 
 .tgn-product-item-image-wrapper {
-  background-color: #DFDFDF;
+  background-color: #dfdfdf;
   overflow: hidden;
   border-radius: 16px;
 }

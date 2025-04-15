@@ -70,7 +70,8 @@ const ProjectList = ({locale}: {locale: string}) => {
                     color: '#fff',
                     fontSize: 18,
                     fontWeight: 700,
-                    zIndex: 2
+                    zIndex: 2,
+                    textTransform: 'uppercase'
                   }}
                 >
                   {item.title}
@@ -86,7 +87,7 @@ const ProjectList = ({locale}: {locale: string}) => {
         style={{
           display: 'flex',
           justifyContent: 'center',
-          marginTop: 20
+          marginTop: 50
         }}
       >
         <div style={{display: 'flex', gap: 20}}>

@@ -3,13 +3,14 @@ import React from 'react';
 import {PureImage} from './Images';
 import {IButtonProps} from '@/models/interface';
 
-const Button = (props: {btnProps: IButtonProps}) => {
+const Button = (props: {btnProps?: IButtonProps}) => {
   const {btnProps} = props;
   if (btnProps?.content) {
     return (
       <button
         onClick={() => btnProps?.onBtn?.() ?? null}
         className="app-btn-default"
+        style={{...btnProps?.style}}
       >
         {btnProps.content}
       </button>
@@ -18,14 +19,17 @@ const Button = (props: {btnProps: IButtonProps}) => {
   const BtnInner = () => {
     return (
       <div className="app-btn-default-flex">
-        <span style={{fontWeight: 500}}>{btnProps.text}</span>
+        {btnProps?.text && (
+          <span style={{fontWeight: 500}}>{btnProps?.text}</span>
+        )}
+
         <PureImage style={{width: 12}} url="/landing/ICON-ARROW.svg" />
       </div>
     );
   };
   if (btnProps?.linkTo) {
     return (
-      <button className="app-btn-default">
+      <button className="app-btn-default" style={{...btnProps?.style}}>
         <Link href={btnProps?.linkTo ?? '#'}>
           <BtnInner />
         </Link>
@@ -36,6 +40,7 @@ const Button = (props: {btnProps: IButtonProps}) => {
     <button
       className="app-btn-default"
       onClick={() => btnProps?.onBtn?.() ?? null}
+      style={{...btnProps?.style}}
     >
       <BtnInner />
     </button>

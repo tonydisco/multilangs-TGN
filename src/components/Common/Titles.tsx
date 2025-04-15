@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface ITitlesProps {
-  title: string;
+  title: string | React.ReactNode;
   style?: React.CSSProperties;
 }
 
@@ -20,5 +20,26 @@ const SectionTitles = ({title, style}: ITitlesProps) => {
     </h2>
   );
 };
+const SectionSub = ({
+  text,
+  style
+}: {
+  text: string | React.ReactNode;
+  style?: React.CSSProperties;
+}) => {
+  return (
+    <div
+      style={{
+        marginTop: 20,
+        color: '#616161',
+        textAlign: 'left',
+        ...style
+      }}
+      className="fs-12px md:fs-14px"
+    >
+      {text}
+    </div>
+  );
+};
 
-export {SectionTitles};
+export {SectionTitles, SectionSub};

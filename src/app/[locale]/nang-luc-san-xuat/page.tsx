@@ -92,16 +92,22 @@ export default function PathnamesPage() {
         <BaseSlider
           rederList={Array.from({length: 4}).map((_, i) => {
             return (
-              <div key={i} className="d-flex justify-content-center">
-                <PureImage
-                  url={`/landing/NLSX/${i + 1}.png`}
+              <div key={i}>
+                <div
                   style={{
-                    width: '100%',
-                    height: 'auto',
-                    maxWidth: 300,
-                    borderRadius: 8
+                    margin: 10
                   }}
-                />
+                >
+                  <PureImage
+                    url={`/landing/NLSX/${i + 1}.png`}
+                    style={{
+                      width: '100%',
+                      height: 'auto',
+                      maxWidth: 300,
+                      borderRadius: 8
+                    }}
+                  />
+                </div>
               </div>
             );
           })}

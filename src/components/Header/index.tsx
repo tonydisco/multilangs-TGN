@@ -1,10 +1,10 @@
 import {getLangs} from '@/apis/langs';
 import {rmockRoute} from '@/config';
+import {Locale} from 'next-intl';
 import Link from 'next/link';
 import {Fragment} from 'react';
 import {PureImage} from '../Common/Images';
 import Languages from './Langs';
-import {Locale} from 'next-intl';
 
 type Props = {
   locale: Locale;

@@ -1,19 +1,29 @@
 /* eslint-disable @next/next/no-page-custom-font */
-import './styles.css';
-import {ReactNode} from 'react';
+import {getSettings} from '@/apis/settings';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import {routing} from '@/i18n/routing';
-import {notFound} from 'next/navigation';
-import {getSettings} from '@/apis/settings';
 import {GoogleAnalytics} from '@next/third-parties/google';
 import {hasLocale, Locale, NextIntlClientProvider} from 'next-intl';
 import {getTranslations, setRequestLocale} from 'next-intl/server';
+import {notFound} from 'next/navigation';
+import {ReactNode} from 'react';
+import './styles.css';
+
+import {Montserrat} from 'next/font/google';
+import {AppProvider} from '@/Providers';
 
 type Props = {
   children: ReactNode;
   params: Promise<{locale: Locale}>;
 };
+
+const montserrat = Montserrat({
+  weight: ['300', '400', '500', '700'], // Specify desired weights
+  style: ['normal', 'italic'], // Optional: include italic if needed
+  subsets: ['latin'], // Optimize for Latin characters
+  display: 'swap' // Prevent layout shift
+});
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({locale}));
@@ -56,17 +66,11 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   return (
-    <html className="h-full" lang={locale}>
+    <html lang={locale}>
       <head>
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
-        />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-          rel="stylesheet"
         />
         <link
           rel="stylesheet"
@@ -83,11 +87,15 @@ export default async function LocaleLayout({
           href="https://tgn-api.vikiworld.vn/styles/bs-utilities.min.css"
         />
       </head>
-      <body>
+      <body className={montserrat.className}>
         <NextIntlClientProvider>
-          <Header locale={locale} />
-          {children}
-          <Footer />
+          <AppProvider locale={locale}>
+            <>
+              <Header locale={locale} />
+              {children}
+              <Footer />
+            </>
+          </AppProvider>
         </NextIntlClientProvider>
         {GGkey && <GoogleAnalytics gaId={GGkey} />}
       </body>

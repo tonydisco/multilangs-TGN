@@ -9,7 +9,7 @@ type Props = {
   reset(): void;
 };
 
-export default function Error({error, reset}: Readonly<Props>) {
+export default function ErrorPage({error, reset}: Readonly<Props>) {
   const t = useTranslations('Error');
 
   useEffect(() => {

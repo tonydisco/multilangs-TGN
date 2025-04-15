@@ -1,6 +1,7 @@
 import BusinessPhysolophy from './Business';
 import VisionMission from './VisionMission';
 import Timeline from './Timeline';
+import {SectionTitles} from '@/components/Common/Titles';
 
 const AboutUsView = () => {
   return (
@@ -36,17 +37,11 @@ const AboutUsView = () => {
               color: 'white'
             }}
           >
-            <h2
-              style={{
-                textAlign: 'center',
-                fontSize: '3rem',
-                fontWeight: 700,
-                marginBottom: '1.5rem'
-              }}
-            >
-              Về chúng tôi
-            </h2>
-            <div>
+            <SectionTitles
+              title="Về chúng tôi"
+              style={{color: 'white', textAlign: 'center'}}
+            />
+            <div className="mt-4">
               <p className="mb-3">
                 <strong>Thế Giới Nhà Group</strong> - hoạt động trong lĩnh vực
                 sản xuất và cung cấp vật liệu xây dựng tại Việt Nam.

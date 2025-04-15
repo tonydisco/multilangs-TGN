@@ -1,5 +1,5 @@
 import React from 'react';
-import {PureImage} from '../Common/Images';
+import {PureImage} from '../../../../components/Common/Images';
 
 const VisionMission = () => {
   return (

@@ -1,6 +1,7 @@
 'use client';
 
 import {PureImage} from '@/components/Common/Images';
+import {SectionTitles} from '@/components/Common/Titles';
 import {useRef} from 'react';
 import Slider from 'react-slick';
 interface TimelineItem {
@@ -64,16 +65,7 @@ const Timeline = () => {
                 <PureImage url="/logo/LOGO-BORDER.svg" />
               </div>
             </div>
-            <h2
-              className="position-relative tgn-text-base-color"
-              style={{
-                fontSize: '2.5rem',
-                fontWeight: 700,
-                textTransform: 'uppercase'
-              }}
-            >
-              LỊCH SỬ PHÁT TRIỂN
-            </h2>
+            <SectionTitles title="lịch sử phát triển" />
           </div>
         </div>
         <PartnersSlider />
@@ -111,7 +103,7 @@ function PartnersSlider() {
     slidesToShow: 3,
     slidesToScroll: 1,
     speed: 300,
-    // cssEase: 'linear',
+    cssEase: 'linear',
     dot: false,
     arrows: false
   };

@@ -7,6 +7,7 @@ import {Locale} from 'next-intl';
 import {setRequestLocale} from 'next-intl/server';
 import {use} from 'react';
 import NewsList from './NewsList';
+import {SingleTab} from '@/components/Common/News';
 
 type Props = {
   params: Promise<{locale: Locale}>;
@@ -28,15 +29,21 @@ export default function Page({params}: Readonly<Props>) {
           <div className="d-flex gap-5">
             <NewsList />
             <div className="tgn-news-event-header">
-              <div style={{padding: '16px 0', position: 'relative'}}>
-                <h3 className="tgn-news-event-title tgn-title m-0">
-                  Lịch sự kiện
-                </h3>
-                <div className="tgn-news-event-line" />
-              </div>
+              <SingleTab
+                titleTab="Lịch sự kiện"
+                style={{
+                  padding: '16px 0'
+                }}
+              />
               <div className="tgn-news-event-content">
                 <CalendarList />
               </div>
+              <SingleTab
+                titleTab="tin tức khác"
+                style={{
+                  padding: '16px 0'
+                }}
+              />
             </div>
           </div>
         </CardBorder>

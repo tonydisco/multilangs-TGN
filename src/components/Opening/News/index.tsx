@@ -5,6 +5,7 @@ import {PureImage} from '@/components/Common/Images';
 import {SectionTitles} from '@/components/Common/Titles';
 import {SectionBase} from '@/components/Common/Section';
 import {CardBorder} from '@/components/Common/Card';
+import {SingleTab} from '@/components/Common/News';
 
 const News = () => {
   return (
@@ -19,12 +20,12 @@ const News = () => {
           <div className="d-flex gap-5">
             <NewsList />
             <div className="tgn-news-event-header">
-              <div style={{padding: '16px 0', position: 'relative'}}>
-                <h3 className="tgn-news-event-title tgn-title m-0">
-                  Lịch sự kiện
-                </h3>
-                <div className="tgn-news-event-line" />
-              </div>
+              <SingleTab
+                titleTab="Lịch sự kiện"
+                style={{
+                  padding: '16px 0'
+                }}
+              />
               <div className="tgn-news-event-content">
                 <CalendarList />
               </div>

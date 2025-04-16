@@ -48,21 +48,6 @@
   right: -50px;
 }
 
-.tgn-partners-btn {
-  right: 0;
-  bottom: 0;
-  height: 20px;
-  width: 20px;
-}
-
-.tgn-partners-btn-prev {
-  right: 0;
-  bottom: 0;
-  height: 25px;
-  width: 25px;
-  transform: rotate(180deg);
-}
-
 .tgn-partners-grid-container {
   margin: 0 10px;
   padding: 0 10px;

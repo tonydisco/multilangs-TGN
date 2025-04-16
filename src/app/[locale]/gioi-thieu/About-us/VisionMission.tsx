@@ -4,7 +4,7 @@ import {PureImage} from '../../../../components/Common/Images';
 const VisionMission = () => {
   return (
     <section className="vision-mission">
-      <div className="app-container">
+      <div className="container">
         <div
           style={{
             height: '500px',

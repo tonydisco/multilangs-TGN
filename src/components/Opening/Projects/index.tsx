@@ -32,7 +32,7 @@ const Projects = () => {
           <PureImage url="/landing/PROJECTS/HAlF-CIRCLE-ICON.png" />
         </div>
       </div>
-      <div className="app-container">
+      <div className="container">
         <div style={{textAlign: 'center'}}>
           <h2
             style={{

@@ -7,7 +7,7 @@ import './products.css';
 const Products = () => {
   return (
     <section className="tgn-products-section">
-      <div className="app-container">
+      <div className="container">
         <div className="tgn-products-content">
           <div className="tgn-products-info">
             <h2 className="tgn-products-title">sản phẩm</h2>

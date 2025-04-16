@@ -12,3 +12,21 @@ export const rmockRoute = [
   {name: 'Tin tức', path: '/tin-tuc'},
   {name: 'Liên hệ - tuyển dụng', path: '/lien-he-tuyen-dung'}
 ];
+
+export const newsTabs = [
+  {
+    title: 'tất cả',
+    value: 'all',
+    id: 'tab-all'
+  },
+  {
+    title: 'tin tức nổi bật',
+    value: 'featured',
+    id: 'tab-featured'
+  },
+  {
+    title: 'tin tức thị trường',
+    value: 'market',
+    id: 'tab-market'
+  }
+];

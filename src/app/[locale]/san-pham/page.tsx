@@ -13,7 +13,7 @@ type Props = {
   params: Promise<{locale: Locale}>;
 };
 
-export default function PathnamesPage({params}: Readonly<Props>) {
+export default function Page({params}: Readonly<Props>) {
   const {locale} = use(params);
 
   // Enable static rendering

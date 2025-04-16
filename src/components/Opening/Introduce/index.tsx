@@ -7,7 +7,7 @@ const Introduce = () => {
   return (
     <section className="tgn-introduce-section">
       <div className="tgn-introduce-container">
-        <div className="app-container base-card">
+        <div className="container base-card">
           <div className="tgn-introduce-card">
             <div className="tgn-introduce-left">
               <div className="tgn-introduce-content">

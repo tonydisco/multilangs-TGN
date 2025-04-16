@@ -54,7 +54,7 @@ const BusinessPhysolophy = () => {
           />
         </div>
         <div
-          className="app-container"
+          className="container"
           style={{
             width: '100%',
             height: '100%',

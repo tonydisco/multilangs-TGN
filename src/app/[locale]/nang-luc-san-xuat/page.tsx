@@ -31,7 +31,10 @@ export default function PathnamesPage() {
           }}
         />
       </SectionBase>
-      <SectionBase bgImage="/landing/NLSX/SXCK-BG.png">
+      <SectionBase
+        bgImage="/landing/NLSX/SXCK-BG.png"
+        className="section-wrapper-bg"
+      >
         <CardBase
           item={{
             title: 'Hệ thống sản xuất sản phẩm cấu kiện bê tông',
@@ -68,7 +71,10 @@ export default function PathnamesPage() {
           }}
         />
       </SectionBase>
-      <SectionBase bgImage="/landing/NLSX/TTB-BG.png">
+      <SectionBase
+        bgImage="/landing/NLSX/TTB-BG.png"
+        className="section-wrapper-bg"
+      >
         <CardBase
           item={{
             title: 'hệ thống trang - thiết bị',

@@ -7,17 +7,19 @@ interface ISectionProps {
   bgImage?: string;
   style?: React.CSSProperties;
   contentStyle?: React.CSSProperties;
+  className?: string;
 }
 
 const SectionBase = ({
   children,
   bgImage,
   style,
-  contentStyle
+  contentStyle,
+  className
 }: ISectionProps) => {
   return (
     <div
-      className="section-wrapper"
+      className={`section-wrapper ${className}`}
       style={{
         ...(bgImage ? {backgroundImage: `url(${bgImage})`} : {}),
         ...style

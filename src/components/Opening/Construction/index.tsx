@@ -15,7 +15,7 @@ const Construction = () => {
           position: 'relative',
           width: '100%'
         }}
-        className="app-container"
+        className="container"
       >
         <div
           style={{
@@ -191,7 +191,7 @@ const Construction = () => {
           overflow: 'hidden'
         }}
       >
-        <div className="app-container" style={{height: '100%'}}>
+        <div className="container" style={{height: '100%'}}>
           <div
             style={{
               display: 'flex',

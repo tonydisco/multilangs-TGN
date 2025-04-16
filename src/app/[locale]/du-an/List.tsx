@@ -1,6 +1,7 @@
 'use client';
 import {CardBorder} from '@/components/Common/Card';
 import {PureImage} from '@/components/Common/Images';
+import Pagination from '@/components/Common/Pagination';
 import React, {useState} from 'react';
 
 const ProjectList = ({locale}: {locale: string}) => {
@@ -14,7 +15,7 @@ const ProjectList = ({locale}: {locale: string}) => {
     limit: 6
   });
 
-  const onNext = () => {
+  const handleNext = () => {
     if (projectData.page * projectData.limit < projectData.total) {
       setProjectData({
         ...projectData,
@@ -23,7 +24,7 @@ const ProjectList = ({locale}: {locale: string}) => {
     }
   };
 
-  const onPrev = () => {
+  const handlePrev = () => {
     if (projectData.page > 1) {
       setProjectData({
         ...projectData,
@@ -31,6 +32,14 @@ const ProjectList = ({locale}: {locale: string}) => {
       });
     }
   };
+
+  const onPaginationChange = (page: number) => {
+    setProjectData({
+      ...projectData,
+      page
+    });
+  };
+
   const startIndex = (projectData.page - 1) * projectData.limit;
   const endIndex = startIndex + projectData.limit;
   const data = projectData.data.slice(startIndex, endIndex);
@@ -82,58 +91,22 @@ const ProjectList = ({locale}: {locale: string}) => {
           </div>
         );
       })}
+
       <div
-        className="pagination"
         style={{
           display: 'flex',
           justifyContent: 'center',
           marginTop: 50
         }}
       >
-        <div style={{display: 'flex', gap: 20}}>
-          <button className="tgn-partners-btn" onClick={onPrev}>
-            <PureImage url="/icon/ARROW-ICON.svg" />
-          </button>
-
-          {[...Array(Math.ceil(projectData.total / projectData.limit))].map(
-            (_, index) => {
-              const activeItem = projectData.page === index + 1;
-              return (
-                <div key={index}>
-                  <button
-                    onClick={() =>
-                      setProjectData({...projectData, page: index + 1})
-                    }
-                    style={{
-                      fontSize: 16,
-                      width: 30,
-                      height: 30,
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      borderRadius: '100%',
-                      color: activeItem ? '#834e3d' : '#616161',
-                      fontWeight: 500,
-                      border: `1px solid ${activeItem ? '#834e3d' : 'transparent'}`,
-                      transition: 'all 0.3s ease'
-                    }}
-                  >
-                    {index + 1}
-                  </button>
-                </div>
-              );
-            }
-          )}
-          <button
-            className="tgn-partners-btn-prev"
-            style={{
-              transform: 'rotate(180deg)'
-            }}
-            onClick={onNext}
-          >
-            <PureImage url="/icon/ARROW-ICON.svg" />
-          </button>
-        </div>
+        <Pagination
+          total={projectData.total}
+          limit={projectData.limit}
+          page={projectData.page}
+          onPrev={handlePrev}
+          onNext={handleNext}
+          onPageChange={onPaginationChange}
+        />
       </div>
     </div>
   );

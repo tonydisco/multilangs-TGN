@@ -36,7 +36,7 @@ function ProductionSlider() {
     arrows: false
   };
   return (
-    <div className="app-container">
+    <div className="container">
       <div style={{padding: '24px 0'}}>
         <div
           style={{

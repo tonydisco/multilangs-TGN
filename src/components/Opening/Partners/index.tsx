@@ -6,11 +6,9 @@ import './partners.css';
 const Partners = () => {
   return (
     <section className="tgn-partners-section">
-      <div className="app-container">
+      <div className="container">
         <div>
-          <h2 className="tgn-partners-title">
-            khách hàng - đối tác
-          </h2>
+          <h2 className="tgn-partners-title">khách hàng - đối tác</h2>
           <PartnersSlider />
         </div>
       </div>

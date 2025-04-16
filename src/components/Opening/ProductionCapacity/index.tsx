@@ -24,7 +24,7 @@ const ProductionCapacity = () => {
       >
         <PureImage url="/landing/CONSTRUCTION/OVERLAY.svg" />
       </div>
-      <div className="app-container">
+      <div className="container">
         <div
           style={{
             display: 'flex',

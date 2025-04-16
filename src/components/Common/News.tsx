@@ -77,4 +77,19 @@ const NewsItem = ({
   );
 };
 
-export {NewsItem, NewsTabs};
+const SingleTab = ({
+  titleTab,
+  style
+}: {
+  titleTab: string;
+  style?: React.CSSProperties;
+}) => {
+  return (
+    <div style={{position: 'relative', ...style}}>
+      <h3 className="tgn-news-event-title tgn-title m-0">{titleTab}</h3>
+      <div className="tgn-news-event-line" />
+    </div>
+  );
+};
+
+export {NewsItem, NewsTabs, SingleTab};

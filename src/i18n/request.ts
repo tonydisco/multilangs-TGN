@@ -1,18 +1,26 @@
+import {fetchTranslations} from '@/apis/langs';
 import {hasLocale} from 'next-intl';
 import {getRequestConfig} from 'next-intl/server';
-import {routing} from './routing';
-import {fetchTranslations} from '@/apis/langs';
 
 export default getRequestConfig(async ({requestLocale}) => {
-  const requested = await requestLocale;
-  const locale = hasLocale(routing.locales, requested)
-    ? requested
-    : routing.defaultLocale;
+  // Typically corresponds to the `[locale]` segment
+  const {translations, result} = await fetchTranslations();
 
-  const {translations} = await fetchTranslations();
+  const defaultLocale: any = result.languages.find((item) => item.isDefault);
+  const supportedLocales: any[] = result.languages.map((item) => item.code);
+
+  const requested = await requestLocale;
+  const locale = hasLocale(supportedLocales, requested)
+    ? requested
+    : defaultLocale;
+
+  console.log('====================================');
+  console.log({locale});
+  console.log('====================================');
 
   return {
     locale,
+    // messages: getMess.default
     messages: translations[locale]
   };
 });

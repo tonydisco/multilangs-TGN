@@ -13,6 +13,10 @@ interface Translation {
 interface Language {
   code: string;
   translations: Translation[];
+  icon?: string;
+  name?: string;
+  isDefault?: boolean;
+  isDisabled?: boolean;
 }
 
 interface ApiResponse {

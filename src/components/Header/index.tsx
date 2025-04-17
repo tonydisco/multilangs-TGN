@@ -102,7 +102,7 @@ const Header = async ({locale}: Readonly<Props>) => {
                 >
                   <PureImage url="/icon/ZALO.svg" />
                 </div>
-                <div className="line-btw"></div>
+                <div className="line-btw" />
                 {(() => {
                   if (langsResult.isSuccess) {
                     return (
@@ -151,7 +151,7 @@ const Header = async ({locale}: Readonly<Props>) => {
                     </Link>
                   </li>
                   {index !== rmockRoute.length - 1 && (
-                    <div className="line-btw"></div>
+                    <div className="line-btw" />
                   )}
                 </Fragment>
               );
@@ -159,7 +159,7 @@ const Header = async ({locale}: Readonly<Props>) => {
           </ul>
         </div>
       </nav>
-      <div className="fade-line-element"></div>
+      <div className="fade-line-element" />
     </header>
   );
 };

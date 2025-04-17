@@ -1,15 +1,13 @@
 import {getSettings} from '@/apis/settings';
 import {routing} from '@/i18n/routing';
 import {hasLocale, Locale} from 'next-intl';
-import {
-  // getTranslations,
-  setRequestLocale
-} from 'next-intl/server';
+import {getTranslations, setRequestLocale} from 'next-intl/server';
 import {notFound} from 'next/navigation';
 import {ReactNode} from 'react';
 
 import RootLayout from '@/components/Layout';
 import {Montserrat} from 'next/font/google';
+import {fetchTranslations} from '@/apis/langs';
 
 type Props = {
   children: ReactNode;
@@ -23,19 +21,19 @@ const montserrat = Montserrat({
   display: 'swap' // Prevent layout shift
 });
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({locale}));
-}
-
-// export async function generateMetadata(props: Omit<Props, 'children'>) {
-//   const {locale} = await props.params;
-
-//   const t = await getTranslations({locale, namespace: 'HeadTitle'});
-
-//   return {
-//     title: t('text')
-//   };
+// export function generateStaticParams() {
+//   return routing.locales.map((locale) => ({locale}));
 // }
+
+export async function generateMetadata(props: Omit<Props, 'children'>) {
+  const {locale} = await props.params;
+
+  const t = await getTranslations({locale});
+
+  return {
+    title: t('HeadTitle')
+  };
+}
 
 export default async function LocaleLayout({
   children,
@@ -43,7 +41,7 @@ export default async function LocaleLayout({
 }: Readonly<Props>) {
   // Ensure that the incoming `locale` is valid
   const {locale} = await params;
-
+  const {result} = await fetchTranslations();
   let GGkey = '';
   if (!hasLocale(routing.locales, locale)) {
     notFound();
@@ -57,6 +55,12 @@ export default async function LocaleLayout({
     if (findGGKeyValue?.gA4Id) {
       GGkey = findGGKeyValue.gA4Id;
     }
+  }
+
+  const findDefaultLang = result.languages.find((item) => item.isDefault);
+
+  if (findDefaultLang) {
+    setRequestLocale(findDefaultLang.code as Locale);
   }
   // Enable static rendering
   setRequestLocale(locale);

@@ -1,9 +1,11 @@
 import {routing} from '@/i18n/routing';
-import messages from './messages/en.json';
 
+// {
+//   NotFoundPageDescription:'NotFoundPageDescription',
+// }
 declare module 'next-intl' {
   interface AppConfig {
     Locale: (typeof routing.locales)[number];
-    Messages: typeof messages;
+    Messages: {[key: string]: string};
   }
 }

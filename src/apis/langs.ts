@@ -18,19 +18,15 @@ interface Language {
 interface ApiResponse {
   languages: Language[];
 }
-// interface Setting {
-//   icon: string;
-//   isDisabled: boolean;
-//   isDefault: boolean;
-// }
 
-export async function fetchTranslations(): Promise<
-  Record<string, Record<string, string>>
-> {
-  const data = await apiRequest<ApiResponse>('public/languages'); // Thay bằng URL API của bạn
-
+export async function fetchTranslations(): Promise<{
+  translations: Record<string, Record<string, string>>;
+  result: {
+    languages: Language[];
+  };
+}> {
+  const data = await apiRequest<ApiResponse>('public/languages');
   const translations: Record<string, Record<string, string>> = {};
-  // let setting:any<Setting> ={}
 
   data.result.languages.forEach((language) => {
     translations[language.code] = language.translations.reduce(
@@ -40,8 +36,7 @@ export async function fetchTranslations(): Promise<
       }),
       {}
     );
-    // setting[]
   });
 
-  return translations;
+  return {translations, result: data.result};
 }

@@ -1,10 +1,9 @@
 import {getLangs} from '@/apis/langs';
-import {rmockRoute} from '@/config';
 import {Locale} from 'next-intl';
 import Link from 'next/link';
-import {Fragment} from 'react';
 import {PureImage} from '../Common/Images';
 import Languages from './Langs';
+import Menus from './Menus';
 
 type Props = {
   locale: Locale;
@@ -117,46 +116,7 @@ const Header = async ({locale}: Readonly<Props>) => {
               </div>
             </div>
           </div>
-          <ul
-            style={{
-              display: 'flex',
-              gap: '1rem',
-              alignItems: 'center',
-              position: 'relative',
-              listStyle: 'none',
-              marginBottom: '0'
-            }}
-          >
-            {rmockRoute.map((item, index) => {
-              return (
-                <Fragment key={index}>
-                  <li
-                    style={{
-                      position: 'relative'
-                    }}
-                  >
-                    <Link
-                      href={item.path}
-                      style={{
-                        color: '#212121',
-                        fontSize: '14px',
-                        lineHeight: '20px',
-                        textTransform: 'uppercase',
-                        fontWeight: 600,
-                        textWrap: 'nowrap',
-                        textDecoration: 'none'
-                      }}
-                    >
-                      {item.name}
-                    </Link>
-                  </li>
-                  {index !== rmockRoute.length - 1 && (
-                    <div className="line-btw" />
-                  )}
-                </Fragment>
-              );
-            })}
-          </ul>
+          <Menus />
         </div>
       </nav>
       <div className="fade-line-element" />

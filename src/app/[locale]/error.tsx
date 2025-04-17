@@ -10,14 +10,14 @@ type Props = {
 };
 
 export default function ErrorPage({error, reset}: Readonly<Props>) {
-  const t = useTranslations('Error');
+  const t = useTranslations();
 
   useEffect(() => {
     console.error(error);
   }, [error]);
 
   return (
-    <PageLayout title={t('title')}>
+    <PageLayout title={t('NotFoundPage')}>
       <div>
         {t.rich('description', {
           p: (chunks) => <p className="mt-4">{chunks}</p>,

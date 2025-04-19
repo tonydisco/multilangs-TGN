@@ -12,7 +12,7 @@ const ProjectList = ({locale}: {locale: string}) => {
     loading: false,
     total: mockData.length,
     page: 1,
-    limit: 6
+    limit: 9
   });
 
   const handleNext = () => {

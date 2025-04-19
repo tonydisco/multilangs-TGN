@@ -7,13 +7,12 @@ export const apiRequest = async <T>(
 ): Promise<ApiResult<T>> => {
   try {
     const url = host + _url;
-
     const res = await fetch(url, {
       headers: {
         'Content-Type': 'application/json',
         ...options.headers
       },
-      cache: 'force-cache',
+      cache: 'no-cache',
       ...options
     });
     if (!res.ok) {

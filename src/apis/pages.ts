@@ -1,5 +1,5 @@
 import {apiRequest} from '@/services/fetchAPI';
 
-export const getLvhd = async (_slug: string) => {
-  return apiRequest<any>(`public/posts/contents?slug=${_slug}`);
+export const getPage = async (slug: string) => {
+  return (await apiRequest<any>(`public/posts/contents?slug=${slug}`)).result;
 };

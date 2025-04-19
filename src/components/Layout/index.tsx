@@ -1,12 +1,11 @@
 import {TRootLayout} from '@/models/types';
 import {AppProvider} from '@/Providers';
 import '@/styles/global.css';
-import {GoogleAnalytics} from '@next/third-parties/google';
 import {NextIntlClientProvider} from 'next-intl';
 import Footer from '../Footer';
 import Header from '../Header';
 
-const RootLayout = ({children, locale, GGkey}: Readonly<TRootLayout>) => {
+const RootLayout = ({children, locale}: Readonly<TRootLayout>) => {
   return (
     <>
       <NextIntlClientProvider>
@@ -18,7 +17,6 @@ const RootLayout = ({children, locale, GGkey}: Readonly<TRootLayout>) => {
           </>
         </AppProvider>
       </NextIntlClientProvider>
-      {GGkey && <GoogleAnalytics gaId={GGkey} />}
     </>
   );
 };

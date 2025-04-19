@@ -16,7 +16,7 @@ interface Language {
   icon?: string;
   name?: string;
   isDefault?: boolean;
-  isDisabled?: boolean;
+  isDisabled?: boolean; 
 }
 
 interface ApiResponse {
@@ -41,6 +41,7 @@ export async function fetchTranslations(): Promise<{
       {}
     );
   });
+ 
 
   return {translations, result: data.result};
 }

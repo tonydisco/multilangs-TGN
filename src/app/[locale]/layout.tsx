@@ -8,6 +8,7 @@ import {ReactNode} from 'react';
 import RootLayout from '@/components/Layout';
 import {Montserrat} from 'next/font/google';
 import {fetchTranslations} from '@/apis/langs';
+import {GoogleAnalytics} from '@next/third-parties/google';
 
 type Props = {
   children: ReactNode;
@@ -86,6 +87,7 @@ export default async function LocaleLayout({
           rel="stylesheet"
           href="https://tgn-api.vikiworld.vn/styles/bs-utilities.min.css"
         />
+        {GGkey && <GoogleAnalytics gaId={`123`} />}
       </head>
       <body className={montserrat.className}>
         <RootLayout locale={locale} GGkey={GGkey}>

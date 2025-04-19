@@ -1,14 +1,10 @@
 import {TitlePageView} from '@/components/Hero';
 import PageLayout from '@/components/PageLayout';
 import FieldOfConstruction from './FieldOfConstruction';
-import {getLvhd} from '@/apis/pages';
+// import {getLvhd} from '@/apis/pages';
 
 export default async function Page() {
-  const content = await getLvhd('linh-vuc-hoat-dong');
-
-  console.log('====================================');
-  console.log({content});
-  console.log('====================================');
+  // const content = await getLvhd('linh-vuc-hoat-dong');
 
   return (
     <PageLayout

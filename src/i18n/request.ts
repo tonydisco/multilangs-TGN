@@ -14,10 +14,6 @@ export default getRequestConfig(async ({requestLocale}) => {
     ? requested
     : defaultLocale;
 
-  console.log('====================================');
-  console.log({locale});
-  console.log('====================================');
-
   return {
     locale,
     // messages: getMess.default

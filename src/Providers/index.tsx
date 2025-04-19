@@ -1,22 +1,24 @@
 'use client';
-import React, {createContext, useContext, ReactNode, useMemo} from 'react';
-
-// Create a context provider to manage the state of the application and locale
+import {Languages} from '@/models/interface';
+import React, {createContext, ReactNode, useContext, useMemo} from 'react';
 
 interface AppState {
   locale: string;
-  //   setLocale: (locale: string) => void;
+  defaultLocale: string | undefined;
+  locales: Languages[];
 }
 
 const AppContext = createContext<AppState | undefined>(undefined);
 
-export const AppProvider: React.FC<{children: ReactNode; locale: string}> = ({
-  children,
-  locale
-}) => {
+export const AppProvider: React.FC<{
+  children: ReactNode;
+  locale: string;
+  defaultLocale: string;
+  locales: Languages[];
+}> = ({children, locale, defaultLocale, locales}) => {
   const localeState = useMemo(() => {
-    return {locale};
-  }, [locale]);
+    return {locale, defaultLocale, locales};
+  }, [locale, defaultLocale, locales]);
 
   return (
     <AppContext.Provider value={localeState}>{children}</AppContext.Provider>

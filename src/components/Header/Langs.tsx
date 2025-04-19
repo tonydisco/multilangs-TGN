@@ -1,6 +1,8 @@
 'use client';
+import {useAppContext} from '@/Providers';
+import {Languages} from '@/models/interface';
 import {usePathname, useRouter} from 'next/navigation';
-import {useRef, useState} from 'react';
+import {useState} from 'react';
 import {PureImage} from '../Common/Images';
 import './style.css';
 
@@ -9,42 +11,49 @@ const mapping = {
   en: 'en'
 };
 
-const onMappingLocale = (locale: string) => {
+export const onMappingLocale = (locale: string) => {
   return mapping[locale as keyof typeof mapping];
 };
 
-const Languages = (props: {data: Array<any>; locale: string}) => {
-  const {data, locale} = props;
+const LanguageSwitcher = (props: {locale: string}) => {
+  const {locale} = props;
   const [activedLang, setActivedLang] = useState<string>(locale);
-
-  const refLang = useRef(data);
+  const {defaultLocale, locales} = useAppContext();
 
   const router = useRouter();
   const pathname = usePathname();
 
-  const onUpdateLang = (lang: any) => {
+  const onUpdateLang = (lang: Languages) => {
     let newPathname = '';
-    setActivedLang(onMappingLocale(lang?.code));
+    setActivedLang(lang.code);
 
-    if (onMappingLocale(lang.code) === activedLang) {
-      const foundLocale = refLang.current.find(
-        (item) => onMappingLocale(item.code) !== locale
-      );
-      if (foundLocale) {
-        newPathname = pathname.replace(
-          locale,
-          onMappingLocale(foundLocale.code)
-        );
+    console.log({lang}, {defaultLocale}, {locale}, {pathname});
+    if (lang.code === defaultLocale) {
+      const foundLocale = locales?.find((item) => item.code !== locale);
+      if (foundLocale && pathname === '/') {
+        newPathname = pathname.replace(pathname, foundLocale?.code);
       }
-    } else {
-      newPathname = pathname.replace(locale, onMappingLocale(lang.code));
+      // `/${foundLocale?.code}${pathname}`;
+    } else if (lang.code === activedLang) {
+      if (lang.code !== defaultLocale) {
+        newPathname = `/${lang.code}${newPathname}`;
+      }
+      const foundLocale = locales?.find((item) => item.code !== locale);
+      if (foundLocale) {
+        newPathname = pathname.replace(locale, foundLocale.code);
+      }
+    } else if (lang.code !== defaultLocale) {
+      console.log('lang.code !== defaultLocale');
+      newPathname = `/${lang.code}${newPathname}`;
     }
+    console.log('newPathname', newPathname);
+
     router.push(newPathname);
   };
 
   return (
     <div className="position-relative">
-      {refLang.current?.map((item, idx) => {
+      {locales?.map((item, idx) => {
         return (
           <button onClick={() => onUpdateLang(item)} key={idx}>
             <PureImage
@@ -54,7 +63,7 @@ const Languages = (props: {data: Array<any>; locale: string}) => {
                 height: 'auto',
                 borderRadius: '2px'
               }}
-              className={`default-lang ${onMappingLocale(item?.code) === activedLang ? 'active-lang' : ''}`}
+              className={`default-lang ${item?.code === activedLang ? 'active-lang' : ''}`}
             />
           </button>
         );
@@ -63,4 +72,4 @@ const Languages = (props: {data: Array<any>; locale: string}) => {
   );
 };
 
-export default Languages;
+export default LanguageSwitcher;

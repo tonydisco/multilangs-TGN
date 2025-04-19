@@ -6,11 +6,22 @@ import {NextIntlClientProvider} from 'next-intl';
 import Footer from '../Footer';
 import Header from '../Header';
 
-const RootLayout = ({children, locale, GGkey}: Readonly<TRootLayout>) => {
+const RootLayout = ({
+  children,
+  locale,
+  GGkey,
+  defaultLocale,
+  locales,
+  messages
+}: Readonly<TRootLayout>) => {
   return (
     <>
-      <NextIntlClientProvider>
-        <AppProvider locale={locale}>
+      <NextIntlClientProvider locale={locale} messages={messages}>
+        <AppProvider
+          locale={locale}
+          defaultLocale={defaultLocale}
+          locales={locales}
+        >
           <>
             <Header locale={locale} />
             {children}

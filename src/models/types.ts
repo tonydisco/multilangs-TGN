@@ -1,5 +1,6 @@
 import {Locale} from 'next-intl';
 import {ReactNode} from 'react';
+import {Languages} from './interface';
 
 export type ImageMode = 'contain' | 'fill' | 'cover' | 'none' | 'scale-down';
 export type ImagePositionType =
@@ -21,4 +22,7 @@ export type TRootLayout = {
   children: ReactNode;
   locale: Locale;
   GGkey?: string;
+  defaultLocale: string;
+  locales: Languages[];
+  messages: any;
 };

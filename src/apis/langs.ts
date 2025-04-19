@@ -1,35 +1,21 @@
+import {Languages} from '@/models/interface';
 import {apiRequest} from '@/services/fetchAPI';
+interface ApiResponse {
+  languages: Languages[];
+}
 
 export const getLangs = async () => {
-  return apiRequest<any>('public/languages');
+  return apiRequest<ApiResponse>('public/languages');
 };
-
-// lib/fetchTranslations.ts
-interface Translation {
-  key: string;
-  value: string;
-}
-
-interface Language {
-  code: string;
-  translations: Translation[];
-  icon?: string;
-  name?: string;
-  isDefault?: boolean;
-  isDisabled?: boolean;
-}
-
-interface ApiResponse {
-  languages: Language[];
-}
 
 export async function fetchTranslations(): Promise<{
   translations: Record<string, Record<string, string>>;
   result: {
-    languages: Language[];
+    languages: Languages[];
   };
 }> {
-  const data = await apiRequest<ApiResponse>('public/languages');
+  const data = await getLangs();
+
   const translations: Record<string, Record<string, string>> = {};
 
   data.result.languages.forEach((language) => {

@@ -1,10 +1,12 @@
 'use client';
 import {useTranslations} from 'next-intl';
-import Link from 'next/link';
-import React, {Fragment} from 'react';
+import {Fragment} from 'react';
+import LocaleLink from '../Common/LinkByLocale';
+import {useAppContext} from '@/Providers';
 
 const Menus = () => {
   const t = useTranslations();
+  const {locale} = useAppContext();
 
   const menuByLocale = [
     {name: t('HeaderNavHome'), path: '/'},
@@ -36,7 +38,8 @@ const Menus = () => {
                 position: 'relative'
               }}
             >
-              <Link
+              <LocaleLink
+                locale={locale}
                 href={item.path}
                 style={{
                   color: '#212121',
@@ -49,7 +52,7 @@ const Menus = () => {
                 }}
               >
                 {item.name}
-              </Link>
+              </LocaleLink>
             </li>
             {index !== menuByLocale.length - 1 && <div className="line-btw" />}
           </Fragment>

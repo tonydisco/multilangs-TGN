@@ -1,16 +1,13 @@
-import {getLangs} from '@/apis/langs';
 import {Locale} from 'next-intl';
-import Link from 'next/link';
 import {PureImage} from '../Common/Images';
-import Languages from './Langs';
+import LanguageSwitcher from './Langs';
 import Menus from './Menus';
+import LocaleLink from '../Common/LinkByLocale';
 
 type Props = {
   locale: Locale;
 };
 const Header = async ({locale}: Readonly<Props>) => {
-  const langsResult = await getLangs();
-
   return (
     <header
       style={{
@@ -31,9 +28,9 @@ const Header = async ({locale}: Readonly<Props>) => {
         }}
       >
         <div style={{width: '280px'}}>
-          <Link href="/">
+          <LocaleLink href="/" locale={locale}>
             <PureImage />
-          </Link>
+          </LocaleLink>
         </div>
         <div>
           <div
@@ -102,17 +99,7 @@ const Header = async ({locale}: Readonly<Props>) => {
                   <PureImage url="/icon/ZALO.svg" />
                 </div>
                 <div className="line-btw" />
-                {(() => {
-                  if (langsResult.isSuccess) {
-                    return (
-                      <Languages
-                        locale={locale}
-                        data={langsResult?.result?.languages}
-                      />
-                    );
-                  }
-                  return null;
-                })()}
+                <LanguageSwitcher locale={locale} />
               </div>
             </div>
           </div>

@@ -1,11 +1,12 @@
 'use client';
-import {Languages} from '@/models/interface';
+import {ISetting, ILanguages} from '@/models/interface';
 import React, {createContext, ReactNode, useContext, useMemo} from 'react';
 
 interface AppState {
   locale: string;
   defaultLocale: string | undefined;
-  locales: Languages[];
+  locales: ILanguages[];
+  utilSetting: ISetting;
 }
 
 const AppContext = createContext<AppState | undefined>(undefined);
@@ -14,11 +15,12 @@ export const AppProvider: React.FC<{
   children: ReactNode;
   locale: string;
   defaultLocale: string;
-  locales: Languages[];
-}> = ({children, locale, defaultLocale, locales}) => {
+  locales: ILanguages[];
+  utilSetting: ISetting;
+}> = ({children, locale, defaultLocale, locales, utilSetting}) => {
   const localeState = useMemo(() => {
-    return {locale, defaultLocale, locales};
-  }, [locale, defaultLocale, locales]);
+    return {locale, defaultLocale, locales, utilSetting};
+  }, [locale, defaultLocale, locales, utilSetting]);
 
   return (
     <AppContext.Provider value={localeState}>{children}</AppContext.Provider>

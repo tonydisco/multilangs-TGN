@@ -8,6 +8,8 @@ import {ReactNode} from 'react';
 import {fetchTranslations} from '@/apis/langs';
 import RootLayout from '@/components/Layout';
 import {Montserrat} from 'next/font/google';
+import {GoogleAnalytics} from '@next/third-parties/google';
+import {getBySetting} from '@/utils/common';
 
 type Props = {
   children: ReactNode;
@@ -46,10 +48,9 @@ export default async function LocaleLayout({
     notFound();
   }
   const setting = await getSettings();
-  const findGGKey = setting?.result?.data.find(
-    (item) => item.key === 'General'
-  );
-  if (findGGKey) {
+  const findGGKey = getBySetting('General', setting?.result?.data);
+
+  if (findGGKey?.value) {
     const findGGKeyValue = JSON.parse(findGGKey.value);
     if (findGGKeyValue?.gA4Id) {
       GGkey = findGGKeyValue.gA4Id;
@@ -79,14 +80,16 @@ export default async function LocaleLayout({
           rel="stylesheet"
           href="https://tgn-api.vikiworld.vn/styles/bs-utilities.min.css"
         />
+        {GGkey && <GoogleAnalytics gaId={'G-328938273897'} />}
       </head>
+
       <body className={montserrat.className}>
         {(() => {
           if (findDefaultLocale?.code) {
             return (
               <RootLayout
                 locale={locale}
-                GGkey={GGkey}
+                setting={setting?.result}
                 locales={result.languages}
                 defaultLocale={findDefaultLocale?.code}
                 messages={translations[locale]}

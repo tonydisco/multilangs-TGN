@@ -1,6 +1,6 @@
 'use client';
 import {useAppContext} from '@/Providers';
-import {Languages} from '@/models/interface';
+import {ILanguages} from '@/models/interface';
 import {usePathname, useRouter} from 'next/navigation';
 import {useState} from 'react';
 import {PureImage} from '../Common/Images';
@@ -23,7 +23,7 @@ const LanguageSwitcher = (props: {locale: string}) => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const onUpdateLang = (lang: Languages) => {
+  const onUpdateLang = (lang: ILanguages) => {
     let newPathname = '';
     setActivedLang(lang.code);
 

@@ -30,6 +30,10 @@ export interface IButtonProps {
   linkTo?: string;
   onBtn?: () => void;
   style?: React.CSSProperties;
+  type?: 'button' | 'submit' | 'reset';
+  className?: string;
+  disabled?: boolean;
+  isLoading?: boolean;
 }
 
 export interface Translation {

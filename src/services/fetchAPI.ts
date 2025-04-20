@@ -1,4 +1,4 @@
-import {host} from '@/config';
+import {host} from '@/utils/config';
 import {ApiResult} from '@/models/interface';
 
 export const apiRequest = async <T>(

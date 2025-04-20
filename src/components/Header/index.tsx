@@ -3,6 +3,7 @@ import {PureImage} from '../Common/Images';
 import LanguageSwitcher from './Langs';
 import Menus from './Menus';
 import LocaleLink from '../Common/LinkByLocale';
+import Socials from './Socials';
 
 type Props = {
   locale: Locale;
@@ -78,26 +79,8 @@ const Header = async ({locale}: Readonly<Props>) => {
                     Liên hệ
                   </span>
                 </div>
-                <div
-                  style={{
-                    width: '20px',
-                    cursor: 'pointer',
-                    opacity: 1,
-                    transition: 'opacity 0.3s ease'
-                  }}
-                >
-                  <PureImage url="/icon/FB.svg" />
-                </div>
-                <div
-                  style={{
-                    width: '20px',
-                    cursor: 'pointer',
-                    opacity: 1,
-                    transition: 'opacity 0.3s ease'
-                  }}
-                >
-                  <PureImage url="/icon/ZALO.svg" />
-                </div>
+                <Socials />
+
                 <div className="line-btw" />
                 <LanguageSwitcher locale={locale} />
               </div>

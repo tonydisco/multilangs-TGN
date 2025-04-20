@@ -30,3 +30,8 @@ export const newsTabs = [
     id: 'tab-market'
   }
 ];
+
+export const socialMapping: Record<string, string> = {
+  Facebook: '/icon/FB.svg',
+  Zalo: '/icon/ZALO.svg'
+};

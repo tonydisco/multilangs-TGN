@@ -1,7 +1,7 @@
-import {Languages} from '@/models/interface';
+import {ILanguages} from '@/models/interface';
 import {apiRequest} from '@/services/fetchAPI';
 interface ApiResponse {
-  languages: Languages[];
+  languages: ILanguages[];
 }
 
 export const getLangs = async () => {
@@ -11,7 +11,7 @@ export const getLangs = async () => {
 export async function fetchTranslations(): Promise<{
   translations: Record<string, Record<string, string>>;
   result: {
-    languages: Languages[];
+    languages: ILanguages[];
   };
 }> {
   const data = await getLangs();

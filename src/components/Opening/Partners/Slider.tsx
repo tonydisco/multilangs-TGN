@@ -35,7 +35,7 @@ function PartnersSlider() {
     cssEase: 'linear',
     dot: false,
     arrows: false,
-    autoplay: true,
+    // autoplay: true,
     rtl: true
   };
   return (
@@ -61,7 +61,6 @@ function PartnersSlider() {
               <div className="tgn-partners-grid-container grid-container">
                 {Array.from({length: itemsPerSlide}).map((_, idx) => {
                   const itemIndex = startIndex + idx;
-                  if (itemIndex >= 59) return null; // Stop rendering after 60 items
                   return (
                     <div
                       className="tgn-partners-grid-item grid-item base-card-full-border"

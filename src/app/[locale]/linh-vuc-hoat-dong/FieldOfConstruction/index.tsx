@@ -11,10 +11,6 @@ const FieldOfConstruction = ({pageContent}: any) => {
   const {locale} = useAppContext();
   const content = pageContent.contents.find((x: any) => x.language == locale);
 
-  console.log('====================================');
-  console.log({content});
-  console.log('====================================');
-
   return (
     <>
       {content.blocks?.map((block: any, index: number) => {

@@ -31,3 +31,17 @@ export interface IButtonProps {
   onBtn?: () => void;
   style?: React.CSSProperties;
 }
+
+export interface Translation {
+  key: string;
+  value: string;
+}
+
+export interface Languages {
+  code: string;
+  translations: Translation[];
+  icon?: string;
+  name?: string;
+  isDefault?: boolean;
+  isDisabled?: boolean;
+}

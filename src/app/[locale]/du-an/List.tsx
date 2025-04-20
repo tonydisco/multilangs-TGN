@@ -4,9 +4,7 @@ import {PureImage} from '@/components/Common/Images';
 import Pagination from '@/components/Common/Pagination';
 import React, {useState} from 'react';
 
-const ProjectList = ({locale}: {locale: string}) => {
-  console.log('locale', locale);
-
+const ProjectList = () => {
   const [projectData, setProjectData] = useState({
     data: mockData,
     loading: false,

@@ -4,9 +4,8 @@ import FieldOfConstruction from './FieldOfConstruction';
 import {getPage} from '@/apis/pages';
 
 export default async function Page({params}: any) {
-  const getPageResult = await getPage('linh-vuc-hoat-dong');
   const {locale} = await params;
-  console.dir(locale);
+  const getPageResult = await getPage('linh-vuc-hoat-dong');
   const content = getPageResult.contents.find((x: any) => x.language == locale);
   return (
     <PageLayout

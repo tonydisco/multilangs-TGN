@@ -1,14 +1,13 @@
 import {getSettings} from '@/apis/settings';
 import {routing} from '@/i18n/routing';
 import {hasLocale, Locale} from 'next-intl';
-import {getTranslations, setRequestLocale} from 'next-intl/server';
+import {getTranslations} from 'next-intl/server';
 import {notFound} from 'next/navigation';
 import {ReactNode} from 'react';
 
+import {fetchTranslations} from '@/apis/langs';
 import RootLayout from '@/components/Layout';
 import {Montserrat} from 'next/font/google';
-import {fetchTranslations} from '@/apis/langs';
-import {GoogleAnalytics} from '@next/third-parties/google';
 
 type Props = {
   children: ReactNode;
@@ -40,9 +39,8 @@ export default async function LocaleLayout({
   children,
   params
 }: Readonly<Props>) {
-  // Ensure that the incoming `locale` is valid
   const {locale} = await params;
-  const {result} = await fetchTranslations();
+  const {result, translations} = await fetchTranslations();
   let GGkey = '';
   if (!hasLocale(routing.locales, locale)) {
     notFound();
@@ -58,13 +56,7 @@ export default async function LocaleLayout({
     }
   }
 
-  const findDefaultLang = result.languages.find((item) => item.isDefault);
-
-  if (findDefaultLang) {
-    setRequestLocale(findDefaultLang.code as Locale);
-  }
-  // Enable static rendering
-  setRequestLocale(locale);
+  const findDefaultLocale = result.languages.find((item) => item.isDefault);
 
   return (
     <html lang={locale}>
@@ -87,12 +79,24 @@ export default async function LocaleLayout({
           rel="stylesheet"
           href="https://tgn-api.vikiworld.vn/styles/bs-utilities.min.css"
         />
-        {GGkey && <GoogleAnalytics gaId={`123`} />}
       </head>
       <body className={montserrat.className}>
-        <RootLayout locale={locale} GGkey={GGkey}>
-          {children}
-        </RootLayout>
+        {(() => {
+          if (findDefaultLocale?.code) {
+            return (
+              <RootLayout
+                locale={locale}
+                GGkey={GGkey}
+                locales={result.languages}
+                defaultLocale={findDefaultLocale?.code}
+                messages={translations[locale]}
+              >
+                {children}
+              </RootLayout>
+            );
+          }
+          return null;
+        })()}
       </body>
     </html>
   );

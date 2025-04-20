@@ -1,46 +1,38 @@
-import createMiddleware from 'next-intl/middleware';
-// import {NextRequest, NextResponse} from 'next/server';
-import {
-  // getRoutingConfig,
-  routing
-} from './i18n/routing';
+import {NextRequest, NextResponse} from 'next/server';
 
-// let cachedConfig: Awaited<ReturnType<typeof getRoutingConfig>> | null = null;
+const locales = ['vi', 'en'];
+const defaultLocale = 'vi';
 
-export default createMiddleware({...routing});
+export default async function middleware(request: NextRequest) {
+  const {pathname} = new URL(request.url);
 
-/*export default async function middleware(request: NextRequest) {
-  if (!cachedConfig) {
-    cachedConfig = await getRoutingConfig();
-  }
-  const {locales, defaultLocale} = cachedConfig;
+  const shouldHandle =
+    !pathname.startsWith('/api') &&
+    !pathname.startsWith('/_next') &&
+    !pathname.includes('.');
 
-  console.log('====================================');
-  console.log({locales});
-  console.log('====================================');
-  const {pathname} = request.nextUrl;
-  const localeMatch = pathname.match(/^\/([a-z]{2})(\/|$)/);
-  const currentLocale = localeMatch ? localeMatch[1] : null;
+  if (!shouldHandle) return NextResponse.next();
 
-  if (
-    !currentLocale ||
-    !locales.includes(currentLocale) ||
-    currentLocale !== defaultLocale
-  ) {
-    const newPath =
-      pathname.replace(/^\/[a-z]{2}/, `/${defaultLocale}`) ||
-      `/${defaultLocale}${pathname}`;
-    return NextResponse.redirect(new URL(newPath, request.url));
+  const locale = locales.find(
+    (loc) => pathname.startsWith(`/${loc}/`) || pathname === `/${loc}`
+  );
+
+  if (!locale) {
+    return NextResponse.rewrite(
+      new URL(
+        `/${defaultLocale}${pathname === '/' ? '' : pathname}`,
+        request.url
+      )
+    );
   }
 
-  const intlMiddleware = createMiddleware(cachedConfig);
-  return intlMiddleware(request);
+  return NextResponse.next();
 }
-  */
 
 export const config = {
   // Match all pathnames except for
   // - … if they start with `/api`, `/trpc`, `/_next` or `/_vercel`
   // - … the ones containing a dot (e.g. `favicon.ico`)
-  matcher: '/((?!api|trpc|_next|_vercel|.*\\..*).*)'
+  // matcher: '/((?!api|trpc|_next|_vercel|.*\\..*).*)'
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)']
 };

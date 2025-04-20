@@ -3,6 +3,7 @@ import PageLayout from '@/components/PageLayout';
 import {Locale} from 'next-intl';
 import {setRequestLocale} from 'next-intl/server';
 import {use} from 'react';
+import ContactUs from './ContactUs';
 
 type Props = {
   params: Promise<{locale: Locale}>;
@@ -19,7 +20,7 @@ export default function PathnamesPage({params}: Readonly<Props>) {
       title={<TitlePageView title="liên hệ tuyển dụng" />}
       className="lhtd-wrapper"
     >
-      <div style={{height: 300}}></div>
+      <ContactUs />
     </PageLayout>
   );
 }

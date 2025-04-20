@@ -80,6 +80,7 @@ export default async function LocaleLayout({
           rel="stylesheet"
           href="https://tgn-api.vikiworld.vn/styles/bs-utilities.min.css"
         />
+
         {GGkey && <GoogleAnalytics gaId={'G-328938273897'} />}
       </head>
 

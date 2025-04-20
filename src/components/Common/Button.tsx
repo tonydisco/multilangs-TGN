@@ -4,33 +4,32 @@ import {PureImage} from './Images';
 import {IButtonProps} from '@/models/interface';
 
 const Button = (props: {btnProps?: IButtonProps}) => {
-  const {btnProps} = props;
-  if (btnProps?.content) {
+  const {btnProps = {}} = props;
+  const {text, content, linkTo, onBtn, style, ...rest} = btnProps;
+  if (content) {
     return (
       <button
-        onClick={() => btnProps?.onBtn?.() ?? null}
+        onClick={() => onBtn?.() ?? null}
         className="app-btn-default"
-        style={{...btnProps?.style}}
+        style={{...style}}
+        {...rest}
       >
-        {btnProps.content}
+        {content}
       </button>
     );
   }
   const BtnInner = () => {
     return (
       <div className="app-btn-default-flex">
-        {btnProps?.text && (
-          <span style={{fontWeight: 500}}>{btnProps?.text}</span>
-        )}
-
+        {text && <span style={{fontWeight: 500}}>{text}</span>}
         <PureImage style={{width: 12}} url="/landing/ICON-ARROW.svg" />
       </div>
     );
   };
-  if (btnProps?.linkTo) {
+  if (linkTo) {
     return (
-      <button className="app-btn-default" style={{...btnProps?.style}}>
-        <Link href={btnProps?.linkTo ?? '#'}>
+      <button className="app-btn-default" style={{...style}}>
+        <Link href={linkTo ?? '#'}>
           <BtnInner />
         </Link>
       </button>
@@ -39,8 +38,8 @@ const Button = (props: {btnProps?: IButtonProps}) => {
   return (
     <button
       className="app-btn-default"
-      onClick={() => btnProps?.onBtn?.() ?? null}
-      style={{...btnProps?.style}}
+      onClick={() => onBtn?.() ?? null}
+      style={{...style}}
     >
       <BtnInner />
     </button>

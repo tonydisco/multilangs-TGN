@@ -4,6 +4,7 @@ import {Locale} from 'next-intl';
 import {setRequestLocale} from 'next-intl/server';
 import {use} from 'react';
 import ContactUs from './ContactUs';
+import RecruitMent from './Recruitment';
 
 type Props = {
   params: Promise<{locale: Locale}>;
@@ -21,6 +22,7 @@ export default function PathnamesPage({params}: Readonly<Props>) {
       className="lhtd-wrapper"
     >
       <ContactUs />
+      <RecruitMent />
     </PageLayout>
   );
 }

@@ -4,6 +4,7 @@ import {SectionBase} from '@/components/Common/Section';
 import {SectionSub, SectionTitles} from '@/components/Common/Titles';
 import Socials from '@/components/Header/Socials';
 import React from 'react';
+import ContactForm from './ContactForm';
 
 const TitleInCard = ({title}: {title: string}) =>
   title ? <div style={{fontSize: 20, fontWeight: 600}}>{title}</div> : null;
@@ -14,13 +15,19 @@ const ContactUs = () => {
       className="contact-us-wrapper"
     >
       <div className="d-flex gap-3 align-items-stretch">
-        <CardBorder style={{height: 'auto'}}>
+        <CardBorder
+          style={{
+            height: 'auto',
+            backgroundColor: 'rgba(255, 255, 255, 0.4)',
+            backdropFilter: 'blur(3px)'
+          }}
+        >
           <SectionTitles title="Thông tin liên hệ" />
           {contactInfos.map((item, index) => {
             return (
-              <div key={index} style={{marginTop: 36}}>
+              <div key={index} style={{marginTop: 50}}>
                 <TitleInCard title={item.title} />
-                <div className="d-flex gap-3 mt-3 align-items-stretch">
+                <div className="d-flex gap-3 mt-4 align-items-stretch">
                   <div style={{flex: 1}}>
                     <div
                       className="contact-us-image"
@@ -60,7 +67,7 @@ const ContactUs = () => {
           })}
           <div style={{marginTop: 36}}>
             <TitleInCard title="Kết nối với chúng tôi" />
-            <div className="d-flex gap-3 mt-3 align-items-center">
+            <div className="d-flex gap-3 mt-4 align-items-center">
               <Socials
                 iconSize={{
                   width: 30
@@ -69,7 +76,13 @@ const ContactUs = () => {
             </div>
           </div>
         </CardBorder>
-        <CardBorder style={{height: 'auto'}}>
+        <CardBorder
+          style={{
+            height: 'auto',
+            backgroundColor: 'rgba(255, 255, 255, 0.2)',
+            backdropFilter: 'blur(3px)'
+          }}
+        >
           <SectionTitles title="Liên hệ với chúng tôi" />
           <div>
             <SectionSub
@@ -94,60 +107,16 @@ const ContactUs = () => {
               }
             />
           </div>
-          <div>
-            <form
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 16,
-                marginTop: 24
-              }}
-              //   onSubmit={(e) => {
-              //     e.preventDefault();
-              //     const formData = new FormData(e.currentTarget);
-              //     const data = Object.fromEntries(formData.entries());
-              //     console.log(data);
-              //   }}
-            >
-              {inputForm.map((item, index) => {
-                return (
-                  <div key={index}>
-                    <label key={index} style={{fontSize: 14, fontWeight: 600}}>
-                      {item.title}
-                      {item.required && <span style={{color: 'red'}}>*</span>}
-                    </label>
-                    {item.type === 'textarea' ? (
-                      <textarea
-                        name={item.name}
-                        placeholder={item.placeholder}
-                        required={item.required}
-                        style={{
-                          width: '100%',
-                          height: 120,
-                          padding: '0.5rem',
-                          borderRadius: 8,
-                          border: '1px solid #ccc',
-                          resize: 'none'
-                        }}
-                      />
-                    ) : (
-                      <input
-                        type={item.type}
-                        name={item.name}
-                        placeholder={item.placeholder}
-                        required={item.required}
-                        style={{
-                          width: '100%',
-                          padding: '0.5rem',
-                          borderRadius: 8,
-                          border: '1px solid #ccc'
-                        }}
-                      />
-                    )}
-                  </div>
-                );
-              })}
-            </form>
+          <div className="mt-5">
+            <ContactForm />
+            <SectionSub
+              text={
+                <p className="tgn-text-base-color mb-0">
+                  Khi chấp nhận gửi form, bạn đã đồng ý với{' '}
+                  <strong>CHÍNH SÁCH BẢO MẬT</strong> của chúng tôi
+                </p>
+              }
+            />
           </div>
         </CardBorder>
       </div>
@@ -156,44 +125,6 @@ const ContactUs = () => {
 };
 
 export default ContactUs;
-
-const inputForm = [
-  {
-    title: 'Tên',
-    type: 'text',
-    placeholder: 'Tên*',
-    name: 'name',
-    required: true
-  },
-  {
-    title: 'công ty',
-    type: 'text',
-    placeholder: 'Công ty*',
-    name: 'company',
-    required: true
-  },
-  {
-    title: 'Số điện thoại',
-    type: 'text',
-    placeholder: 'Số điện thoại*',
-    name: 'phone',
-    required: true
-  },
-  {
-    title: 'Email',
-    type: 'email',
-    placeholder: 'Email*',
-    name: 'email',
-    required: true
-  },
-  {
-    title: 'Nội dung',
-    type: 'textarea',
-    placeholder: 'Nội dung*',
-    name: 'content',
-    required: true
-  }
-];
 
 const contactInfos = [
   {

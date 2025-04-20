@@ -1,21 +1,33 @@
 import {host} from '@/utils/config';
 import {ApiResult} from '@/models/interface';
 
+export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
+
 export const apiRequest = async <T>(
   _url: string,
+  method: HttpMethod = 'GET',
+  body?: any,
   options: RequestInit = {}
 ): Promise<ApiResult<T>> => {
   try {
     const url = host + _url;
 
-    const res = await fetch(url, {
+    const fetchOptions: RequestInit = {
+      method,
       headers: {
         'Content-Type': 'application/json',
         ...options.headers
       },
-      cache: 'force-cache',
+      cache: 'no-cache',
       ...options
-    });
+    };
+
+    if (body !== undefined && method !== 'GET') {
+      fetchOptions.body = JSON.stringify(body);
+    }
+
+    const res = await fetch(url, fetchOptions);
+
     if (!res.ok) {
       throw new Error('Failed to fetch data');
     }

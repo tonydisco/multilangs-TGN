@@ -1,4 +1,5 @@
 'use client';
+import {contactUs} from '@/apis/contact';
 import {Button} from '@/components/Common/Button';
 import React, {useState} from 'react';
 
@@ -21,7 +22,7 @@ const inputForm = [
     title: 'Số điện thoại',
     type: 'text',
     placeholder: 'Số điện thoại*',
-    name: 'phone',
+    name: 'tel',
     required: true
   },
   {
@@ -52,19 +53,18 @@ const ContactForm = () => {
     setForm({...form, [e.target.name]: e.target.value});
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
 
+    const res = await contactUs({payload: {...form, title: 'contact us'}});
+    console.log({res});
+    if (res?.statusCode === 200) {
+      setSubmitted(true);
+    }
     setTimeout(() => {
-      // Reset form after submission
       setForm(inputForm.reduce((acc, cur) => ({...acc, [cur.name]: ''}), {}));
       setSubmitted(false);
-    }, 1500);
-
-    console.log({form});
-
-    // Handle form submission logic here
+    }, 3500);
   };
 
   return (

@@ -1,13 +1,15 @@
 'use client';
 import {Button} from '@/components/Common/Button';
+import {CardBorder} from '@/components/Common/Card';
 import {PureImage} from '@/components/Common/Images';
 import {SectionBase} from '@/components/Common/Section';
 import React from 'react';
+import JobList from './JobList';
 
 const RecruitMent = () => {
   return (
     <SectionBase>
-      <div style={{height: 500}}>
+      <div>
         <div
           style={{
             height: '300px',
@@ -140,6 +142,7 @@ const RecruitMent = () => {
           </div>
         </div>
       </div>
+      <JobList />
     </SectionBase>
   );
 };

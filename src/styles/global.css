@@ -1,6 +1,8 @@
 body {
   background-color: #fff;
 }
+/* declare variables css color */
+
 /* over write  bootstrap style */
 
 a {
@@ -74,6 +76,9 @@ button {
 .tgn-text-gray-color {
   color: #616161;
 }
+.tgn-text-brow-color {
+  color: #6d3e2f;
+}
 .tgn-text-gradient-color {
   background: linear-gradient(266.58deg, #6e3e2f -12.36%, #925846 132.15%);
   -webkit-background-clip: text;
@@ -106,7 +111,7 @@ button {
   color: #212121;
 }
 
-/* business phylosophy */
+/* business philosophy */
 .b-card-title {
   background: linear-gradient(266.58deg, #6e3e2f -12.36%, #925846 132.15%);
   border-radius: 4px;
@@ -147,6 +152,16 @@ button {
     -4px -4px 8px 0px #73423366;
   transition: all 0.3s ease-in-out;
 }
+.tgn-title-max-two-lines {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Số dòng tối đa */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 3.2em; /* Chiều cao tối đa */
+  line-height: 1.6em; /* Chiều cao dòng */
+  margin: 0;
+}
 .app-btn-default-flex {
   display: flex;
   justify-content: center;
@@ -161,6 +176,11 @@ button {
 .default-vertical-line {
   width: 1px;
   background-color: #6d3e2f;
+}
+.default-horizone-line {
+  height: 1px;
+  background-color: #6d3e2f;
+  width: 100%;
 }
 
 .base-card {

@@ -37,11 +37,30 @@ export interface Translation {
   value: string;
 }
 
-export interface Languages {
+export interface ILanguages {
   code: string;
   translations: Translation[];
   icon?: string;
   name?: string;
   isDefault?: boolean;
   isDisabled?: boolean;
+}
+
+export interface ISetting {
+  data: Array<{
+    id: string;
+    key: string;
+    value: string;
+  }>;
+}
+
+export interface ISocialItem {
+  enable?: boolean;
+  link?: string;
+  name?: string;
+  iconUrl?: string;
+}
+
+export interface ISocialLink {
+  items: Array<ISocialItem>;
 }

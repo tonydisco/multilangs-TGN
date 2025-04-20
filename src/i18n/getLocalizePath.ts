@@ -1,6 +1,10 @@
-export function getLocalizedPath(path: string, locale: string): string {
-  if (locale === 'vi') {
-    return path; // Không thêm tiền tố cho locale mặc định
+export function getLocalizedPath(
+  path: string,
+  locale: string,
+  defaultLocale?: string
+): string {
+  if (locale === defaultLocale) {
+    return path;
   }
   return `/${locale}${path}`;
 }

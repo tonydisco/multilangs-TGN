@@ -2,7 +2,7 @@
 
 import {NewsItem, NewsTabs} from '@/components/Common/News';
 import Pagination from '@/components/Common/Pagination';
-import {newsTabs} from '@/config';
+import {newsTabs} from '@/utils/config';
 import {newsItems} from '@/mockData';
 import React, {useState} from 'react';
 

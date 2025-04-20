@@ -1,6 +1,8 @@
 import {Locale} from 'next-intl';
 import {ReactNode} from 'react';
-import {Languages} from './interface';
+import {ISetting, ILanguages} from './interface';
+
+export type TSetting = 'General' | 'SocialNetworks' | 'Media';
 
 export type ImageMode = 'contain' | 'fill' | 'cover' | 'none' | 'scale-down';
 export type ImagePositionType =
@@ -21,8 +23,8 @@ export type ImagePositionType =
 export type TRootLayout = {
   children: ReactNode;
   locale: Locale;
-  GGkey?: string;
   defaultLocale: string;
-  locales: Languages[];
+  locales: ILanguages[];
   messages: any;
+  setting: ISetting;
 };

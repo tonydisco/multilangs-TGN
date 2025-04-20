@@ -1,6 +1,6 @@
 import React from 'react';
 import {PureImage} from '../Common/Images';
-import {rmockRoute} from '@/config';
+import {rmockRoute} from '@/utils/config';
 import Link from 'next/link';
 
 const Footer = () => {

@@ -1,6 +1,6 @@
 import {MetadataRoute} from 'next';
 import {Locale} from 'next-intl';
-import {host} from '@/config';
+import {host} from '@/utils/config';
 import {routing} from '@/i18n/routing';
 import {getPathname} from '@/i18n/navigation';
 

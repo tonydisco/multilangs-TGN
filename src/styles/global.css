@@ -444,7 +444,7 @@ button {
   background-color: #fff;
   border-radius: 4px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
+  z-index: -1;
   width: max-content;
   opacity: 0;
   transition: all 0.3s ease-in-out;
@@ -453,6 +453,7 @@ button {
 .tgn-select-box-overflow-active {
   opacity: 1;
   top: 30px;
+  z-index: 1000;
 }
 
 .tgn-select-item {

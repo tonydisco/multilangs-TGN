@@ -1,44 +1,51 @@
 import {CardBorder} from '@/components/Common/Card';
 import {PureImage} from '@/components/Common/Images';
 import Pagination from '@/components/Common/Pagination';
-import React, {useState} from 'react';
+import {useAppContext} from '@/Providers';
+import {useMemo} from 'react';
+import {IJobList} from '.';
 
-const JobList = () => {
-  const [jobPagin, setJobPagin] = useState({
-    data: mockJobData,
-    loading: false,
-    total: mockJobData.length,
-    page: 1,
-    limit: 6
-  });
+const JobList = (props: {
+  jobList: IJobList;
+  onChange?: (num: number) => void;
+  onPrev?: () => void;
+  onNext?: () => void;
+}) => {
+  const {
+    jobList,
+    onChange = () => {},
+    onPrev = () => {},
+    onNext = () => {}
+  } = props;
 
-  const handleNext = () => {
-    if (jobPagin.page * jobPagin.limit < jobPagin.total) {
-      setJobPagin({
-        ...jobPagin,
-        page: jobPagin.page + 1
-      });
-    }
-  };
+  const {locale} = useAppContext();
 
-  const handlePrev = () => {
-    if (jobPagin.page > 1) {
-      setJobPagin({
-        ...jobPagin,
-        page: jobPagin.page - 1
-      });
-    }
-  };
+  const startIndex = useMemo(
+    () => (jobList.page - 1) * jobList.limit,
+    [jobList]
+  );
+  const endIndex = useMemo(
+    () => startIndex + jobList.limit,
+    [jobList, startIndex]
+  );
+  const data = useMemo(
+    () => jobList.data.slice(startIndex, endIndex),
+    [jobList, startIndex, endIndex]
+  );
 
-  const onPaginationChange = (page: number) => {
-    setJobPagin({
-      ...jobPagin,
-      page
+  const dataByLocale = useMemo(() => {
+    return data.map((item) => {
+      const title = item.contents.find(
+        (content: any) => content.language === locale
+      );
+      return {
+        ...item,
+        title: title?.title || ''
+      };
     });
-  };
-  const startIndex = (jobPagin.page - 1) * jobPagin.limit;
-  const endIndex = startIndex + jobPagin.limit;
-  const data = jobPagin.data.slice(startIndex, endIndex);
+  }, [locale, data]);
+
+  console.log({dataByLocale});
 
   return (
     <div style={{paddingTop: 100}}>
@@ -50,7 +57,10 @@ const JobList = () => {
           flexWrap: 'wrap'
         }}
       >
-        {data.map((item, index) => {
+        {dataByLocale.map((item, index) => {
+          const contents = item.contents.find(
+            (content: any) => content.language === locale
+          );
           return (
             <div key={index} style={{width: '32%'}}>
               <CardBorder style={{height: '100%'}}>
@@ -64,7 +74,7 @@ const JobList = () => {
                 >
                   <div>
                     <PureImage
-                      url={item.image}
+                      url={item.featuredImageUrl}
                       style={{
                         width: '180px',
                         marginBottom: 28,
@@ -80,11 +90,11 @@ const JobList = () => {
                       >
                         Vị trí:{' '}
                       </span>
-                      <span>{item.title}</span>
+                      <span>{contents.title}</span>
                     </div>
                     <div
                       style={{marginTop: 10}}
-                      className="tgn-title-max-two-lines"
+                      // className="tgn-title-max-two-lines"
                     >
                       <span
                         style={{
@@ -94,14 +104,35 @@ const JobList = () => {
                       >
                         Yêu cầu:{' '}
                       </span>
-                      <span
-                        style={{
-                          fontSize: 14,
-                          fontWeight: 400
-                        }}
-                      >
-                        {item.description}
-                      </span>
+                      {contents?.blocks?.map((block: any, idx: number) => {
+                        if (idx === 0) {
+                          return (
+                            <span
+                              key={idx}
+                              style={{
+                                fontSize: 14,
+                                fontWeight: 400,
+                                whiteSpace: 'break-spaces'
+                              }}
+                            >
+                              {block?.content}
+                            </span>
+                          );
+                        }
+                        return (
+                          <div
+                            key={idx}
+                            style={{
+                              fontSize: 14,
+                              fontWeight: 400,
+                              whiteSpace: 'break-spaces',
+                              marginTop: 10
+                            }}
+                          >
+                            {block?.content}
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
                   <div>
@@ -117,7 +148,7 @@ const JobList = () => {
                         gap: 10
                       }}
                     >
-                      <div
+                      {/* <div
                         style={{
                           display: 'flex',
                           gap: 10
@@ -138,7 +169,7 @@ const JobList = () => {
                             </div>
                           );
                         })}
-                      </div>
+                      </div> */}
                       <div>
                         <div
                           style={{
@@ -169,12 +200,12 @@ const JobList = () => {
       </div>
       <div style={{marginTop: 50, display: 'flex', justifyContent: 'center'}}>
         <Pagination
-          page={jobPagin.page}
-          total={jobPagin.total}
-          limit={jobPagin.limit}
-          onPrev={handlePrev}
-          onNext={handleNext}
-          onPageChange={onPaginationChange}
+          page={jobList.page}
+          total={jobList.total}
+          limit={jobList.limit}
+          onPrev={onPrev}
+          onNext={onNext}
+          onPageChange={onChange}
         />
       </div>
     </div>
@@ -182,119 +213,3 @@ const JobList = () => {
 };
 
 export default JobList;
-
-const mockJobData = [
-  {
-    title:
-      'Thợ vận hành máy cắt CNC Plasma, Laser, Oxy, Bending, Thủy lực, Hàn, Cắt, Đột, Bào',
-    description:
-      'Tuổi từ 18 - 35, không yêu cầu bằng cấp, trung thực, năng động, chủ động trong công việc.',
-    image: '/landing/RECRUITMENT-LOGO.png',
-    tag: [
-      {
-        name: '10 - 12 triệu'
-      },
-      {
-        name: 'Đồng Nai'
-      }
-    ]
-  },
-  {
-    title: 'Kỹ sư cơ khí',
-    description:
-      'Tốt nghiệp đại học chuyên ngành cơ khí, có kinh nghiệm thiết kế và vận hành máy móc.',
-    image: '/landing/RECRUITMENT-LOGO.png',
-    tag: [
-      {
-        name: '15 - 20 triệu'
-      },
-      {
-        name: 'TP. Hồ Chí Minh'
-      }
-    ]
-  },
-  {
-    title: 'Nhân viên kinh doanh',
-    description:
-      'Có kỹ năng giao tiếp tốt, ưu tiên ứng viên có kinh nghiệm trong lĩnh vực kinh doanh, bán hàng.',
-    image: '/landing/RECRUITMENT-LOGO.png',
-    tag: [
-      {
-        name: '8 - 12 triệu'
-      },
-      {
-        name: 'Hà Nội'
-      }
-    ]
-  },
-  {
-    title: 'Thợ hàn',
-    description:
-      'Có chứng chỉ nghề, chăm chỉ, chịu khó, ưu tiên ứng viên có kinh nghiệm.',
-    image: '/landing/RECRUITMENT-LOGO.png',
-    tag: [
-      {
-        name: '9 - 11 triệu'
-      },
-      {
-        name: 'Bình Dương'
-      }
-    ]
-  },
-  {
-    title: 'Nhân viên thiết kế',
-    description:
-      'Có kinh nghiệm sử dụng phần mềm thiết kế, sáng tạo và có khả năng làm việc nhóm.',
-    image: '/landing/RECRUITMENT-LOGO.png',
-    tag: [
-      {
-        name: '12 - 15 triệu'
-      },
-      {
-        name: 'Đà Nẵng'
-      }
-    ]
-  },
-  {
-    title: 'Quản lý sản xuất',
-    description:
-      'Có kinh nghiệm quản lý sản xuất, am hiểu quy trình sản xuất và quản lý nhân sự.',
-    image: '/landing/RECRUITMENT-LOGO.png',
-    tag: [
-      {
-        name: '20 - 25 triệu'
-      },
-      {
-        name: 'TP. Hồ Chí Minh'
-      }
-    ]
-  },
-  {
-    title: 'Nhân viên kho',
-    description:
-      'Có kinh nghiệm làm việc trong kho, chăm chỉ, cẩn thận và có khả năng làm việc độc lập.',
-    image: '/landing/RECRUITMENT-LOGO.png',
-    tag: [
-      {
-        name: '7 - 10 triệu'
-      },
-      {
-        name: 'Long An'
-      }
-    ]
-  },
-  {
-    title: 'Kỹ thuật viên bảo trì',
-    description:
-      'Có kinh nghiệm bảo trì máy móc, có khả năng làm việc dưới áp lực cao.',
-    image: '/landing/RECRUITMENT-LOGO.png',
-    tag: [
-      {
-        name: '12 - 15 triệu'
-      },
-      {
-        name: 'Bắc Ninh'
-      }
-    ]
-  }
-];

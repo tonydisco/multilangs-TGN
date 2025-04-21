@@ -16,5 +16,8 @@ export const contactUs = async ({
   payload: IContactUs;
   method?: HttpMethod;
 }) => {
-  return apiRequest<any>(`public/contact-us`, method, payload);
+  return apiRequest<any>(`public/contact-us`, {
+    method,
+    body: payload
+  });
 };

@@ -24,35 +24,43 @@ const LanguageSwitcher = (props: {locale: string}) => {
   const pathname = usePathname();
 
   const onUpdateLang = (lang: ILanguages) => {
-    let newPathname = '';
     setActivedLang(lang.code);
-
-    console.log({lang}, {defaultLocale}, {locale}, {pathname});
+    let newPathname = pathname;
     if (lang.code === defaultLocale) {
-      const foundLocale = locales?.find((item) => item.code !== locale);
-      if (foundLocale && pathname === '/') {
-        newPathname = pathname.replace(pathname, foundLocale?.code);
+      // If the selected language is the default locale, remove the locale prefix
+      if (pathname.startsWith(`/${locale}`)) {
+        newPathname = pathname.replace(`/${locale}`, '');
       }
-      // `/${foundLocale?.code}${pathname}`;
-    } else if (lang.code === activedLang) {
-      if (lang.code !== defaultLocale) {
-        newPathname = `/${lang.code}${newPathname}`;
-      }
-      const foundLocale = locales?.find((item) => item.code !== locale);
-      if (foundLocale) {
-        newPathname = pathname.replace(locale, foundLocale.code);
-      }
-    } else if (lang.code !== defaultLocale) {
-      console.log('lang.code !== defaultLocale');
-      newPathname = `/${lang.code}${newPathname}`;
+    } else if (!pathname.startsWith(`/${lang.code}`)) {
+      const updatedPathname = pathname.startsWith(`/${locale}`)
+        ? pathname.replace(`/${locale}`, '')
+        : pathname;
+      newPathname = `/${lang.code}${updatedPathname}`;
     }
-    console.log('newPathname', newPathname);
 
     router.push(newPathname);
   };
 
   return (
     <div className="position-relative">
+      {/* <select name="locale" id="locale">
+        {locales?.map((item, idx) => {
+          return (
+            <option value="audi" key={idx}>
+              <div onClick={() => onUpdateLang(item)}>
+                <PureImage
+                  url={item.icon}
+                  style={{
+                    width: '20px',
+                    height: 'auto',
+                    borderRadius: '2px'
+                  }}
+                />
+              </div>
+            </option>
+          );
+        })}
+      </select> */}
       {locales?.map((item, idx) => {
         return (
           <button onClick={() => onUpdateLang(item)} key={idx}>

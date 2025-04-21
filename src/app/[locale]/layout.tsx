@@ -57,7 +57,7 @@ export default async function LocaleLayout({
     }
   }
 
-  const findDefaultLocale = result.languages.find((item) => item.isDefault);
+  const findDefaultLocale = result?.languages?.find((item) => item.isDefault);
 
   return (
     <html lang={locale}>

@@ -1,8 +1,8 @@
 'use client';
-import {useTranslations} from 'next-intl';
 import {Fragment} from 'react';
-import LocaleLink from '../Common/LinkByLocale';
+import {useTranslations} from 'next-intl';
 import {useAppContext} from '@/Providers';
+import LocaleLink from '../Common/LinkByLocale';
 
 const Menus = () => {
   const t = useTranslations();

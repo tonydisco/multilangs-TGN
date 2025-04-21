@@ -92,8 +92,8 @@ export default async function LocaleLayout({
                 locale={locale}
                 setting={setting?.result}
                 locales={result.languages}
-                defaultLocale={findDefaultLocale?.code}
                 messages={translations[locale]}
+                defaultLocale={findDefaultLocale?.code}
               >
                 {children}
               </RootLayout>

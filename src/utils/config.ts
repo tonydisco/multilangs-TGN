@@ -2,15 +2,26 @@ export const port = process.env.PORT;
 export const host =
   process.env.NEXT_PUBLIC_API_URL ?? `http://localhost:${port}`;
 
+export const routes = {
+  home: '/',
+  about: '/gioi-thieu',
+  field: '/linh-vuc-hoat-dong',
+  productionCapacity: '/nang-luc-san-xuat',
+  product: '/san-pham',
+  project: '/du-an',
+  news: '/tin-tuc',
+  contact: '/lien-he-tuyen-dung'
+};
+
 export const rmockRoute = [
-  {name: 'Trang chủ', path: '/'},
-  {name: 'Giới thiệu', path: '/gioi-thieu'},
-  {name: 'Lĩnh vực hoạt động', path: '/linh-vuc-hoat-dong'},
-  {name: 'Năng lực sản xuất', path: '/nang-luc-san-xuat'},
-  {name: 'Sản phẩm', path: '/san-pham'},
-  {name: 'Dự án', path: '/du-an'},
-  {name: 'Tin tức', path: '/tin-tuc'},
-  {name: 'Liên hệ - tuyển dụng', path: '/lien-he-tuyen-dung'}
+  {name: 'Trang chủ', path: routes.home},
+  {name: 'Giới thiệu', path: routes.about},
+  {name: 'Lĩnh vực hoạt động', path: routes.field},
+  {name: 'Năng lực sản xuất', path: routes.productionCapacity},
+  {name: 'Sản phẩm', path: routes.product},
+  {name: 'Dự án', path: routes.project},
+  {name: 'Tin tức', path: routes.news},
+  {name: 'Liên hệ - tuyển dụng', path: routes.contact}
 ];
 
 export const newsTabs = [

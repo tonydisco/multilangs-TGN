@@ -6,15 +6,6 @@ import {useEffect, useState} from 'react';
 import {PureImage} from '../Common/Images';
 import './style.css';
 
-const mapping = {
-  vi: 'vi',
-  en: 'en'
-};
-
-export const onMappingLocale = (locale: string) => {
-  return mapping[locale as keyof typeof mapping];
-};
-
 const LanguageSwitcher = (props: {locale: string}) => {
   const {locale} = props;
   const [activedLang, setActivedLang] = useState<string>(locale);
@@ -26,6 +17,9 @@ const LanguageSwitcher = (props: {locale: string}) => {
   const pathname = usePathname();
 
   const onUpdateLang = (lang: ILanguages) => {
+    if (lang.code === activedLang) {
+      return;
+    }
     let newPathname = pathname;
     if (lang.code === defaultLocale) {
       if (pathname.startsWith(`/${locale}`)) {
@@ -40,8 +34,6 @@ const LanguageSwitcher = (props: {locale: string}) => {
     setActivedLang(lang.code);
     router.push(newPathname);
   };
-
-  console.log({locales});
 
   const handleClickOutside = (event: MouseEvent) => {
     const selectBox = document.getElementById('tgn-select-box-overflow');

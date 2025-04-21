@@ -437,3 +437,35 @@ button {
 .tgn-partners-btn-next {
   transform: rotate(180deg);
 }
+
+.tgn-select-box-overflow {
+  position: absolute;
+  right: 0;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  width: max-content;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  top: 50px;
+}
+.tgn-select-box-overflow-active {
+  opacity: 1;
+  top: 30px;
+}
+
+.tgn-select-item {
+  padding: 5px 10px;
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 0.3s ease-in-out;
+}
+
+.tgn-select-item:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.tgn-select-item-active {
+  background-color: #f5f5f5;
+}

@@ -2,7 +2,7 @@
 import {useAppContext} from '@/Providers';
 import {ILanguages} from '@/models/interface';
 import {usePathname, useRouter} from 'next/navigation';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {PureImage} from '../Common/Images';
 import './style.css';
 
@@ -20,14 +20,14 @@ const LanguageSwitcher = (props: {locale: string}) => {
   const [activedLang, setActivedLang] = useState<string>(locale);
   const {defaultLocale, locales} = useAppContext();
 
+  const [onBoxFocus, setOnBoxFocus] = useState(false);
+
   const router = useRouter();
   const pathname = usePathname();
 
   const onUpdateLang = (lang: ILanguages) => {
-    setActivedLang(lang.code);
     let newPathname = pathname;
     if (lang.code === defaultLocale) {
-      // If the selected language is the default locale, remove the locale prefix
       if (pathname.startsWith(`/${locale}`)) {
         newPathname = pathname.replace(`/${locale}`, '');
       }
@@ -37,45 +37,77 @@ const LanguageSwitcher = (props: {locale: string}) => {
         : pathname;
       newPathname = `/${lang.code}${updatedPathname}`;
     }
-
+    setActivedLang(lang.code);
     router.push(newPathname);
   };
 
+  console.log({locales});
+
+  const handleClickOutside = (event: MouseEvent) => {
+    const selectBox = document.getElementById('tgn-select-box-overflow');
+    if (selectBox && !selectBox.contains(event.target as Node)) {
+      setOnBoxFocus(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="position-relative">
-      {/* <select name="locale" id="locale">
+      <button
+        className="position-relative"
+        onClick={() => {
+          setOnBoxFocus(!onBoxFocus);
+        }}
+      >
         {locales?.map((item, idx) => {
           return (
-            <option value="audi" key={idx}>
-              <div onClick={() => onUpdateLang(item)}>
-                <PureImage
-                  url={item.icon}
-                  style={{
-                    width: '20px',
-                    height: 'auto',
-                    borderRadius: '2px'
-                  }}
-                />
-              </div>
-            </option>
+            <div key={idx}>
+              <PureImage
+                url={item.icon}
+                style={{
+                  width: '20px',
+                  height: 'auto',
+                  borderRadius: '2px'
+                }}
+                className={`default-lang ${item?.code === activedLang ? 'active-lang' : ''}`}
+              />
+            </div>
           );
         })}
-      </select> */}
-      {locales?.map((item, idx) => {
-        return (
-          <button onClick={() => onUpdateLang(item)} key={idx}>
-            <PureImage
-              url={item.icon}
-              style={{
-                width: '20px',
-                height: 'auto',
-                borderRadius: '2px'
-              }}
-              className={`default-lang ${item?.code === activedLang ? 'active-lang' : ''}`}
-            />
-          </button>
-        );
-      })}
+      </button>
+      <div
+        id="tgn-select-box-overflow"
+        className={`tgn-select-box-overflow ${onBoxFocus ? 'tgn-select-box-overflow-active' : ''}`}
+      >
+        {locales?.map((item, idx) => {
+          return (
+            <div
+              key={idx}
+              className={`tgn-select-item ${item?.code === activedLang ? 'tgn-select-item-active' : ''}`}
+            >
+              <button onClick={() => onUpdateLang(item)}>
+                <div className="d-flex align-items-center gap-2">
+                  <PureImage
+                    url={item.icon}
+                    style={{
+                      width: '20px',
+                      height: 'auto',
+                      borderRadius: '2px'
+                    }}
+                  />
+                  <div style={{whiteSpace: 'nowrap'}}>{item.name}</div>
+                </div>
+              </button>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

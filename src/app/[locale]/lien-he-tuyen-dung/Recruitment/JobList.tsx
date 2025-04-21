@@ -5,6 +5,8 @@ import {useAppContext} from '@/Providers';
 import {useMemo} from 'react';
 import {IJobList} from '.';
 
+const attributesMapping = ['Job.SalaryRange', 'Job.Location'];
+
 const JobList = (props: {
   jobList: IJobList;
   onChange?: (num: number) => void;
@@ -45,8 +47,6 @@ const JobList = (props: {
     });
   }, [locale, data]);
 
-  console.log({dataByLocale});
-
   return (
     <div style={{paddingTop: 100}}>
       <div
@@ -61,6 +61,10 @@ const JobList = (props: {
           const contents = item.contents.find(
             (content: any) => content.language === locale
           );
+          const getAttributesMapping = item.attributes.filter((tag: any) => {
+            return attributesMapping.includes(tag?.code);
+          });
+
           return (
             <div key={index} style={{width: '32%'}}>
               <CardBorder style={{height: '100%'}}>
@@ -145,41 +149,49 @@ const JobList = (props: {
                         display: 'flex',
                         justifyContent: 'space-between',
                         alignItems: 'center',
-                        gap: 10
+                        gap: 20
                       }}
                     >
-                      {/* <div
+                      <div
                         style={{
                           display: 'flex',
-                          gap: 10
+                          gap: 10,
+                          overflowX: 'auto',
+                          overflowY: 'hidden'
                         }}
                       >
-                        {item.tag.map((tag, index) => {
-                          return (
-                            <div
-                              key={index}
-                              style={{
-                                backgroundColor: '#F2F2F2',
-                                padding: '5px 10px',
-                                borderRadius: 36,
-                                fontSize: 13
-                              }}
-                            >
-                              {tag.name}
-                            </div>
-                          );
-                        })}
-                      </div> */}
+                        {getAttributesMapping?.map(
+                          (tag: any, index: number) => {
+                            return (
+                              <div
+                                key={index}
+                                style={{
+                                  backgroundColor: '#F2F2F2',
+                                  padding: '5px 10px',
+                                  borderRadius: 36,
+                                  fontSize: 13,
+                                  whiteSpace: 'nowrap'
+                                }}
+                              >
+                                {tag?.value}
+                              </div>
+                            );
+                          }
+                        )}
+                      </div>
                       <div>
                         <div
                           style={{
-                            borderBottom: '1px solid #6d3e2f'
+                            borderBottom: '1px solid #6d3e2f',
+                            display: 'flex',
+                            alignItems: 'center'
                           }}
                         >
                           <span
                             className="tgn-text-brow-color"
                             style={{
-                              fontWeight: 600
+                              fontWeight: 600,
+                              whiteSpace: 'nowrap'
                             }}
                           >
                             Chi tiết

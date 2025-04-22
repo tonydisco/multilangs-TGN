@@ -1,14 +1,11 @@
 'use client';
-import React from 'react';
-import Link from 'next/link';
-import {PureImage} from '../Common/Images';
-import {rmockRoute} from '@/utils/config';
-import Socials from '../Header/Socials';
-import Logos from '../Common/Logos';
-import {v4 as uuidv4} from 'uuid';
 import {useMenu} from '@/hooks/useMenu';
-import LocaleLink from '../Common/LinkByLocale';
 import {useAppContext} from '@/Providers';
+import {v4 as uuidv4} from 'uuid';
+import {PureImage} from '../Common/Images';
+import LocaleLink from '../Common/LinkByLocale';
+import Logos from '../Common/Logos';
+import Socials from '../Header/Socials';
 
 const Footer = () => {
   const {menus} = useMenu();

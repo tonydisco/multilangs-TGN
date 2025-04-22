@@ -46,3 +46,49 @@ export const socialMapping: Record<string, string> = {
   Facebook: '/icon/FB.svg',
   Zalo: '/icon/ZALO.svg'
 };
+
+// Map file system paths to translated route segments
+export const routeTranslations: {[key: string]: {[key: string]: string}} = {
+  en: {
+    'du-an': 'projects',
+    'gioi-thieu': 'about',
+    'lien-he-tuyen-dung': 'contact-us',
+    'linh-vuc-hoat-dong': 'activity-areas',
+    'nang-luc-san-xuat': 'production-capacity',
+    'san-pham': 'products',
+    'tin-tuc': 'news'
+  },
+  vi: {
+    'du-an': 'du-an',
+    'gioi-thieu': 'gioi-thieu',
+    'lien-he-tuyen-dung': 'lien-he-tuyen-dung',
+    'linh-vuc-hoat-dong': 'linh-vuc-hoat-dong',
+    'nang-luc-san-xuat': 'nang-luc-san-xuat',
+    'san-pham': 'san-pham',
+    'tin-tuc': 'tin-tuc'
+  }
+};
+
+// Reverse mapping for converting translated segments back to file system paths
+export const reverseRouteTranslations: {
+  [key: string]: {[key: string]: string};
+} = {
+  en: {
+    projects: 'du-an',
+    about: 'gioi-thieu',
+    'contact-us': 'lien-he-tuyen-dung',
+    'activity-areas': 'linh-vuc-hoat-dong',
+    'production-capacity': 'nang-luc-san-xuat',
+    products: 'san-pham',
+    news: 'tin-tuc'
+  },
+  vi: {
+    'du-an': 'du-an',
+    'gioi-thieu': 'gioi-thieu',
+    'lien-he-tuyen-dung': 'lien-he-tuyen-dung',
+    'linh-vuc-hoat-dong': 'linh-vuc-hoat-dong',
+    'nang-luc-san-xuat': 'nang-luc-san-xuat',
+    'san-pham': 'san-pham',
+    'tin-tuc': 'tin-tuc'
+  }
+};

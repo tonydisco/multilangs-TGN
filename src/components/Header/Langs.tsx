@@ -5,6 +5,7 @@ import {usePathname, useRouter} from 'next/navigation';
 import {useEffect, useState} from 'react';
 import {PureImage} from '../Common/Images';
 import './style.css';
+import {reverseRouteTranslations, routeTranslations} from '@/utils/config';
 
 const LanguageSwitcher = (props: {locale: string}) => {
   const {locale} = props;
@@ -16,21 +17,34 @@ const LanguageSwitcher = (props: {locale: string}) => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const onUpdateLang = (lang: ILanguages) => {
+  const onSwitchLocale = (lang: ILanguages) => {
     if (lang.code === activedLang) {
       return;
     }
-    let newPathname = pathname;
+
+    const pathSegments = pathname.split('/');
+    const isDefaultLocaleOmitted = !['vi', 'en'].includes(pathSegments[1]);
+    const currentSegment = isDefaultLocaleOmitted
+      ? pathSegments[1]
+      : pathSegments[2] || '';
+
+    const getTranslatedRoute = (newLocale: string, currentSegment: string) => {
+      const fileSystemSegment =
+        reverseRouteTranslations[locale]?.[currentSegment] || currentSegment;
+      return (
+        routeTranslations[newLocale]?.[fileSystemSegment] || fileSystemSegment
+      );
+    };
+
+    const translatedSegment = getTranslatedRoute(lang.code, currentSegment);
+
+    let newPathname = '';
     if (lang.code === defaultLocale) {
-      if (pathname.startsWith(`/${locale}`)) {
-        newPathname = pathname.replace(`/${locale}`, '');
-      }
-    } else if (!pathname.startsWith(`/${lang.code}`)) {
-      const updatedPathname = pathname.startsWith(`/${locale}`)
-        ? pathname.replace(`/${locale}`, '')
-        : pathname;
-      newPathname = `/${lang.code}${updatedPathname}`;
+      newPathname = `/${translatedSegment}${pathSegments.slice(isDefaultLocaleOmitted ? 2 : 3).join('/') || ''}`;
+    } else {
+      newPathname = `/${lang.code}/${translatedSegment}${pathSegments.slice(3).join('/') || ''}`;
     }
+
     setActivedLang(lang.code);
     router.push(newPathname);
   };
@@ -83,7 +97,7 @@ const LanguageSwitcher = (props: {locale: string}) => {
               key={idx}
               className={`tgn-select-item ${item?.code === activedLang ? 'tgn-select-item-active' : ''}`}
             >
-              <button onClick={() => onUpdateLang(item)}>
+              <button onClick={() => onSwitchLocale(item)}>
                 <div className="d-flex align-items-center gap-2">
                   <PureImage
                     url={item.icon}

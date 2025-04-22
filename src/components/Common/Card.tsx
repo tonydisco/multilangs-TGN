@@ -3,9 +3,9 @@ import {Button} from './Button';
 import {PureImage} from './Images';
 import React, {ReactNode} from 'react';
 import {ICardProps} from '@/models/interface';
+import {ImageMode} from '@/models/types';
 import Link from 'next/link';
 import '@/styles/cards.css';
-import {ImageMode} from '@/models/types';
 
 interface ICardBorderProps {
   children: ReactNode;
@@ -31,7 +31,7 @@ const CardBase = (props: {item: ICardProps}) => {
             flex: item?.flex?.left ?? 1
           }}
         >
-          <div className="d-flex flex-column justify-content-between h-100">
+          <div className="d-flex flex-column justify-content-between h-100 gap-6">
             <div>
               <h3 className="tgn-box-title text-start">{item?.title}</h3>
               <div
@@ -44,7 +44,11 @@ const CardBase = (props: {item: ICardProps}) => {
                 {item?.content}
               </div>
             </div>
-            <div>
+            <div
+              style={{
+                textAlign: 'left'
+              }}
+            >
               <Button
                 btnProps={{
                   text: item?.btnText ?? 'Xem thêm',
@@ -83,7 +87,7 @@ const CardBorder = (props: ICardBorderProps) => {
       className={`base-card-full-border ${className}`}
       style={{
         padding: 24,
-        height: 300,
+        minHeight: 300,
         ...style
       }}
     >
@@ -91,6 +95,7 @@ const CardBorder = (props: ICardBorderProps) => {
     </div>
   );
 };
+
 const CardNoBorderLine = (props: ICardBorderProps) => {
   const {children, className, style} = props;
 
@@ -107,6 +112,7 @@ const CardNoBorderLine = (props: ICardBorderProps) => {
     </div>
   );
 };
+
 const CardProduct = (props: {item: {title: string; image: string}}) => {
   const {item} = props;
   return (
@@ -134,6 +140,7 @@ const CardProduct = (props: {item: {title: string; image: string}}) => {
     </div>
   );
 };
+
 const CardItem = (props: {
   item: {
     title: string;

@@ -17,6 +17,7 @@
   "dependencies": {
     "@next/third-parties": "^15.3.0",
     "clsx": "^2.1.1",
+    "html-react-parser": "^5.2.3",
     "next": "^15.2.2",
     "next-intl": "^4.0.0",
     "react": "^19.0.0",

@@ -1,12 +1,16 @@
+import {ISetting} from '@/models/interface';
+import {routes} from '@/utils/config';
 import {Locale} from 'next-intl';
 import {PureImage} from '../Common/Images';
+import LocaleLink from '../Common/LinkByLocale';
+import Logos from '../Common/Logos';
 import LanguageSwitcher from './Langs';
 import Menus from './Menus';
-import LocaleLink from '../Common/LinkByLocale';
 import Socials from './Socials';
 
 type Props = {
   locale: Locale;
+  setting?: ISetting;
 };
 const Header = async ({locale}: Readonly<Props>) => {
   return (
@@ -28,10 +32,8 @@ const Header = async ({locale}: Readonly<Props>) => {
           padding: '1rem'
         }}
       >
-        <div style={{width: '280px'}}>
-          <LocaleLink href="/" locale={locale}>
-            <PureImage />
-          </LocaleLink>
+        <div style={{maxWidth: '150px', width: '100%'}}>
+          <Logos />
         </div>
         <div>
           <div
@@ -68,19 +70,20 @@ const Header = async ({locale}: Readonly<Props>) => {
                     transition: 'background-color 0.3s ease, color 0.3s ease'
                   }}
                 >
-                  <span
-                    style={{
-                      fontSize: '14px',
-                      lineHeight: '20px',
-                      textTransform: 'uppercase',
-                      fontWeight: 600
-                    }}
-                  >
-                    Liên hệ
-                  </span>
+                  <LocaleLink locale={locale} href={routes.contact}>
+                    <span
+                      style={{
+                        fontSize: '14px',
+                        lineHeight: '20px',
+                        textTransform: 'uppercase',
+                        fontWeight: 600
+                      }}
+                    >
+                      Liên hệ
+                    </span>
+                  </LocaleLink>
                 </div>
                 <Socials />
-
                 <div className="line-btw" />
                 <LanguageSwitcher locale={locale} />
               </div>

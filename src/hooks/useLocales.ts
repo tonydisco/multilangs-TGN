@@ -1,14 +1,14 @@
 import {getLangs} from '@/apis/langs';
-import {Languages} from '@/models/interface';
+import {ILanguages} from '@/models/interface';
 import {useState, useEffect} from 'react';
 
 const getDefaultLang = (list: any): string => {
-  const findDefaultLang = list.find((item: Languages) => item.isDefault);
+  const findDefaultLang = list.find((item: ILanguages) => item.isDefault);
   return findDefaultLang?.code ?? '';
 };
 
 export function useLocales() {
-  const [locales, setLocales] = useState<Array<Languages>>([]);
+  const [locales, setLocales] = useState<Array<ILanguages>>([]);
   const [defaultLocale, setDefaultLocale] = useState<string>();
 
   useEffect(() => {

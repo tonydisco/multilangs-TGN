@@ -1,7 +1,9 @@
 import React from 'react';
+import Link from 'next/link';
 import {PureImage} from '../Common/Images';
 import {rmockRoute} from '@/utils/config';
-import Link from 'next/link';
+import Socials from '../Header/Socials';
+import Logos from '../Common/Logos';
 
 const Footer = () => {
   const Line = () => (
@@ -26,13 +28,7 @@ const Footer = () => {
             position: 'relative'
           }}
         >
-          <div
-            // style={{
-            //   width: '100%',
-            //   padding: '3rem 7rem'
-            // }}
-            className="container"
-          >
+          <div className="container">
             <div
               style={{
                 display: 'flex',
@@ -50,8 +46,8 @@ const Footer = () => {
                   gap: 30
                 }}
               >
-                <div style={{maxWidth: 350, marginBottom: 35}}>
-                  <PureImage />
+                <div style={{maxWidth: 275, marginBottom: 35}}>
+                  <Logos />
                 </div>
                 <div>
                   <p
@@ -78,15 +74,12 @@ const Footer = () => {
                         alignItems: 'center'
                       }}
                     >
-                      <div style={{width: 35, height: 35}}>
-                        <PureImage url="/icon/FB.svg" />
-                      </div>
-                      <div style={{width: 35, height: 35}}>
-                        <PureImage url="/icon/ZALO.svg" />
-                      </div>
-                    </div>
-                    <div style={{maxWidth: 250}}>
-                      <PureImage url="/landing/CERT.png" />
+                      <Socials
+                        iconSize={{
+                          width: 35,
+                          height: 35
+                        }}
+                      />
                     </div>
                   </div>
                 </div>
@@ -199,7 +192,7 @@ const Footer = () => {
                 }}
               >
                 <div>
-                  Bản quyền © 2024 thuộc <strong>TGN Group</strong>
+                  Bản quyền © 2024 thuộc <strong>TGN</strong>
                 </div>
                 <div style={{display: 'flex', gap: 40}}>
                   <div>Chính sách bảo mật</div>

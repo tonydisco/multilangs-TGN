@@ -18,7 +18,7 @@ export async function fetchTranslations(): Promise<{
 
   const translations: Record<string, Record<string, string>> = {};
 
-  data.result.languages.forEach((language) => {
+  data?.result?.languages?.forEach((language) => {
     translations[language.code] = language.translations.reduce(
       (acc, {key, value}) => ({
         ...acc,

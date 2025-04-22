@@ -24,7 +24,7 @@
   position: relative;
 }
 
-.tgn-partners-slider-btn-left {
+.tgn-partners-slider-btn {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -36,16 +36,16 @@
   left: -50px;
 }
 
+.tgn-partners-slider-btn-left {
+  left: -50px;
+}
+
 .tgn-partners-slider-btn-right {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 20px;
-  z-index: 20;
-  position: absolute;
-  top: 0;
-  bottom: 0;
   right: -50px;
+}
+
+.tgn-transform-rotate {
+  transform: rotate(180deg);
 }
 
 .tgn-partners-grid-container {

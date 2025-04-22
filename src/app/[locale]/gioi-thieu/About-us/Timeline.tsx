@@ -125,7 +125,7 @@ function PartnersSlider() {
         <div className="position-relative container">
           <button
             className="tgn-partners-btn"
-            onClick={onNext}
+            onClick={onPrev}
             style={{
               position: 'absolute',
               top: -13,
@@ -142,7 +142,7 @@ function PartnersSlider() {
               position: 'absolute',
               transform: 'rotate(180deg)'
             }}
-            onClick={onPrev}
+            onClick={onNext}
           >
             <PureImage url="/icon/ARROW-ICON.svg" />
           </button>

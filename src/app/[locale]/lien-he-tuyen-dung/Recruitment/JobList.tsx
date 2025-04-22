@@ -85,7 +85,7 @@ const JobList = (props: {
                         height: 'auto'
                       }}
                     />
-                    <div className="tgn-title-max-two-lines">
+                    <div className="tgn-base-limit-two-lines">
                       <span
                         style={{
                           fontSize: 16,
@@ -98,7 +98,7 @@ const JobList = (props: {
                     </div>
                     <div
                       style={{marginTop: 10}}
-                      // className="tgn-title-max-two-lines"
+                      // className="tgn-base-limit-two-lines"
                     >
                       <span
                         style={{

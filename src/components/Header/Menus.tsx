@@ -1,23 +1,12 @@
 'use client';
-import {Fragment} from 'react';
-import {useTranslations} from 'next-intl';
+import {useMenu} from '@/hooks/useMenu';
 import {useAppContext} from '@/Providers';
+import {Fragment} from 'react';
 import LocaleLink from '../Common/LinkByLocale';
 
 const Menus = () => {
-  const t = useTranslations();
   const {locale} = useAppContext();
-
-  const menuByLocale = [
-    {name: t('HeaderNavHome'), path: '/'},
-    {name: t('HeaderNavAboutUs'), path: '/gioi-thieu'},
-    {name: t('HeaderNavBusinessAreas'), path: '/linh-vuc-hoat-dong'},
-    {name: t('HeaderNavProductionCapacity'), path: '/nang-luc-san-xuat'},
-    {name: t('HeaderNavProducts'), path: '/san-pham'},
-    {name: t('HeaderNavProjects'), path: '/du-an'},
-    {name: t('HeaderNavNews'), path: '/tin-tuc'},
-    {name: t('HeaderNavContactRecruitment'), path: '/lien-he-tuyen-dung'}
-  ];
+  const {menus} = useMenu();
 
   return (
     <ul
@@ -30,7 +19,7 @@ const Menus = () => {
         marginBottom: '0'
       }}
     >
-      {menuByLocale.map((item, index) => {
+      {menus?.map((item, index) => {
         return (
           <Fragment key={index}>
             <li
@@ -54,7 +43,7 @@ const Menus = () => {
                 {item.name}
               </LocaleLink>
             </li>
-            {index !== menuByLocale.length - 1 && <div className="line-btw" />}
+            {index !== menus.length - 1 && <div className="line-btw" />}
           </Fragment>
         );
       })}

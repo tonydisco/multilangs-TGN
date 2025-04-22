@@ -152,16 +152,20 @@ button {
     -4px -4px 8px 0px #73423366;
   transition: all 0.3s ease-in-out;
 }
-.tgn-title-max-two-lines {
+.tgn-base-limit-two-lines {
   display: -webkit-box;
   -webkit-line-clamp: 2; /* Số dòng tối đa */
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-height: 3.2em; /* Chiều cao tối đa */
-  line-height: 1.6em; /* Chiều cao dòng */
   margin: 0;
 }
+.tgn-limit-four-lines {
+  -webkit-line-clamp: 4; /* Số dòng tối đa */
+  line-clamp: 4;
+}
+
 .app-btn-default-flex {
   display: flex;
   justify-content: center;

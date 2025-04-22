@@ -16,8 +16,6 @@ export default async function middleware(request: NextRequest) {
     langs?.result?.languages?.map((item) => item.code) ?? initLocales;
   const defaultLocale = findDefaultLocale?.code ?? initDefaultLocale;
 
-  console.log({locales});
-
   // Skip middleware for API, _next, static files, etc.
   const shouldHandle =
     !pathname.startsWith('/api') &&
@@ -59,22 +57,14 @@ export default async function middleware(request: NextRequest) {
   }
 
   // If the route segment exists in the routeMap for the current locale, rewrite to the file system path
-  if (
-    routeSegment &&
-    reverseRouteTranslations[locale] &&
-    reverseRouteTranslations[locale][routeSegment]
-  ) {
+  if (routeSegment && reverseRouteTranslations?.[locale]?.[routeSegment]) {
     const fileSystemSegment = reverseRouteTranslations[locale][routeSegment];
     const newPathname = `/${locale}/${fileSystemSegment}${pathSegments.slice(3).join('/') || ''}`;
     return NextResponse.rewrite(new URL(newPathname, request.url));
   }
 
   // Handle the reverse case: if the user accesses the file system path directly
-  if (
-    routeSegment &&
-    routeTranslations[locale] &&
-    routeTranslations[locale][routeSegment]
-  ) {
+  if (routeSegment && routeTranslations?.[locale]?.[routeSegment]) {
     const translatedSegment = routeTranslations[locale][routeSegment];
     const newPathname =
       locale === defaultLocale

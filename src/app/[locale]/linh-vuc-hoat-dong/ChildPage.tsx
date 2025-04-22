@@ -3,7 +3,12 @@ import parse from 'html-react-parser';
 import {CardBase} from '@/components/Common/Card';
 import {getTranslations} from 'next-intl/server';
 
-const ChildPage = async ({attribs, content, locale}: any) => {
+interface IChildPageProps {
+  attribs: any;
+  content: any;
+  locale: string;
+}
+const ChildPage = async ({attribs, content, locale}: IChildPageProps) => {
   const t = await getTranslations();
   const item = content?.contents?.find((x: any) => x.language == locale) ?? {};
   const excerpt = parse(item.excerpt, {});
@@ -17,7 +22,7 @@ const ChildPage = async ({attribs, content, locale}: any) => {
           linkTo: content.slug,
           btnText: t('ViewDetail')
         }}
-      ></CardBase>
+      />
     </div>
   );
 };

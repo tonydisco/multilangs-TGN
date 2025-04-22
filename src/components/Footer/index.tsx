@@ -1,11 +1,19 @@
+'use client';
 import React from 'react';
 import Link from 'next/link';
 import {PureImage} from '../Common/Images';
 import {rmockRoute} from '@/utils/config';
 import Socials from '../Header/Socials';
 import Logos from '../Common/Logos';
+import {v4 as uuidv4} from 'uuid';
+import {useMenu} from '@/hooks/useMenu';
+import LocaleLink from '../Common/LinkByLocale';
+import {useAppContext} from '@/Providers';
 
 const Footer = () => {
+  const {menus} = useMenu();
+  const {locale} = useAppContext();
+
   const Line = () => (
     <div
       className="line"
@@ -160,18 +168,22 @@ const Footer = () => {
                         gap: 10
                       }}
                     >
-                      {rmockRoute.map((item, index) => {
+                      {menus.map((item) => {
                         return (
-                          <div key={index}>
-                            <Link
+                          <div key={uuidv4()}>
+                            <LocaleLink
+                              locale={locale}
                               href={item.path}
                               style={{
                                 whiteSpace: 'nowrap',
-                                fontWeight: 700
+                                fontWeight: 600,
+                                textWrap: 'nowrap',
+                                textTransform: 'capitalize',
+                                cursor: 'pointer'
                               }}
                             >
                               {item.name}
-                            </Link>
+                            </LocaleLink>
                           </div>
                         );
                       })}

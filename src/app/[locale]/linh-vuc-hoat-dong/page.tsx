@@ -3,6 +3,7 @@ import PageLayout from '@/components/PageLayout';
 import ChildPage from './ChildPage';
 import {getPage} from '@/apis/pages';
 import parse from 'html-react-parser';
+import {v4 as uuidv4} from 'uuid';
 
 export default async function Page({params}: any) {
   const {locale} = await params;
@@ -14,13 +15,12 @@ export default async function Page({params}: any) {
       title={<TitlePageView title={content?.title} />}
       className="page-wrapper"
     >
-      {content.blocks?.map((block: any, index: number) => {
+      {content.blocks?.map((block: any) => {
         const html = parse(block.content, {
           replace: (domNode: any) => {
-            if (domNode.attribs && domNode.attribs['data-auto-block-code']) {
+            if (domNode?.attribs?.['data-auto-block-code']) {
               const blockCode = domNode.attribs['data-auto-block-code'];
               const arr = blockCode.split('](');
-              // const code = arr[0].replace(']', '');
               const slug = arr[1].replace(')', '');
               const childContent = pageContent.children.find(
                 (x: any) => x.slug == slug
@@ -38,7 +38,7 @@ export default async function Page({params}: any) {
             return domNode;
           }
         });
-        return <div key={index}>{html}</div>;
+        return <div key={uuidv4()}>{html}</div>;
       })}
     </PageLayout>
   );

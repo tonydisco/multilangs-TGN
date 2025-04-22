@@ -57,7 +57,7 @@ export default async function LocaleLayout({
     }
   }
 
-  const findDefaultLocale = result.languages.find((item) => item.isDefault);
+  const findDefaultLocale = result?.languages?.find((item) => item.isDefault);
 
   return (
     <html lang={locale}>
@@ -80,6 +80,7 @@ export default async function LocaleLayout({
           rel="stylesheet"
           href="https://tgn-api.vikiworld.vn/styles/bs-utilities.min.css"
         />
+
         {GGkey && <GoogleAnalytics gaId={'G-328938273897'} />}
       </head>
 
@@ -91,8 +92,8 @@ export default async function LocaleLayout({
                 locale={locale}
                 setting={setting?.result}
                 locales={result.languages}
-                defaultLocale={findDefaultLocale?.code}
                 messages={translations[locale]}
+                defaultLocale={findDefaultLocale?.code}
               >
                 {children}
               </RootLayout>

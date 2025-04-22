@@ -6,7 +6,15 @@ import {getBySetting} from '@/utils/common';
 import {socialMapping} from '@/utils/config';
 import {ISocialItem, ISocialLink} from '@/models/interface';
 
-const Socials = () => {
+interface ISocialsProps {
+  iconSize?: {
+    width?: number | string;
+    height?: number | string;
+  };
+}
+
+const Socials = (props: ISocialsProps) => {
+  const {iconSize} = props;
   const {utilSetting} = useAppContext();
 
   const getSocialLink: ISocialLink = useMemo(() => {
@@ -38,7 +46,8 @@ const Socials = () => {
             key={index}
             style={{
               opacity: 1,
-              width: '20px',
+              width: iconSize?.width ?? 20,
+              height: iconSize?.height ?? 'auto',
               cursor: 'pointer',
               transition: 'opacity 0.3s ease'
             }}

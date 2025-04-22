@@ -31,11 +31,10 @@ const SectionSub = ({
     <div
       style={{
         marginTop: 20,
-        color: '#616161',
         textAlign: 'left',
         ...style
       }}
-      className="fs-12px md:fs-14px"
+      className="fs-12px md:fs-14px tgn-text-gray-color"
     >
       {text}
     </div>

@@ -35,18 +35,18 @@ function PartnersSlider() {
     cssEase: 'linear',
     dot: false,
     arrows: false,
-    // autoplay: true,
+    autoplay: true,
     rtl: true
   };
   return (
     <div className="tgn-partners-slider-container">
-      <div className="tgn-partners-slider-btn-left">
-        <button className="tgn-partners-btn" onClick={onNext}>
+      <div className="tgn-partners-slider-btn tgn-partners-slider-btn-left">
+        <button onClick={onNext}>
           <PureImage url="/icon/ARROW-ICON.svg" />
         </button>
       </div>
-      <div className="tgn-partners-slider-btn-right">
-        <button className="tgn-partners-btn-prev" onClick={onPrev}>
+      <div className="tgn-partners-slider-btn tgn-partners-slider-btn-right">
+        <button className="tgn-transform-rotate" onClick={onPrev}>
           <PureImage url="/icon/ARROW-ICON.svg" />
         </button>
       </div>
@@ -54,7 +54,6 @@ function PartnersSlider() {
         {Array.from({length: 3}).map((_, index) => {
           const itemsPerSlide = 20;
           const startIndex = index * itemsPerSlide;
-          // const endIndex = startIndex + itemsPerSlide;
 
           return (
             <div key={`partner-slide-${index}`}>

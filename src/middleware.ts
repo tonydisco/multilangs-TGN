@@ -1,11 +1,22 @@
 import {NextRequest, NextResponse} from 'next/server';
 import {reverseRouteTranslations, routeTranslations} from './utils/config';
+import {getLangs} from './apis/langs';
 
-const locales = ['vi', 'en'];
-const defaultLocale = 'vi';
+const initLocales = ['vi', 'en'];
+const initDefaultLocale = 'vi';
 
 export default async function middleware(request: NextRequest) {
   const {pathname} = new URL(request.url);
+
+  const langs = await getLangs();
+  const findDefaultLocale = langs?.result?.languages?.find(
+    (item) => item.isDefault
+  );
+  const locales =
+    langs?.result?.languages?.map((item) => item.code) ?? initLocales;
+  const defaultLocale = findDefaultLocale?.code ?? initDefaultLocale;
+
+  console.log({locales});
 
   // Skip middleware for API, _next, static files, etc.
   const shouldHandle =

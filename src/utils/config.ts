@@ -46,7 +46,7 @@ export const socialMapping: Record<string, string> = {
   Facebook: '/icon/FB.svg',
   Zalo: '/icon/ZALO.svg'
 };
-
+export const dynamicRoutes = ['tin-tuc', 'san-pham'];
 // Map file system paths to translated route segments
 export const routeTranslations: {[key: string]: {[key: string]: string}} = {
   en: {

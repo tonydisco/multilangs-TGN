@@ -3,6 +3,7 @@ import {useMenu} from '@/hooks/useMenu';
 import {useAppContext} from '@/Providers';
 import {Fragment} from 'react';
 import LocaleLink from '../Common/LinkByLocale';
+import {v4 as uuid} from 'uuid';
 
 const Menus = () => {
   const {locale} = useAppContext();
@@ -21,7 +22,7 @@ const Menus = () => {
     >
       {menus?.map((item, index) => {
         return (
-          <Fragment key={index}>
+          <Fragment key={uuid()}>
             <li
               style={{
                 position: 'relative'

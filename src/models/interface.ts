@@ -1,5 +1,6 @@
 import React from 'react';
 import {ImageMode} from './types';
+import {Locale} from 'next-intl';
 
 export interface ApiResult<T> {
   isSuccess: boolean;
@@ -68,4 +69,8 @@ export interface ISocialItem {
 
 export interface ISocialLink {
   items: Array<ISocialItem>;
+}
+
+export interface IPageDefaultProps {
+  params: Promise<{locale: Locale; slug: string}>;
 }

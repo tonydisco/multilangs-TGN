@@ -5,7 +5,11 @@ import {ILanguages} from '@/models/interface';
 import {usePathname, useRouter} from 'next/navigation';
 import {useEffect, useMemo, useState} from 'react';
 import {PureImage} from '../Common/Images';
-import {reverseRouteTranslations, routeTranslations} from '@/utils/config';
+import {
+  dynamicRoutes,
+  reverseRouteTranslations,
+  routeTranslations
+} from '@/utils/config';
 
 const LanguageSwitcher = (props: {locale: string}) => {
   const {locale} = props;
@@ -23,64 +27,53 @@ const LanguageSwitcher = (props: {locale: string}) => {
   );
 
   const onSwitchLocale = (lang: ILanguages) => {
-    if (lang.code === activedLang) {
-      return;
-    }
+    if (lang.code === activedLang) return;
 
-    const pathSegments = pathname.split('/');
-    const isDefaultLocaleOmitted = !supportedLocales.includes(pathSegments[1]);
+    // Split and filter out empty segments (handles leading/trailing slashes)
+    const pathSegments = pathname.split('/').filter(Boolean);
 
-    const currentSegment = isDefaultLocaleOmitted
-      ? pathSegments[1] // No locale in URL, so first segment is the route
-      : pathSegments[2] || ''; // Locale present, so second segment is the route
+    // Determine if the current URL omits the default locale
+    const isDefaultLocaleOmitted = !supportedLocales.includes(pathSegments[0]);
 
-    // Check if the route is dynamic (e.g., 'tin-tuc', 'san-pham')
-    const dynamicRoutes = ['tin-tuc', 'san-pham'];
+    // Identify the route segment and dynamic segment if present
+    const routeIdx = isDefaultLocaleOmitted ? 0 : 1;
+    const currentSegment = pathSegments[routeIdx] || '';
     const isDynamicRoute = dynamicRoutes.includes(currentSegment);
-
-    // Extract the dynamic segment (e.g., 'abc' in /en/news/abc)
     const dynamicSegment = isDynamicRoute
-      ? pathSegments[isDefaultLocaleOmitted ? 2 : 3] || ''
+      ? pathSegments[routeIdx + 1] || ''
       : '';
 
-    const getTranslatedRoute = (newLocale: string, currentSegment: string) => {
+    // Helper to translate route segment
+    const getTranslatedRoute = (targetLocale: string, segment: string) => {
       const fileSystemSegment =
-        reverseRouteTranslations[locale]?.[currentSegment] || currentSegment;
+        reverseRouteTranslations[locale]?.[segment] || segment;
       return (
-        routeTranslations[newLocale]?.[fileSystemSegment] || fileSystemSegment
+        routeTranslations[targetLocale]?.[fileSystemSegment] ||
+        fileSystemSegment
       );
     };
 
     const translatedSegment = getTranslatedRoute(lang.code, currentSegment);
 
-    let newPathname = '';
-    if (lang.code === defaultLocale) {
-      newPathname = `/${translatedSegment}`;
-      if (isDynamicRoute && dynamicSegment) {
-        newPathname += `/${dynamicSegment}`; // Preserve dynamic segment (e.g., /tin-tuc/abc)
-      }
-      const remainingSegments =
-        pathSegments
-          .slice(
-            isDefaultLocaleOmitted
-              ? isDynamicRoute
-                ? 3
-                : 2
-              : isDynamicRoute
-                ? 4
-                : 3
-          )
-          .join('/') || '';
-      newPathname += remainingSegments ? `/${remainingSegments}` : '';
-    } else {
-      newPathname = `/${lang.code}/${translatedSegment}`;
-      if (isDynamicRoute && dynamicSegment) {
-        newPathname += `/${dynamicSegment}`; // Preserve dynamic segment (e.g., /vi/tin-tuc/abc)
-      }
-      const remainingSegments =
-        pathSegments.slice(isDynamicRoute ? 4 : 3).join('/') || '';
-      newPathname += remainingSegments ? `/${remainingSegments}` : '';
+    // Build new path segments
+    let newSegments: string[] = [];
+    if (lang.code !== defaultLocale) {
+      newSegments.push(lang.code);
     }
+    newSegments.push(translatedSegment);
+    if (isDynamicRoute && dynamicSegment) {
+      newSegments.push(dynamicSegment);
+    }
+
+    // Preserve any additional segments (e.g., slugs, query params)
+    const extraIdx = routeIdx + (isDynamicRoute ? 2 : 1);
+    const remainingSegments = pathSegments.slice(extraIdx);
+    if (remainingSegments.length) {
+      newSegments = newSegments.concat(remainingSegments);
+    }
+
+    // Construct the new pathname
+    const newPathname = '/' + newSegments.join('/');
 
     setActivedLang(lang.code);
     router.push(newPathname);

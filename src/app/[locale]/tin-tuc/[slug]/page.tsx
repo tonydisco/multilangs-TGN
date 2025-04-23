@@ -1,27 +1,6 @@
-// import {GetStaticPaths, NextPage} from 'next';
+import {IPageDefaultProps} from '@/models/interface';
 
-// interface NewsPageProps {
-//   locale: string;
-//   slug: string;
-// }
-// export const getStaticPaths: GetStaticPaths = async () => {
-//   // Giả sử danh sách slugs và locales
-//   const slugs = ['article-1', 'article-2'];
-//   const locales = ['en', 'vi'];
-
-//   const paths = locales.flatMap((locale) =>
-//     slugs.map((slug) => ({
-//       params: {locale, slug}
-//     }))
-//   );
-
-//   return {
-//     paths,
-//     fallback: 'blocking'
-//   };
-// };
-
-const NewsPage = async ({params}: any) => {
+const NewsPage = async ({params}: Readonly<IPageDefaultProps>) => {
   const {slug, locale} = await params;
   return (
     <div style={{height: 500, textAlign: 'center'}}>

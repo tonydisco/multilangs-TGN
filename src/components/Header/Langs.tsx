@@ -2,7 +2,7 @@
 import {useAppContext} from '@/Providers';
 import {ILanguages} from '@/models/interface';
 import {usePathname, useRouter} from 'next/navigation';
-import {useEffect, useState} from 'react';
+import {useEffect, useMemo, useState} from 'react';
 import {PureImage} from '../Common/Images';
 import './style.css';
 import {reverseRouteTranslations, routeTranslations} from '@/utils/config';
@@ -13,9 +13,15 @@ const LanguageSwitcher = (props: {locale: string}) => {
   const {defaultLocale, locales} = useAppContext();
 
   const [onBoxFocus, setOnBoxFocus] = useState(false);
+  console.log({locales});
 
   const router = useRouter();
   const pathname = usePathname();
+
+  const supportedLocales = useMemo(
+    () => locales?.map((item) => item.code) ?? [],
+    [locales]
+  );
 
   const onSwitchLocale = (lang: ILanguages) => {
     if (lang.code === activedLang) {
@@ -23,10 +29,20 @@ const LanguageSwitcher = (props: {locale: string}) => {
     }
 
     const pathSegments = pathname.split('/');
-    const isDefaultLocaleOmitted = !['vi', 'en'].includes(pathSegments[1]);
+    const isDefaultLocaleOmitted = !supportedLocales.includes(pathSegments[1]);
+
     const currentSegment = isDefaultLocaleOmitted
-      ? pathSegments[1]
-      : pathSegments[2] || '';
+      ? pathSegments[1] // No locale in URL, so first segment is the route
+      : pathSegments[2] || ''; // Locale present, so second segment is the route
+
+    // Check if the route is dynamic (e.g., 'tin-tuc', 'san-pham')
+    const dynamicRoutes = ['tin-tuc', 'san-pham'];
+    const isDynamicRoute = dynamicRoutes.includes(currentSegment);
+
+    // Extract the dynamic segment (e.g., 'abc' in /en/news/abc)
+    const dynamicSegment = isDynamicRoute
+      ? pathSegments[isDefaultLocaleOmitted ? 2 : 3] || ''
+      : '';
 
     const getTranslatedRoute = (newLocale: string, currentSegment: string) => {
       const fileSystemSegment =
@@ -40,9 +56,31 @@ const LanguageSwitcher = (props: {locale: string}) => {
 
     let newPathname = '';
     if (lang.code === defaultLocale) {
-      newPathname = `/${translatedSegment}${pathSegments.slice(isDefaultLocaleOmitted ? 2 : 3).join('/') || ''}`;
+      newPathname = `/${translatedSegment}`;
+      if (isDynamicRoute && dynamicSegment) {
+        newPathname += `/${dynamicSegment}`; // Preserve dynamic segment (e.g., /tin-tuc/abc)
+      }
+      const remainingSegments =
+        pathSegments
+          .slice(
+            isDefaultLocaleOmitted
+              ? isDynamicRoute
+                ? 3
+                : 2
+              : isDynamicRoute
+                ? 4
+                : 3
+          )
+          .join('/') || '';
+      newPathname += remainingSegments ? `/${remainingSegments}` : '';
     } else {
-      newPathname = `/${lang.code}/${translatedSegment}${pathSegments.slice(3).join('/') || ''}`;
+      newPathname = `/${lang.code}/${translatedSegment}`;
+      if (isDynamicRoute && dynamicSegment) {
+        newPathname += `/${dynamicSegment}`; // Preserve dynamic segment (e.g., /vi/tin-tuc/abc)
+      }
+      const remainingSegments =
+        pathSegments.slice(isDynamicRoute ? 4 : 3).join('/') || '';
+      newPathname += remainingSegments ? `/${remainingSegments}` : '';
     }
 
     setActivedLang(lang.code);

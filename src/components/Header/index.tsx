@@ -85,7 +85,7 @@ const Header = async ({locale}: Readonly<Props>) => {
                 </div>
                 <Socials />
                 <div className="line-btw" />
-                <LanguageSwitcher locale={locale} />
+                {locale && <LanguageSwitcher locale={locale} />}
               </div>
             </div>
           </div>

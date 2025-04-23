@@ -1,8 +1,8 @@
-// import {NextPage} from 'next';
+// import {GetStaticPaths, NextPage} from 'next';
 
 // interface NewsPageProps {
-//   locale?: string;
-//   slug?: string;
+//   locale: string;
+//   slug: string;
 // }
 // export const getStaticPaths: GetStaticPaths = async () => {
 //   // Giả sử danh sách slugs và locales
@@ -21,11 +21,16 @@
 //   };
 // };
 
-const NewsPage = ({locale, slug}: any) => {
+const NewsPage = async ({params}: any) => {
+  const {slug, locale} = await params;
   return (
-    <div>
-      <h1>Locale: {locale}</h1>
-      <h1>Slug: {slug}</h1>
+    <div style={{height: 500, textAlign: 'center'}}>
+      <div className="container">
+        <div style={{padding: '100px 0'}}>
+          <h1>slug: {slug}</h1>
+          <h1>Locale: {locale}</h1>
+        </div>
+      </div>
     </div>
   );
 };

@@ -3,11 +3,15 @@ import {SectionTitles} from '@/components/Common/Titles';
 import {TitlePageView} from '@/components/Hero';
 import PageLayout from '@/components/PageLayout';
 import ProjectList from './List';
+import {IPageDefaultProps} from '@/models/interface';
+import {getTranslations} from 'next-intl/server';
 
-export default function Page() {
+export default async function Page({params}: Readonly<IPageDefaultProps>) {
+  const {locale} = await params;
+  const t = await getTranslations({locale});
   return (
     <PageLayout
-      title={<TitlePageView title="dự án" />}
+      title={<TitlePageView title={t('HeaderNavProjects')} />}
       className="projects-wrapper"
     >
       <SectionBase>

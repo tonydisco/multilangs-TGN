@@ -1,27 +1,20 @@
 import {CardBorder} from '@/components/Common/Card';
+import {SingleTab} from '@/components/Common/News';
 import {SectionBase} from '@/components/Common/Section';
 import {TitlePageView} from '@/components/Hero';
 import CalendarList from '@/components/Opening/News/CalendarList';
 import PageLayout from '@/components/PageLayout';
-import {Locale} from 'next-intl';
-import {setRequestLocale} from 'next-intl/server';
-import {use} from 'react';
+import {IPageDefaultProps} from '@/models/interface';
+import {getTranslations} from 'next-intl/server';
 import NewsList from './NewsList';
-import {SingleTab} from '@/components/Common/News';
 
-type Props = {
-  params: Promise<{locale: Locale}>;
-};
-
-export default function Page({params}: Readonly<Props>) {
-  const {locale} = use(params);
-
-  // Enable static rendering
-  setRequestLocale(locale);
+export default async function Page({params}: Readonly<IPageDefaultProps>) {
+  const {locale} = await params;
+  const t = await getTranslations({locale});
 
   return (
     <PageLayout
-      title={<TitlePageView title="tin tức" />}
+      title={<TitlePageView title={t('HeaderNavNews')} />}
       className="news-wrapper"
     >
       <SectionBase contentStyle={{paddingBottom: 300}}>

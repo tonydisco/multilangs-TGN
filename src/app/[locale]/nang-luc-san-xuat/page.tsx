@@ -5,11 +5,16 @@ import {BaseSlider} from '@/components/Common/Sliders';
 import {SectionTitles} from '@/components/Common/Titles';
 import {TitlePageView} from '@/components/Hero';
 import PageLayout from '@/components/PageLayout';
+import {IPageDefaultProps} from '@/models/interface';
+import {getTranslations} from 'next-intl/server';
 
-export default function PathnamesPage() {
+export default async function Page({params}: Readonly<IPageDefaultProps>) {
+  const {locale} = await params;
+  const t = await getTranslations({locale});
+
   return (
     <PageLayout
-      title={<TitlePageView title="Năng lực sản xuất" />}
+      title={<TitlePageView title={t('HeaderNavProductionCapacity')} />}
       className="nlsx-wrapper"
     >
       <SectionBase>

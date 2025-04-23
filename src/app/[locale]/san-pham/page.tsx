@@ -5,23 +5,16 @@ import {SectionBase} from '@/components/Common/Section';
 import {SectionSub, SectionTitles} from '@/components/Common/Titles';
 import {TitlePageView} from '@/components/Hero';
 import PageLayout from '@/components/PageLayout';
-import {Locale} from 'next-intl';
-import {setRequestLocale} from 'next-intl/server';
-import {use} from 'react';
+import {IPageDefaultProps} from '@/models/interface';
+import {getTranslations} from 'next-intl/server';
 
-type Props = {
-  params: Promise<{locale: Locale}>;
-};
-
-export default function Page({params}: Readonly<Props>) {
-  const {locale} = use(params);
-
-  // Enable static rendering
-  setRequestLocale(locale);
+export default async function Page({params}: Readonly<IPageDefaultProps>) {
+  const {locale} = await params;
+  const t = await getTranslations({locale});
 
   return (
     <PageLayout
-      title={<TitlePageView title="sản phẩm" />}
+      title={<TitlePageView title={t('HeaderNavProducts')} />}
       className="sp-wrapper"
     >
       <SectionBase

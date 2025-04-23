@@ -23,10 +23,6 @@ const montserrat = Montserrat({
   display: 'swap' // Prevent layout shift
 });
 
-// export function generateStaticParams() {
-//   return routing.locales.map((locale) => ({locale}));
-// }
-
 export async function generateMetadata(props: Omit<Props, 'children'>) {
   const {locale} = await props.params;
 
@@ -80,6 +76,13 @@ export default async function LocaleLayout({
           rel="stylesheet"
           href="https://tgn-api.vikiworld.vn/styles/bs-utilities.min.css"
         />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="format-detection" content="telephone=no" />
 
         {GGkey && <GoogleAnalytics gaId={'G-328938273897'} />}
       </head>

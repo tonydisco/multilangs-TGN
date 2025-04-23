@@ -86,7 +86,7 @@ const Footer = () => {
             position: 'relative'
           }}
         >
-          <div className="container-fluid">
+          <div className="container-fluid" style={{padding: '0 3rem'}}>
             <div
               style={{
                 display: 'flex',
@@ -99,7 +99,6 @@ const Footer = () => {
                   flex: 1,
                   display: 'flex',
                   flexDirection: 'column',
-                  justifyContent: 'center',
                   gap: 15
                 }}
               >
@@ -212,11 +211,11 @@ const Footer = () => {
                       flexDirection: 'column'
                     }}
                   >
+                    <div>Chính sách bảo mật</div>
+                    <div>Điều khoản sử dụng</div>
                     <div>
                       Bản quyền © 2024 thuộc <strong>TGN</strong>
                     </div>
-                    <div>Chính sách bảo mật</div>
-                    <div>Điều khoản sử dụng</div>
                   </div>
                 </div>
               </div>

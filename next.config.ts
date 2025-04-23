@@ -19,9 +19,6 @@ const config: NextConfig = {
         hostname: 'tgn-cdn.vikiworld.vn'
       }
     ]
-  },
-  sassOptions: {
-    implementation: 'sass-embedded'
   }
 };
 

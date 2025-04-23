@@ -13,7 +13,7 @@ export default function PageLayout({
   className
 }: Readonly<Props>) {
   return (
-    <div className={className}>
+    <div className={`wrapper-overflow${className ?? ''}`}>
       <HeroView title={title} />
       {children}
     </div>

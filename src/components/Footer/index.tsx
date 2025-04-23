@@ -1,12 +1,19 @@
 'use client';
-import {useMenu} from '@/hooks/useMenu';
+import {useMenu} from '@/hooks/APIs/useMenu';
 import {useAppContext} from '@/Providers';
-import {LocationUnderline, MailIco, PhoneIco, WorldIco} from '@/utils/icons';
+import {
+  LocationUnderline,
+  MailIco,
+  PhoneIco,
+  WorldIco
+} from '@/components/Common/IconScripts';
 import {v4 as uuidv4} from 'uuid';
 import {PureImage} from '../Common/Images';
 import LocaleLink from '../Common/LinkByLocale';
 import Logos from '../Common/Logos';
 import Socials from '../Header/Socials';
+
+import './footer.scss';
 
 const Line = () => (
   <div
@@ -77,7 +84,7 @@ const Footer = () => {
   const {locale} = useAppContext();
 
   return (
-    <footer>
+    <footer id="footer">
       <div style={{position: 'relative'}}>
         <div
           style={{

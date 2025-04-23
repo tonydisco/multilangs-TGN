@@ -117,8 +117,8 @@ const sliderMock = [
     title: 'Hệ thống nhà máy sản xuất bê tông',
     sub: (
       <p>
-        <strong>Thế Giới Nhà Group</strong> sở hữu 19 trạm trộn hiện đại, sẵn
-        sàng cung cấp bê tông thương phẩm đạt tiêu chuẩn chất lượng cao.
+        <strong>Thế Giới Nhà</strong> sở hữu 19 trạm trộn hiện đại, sẵn sàng
+        cung cấp bê tông thương phẩm đạt tiêu chuẩn chất lượng cao.
       </p>
     ),
     img: '/landing/PRODUCTION-CAPACITY/SLIDER-1.png'
@@ -127,9 +127,8 @@ const sliderMock = [
     title: 'Hệ thống Sản xuất sản phẩm cầu kiện',
     sub: (
       <p>
-        <strong>Thế Giới Nhà Group</strong> sở hữu 9 nhà máy cấu kiện bê tông
-        đúc sẵn với công nghệ tiên tiến, đáp ứng yêu cầu kỹ thuật và tiến độ xây
-        dựng.
+        <strong>Thế Giới Nhà</strong> sở hữu 9 nhà máy cấu kiện bê tông đúc sẵn
+        với công nghệ tiên tiến, đáp ứng yêu cầu kỹ thuật và tiến độ xây dựng.
       </p>
     ),
     img: '/landing/PRODUCTION-CAPACITY/SLIDER-2.png'
@@ -138,9 +137,9 @@ const sliderMock = [
     title: 'phòng kiểm định chất lượng',
     sub: (
       <p>
-        <strong>Thế Giới Nhà Group</strong> sở hữu hệ thống kiểm định đạt chuẩn,
-        kiểm soát chặt chẽ chất lượng sản phẩm từ nguyên liệu đầu vào đến thành
-        phẩm, đảm bảo độ đánh giá kết quả chính xác và nhanh chóng.
+        <strong>Thế Giới Nhà</strong> sở hữu hệ thống kiểm định đạt chuẩn, kiểm
+        soát chặt chẽ chất lượng sản phẩm từ nguyên liệu đầu vào đến thành phẩm,
+        đảm bảo độ đánh giá kết quả chính xác và nhanh chóng.
       </p>
     ),
     img: '/landing/PRODUCTION-CAPACITY/SLIDER-3.png'
@@ -149,9 +148,9 @@ const sliderMock = [
     title: 'hệ thống\n trang - thiết bị',
     sub: (
       <p>
-        <strong>Thế Giới Nhà Group</strong> sở hữu hệ thống các trang - thiết bị
-        hiện đại, đa dạng đảm bảo cho chất lượng và tiến độ của sản phẩm ở trạng
-        thái tốt nhất.
+        <strong>Thế Giới Nhà</strong> sở hữu hệ thống các trang - thiết bị hiện
+        đại, đa dạng đảm bảo cho chất lượng và tiến độ của sản phẩm ở trạng thái
+        tốt nhất.
       </p>
     ),
     img: '/landing/PRODUCTION-CAPACITY/SLIDER-4.png'
@@ -160,9 +159,9 @@ const sliderMock = [
     title: 'giấy chứng nhận',
     sub: (
       <p>
-        <strong>Thế Giới Nhà Group</strong> sở hữu hệ thống kiểm định đạt chuẩn,
-        kiểm soát chặt chẽ chất lượng sản phẩm từ nguyên liệu đầu vào đến thành
-        phẩm, đảm bảo độ bền và an toàn cao nhất.
+        <strong>Thế Giới Nhà</strong> sở hữu hệ thống kiểm định đạt chuẩn, kiểm
+        soát chặt chẽ chất lượng sản phẩm từ nguyên liệu đầu vào đến thành phẩm,
+        đảm bảo độ bền và an toàn cao nhất.
       </p>
     ),
     img: '/landing/PRODUCTION-CAPACITY/SLIDER-5.png'

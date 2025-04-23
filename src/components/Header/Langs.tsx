@@ -1,10 +1,10 @@
 'use client';
+import './style.css';
 import {useAppContext} from '@/Providers';
 import {ILanguages} from '@/models/interface';
 import {usePathname, useRouter} from 'next/navigation';
 import {useEffect, useMemo, useState} from 'react';
 import {PureImage} from '../Common/Images';
-import './style.css';
 import {reverseRouteTranslations, routeTranslations} from '@/utils/config';
 
 const LanguageSwitcher = (props: {locale: string}) => {
@@ -13,7 +13,6 @@ const LanguageSwitcher = (props: {locale: string}) => {
   const {defaultLocale, locales} = useAppContext();
 
   const [onBoxFocus, setOnBoxFocus] = useState(false);
-  console.log({locales});
 
   const router = useRouter();
   const pathname = usePathname();
@@ -109,9 +108,9 @@ const LanguageSwitcher = (props: {locale: string}) => {
           setOnBoxFocus(!onBoxFocus);
         }}
       >
-        {locales?.map((item, idx) => {
+        {locales?.map((item) => {
           return (
-            <div key={idx}>
+            <div key={item?.id}>
               <PureImage
                 url={item.icon}
                 style={{
@@ -129,10 +128,10 @@ const LanguageSwitcher = (props: {locale: string}) => {
         id="tgn-select-box-overflow"
         className={`tgn-select-box-overflow ${onBoxFocus ? 'tgn-select-box-overflow-active' : ''}`}
       >
-        {locales?.map((item, idx) => {
+        {locales?.map((item) => {
           return (
             <div
-              key={idx}
+              key={item?.id}
               className={`tgn-select-item ${item?.code === activedLang ? 'tgn-select-item-active' : ''}`}
             >
               <button onClick={() => onSwitchLocale(item)}>

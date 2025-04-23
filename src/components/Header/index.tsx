@@ -1,9 +1,8 @@
 import {ISetting} from '@/models/interface';
-import {routes} from '@/utils/config';
 import {Locale} from 'next-intl';
 import {PureImage} from '../Common/Images';
-import LocaleLink from '../Common/LinkByLocale';
 import Logos from '../Common/Logos';
+import ContactBtn from './ContactBtn';
 import LanguageSwitcher from './Langs';
 import Menus from './Menus';
 import Socials from './Socials';
@@ -60,29 +59,7 @@ const Header = async ({locale}: Readonly<Props>) => {
                 >
                   <PureImage url="/icon/SEARCH.svg" />
                 </div>
-                <div
-                  style={{
-                    borderRadius: '8px',
-                    border: '1px solid #6D3E2F',
-                    padding: '0.125rem 1rem',
-                    color: '#6D3E2F',
-                    cursor: 'pointer',
-                    transition: 'background-color 0.3s ease, color 0.3s ease'
-                  }}
-                >
-                  <LocaleLink locale={locale} href={routes.contact}>
-                    <span
-                      style={{
-                        fontSize: '14px',
-                        lineHeight: '20px',
-                        textTransform: 'uppercase',
-                        fontWeight: 600
-                      }}
-                    >
-                      Liên hệ
-                    </span>
-                  </LocaleLink>
-                </div>
+                <ContactBtn />
                 <Socials />
                 <div className="line-btw" />
                 {locale && <LanguageSwitcher locale={locale} />}

@@ -43,8 +43,8 @@ const AboutUsView = () => {
             />
             <div className="mt-4">
               <p className="mb-3">
-                <strong>Thế Giới Nhà Group</strong> - hoạt động trong lĩnh vực
-                sản xuất và cung cấp vật liệu xây dựng tại Việt Nam.
+                <strong>Thế Giới Nhà</strong> - hoạt động trong lĩnh vực sản
+                xuất và cung cấp vật liệu xây dựng tại Việt Nam.
               </p>
               <p className="mb-3">
                 Khởi đầu từ một doanh nghiệp nhỏ vào năm 2008, trong suốt hơn 15
@@ -52,7 +52,7 @@ const AboutUsView = () => {
                 thương hiệu, uy tín trong ngành xây dựng.
               </p>
               <p className="mb-3">
-                Thế Giới Nhà Group hoạt động chủ yếu trong các lĩnh vực:
+                Thế Giới Nhà hoạt động chủ yếu trong các lĩnh vực:
                 <br />- Sản xuất bê tông tươi và cấu kiện bê tông <br /> - Phân
                 phối đa dạng các loại vật liệu xây dựng từ thô đến hoàn thiện.
               </p>

@@ -12,10 +12,10 @@ const Products = () => {
           <div className="tgn-products-info">
             <h2 className="tgn-products-title">sản phẩm</h2>
             <p className="tgn-products-desc">
-              <strong>Thế Giới Nhà Group</strong> cung cấp đa dạng sản phẩm vật
-              liệu xây dựng, từ bê tông thương phẩm, cấu kiện bê tông đúc sẵn
-              đến các vật liệu hoàn thiện, đáp ứng mọi nhu cầu của công trình
-              với chất lượng cao và độ bền vượt trội.
+              <strong>Thế Giới Nhà</strong> cung cấp đa dạng sản phẩm vật liệu
+              xây dựng, từ bê tông thương phẩm, cấu kiện bê tông đúc sẵn đến các
+              vật liệu hoàn thiện, đáp ứng mọi nhu cầu của công trình với chất
+              lượng cao và độ bền vượt trội.
             </p>
           </div>
           <div className="tgn-products-btn-container">

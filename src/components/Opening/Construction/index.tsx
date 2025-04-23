@@ -101,9 +101,9 @@ const Construction = () => {
                 Lĩnh Vực Sản xuất
               </h2>
               <p style={{fontSize: 14}}>
-                <strong>Thế Giới Nhà Group</strong> sở hữu hệ thống nhà máy hiện
-                đại, sản xuất đa dạng vật liệu xây dựng đạt tiêu chuẩn chất
-                lượng cao, đáp ứng nhu cầu cho mọi công trình.
+                <strong>Thế Giới Nhà</strong> sở hữu hệ thống nhà máy hiện đại,
+                sản xuất đa dạng vật liệu xây dựng đạt tiêu chuẩn chất lượng
+                cao, đáp ứng nhu cầu cho mọi công trình.
               </p>
               <button className="app-btn-default" style={{marginTop: 35}}>
                 <Link href="/about-us">
@@ -230,9 +230,9 @@ const Construction = () => {
                     Lĩnh Vực kinh doanh
                   </h2>
                   <p style={{fontSize: 14}}>
-                    <strong>Thế Giới Nhà Group</strong> vận hành hệ thống Siêu
-                    thị vật liệu xây dựng quy mô lớn, cung cấp giải pháp toàn
-                    diện với danh mục sản phẩm phong phú từ thô đến hoàn thiện.
+                    <strong>Thế Giới Nhà</strong> vận hành hệ thống Siêu thị vật
+                    liệu xây dựng quy mô lớn, cung cấp giải pháp toàn diện với
+                    danh mục sản phẩm phong phú từ thô đến hoàn thiện.
                   </p>
                   <button className="app-btn-default" style={{marginTop: 35}}>
                     <Link href="/about-us">
@@ -469,9 +469,9 @@ const Construction = () => {
                   Lĩnh Vực khai thác
                 </h2>
                 <p style={{fontSize: 14}}>
-                  <strong>Thế Giới Nhà Group</strong> trực tiếp khai thác và
-                  cung ứng nguồn nguyên vật liệu chất lượng, đảm bảo chuỗi cung
-                  ứng bền vững và tối ưu chi phí cho khách hàng.
+                  <strong>Thế Giới Nhà</strong> trực tiếp khai thác và cung ứng
+                  nguồn nguyên vật liệu chất lượng, đảm bảo chuỗi cung ứng bền
+                  vững và tối ưu chi phí cho khách hàng.
                 </p>
                 <button className="app-btn-default" style={{marginTop: 35}}>
                   <Link href="/about-us">

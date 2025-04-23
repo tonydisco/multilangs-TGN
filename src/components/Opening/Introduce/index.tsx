@@ -13,8 +13,8 @@ const Introduce = () => {
               <div className="tgn-introduce-content">
                 <h2 className="tgn-introduce-title">giới thiệu</h2>
                 <p className="tgn-introduce-desc">
-                  <strong>Thế Giới Nhà Group</strong> hệ thống Siêu thị vật liệu
-                  xây dựng hàng đầu, cung cấp giải pháp toàn diện cho mọi công
+                  <strong>Thế Giới Nhà</strong> hệ thống Siêu thị vật liệu xây
+                  dựng hàng đầu, cung cấp giải pháp toàn diện cho mọi công
                   trình.
                 </p>
                 <button className="app-btn-default">

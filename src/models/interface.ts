@@ -48,6 +48,7 @@ export interface ILanguages {
   name?: string;
   isDefault?: boolean;
   isDisabled?: boolean;
+  id: string;
 }
 
 export interface ISetting {

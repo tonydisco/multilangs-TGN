@@ -1,5 +1,4 @@
 'use client';
-import './style.css';
 import {useAppContext} from '@/Providers';
 import {ILanguages} from '@/models/interface';
 import {usePathname, useRouter} from 'next/navigation';

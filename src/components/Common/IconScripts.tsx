@@ -7,10 +7,12 @@ interface LocationUnderlineProps {
   className?: string;
 }
 
+const defaultColor = '#6D3E2F';
+
 export const LocationUnderline: React.FC<LocationUnderlineProps> = ({
   width = 16,
   height = 20,
-  fill = '#6D3E2F',
+  fill = defaultColor,
   className
 }) => {
   return (
@@ -31,7 +33,7 @@ export const LocationUnderline: React.FC<LocationUnderlineProps> = ({
 export const MailIco: React.FC<LocationUnderlineProps> = ({
   width = 20,
   height = 16,
-  fill = '#6D3E2F',
+  fill = defaultColor,
   className
 }) => {
   return (
@@ -52,7 +54,7 @@ export const MailIco: React.FC<LocationUnderlineProps> = ({
 export const PhoneIco: React.FC<LocationUnderlineProps> = ({
   width = 18,
   height = 18,
-  fill = '#6D3E2F',
+  fill = defaultColor,
   className
 }) => {
   return (
@@ -73,7 +75,7 @@ export const PhoneIco: React.FC<LocationUnderlineProps> = ({
 export const WorldIco: React.FC<LocationUnderlineProps> = ({
   width = 20,
   height = 20,
-  fill = '#6D3E2F',
+  fill = defaultColor,
   className
 }) => {
   return (
@@ -88,6 +90,24 @@ export const WorldIco: React.FC<LocationUnderlineProps> = ({
         d="M10 .25h-.033a9.704 9.704 0 00-6.872 2.864A9.7 9.7 0 00.25 10a9.684 9.684 0 002.85 6.886 9.696 9.696 0 006.872 2.864h.033c5.376 0 9.75-4.373 9.75-9.75S15.377.25 10 .25zm8.447 9.094h-3.638a18.46 18.46 0 00-.459-3.572c.802-.258 1.58-.586 2.33-.985a8.399 8.399 0 011.767 4.557zm-9.103 0H6.447c.037-1.149.178-2.236.412-3.24.816.183 1.646.296 2.485.333v2.907zm0 1.312v2.902c-.835.037-1.669.15-2.485.333a16.66 16.66 0 01-.412-3.235h2.897zm1.312 0h2.874a16.56 16.56 0 01-.413 3.23 13.994 13.994 0 00-2.46-.328v-2.902zm0-1.312V6.438c.835-.038 1.66-.15 2.461-.329a16.61 16.61 0 01.413 3.235h-2.874zm5.128-5.527c-.576.286-1.171.53-1.78.727-.334-1.003-.756-1.87-1.243-2.555a8.483 8.483 0 013.023 1.828zm-3.018 1.064c-.69.15-1.397.244-2.11.281v-3.44c.797.431 1.575 1.589 2.11 3.16zM9.344 1.703v3.455a12.965 12.965 0 01-2.133-.286c.544-1.584 1.331-2.742 2.133-3.169zm-2.138.3c-.483.68-.9 1.542-1.233 2.536-.6-.197-1.19-.44-1.757-.722a8.355 8.355 0 012.99-1.814zM3.32 4.793c.74.393 1.514.721 2.307.974a17.716 17.716 0 00-.46 3.572h-3.61A8.355 8.355 0 013.32 4.792zm-1.767 5.863h3.61c.042 1.252.196 2.452.459 3.572-.792.258-1.566.586-2.306.975a8.4 8.4 0 01-1.763-4.547zm2.658 5.527a13.128 13.128 0 011.762-.722c.333.998.75 1.856 1.233 2.54a8.565 8.565 0 01-2.995-1.818zm3-1.06a13.031 13.031 0 012.133-.285v3.459c-.806-.427-1.59-1.59-2.133-3.174zm3.445 3.155v-3.445c.713.037 1.42.131 2.11.281-.535 1.575-1.313 2.733-2.11 3.164zm2.11-.267c.487-.684.909-1.552 1.242-2.555.61.197 1.21.446 1.781.732a8.58 8.58 0 01-3.023 1.823zm3.914-2.803a14.29 14.29 0 00-2.33-.985c.263-1.12.417-2.315.46-3.567h3.637a8.362 8.362 0 01-1.767 4.552z"
         fill={fill}
       />
+    </svg>
+  );
+};
+export const MenuIco: React.FC<LocationUnderlineProps> = ({
+  width = 18,
+  height = 12,
+  fill = defaultColor,
+  className
+}) => {
+  return (
+    <svg
+      width={width}
+      height={height}
+      className={className}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M0 12v-2h18v2H0zm0-5V5h18v2H0zm0-5V0h18v2H0z" fill={fill} />
     </svg>
   );
 };

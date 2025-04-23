@@ -1,3 +1,5 @@
+'use client';
+import './header.scss';
 import {ISetting} from '@/models/interface';
 import {Locale} from 'next-intl';
 import {PureImage} from '../Common/Images';
@@ -6,57 +8,38 @@ import ContactBtn from './ContactBtn';
 import LanguageSwitcher from './Langs';
 import Menus from './Menus';
 import Socials from './Socials';
+import {MenuIco} from '../Common/IconScripts';
+import {useState} from 'react';
 
 type Props = {
   locale: Locale;
   setting?: ISetting;
 };
-const Header = async ({locale}: Readonly<Props>) => {
+const Header = ({locale}: Readonly<Props>) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleMenuToggle = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <header
-      style={{
-        position: 'sticky',
-        top: 0,
-        left: 0,
-        right: 0,
-        background: '#fff',
-        zIndex: 1000
-      }}
-    >
-      <nav
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          padding: '1rem'
-        }}
-      >
-        <div style={{maxWidth: '150px', width: '100%'}}>
-          <Logos />
+    <header id="header">
+      <nav className="d-flex align-items-center justify-content-between p-3 nav-custom">
+        <div className="nav-item">
+          <div className="search-icon search-icon-responsive ">
+            <PureImage url="/icon/SEARCH.svg" />
+          </div>
+        </div>
+        <div className="nav-item">
+          <div style={{maxWidth: '150px', width: '100%'}}>
+            <Logos />
+          </div>
         </div>
         <div>
-          <div
-            style={{
-              marginBottom: '1rem'
-            }}
-          >
+          <div className="mb-3 top-nav">
             <div>
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'flex-end',
-                  alignItems: 'center',
-                  gap: '1rem'
-                }}
-              >
-                <div
-                  style={{
-                    width: '20px',
-                    cursor: 'pointer',
-                    opacity: 1,
-                    transition: 'opacity 0.3s ease'
-                  }}
-                >
+              <div className="d-flex align-items-center justify-content-end gap-3">
+                <div className="search-icon">
                   <PureImage url="/icon/SEARCH.svg" />
                 </div>
                 <ContactBtn />
@@ -66,10 +49,65 @@ const Header = async ({locale}: Readonly<Props>) => {
               </div>
             </div>
           </div>
-          <Menus />
+          <ul
+            style={{
+              listStyle: 'none'
+            }}
+            className="d-flex align-items-center gap-3 position-relative mb-0 mobile-responsive"
+          >
+            <Menus />
+          </ul>
+        </div>
+        <div className="nav-item">
+          <div className="mobile-menu">
+            <button onClick={handleMenuToggle}>
+              <MenuIco />
+            </button>
+          </div>
         </div>
       </nav>
-      <div className="fade-line-element" />
+      <div className="fade-line-element pc-fade-line-element" />
+      <div
+        className="menu-mobile-overflow"
+        style={{
+          left: isMenuOpen ? 0 : '-100%'
+        }}
+      >
+        <div style={{padding: 24}} className="h-100">
+          <div className="d-flex align-items-center justify-content-between">
+            <div className="search-icon search-icon-responsive">
+              <PureImage url="/icon/SEARCH.svg" />
+            </div>
+            <div style={{maxWidth: 80, width: '100%'}}>
+              <Logos />
+            </div>
+            <div className="close-menu">
+              <button onClick={handleMenuToggle}>CLOSE</button>
+            </div>
+          </div>
+          <div className="fade-line-element mobile-fade-line-element" />
+          <ul
+            style={{
+              listStyle: 'none',
+              marginTop: 35
+            }}
+            className="d-flex flex-column gap-3 mb-3 list-unstyled"
+          >
+            <Menus
+              style={{
+                fontSize: 18
+              }}
+            />
+          </ul>
+          <div className="d-flex align-items-center gap-4 mt-5">
+            <Socials
+              iconSize={{
+                width: 35
+              }}
+            />
+          </div>
+        </div>
+      </div>
     </header>
   );
 };

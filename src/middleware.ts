@@ -5,8 +5,11 @@ import {getLangs} from './apis/langs';
 const initLocales = ['vi', 'en'];
 const initDefaultLocale = 'vi';
 
+// Define routes that have dynamic segments (e.g., /tin-tuc/[slug])
+const dynamicRoutes = ['tin-tuc', 'san-pham']; // Add other dynamic routes if needed
+
 export default async function middleware(request: NextRequest) {
-  const {pathname} = new URL(request.url);
+  const {pathname, searchParams} = new URL(request.url);
 
   const langs = await getLangs();
   const findDefaultLocale = langs?.result?.languages?.find(
@@ -24,7 +27,7 @@ export default async function middleware(request: NextRequest) {
 
   if (!shouldHandle) return NextResponse.next();
 
-  // Extract the locale from the pathname (e.g., /en/contact-us -> locale = 'en')
+  // Extract the locale from the pathname (e.g., /en/news/abc -> locale = 'en')
   const pathSegments = pathname.split('/');
   let locale = pathSegments[1]; // First segment after the root (e.g., 'en' or 'vi')
 
@@ -37,15 +40,22 @@ export default async function middleware(request: NextRequest) {
 
   // Get the route segment after the locale
   const routeSegment = isDefaultLocaleOmitted
-    ? pathSegments[1]
-    : pathSegments[2] || '';
+    ? pathSegments[1] // No locale in URL, so first segment is the route
+    : pathSegments[2] || ''; // Locale present, so second segment is the route
+
+  // Check if the route is a dynamic route (e.g., 'tin-tuc', 'san-pham')
+  const isDynamicRoute = dynamicRoutes.includes(routeSegment);
+
+  // Extract the dynamic segment (e.g., 'abc' in /en/news/abc)
+  const dynamicSegment = isDynamicRoute ? pathSegments[3] || '' : '';
 
   // If no locale is present in the URL, redirect to the default locale (without prefix for 'vi')
   if (isDefaultLocaleOmitted && locale === defaultLocale) {
     // If the route segment needs translation for the default locale, rewrite it
-    if (routeSegment && reverseRouteTranslations[locale][routeSegment]) {
+    if (routeSegment && reverseRouteTranslations[locale]?.[routeSegment]) {
       const fileSystemSegment = reverseRouteTranslations[locale][routeSegment];
-      const newPathname = `/${fileSystemSegment}${pathSegments.slice(2).join('/') || ''}`;
+      const remainingSegments = pathSegments.slice(2).join('/') || '';
+      const newPathname = `/${fileSystemSegment}${remainingSegments ? `/${remainingSegments}` : ''}`;
       return NextResponse.rewrite(
         new URL(`/${defaultLocale}${newPathname}`, request.url)
       );
@@ -56,21 +66,56 @@ export default async function middleware(request: NextRequest) {
     );
   }
 
-  // If the route segment exists in the routeMap for the current locale, rewrite to the file system path
-  if (routeSegment && reverseRouteTranslations?.[locale]?.[routeSegment]) {
-    const fileSystemSegment = reverseRouteTranslations[locale][routeSegment];
-    const newPathname = `/${locale}/${fileSystemSegment}${pathSegments.slice(3).join('/') || ''}`;
+  // Handle route translation (for both dynamic and static routes)
+  let fileSystemSegment;
+  let translatedSegment;
+
+  // If the user accesses the file system path (e.g., /en/tin-tuc), redirect to the translated path (e.g., /en/news)
+  if (routeTranslations?.[locale]?.[routeSegment]) {
+    translatedSegment = routeTranslations[locale][routeSegment];
+    const remainingSegments = pathSegments.slice(3).join('/') || '';
+    const newPathname = `/${locale}/${translatedSegment}${remainingSegments ? `/${remainingSegments}` : ''}`;
+    return NextResponse.redirect(new URL(newPathname, request.url));
+  }
+
+  // If the user accesses the translated path (e.g., /en/news), rewrite to the file system path (e.g., /en/tin-tuc)
+  if (reverseRouteTranslations?.[locale]?.[routeSegment]) {
+    fileSystemSegment = reverseRouteTranslations[locale][routeSegment];
+    const remainingSegments = pathSegments.slice(3).join('/') || '';
+    const newPathname = `/${locale}/${fileSystemSegment}${remainingSegments ? `/${remainingSegments}` : ''}`;
     return NextResponse.rewrite(new URL(newPathname, request.url));
   }
 
-  // Handle the reverse case: if the user accesses the file system path directly
-  if (routeSegment && routeTranslations?.[locale]?.[routeSegment]) {
-    const translatedSegment = routeTranslations[locale][routeSegment];
-    const newPathname =
-      locale === defaultLocale
-        ? `/${translatedSegment}${pathSegments.slice(2).join('/') || ''}`
-        : `/${locale}/${translatedSegment}${pathSegments.slice(3).join('/') || ''}`;
-    return NextResponse.redirect(new URL(newPathname, request.url));
+  // Handle locale switch (e.g., from /en/news/abc to /vi/tin-tuc/abc)
+  const targetLocale = searchParams.get('locale') ?? locale; // Check if a locale switch is requested
+  if (targetLocale !== locale && locales.includes(targetLocale)) {
+    // Map the current route segment to the file system path for the current locale
+    const currentFileSystemSegment =
+      reverseRouteTranslations[locale]?.[routeSegment] || routeSegment;
+
+    // Translate the file system path to the target locale's URL-friendly segment
+    const targetTranslatedSegment =
+      routeTranslations[targetLocale]?.[currentFileSystemSegment] ||
+      currentFileSystemSegment;
+
+    // Construct the new URL with the target locale and translated segment
+    let newPathname = `/${targetLocale}/${targetTranslatedSegment}`;
+    if (isDynamicRoute && dynamicSegment) {
+      newPathname += `/${dynamicSegment}`; // Ensure the dynamic segment is preserved (e.g., /vi/tin-tuc/abc)
+    }
+
+    // Preserve query parameters if any
+    const newUrl = new URL(newPathname, request.url);
+    searchParams.forEach((value, key) => {
+      if (key !== 'locale') newUrl.searchParams.set(key, value);
+    });
+
+    return NextResponse.redirect(newUrl);
+  }
+
+  // If the route is dynamic and no translation applies, let Next.js handle it
+  if (isDynamicRoute) {
+    return NextResponse.next();
   }
 
   return NextResponse.next();

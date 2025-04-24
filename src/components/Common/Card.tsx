@@ -23,7 +23,7 @@ const CardBase = (props: {item: ICardProps}) => {
       }}
     >
       <div
-        className={`d-flex align-items-stretch h-100 gap-3 ${item?.isReverse ? 'flex-row-reverse' : ''}`}
+        className={`d-flex align-items-stretch h-100 gap-3 ${item?.isReverse ? 'flex-row-reverse' : ''} ${item?.className ?? ''}`}
       >
         <div
           className="field-of-production-item__content h-100 w-100"
@@ -66,7 +66,9 @@ const CardBase = (props: {item: ICardProps}) => {
             flex: item?.flex?.right ?? 1
           }}
         >
-          <div className="w-100 h-100 overflow-hidden rounded-4">
+          <div
+            className={`w-100 h-100 overflow-hidden rounded-4 ${item?.imgClassName ?? ''}`}
+          >
             <PureImage
               url={item?.image}
               mode={item?.imgMode ?? 'cover'}
@@ -86,7 +88,7 @@ const CardBorder = (props: ICardBorderProps) => {
 
   return (
     <div
-      className={`base-card-full-border ${className}`}
+      className={`base-card-full-border ${className ?? ''}`}
       style={{
         padding: 24,
         minHeight: 300,

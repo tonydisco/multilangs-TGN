@@ -1,71 +1,23 @@
-import Link from 'next/link';
-import {PureImage} from '../../Common/Images';
+import {Button} from '@/components/Common/Button';
+import {SectionTitles} from '@/components/Common/Titles';
 import {ImageMode} from '@/models/types';
+import {routes} from '@/utils/config';
+import {PureImage} from '../../Common/Images';
+import './construction.scss';
 
 const Construction = () => {
   return (
-    <section
-      style={{
-        backgroundColor: '#EDDFD8',
-        position: 'relative'
-      }}
-    >
-      <div
-        style={{
-          position: 'relative',
-          width: '100%'
-        }}
-        className="container"
-      >
-        <div
-          style={{
-            width: '100%',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            position: 'relative',
-            height: 380,
-            gap: 50
-          }}
-        >
-          <div
-            style={{
-              flex: 1,
-              position: 'relative',
-              height: '100%'
-            }}
-          >
-            <div
-              style={{
-                width: 540,
-                position: 'absolute',
-                right: 100,
-                zIndex: 0,
-                top: -90
-              }}
-            >
+    <section className="tgn-construction-section">
+      <div className="container tgn-construction-container">
+        <div className="tgn-block-item tgn-flex-item tgn-flex-block-1">
+          <div className="tgn-flex-full">
+            <div className="tgn-absolute-assets tgn-absolute-assets-1">
               <PureImage url="/landing/CONSTRUCTION/MACHINE.png" />
             </div>
-            <div
-              style={{
-                position: 'absolute',
-                bottom: 0,
-                zIndex: 1,
-                width: 480,
-                right: 15
-              }}
-            >
+            <div className="tgn-absolute-assets tgn-absolute-assets-2">
               <PureImage url="/landing/CONSTRUCTION/NHA.png" />
             </div>
-            <div
-              style={{
-                position: 'absolute',
-                bottom: -25,
-                zIndex: 2,
-                width: 400,
-                right: 280
-              }}
-            >
+            <div className="tgn-absolute-assets tgn-absolute-assets-3">
               <PureImage url="/landing/CONSTRUCTION/XE.png" />
             </div>
           </div>
@@ -80,56 +32,22 @@ const Construction = () => {
               flexDirection: 'column'
             }}
           >
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 20,
-                alignItems: 'flex-start',
-                zIndex: 20,
-                position: 'relative',
-                marginLeft: 100
-              }}
-            >
-              <h2
-                style={{
-                  fontWeight: '700',
-                  fontSize: '32px',
-                  textTransform: 'uppercase'
-                }}
-              >
-                Lĩnh Vực Sản xuất
-              </h2>
+            <div className="tgn-absolute-block-1-item-left">
+              <SectionTitles title="Lĩnh Vực Sản xuất" />
               <p style={{fontSize: 14}}>
                 <strong>Thế Giới Nhà</strong> sở hữu hệ thống nhà máy hiện đại,
                 sản xuất đa dạng vật liệu xây dựng đạt tiêu chuẩn chất lượng
                 cao, đáp ứng nhu cầu cho mọi công trình.
               </p>
-              <button className="app-btn-default" style={{marginTop: 35}}>
-                <Link href="/about-us">
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                      gap: 8
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize: 14,
-                        fontWeight: 500
-                      }}
-                    >
-                      Xem thêm
-                    </span>
-                    <PureImage
-                      style={{width: 12}}
-                      url="/landing/ICON-ARROW.svg"
-                    />
-                  </div>
-                </Link>
-              </button>
+
+              <div style={{marginTop: 35}}>
+                <Button
+                  btnProps={{
+                    text: 'Xem thêm',
+                    linkTo: routes.about
+                  }}
+                />
+              </div>
             </div>
             <div
               style={{
@@ -142,22 +60,7 @@ const Construction = () => {
               <PureImage url="/landing/BUSINESS-PHILOSOPHY/BUSINESS-TEXTURE-1.png" />
             </div>
           </div>
-          <div
-            style={{
-              position: 'absolute',
-              zIndex: 1,
-              height: '100%',
-              width: '150px',
-              left: '50%',
-              top: 0,
-              transform: 'translateX(-50%)',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'flex-end',
-              flexDirection: 'column',
-              gap: 20
-            }}
-          >
+          <div className="asset-position">
             <AssetItem
               url="/landing/CONSTRUCTION/ASSET-1.png"
               posStyle={{left: -100, top: 10}}
@@ -185,22 +88,12 @@ const Construction = () => {
       <div
         style={{
           backgroundColor: '#E8E4E3',
-          height: 380,
-          width: '100%',
-          position: 'relative',
           overflow: 'hidden'
         }}
+        className="tgn-block-item tgn-flex-block-2"
       >
         <div className="container" style={{height: '100%'}}>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              height: '100%',
-              gap: 50
-            }}
-          >
+          <div className="tgn-flex-item tgn-non-revers-block-2">
             <div
               style={{
                 position: 'relative',
@@ -211,54 +104,22 @@ const Construction = () => {
               }}
             >
               <div style={{position: 'relative', zIndex: 2}}>
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: 20,
-                    alignItems: 'flex-start'
-                  }}
-                  className="part-container"
-                >
-                  <h2
-                    style={{
-                      fontWeight: '700',
-                      fontSize: '32px',
-                      textTransform: 'uppercase'
-                    }}
-                  >
-                    Lĩnh Vực kinh doanh
-                  </h2>
+                <div className="part-container tgn-block-2-left-container">
+                  <SectionTitles title="Lĩnh Vực kinh doanh" />
                   <p style={{fontSize: 14}}>
                     <strong>Thế Giới Nhà</strong> vận hành hệ thống Siêu thị vật
                     liệu xây dựng quy mô lớn, cung cấp giải pháp toàn diện với
                     danh mục sản phẩm phong phú từ thô đến hoàn thiện.
                   </p>
-                  <button className="app-btn-default" style={{marginTop: 35}}>
-                    <Link href="/about-us">
-                      <div
-                        style={{
-                          display: 'flex',
-                          justifyContent: 'space-between',
-                          alignItems: 'center',
-                          gap: 8
-                        }}
-                      >
-                        <span
-                          style={{
-                            fontSize: 14,
-                            fontWeight: 500
-                          }}
-                        >
-                          Xem thêm
-                        </span>
-                        <PureImage
-                          style={{width: 12}}
-                          url="/landing/ICON-ARROW.svg"
-                        />
-                      </div>
-                    </Link>
-                  </button>
+
+                  <div style={{marginTop: 35}}>
+                    <Button
+                      btnProps={{
+                        text: 'Xem thêm',
+                        linkTo: routes.about
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
               <div
@@ -272,21 +133,7 @@ const Construction = () => {
                 <PureImage url="/landing/BUSINESS-PHILOSOPHY/BUSINESS-TEXTURE-1.png" />
               </div>
             </div>
-            <div
-              style={{
-                position: 'absolute',
-                zIndex: 10,
-                height: '100%',
-                width: '200px',
-                left: '50%',
-                top: 0,
-                transform: 'translateX(-50%)',
-                display: 'flex',
-                justifyContent: 'space-between',
-                flexDirection: 'column',
-                gap: 20
-              }}
-            >
+            <div className="asset-position asset-position-block-2">
               <AssetItem
                 url="/landing/CONSTRUCTION/ASSET-6.png"
                 posStyle={{right: -90, top: 5}}
@@ -308,85 +155,28 @@ const Construction = () => {
                 posStyle={{bottom: 10}}
               />
             </div>
-            <div
-              style={{
-                flex: 1,
-                height: '100%',
-                position: 'relative'
-              }}
-            >
-              <div
-                style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  zIndex: 1,
-                  height: 400
-                }}
-              >
+            <div className="tgn-flex-full">
+              <div className="tgn-block-2-right-container">
                 <PureImage url="/landing/CONSTRUCTION/SHOW-ROOM.png" />
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div
-        style={{
-          height: 380,
-          position: 'relative',
-          width: '100%'
-        }}
-      >
+      <div className="tgn-block-item tgn-flex-block-3">
         <div
           style={{
             height: '100%'
           }}
+          className="container"
         >
-          <div
-            style={{
-              display: 'flex',
-              height: '100%',
-              justifyContent: 'center',
-              alignItems: 'center',
-              gap: 50
-            }}
-          >
-            <div
-              style={{
-                height: '100%',
-                flex: 1,
-                position: 'relative'
-              }}
-              className="block-wrapper"
-            >
-              <div
-                style={{
-                  height: '100%',
-                  width: '100%',
-                  position: 'absolute',
-                  right: 0,
-                  top: 0
-                }}
-              >
+          <div className="tgn-flex-item tgn-non-revers-block-3">
+            <div className="block-wrapper tgn-flex-full tgn-block-3-left-container">
+              <div className="block-3-img-inner">
                 <PureImage url="/landing/CONSTRUCTION/MODA.png" mode="cover" />
               </div>
             </div>
-            <div
-              style={{
-                position: 'absolute',
-                zIndex: 10,
-                height: '100%',
-                width: '150px',
-                left: '50%',
-                top: 0,
-                transform: 'translateX(-50%)',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'flex-end',
-                flexDirection: 'column',
-                gap: 20
-              }}
-            >
+            <div className="asset-position asset-position-block-3">
               <AssetItem
                 url="/landing/CONSTRUCTION/ASSET-11.png"
                 posStyle={{left: -100, top: 10}}
@@ -449,55 +239,21 @@ const Construction = () => {
                 overflow: 'hidden'
               }}
             >
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: 20,
-                  alignItems: 'flex-start',
-                  marginLeft: 100
-                }}
-                className="part-container"
-              >
-                <h2
-                  style={{
-                    fontWeight: '700',
-                    fontSize: '32px',
-                    textTransform: 'uppercase'
-                  }}
-                >
-                  Lĩnh Vực khai thác
-                </h2>
+              <div className="part-container tgn-absolute-block-3-item-left">
+                <SectionTitles title="Lĩnh Vực khai thác" />
                 <p style={{fontSize: 14}}>
                   <strong>Thế Giới Nhà</strong> trực tiếp khai thác và cung ứng
                   nguồn nguyên vật liệu chất lượng, đảm bảo chuỗi cung ứng bền
                   vững và tối ưu chi phí cho khách hàng.
                 </p>
-                <button className="app-btn-default" style={{marginTop: 35}}>
-                  <Link href="/about-us">
-                    <div
-                      style={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                        gap: 8
-                      }}
-                    >
-                      <span
-                        style={{
-                          fontSize: 14,
-                          fontWeight: 500
-                        }}
-                      >
-                        Xem thêm
-                      </span>
-                      <PureImage
-                        style={{width: 12}}
-                        url="/landing/ICON-ARROW.svg"
-                      />
-                    </div>
-                  </Link>
-                </button>
+                <div style={{marginTop: 35}}>
+                  <Button
+                    btnProps={{
+                      text: 'Xem thêm',
+                      linkTo: routes.about
+                    }}
+                  />
+                </div>
               </div>
               <div
                 style={{

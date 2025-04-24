@@ -43,6 +43,11 @@ button {
 .custom-nav-menu li {
   position: relative;
 }
+.tgn-headding-section {
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
 
 .line-btw {
   width: 1px;
@@ -512,5 +517,9 @@ button {
   .pc-fade-line-element,
   .line-btw {
     display: none;
+  }
+
+  .tgn-headding-section {
+    font-size: 1.5rem;
   }
 }

@@ -1,8 +1,12 @@
 'use client';
 import {CardBase} from '@/components/Common/Card';
 import {PureImage} from '@/components/Common/Images';
-import {useRef} from 'react';
+import {useWindowDimensions} from '@/hooks/common/useWindowDimension';
+import {BREAK_POINTS, routes} from '@/utils/config';
+import {useMemo, useRef} from 'react';
 import Slider from 'react-slick';
+
+import {v4 as uuid} from 'uuid';
 // Add this type definition
 type SlickRefType = {
   slickPrev: () => void;
@@ -11,6 +15,10 @@ type SlickRefType = {
 
 function ProductionSlider() {
   const sliderRef = useRef<SlickRefType | null>(null);
+
+  const {width} = useWindowDimensions();
+
+  const isMobile = useMemo(() => width < BREAK_POINTS.MOBILE, [width]);
 
   const onPrev = () => {
     sliderRef.current?.slickPrev();
@@ -27,9 +35,9 @@ function ProductionSlider() {
   const settings = {
     focusOnSelect: true,
     infinite: true,
-    slidesToShow: 2,
+    slidesToShow: isMobile ? 1 : 2,
     slidesToScroll: 1,
-    autoplay: true,
+    // autoplay: true,
     autoplaySpeed: 3000,
     cssEase: 'linear',
     dot: false,
@@ -37,68 +45,42 @@ function ProductionSlider() {
   };
   return (
     <div className="container">
-      <div style={{padding: '24px 0'}}>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'flex-end',
-            alignItems: 'center',
-            gap: 20,
-            zIndex: 20
-          }}
-        >
-          <button
-            style={{
-              right: 0,
-              bottom: 0,
-              height: '25px',
-              width: '25px'
-            }}
-            onClick={onPrev}
-          >
+      <div className="tgn-slider-btn-container">
+        <div className="tgn-slider-controls">
+          <button onClick={onPrev} className="tgn-slider-btn">
             <PureImage url="/icon/ARROW-ICON.svg" />
           </button>
           <button
-            style={{
-              right: 0,
-              bottom: 0,
-              height: '25px',
-              width: '25px',
-              transform: 'rotate(180deg)'
-            }}
             onClick={onNext}
+            className="tgn-slider-btn tgn-slider-btn-next"
           >
             <PureImage url="/icon/ARROW-ICON.svg" />
           </button>
         </div>
       </div>
       <Slider {...settings} ref={setSliderRef}>
-        {sliderMock.map((item, index) => {
+        {sliderMock.map((item) => {
           return (
-            <div key={index}>
-              <div
-                className="2"
-                style={{
-                  margin: 10
-                }}
-              >
+            <div key={uuid()}>
+              <div className="tgn-slider-item-container">
                 <CardBase
                   item={{
                     title: item.title,
                     content: item.sub,
                     image: item.img,
-                    linkTo: '/nang-luc-san-xuat',
+                    linkTo: routes.productionCapacity,
                     btnText: 'Xem thêm',
                     cardStyle: {
                       padding: 16,
                       borderRadius: 16,
-                      height: 300
+                      height: isMobile ? '555px' : 300
                     },
                     imageStyle: {
-                      flex: 1,
                       borderRadius: 16,
                       overflow: 'hidden'
-                    }
+                    },
+                    className: 'card-inner-custom',
+                    imgClassName: 'img-inner-custom'
                   }}
                 />
               </div>

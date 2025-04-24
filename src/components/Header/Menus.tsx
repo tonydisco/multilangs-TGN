@@ -5,10 +5,10 @@ import {Fragment} from 'react';
 import LocaleLink from '../Common/LinkByLocale';
 import {v4 as uuid} from 'uuid';
 
-const Menus = (props: {style?: React.CSSProperties}) => {
+const Menus = (props: {style?: React.CSSProperties; cbFunc?: () => void}) => {
   const {locale} = useAppContext();
   const {menus} = useMenu();
-  const {style} = props;
+  const {style, cbFunc} = props;
 
   return (
     <>
@@ -19,6 +19,7 @@ const Menus = (props: {style?: React.CSSProperties}) => {
               style={{
                 position: 'relative'
               }}
+              onClick={cbFunc}
             >
               <LocaleLink
                 locale={locale}

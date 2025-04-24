@@ -1,7 +1,6 @@
 import React, {Fragment} from 'react';
 import {PureImage} from '../../Common/Images';
 import Link from 'next/link';
-import './introduce.css';
 
 const Introduce = () => {
   return (
@@ -79,6 +78,7 @@ const Introduce = () => {
                 width: 992 - 24,
                 zIndex: 1
               }}
+              className="tgn-introduce-iframe"
             />
           </div>
         </div>

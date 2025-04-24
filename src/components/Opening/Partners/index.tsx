@@ -1,14 +1,15 @@
 import React from 'react';
 import PartnersSlider from './Slider';
 import {PureImage} from '@/components/Common/Images';
-import './partners.css';
+import './partners.scss';
+import {SectionTitles} from '@/components/Common/Titles';
 
 const Partners = () => {
   return (
     <section className="tgn-partners-section">
       <div className="container">
         <div>
-          <h2 className="tgn-partners-title">khách hàng - đối tác</h2>
+          <SectionTitles title="khách hàng - đối tác" />
           <PartnersSlider />
         </div>
       </div>

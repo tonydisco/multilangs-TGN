@@ -129,6 +129,13 @@ button {
   color: #212121;
 }
 
+.tgn-pc-only {
+  display: block;
+}
+.tgn-mobile-only {
+  display: none;
+}
+
 /* business philosophy */
 .b-card-title {
   background: linear-gradient(266.58deg, #6e3e2f -12.36%, #925846 132.15%);
@@ -521,5 +528,11 @@ button {
 
   .tgn-headding-section {
     font-size: 1.5rem;
+  }
+  .tgn-pc-only {
+    display: none !important;
+  }
+  .tgn-mobile-only {
+    display: block !important;
   }
 }

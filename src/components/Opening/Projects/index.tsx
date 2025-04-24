@@ -8,7 +8,7 @@ import './projects.scss';
 
 const Projects = () => {
   return (
-    <section className="tgn-section-projects">
+    <section className="tgn-projects-section">
       <div className="tgn-projects-circle-right">
         <div className="gn-projects-circle-container">
           <PureImage url="/landing/PROJECTS/HAlF-CIRCLE-ICON.png" />

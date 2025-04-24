@@ -1,6 +1,5 @@
 'use client';
 import React, {useState} from 'react';
-import '@/styles/news.css';
 import {PureImage} from './Images';
 
 const NewsTabs = ({

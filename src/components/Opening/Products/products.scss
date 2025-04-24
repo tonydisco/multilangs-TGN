@@ -2,24 +2,64 @@
 .tgn-products-section {
   position: relative;
   padding: 100px 0;
-}
-
-.tgn-products-content {
-  display: flex;
-  justify-content: space-between;
-}
-
-.tgn-products-title {
-  font-weight: 700;
-  font-size: 32px;
-  text-transform: uppercase;
-}
-
-.tgn-products-desc {
-  max-width: 600px;
-  margin: 0 auto;
-  font-size: 14px;
-  padding: 12px 0;
+  .tgn-products-content {
+    display: flex;
+    justify-content: space-between;
+  }
+  .tgn-btn-wrapper-mobile {
+    display: none;
+  }
+  .tgn-product-item-btn {
+    text-align: center;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .tgn-product-item-content {
+    padding: 12px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .tgn-products-desc {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 14px;
+    padding: 12px 0;
+  }
+  @media screen and (max-width: 768px) {
+    .tgn-products-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .grid-item {
+      flex: 1 0 calc((100% - 16px * 4) / 2);
+    }
+    .tgn-btn-wrapper {
+      display: none;
+    }
+    .tgn-btn-wrapper-mobile {
+      display: block;
+    }
+    .tgn-product-item-btn {
+      width: 20px;
+      height: 20px;
+    }
+    .base-card-full-border {
+      padding: 0 !important;
+    }
+    .tgn-product-item-content {
+      gap: 15px;
+    }
+  }
 }
 
 .tgn-products-btn-container {
@@ -69,16 +109,6 @@
   height: auto;
 }
 
-.tgn-product-item-content {
-  padding: 12px;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  gap: 30px;
-}
-
 .tgn-product-item-header {
   display: flex;
   justify-content: space-between;
@@ -90,17 +120,6 @@
   font-weight: 700;
   color: #000;
   text-transform: uppercase;
-}
-
-.tgn-product-item-btn {
-  text-align: center;
-  padding: 5px;
-  width: 30px;
-  height: 30px;
-  border-radius: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .tgn-product-item-btn-content {

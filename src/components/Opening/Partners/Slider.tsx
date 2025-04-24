@@ -2,7 +2,6 @@
 import {PureImage} from '@/components/Common/Images';
 import {useRef} from 'react';
 import Slider from 'react-slick';
-import './partners.css';
 
 // Add this type definition
 type SlickRefType = {
@@ -35,17 +34,17 @@ function PartnersSlider() {
     cssEase: 'linear',
     dot: false,
     arrows: false,
-    autoplay: true,
+    // autoplay: true,
     rtl: true
   };
   return (
     <div className="tgn-partners-slider-container">
-      <div className="tgn-partners-slider-btn tgn-partners-slider-btn-left">
+      <div className="tgn-partners-slider-btn tgn-partners-slider-btn-left tgn-pc-only">
         <button onClick={onNext}>
           <PureImage url="/icon/ARROW-ICON.svg" />
         </button>
       </div>
-      <div className="tgn-partners-slider-btn tgn-partners-slider-btn-right">
+      <div className="tgn-partners-slider-btn tgn-partners-slider-btn-right tgn-pc-only">
         <button className="tgn-transform-rotate" onClick={onPrev}>
           <PureImage url="/icon/ARROW-ICON.svg" />
         </button>

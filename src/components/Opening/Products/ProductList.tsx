@@ -3,21 +3,19 @@ import {CardProduct} from '@/components/Common/Card';
 const ProductList = () => {
   return (
     <div className="tgn-product-list-container">
-      <div>
-        <div className="tgn-product-grid-container grid-container">
-          {mockProducts.map((item, idx) => {
-            const itemIndex = 1 + idx;
-            return (
-              <CardProduct
-                item={{
-                  title: item.title,
-                  image: item.image
-                }}
-                key={`product-${itemIndex}`}
-              />
-            );
-          })}
-        </div>
+      <div className="tgn-product-grid-container grid-container">
+        {mockProducts.map((item, idx) => {
+          const itemIndex = 1 + idx;
+          return (
+            <CardProduct
+              item={{
+                title: item.title,
+                image: item.image
+              }}
+              key={`product-${itemIndex}`}
+            />
+          );
+        })}
       </div>
     </div>
   );

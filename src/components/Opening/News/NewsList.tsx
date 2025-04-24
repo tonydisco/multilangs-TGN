@@ -1,5 +1,4 @@
 import {newsTabs} from '@/utils/config';
-import '../News/news.css';
 import {NewsItem, NewsTabs} from '@/components/Common/News';
 import {newsItems} from '@/mockData';
 

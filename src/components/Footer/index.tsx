@@ -92,14 +92,8 @@ const Footer = () => {
             position: 'relative'
           }}
         >
-          <div className="container-fluid" style={{padding: '0 3rem'}}>
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                height: '100%'
-              }}
-            >
+          <div className="container-fluid container-fluid-padding">
+            <div className="inner-container">
               <div
                 style={{
                   flex: 1,
@@ -130,13 +124,7 @@ const Footer = () => {
                   })}
                 </div>
               </div>
-              <div
-                style={{
-                  flex: 2,
-                  display: 'flex',
-                  gap: 50
-                }}
-              >
+              <div className="flex-item">
                 <div>
                   {OFFICES.map((item, idx) => {
                     const lasItem = OFFICES.length - 1;

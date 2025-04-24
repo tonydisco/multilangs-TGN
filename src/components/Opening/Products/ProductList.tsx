@@ -1,4 +1,3 @@
-import './products.css';
 import {CardProduct} from '@/components/Common/Card';
 
 const ProductList = () => {

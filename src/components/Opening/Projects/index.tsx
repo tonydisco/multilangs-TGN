@@ -1,102 +1,38 @@
+import {Button} from '@/components/Common/Button';
 import {PureImage} from '@/components/Common/Images';
+import {SectionTitles} from '@/components/Common/Titles';
 import {ImageMode} from '@/models/types';
-import Link from 'next/link';
+import {routes} from '@/utils/config';
 import React from 'react';
+import './projects.scss';
 
 const Projects = () => {
   return (
-    <section
-      style={{
-        backgroundColor: '#EDDFD8',
-        position: 'relative',
-        padding: '50px 30px',
-        margin: '0 30px',
-        borderRadius: 24,
-        overflow: 'hidden'
-      }}
-      className="section-projects"
-    >
-      <div
-        style={{
-          position: 'absolute',
-          bottom: 100,
-          right: 0,
-          width: 450
-        }}
-      >
-        <div
-          style={{
-            maxWidth: 700
-          }}
-        >
+    <section className="tgn-section-projects">
+      <div className="tgn-projects-circle-right">
+        <div className="gn-projects-circle-container">
           <PureImage url="/landing/PROJECTS/HAlF-CIRCLE-ICON.png" />
         </div>
       </div>
       <div className="container">
         <div style={{textAlign: 'center'}}>
-          <h2
-            style={{
-              fontWeight: '700',
-              fontSize: '32px',
-              textTransform: 'uppercase'
-            }}
-          >
-            dự án thực hiện
-          </h2>
-          <p
-            style={{
-              maxWidth: 600,
-              margin: '0 auto',
-              fontSize: 14,
-              padding: '12px 0'
-            }}
-          >
+          <SectionTitles title="dự án thực hiện" />
+          <p className="tgn-projects-desc">
             Minh chứng cho chất lượng sản phẩm của <strong>Thế Giới Nhà</strong>{' '}
             chính là hàng loạt dự án tiêu biểu đã tin tưởng sử dụng sản phẩm và
             dịch vụ của chúng tôi. Tiêu biểu có thể kể đến các công trình lớn
             như:
           </p>
         </div>
-        <div
-          style={{
-            position: 'relative'
-          }}
-        >
-          <div
-            style={{
-              position: 'absolute',
-              top: -100,
-              left: -150,
-              width: '100%',
-              height: '100%'
-            }}
-          >
-            <div
-              style={{
-                width: 300
-              }}
-            >
+        <div className="position-relative">
+          <div className="tgn-projects-circle-left">
+            <div className="tgn-projects-circle-left-container">
               <PureImage url="/landing/PROJECTS/FULL-CIRCLE-ICON.png" />
             </div>
           </div>
-          <div
-            style={{
-              display: 'flex',
-              gap: 25,
-              padding: '50px 0',
-              alignItems: 'stretch'
-            }}
-          >
-            <div style={{flex: 1.3}}>
-              <div
-                style={{
-                  display: 'flex',
-                  gap: 25,
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  height: '100%'
-                }}
-              >
+          <div className="tgn-projects-grid ">
+            <div className="tgn-projects-col-left">
+              <div className="tgn-projects-col-items">
                 {project_1.map((item, index) => {
                   return (
                     <CardProject
@@ -107,28 +43,22 @@ const Projects = () => {
                         height: '100%'
                       }}
                       mode="cover"
+                      className="tgn-img-responsive"
                     />
                   );
                 })}
               </div>
             </div>
-            <div style={{flex: 2}}>
-              <div style={{display: 'flex', gap: 25, flexDirection: 'column'}}>
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 20,
-                    width: '100%',
-                    justifyContent: 'space-between'
-                  }}
-                >
+            <div className="tgn-projects-col-right">
+              <div className="tgn-projects-col-right-items">
+                <div className="tgn-projects-row">
                   {project_2.map((item, index) => {
                     return (
                       <CardProject
                         key={index}
                         title={item.title}
                         img={item.img}
+                        className="tgn-img-responsive"
                       />
                     );
                   })}
@@ -136,34 +66,19 @@ const Projects = () => {
                 <CardProject
                   title="metro line 1"
                   img="/landing/PROJECTS/METRO.png"
+                  className="tgn-img-responsive"
                 />
               </div>
             </div>
           </div>
         </div>
-        <div style={{textAlign: 'center'}}>
-          <button className="app-btn-default">
-            <Link href="/du-an">
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  gap: 8
-                }}
-              >
-                <span
-                  style={{
-                    fontSize: 14,
-                    fontWeight: 500
-                  }}
-                >
-                  Xem thêm tất cả dự án
-                </span>
-                <PureImage style={{width: 12}} url="/landing/ICON-ARROW.svg" />
-              </div>
-            </Link>
-          </button>
+        <div className="tgn-projects-footer">
+          <Button
+            btnProps={{
+              text: 'Xem thêm tất cả dự án',
+              linkTo: routes.project
+            }}
+          />
         </div>
       </div>
     </section>
@@ -176,12 +91,14 @@ const CardProject = ({
   title,
   img,
   style,
-  mode
+  mode,
+  className
 }: {
   title: string;
   img: string;
   style?: React.CSSProperties;
   mode?: ImageMode;
+  className?: string;
 }) => {
   return (
     <div
@@ -192,6 +109,7 @@ const CardProject = ({
         width: '100%',
         ...style
       }}
+      className={className}
     >
       <PureImage url={img} mode={mode} />
       <div

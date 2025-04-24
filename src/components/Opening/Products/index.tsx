@@ -2,7 +2,7 @@ import React from 'react';
 import {PureImage} from '@/components/Common/Images';
 import Link from 'next/link';
 import ProductList from './ProductList';
-import './products.css';
+import './products.scss';
 
 const Products = () => {
   return (

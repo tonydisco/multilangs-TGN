@@ -1,11 +1,32 @@
-import Link from 'next/link';
-import React from 'react';
-import {PureImage} from './Images';
+'use client';
 import {IButtonProps} from '@/models/interface';
+import {useAppContext} from '@/Providers';
+import {PureImage} from './Images';
+import LocaleLink from './LinkByLocale';
+import React from 'react';
+
+const BtnInner = ({
+  text,
+  style
+}: {
+  text: string | undefined;
+  style?: React.CSSProperties;
+}) => {
+  return (
+    <div className="app-btn-default-flex">
+      {text && (
+        <span style={{fontWeight: 500, fontSize: 14, ...style}}>{text}</span>
+      )}
+      <PureImage style={{width: 12}} url="/landing/ICON-ARROW.svg" />
+    </div>
+  );
+};
 
 const Button = (props: {btnProps?: IButtonProps}) => {
   const {btnProps = {}} = props;
-  const {text, content, linkTo, onBtn, style, ...rest} = btnProps;
+  const {text, content, linkTo, onBtn, style, textStyle, ...rest} = btnProps;
+
+  const {locale} = useAppContext();
   if (content) {
     return (
       <button
@@ -18,20 +39,13 @@ const Button = (props: {btnProps?: IButtonProps}) => {
       </button>
     );
   }
-  const BtnInner = () => {
-    return (
-      <div className="app-btn-default-flex">
-        {text && <span style={{fontWeight: 500}}>{text}</span>}
-        <PureImage style={{width: 12}} url="/landing/ICON-ARROW.svg" />
-      </div>
-    );
-  };
+
   if (linkTo) {
     return (
       <button className="app-btn-default" style={{...style}}>
-        <Link href={linkTo ?? '#'}>
-          <BtnInner />
-        </Link>
+        <LocaleLink href={linkTo ?? '#'} locale={locale}>
+          <BtnInner text={text} style={textStyle} />
+        </LocaleLink>
       </button>
     );
   }
@@ -41,7 +55,7 @@ const Button = (props: {btnProps?: IButtonProps}) => {
       onClick={() => onBtn?.() ?? null}
       style={{...style}}
     >
-      <BtnInner />
+      <BtnInner text={text} style={textStyle} />
     </button>
   );
 };

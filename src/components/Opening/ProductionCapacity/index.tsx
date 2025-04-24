@@ -1,136 +1,58 @@
-import Link from 'next/link';
+import {Button} from '@/components/Common/Button';
+import {SectionTitles} from '@/components/Common/Titles';
+import {routes} from '@/utils/config';
 import {Fragment} from 'react';
+import {v4 as uuid} from 'uuid';
 import {PureImage} from '../../Common/Images';
 import ProductionSlider from './Slider';
+import './productioncapacity.scss';
 
 const ProductionCapacity = () => {
   return (
-    <section
-      style={{
-        backgroundColor: '#fff',
-        position: 'relative',
-        padding: '150px 0 0 0'
-      }}
-    >
-      <div
-        style={{
-          position: 'absolute',
-          height: '100%',
-          left: 0,
-          transform: 'rotate(180deg)',
-          top: 10,
-          zIndex: 1
-        }}
-      >
+    <section className="tgn-production-capacity-section">
+      <div className="tgn-production-overlay">
         <PureImage url="/landing/CONSTRUCTION/OVERLAY.svg" />
       </div>
       <div className="container">
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 20,
-            position: 'relative',
-            zIndex: 2
-          }}
-        >
-          <div style={{flex: 1}}>
+        <div className="tgn-production-content">
+          <div className="tgn-production-left">
             <div>
-              <h2
-                style={{
-                  fontWeight: '700',
-                  fontSize: '32px',
-                  textTransform: 'uppercase'
-                }}
-              >
-                năng lực sản xuất
-              </h2>
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'flex-end',
-                  gap: 30,
-                  padding: '32px 0'
-                }}
-              >
-                {statistics.map((item, index) => {
+              <SectionTitles title="năng lực sản xuất" />
+              <div className="tgn-production-stats">
+                {statistics.map((item) => {
                   return (
-                    <Fragment key={index}>
-                      <div
-                        style={{
-                          flex: 1,
-                          display: 'flex',
-                          flexDirection: 'column',
-                          alignItems: 'center',
-                          textAlign: 'center'
-                        }}
-                      >
+                    <Fragment key={uuid()}>
+                      <div className="tgn-production-stat-item">
                         <div>
-                          <h2
-                            style={{
-                              fontSize: 32,
-                              fontWeight: 700,
-                              color: '#925846'
-                            }}
-                          >
+                          <div className="tgn-production-stat-number">
                             {item.title}
-                          </h2>
-                          <p style={{fontSize: 14, whiteSpace: 'pre'}}>
-                            {item.sub}
-                          </p>
+                          </div>
+                          <p className="tgn-production-stat-text">{item.sub}</p>
                         </div>
                       </div>
-                      {index !== statistics.length - 1 && (
-                        <div className="default-vertical-line" />
-                      )}
                     </Fragment>
                   );
                 })}
               </div>
             </div>
-            <button className="app-btn-default">
-              <Link href="/about-us">
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    gap: 8
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: 14,
-                      fontWeight: 500
-                    }}
-                  >
-                    Xem thêm Năng lực sản xuất
-                  </span>
-                  <PureImage
-                    style={{width: 12}}
-                    url="/landing/ICON-ARROW.svg"
-                  />
-                </div>
-              </Link>
-            </button>
+            <Button
+              btnProps={{
+                text: 'Xem thêm Năng lực sản xuất',
+                linkTo: routes.productionCapacity
+              }}
+            />
           </div>
-          <div style={{flex: 1}}></div>
-        </div>
-        <div
-          style={{
-            position: 'absolute',
-            right: 100,
-            top: 220,
-            zIndex: 1
-          }}
-        >
-          <PureImage
-            url="/landing/PRODUCTION-CAPACITY/TGN-LOGO-EFFECT.png"
-            style={{maxHeight: 220, height: 'auto'}}
-          />
+          <div className="tgn-production-right">
+            <div className="tgn-production-backdrop">
+              <PureImage
+                url="/landing/PRODUCTION-CAPACITY/TGN-LOGO-EFFECT.png"
+                style={{width: 540, height: 'auto', opacity: 0.12}}
+              />
+            </div>
+          </div>
         </div>
       </div>
-      <div style={{padding: '40px 0', position: 'relative', zIndex: 2}}>
+      <div className="tgn-production-slider-section">
         <ProductionSlider />
       </div>
     </section>

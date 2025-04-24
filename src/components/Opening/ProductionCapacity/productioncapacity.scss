@@ -1,0 +1,226 @@
+/* ProductionCapacity Component Styles */
+.tgn-production-capacity-section {
+  position: relative;
+  padding: 100px 0;
+  .tgn-production-overlay {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    transform: rotate(180deg);
+    top: 10px;
+    z-index: 1;
+  }
+
+  .tgn-production-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .tgn-production-left {
+    flex: 1;
+  }
+
+  .tgn-production-stats {
+    display: flex;
+    justify-content: flex-end;
+    padding: 46px 0;
+  }
+  .tgn-production-stat-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 0 20px;
+    &:not(:first-child) {
+      &::after {
+        content: '';
+        display: block;
+        width: 1px;
+        height: 100%;
+        background-color: var(--text-brown-color);
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+  .tgn-production-stat-number {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--secondary-color);
+  }
+
+  .tgn-production-stat-text {
+    font-size: 14px;
+    white-space: pre;
+    margin-bottom: 0;
+  }
+  .tgn-production-btn-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .tgn-production-backdrop {
+    position: absolute;
+    left: -100px;
+    top: -80px;
+    z-index: 1;
+  }
+
+  .tgn-production-slider-section {
+    padding: 40px 0;
+    position: relative;
+    z-index: 2;
+  }
+  .tgn-production-right {
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+
+  .tgn-slider-item-container {
+    margin: 10px;
+  }
+  /* Slider Component Styles */
+  .tgn-slider-btn-container {
+    padding: 24px 0;
+  }
+
+  .tgn-slider-btn {
+    width: 25px;
+  }
+  .tgn-slider-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    z-index: 20;
+  }
+
+  .tgn-slider-btn-next {
+    transform: rotate(180deg);
+  }
+
+  @media screen and (max-width: 768px) {
+    .tgn-production-capacity-section {
+      padding: 50px 0;
+    }
+    .tgn-production-content {
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      text-align: center;
+    }
+    .tgn-production-left,
+    .tgn-production-right {
+      width: 100%;
+      flex: unset;
+    }
+    .tgn-production-stats {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .tgn-production-stat-item {
+      width: 45%;
+      &:nth-child(3) {
+        &::after {
+          display: none;
+        }
+      }
+    }
+    .tgn-slider-item-container {
+      margin: 0;
+    }
+    .tgn-slider-btn-container {
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      left: 0;
+      right: 0;
+      padding: 0;
+    }
+    .tgn-slider-controls {
+      gap: 40px;
+    }
+    .card-inner-custom {
+      flex-direction: column;
+    }
+    .img-inner-custom {
+      max-height: 250px !important;
+    }
+  }
+}
+
+.tgn-production-btn-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.tgn-production-arrow {
+  width: 12px;
+}
+
+.tgn-production-logo-image {
+  max-height: 220px;
+  height: auto;
+}
+
+.tgn-slider-card {
+  padding: 16px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 16px;
+  height: 300px;
+}
+
+.tgn-slider-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 16px;
+  height: 100%;
+}
+
+.tgn-slider-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: space-between;
+  height: 100%;
+  align-items: flex-start;
+}
+
+.tgn-slider-title-container {
+  max-width: 300px;
+}
+
+.tgn-slider-title {
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: pre-line;
+}
+
+.tgn-slider-description {
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.tgn-slider-image-container {
+  flex: 1;
+  border-radius: 16px;
+  overflow: hidden;
+}

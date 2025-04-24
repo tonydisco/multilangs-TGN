@@ -1,6 +1,9 @@
-import React, {Fragment} from 'react';
+import {Button} from '@/components/Common/Button';
+import {SectionTitles} from '@/components/Common/Titles';
+import {routes} from '@/utils/config';
+import {Fragment} from 'react';
+import {v4 as uuid} from 'uuid';
 import {PureImage} from '../../Common/Images';
-import Link from 'next/link';
 
 const Introduce = () => {
   return (
@@ -10,31 +13,24 @@ const Introduce = () => {
           <div className="tgn-introduce-card">
             <div className="tgn-introduce-left">
               <div className="tgn-introduce-content">
-                <h2 className="tgn-introduce-title">giới thiệu</h2>
+                <SectionTitles title="giới thiệu" />
                 <p className="tgn-introduce-desc">
                   <strong>Thế Giới Nhà</strong> hệ thống Siêu thị vật liệu xây
                   dựng hàng đầu, cung cấp giải pháp toàn diện cho mọi công
                   trình.
                 </p>
-                <button className="app-btn-default">
-                  <Link href="/about-us">
-                    <div className="tgn-introduce-btn">
-                      <span className="tgn-introduce-btn-text">
-                        Về chúng tôi
-                      </span>
-                      <PureImage
-                        style={{width: 12}}
-                        url="/landing/ICON-ARROW.svg"
-                      />
-                    </div>
-                  </Link>
-                </button>
+                <Button
+                  btnProps={{
+                    text: 'Về chúng tôi',
+                    linkTo: routes.about
+                  }}
+                />
               </div>
             </div>
             <div className="tgn-introduce-right">
               <div className="tgn-introduce-statistics">
                 {statistics.map((item, index) => (
-                  <Fragment key={index}>
+                  <Fragment key={uuid()}>
                     <div className="tgn-introduce-stat-item">
                       <PureImage
                         url={item.icon}

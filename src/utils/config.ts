@@ -92,3 +92,10 @@ export const reverseRouteTranslations: {
     'tin-tuc': 'tin-tuc'
   }
 };
+
+export const BREAK_POINTS = {
+  MOBILE: 768,
+  TABLET: 1024,
+  LAPTOP: 1440,
+  DESKTOP: 2560
+};

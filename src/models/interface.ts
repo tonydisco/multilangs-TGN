@@ -24,6 +24,7 @@ export interface ICardProps {
     right: number | string;
   };
   isReverse?: boolean;
+  imgClassName?: string;
 }
 export interface IButtonProps {
   text?: string;
@@ -35,6 +36,7 @@ export interface IButtonProps {
   className?: string;
   disabled?: boolean;
   isLoading?: boolean;
+  textStyle?: React.CSSProperties;
 }
 
 export interface Translation {

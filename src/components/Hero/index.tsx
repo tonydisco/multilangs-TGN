@@ -2,13 +2,13 @@
 import {useTranslations} from 'next-intl';
 import React from 'react';
 import {PureImage} from '../Common/Images';
-import './hero.css';
+import '@/styles/hero.scss';
 
 const HeroView = ({title}: {title?: React.ReactNode}) => {
   const t = useTranslations();
 
   return (
-    <section className="tgn-hero">
+    <section id="tgn-hero-banner">
       <div className="tgn-hero-background">
         <PureImage url="/landing/HERO-GRID.png" />
       </div>

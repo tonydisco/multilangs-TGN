@@ -1,5 +1,5 @@
 'use client';
-import './header.scss';
+import '@/styles/header.scss';
 import {ISetting} from '@/models/interface';
 import {Locale} from 'next-intl';
 import {PureImage} from '../Common/Images';
@@ -10,6 +10,7 @@ import Menus from './Menus';
 import Socials from './Socials';
 import {MenuIco} from '../Common/IconScripts';
 import {useState} from 'react';
+import {useDebounce} from '@/hooks/common/useDebounce';
 
 type Props = {
   locale: Locale;
@@ -97,6 +98,7 @@ const Header = ({locale}: Readonly<Props>) => {
               style={{
                 fontSize: 18
               }}
+              cbFunc={useDebounce(handleMenuToggle, 300)}
             />
           </ul>
           <div className="d-flex align-items-center gap-4 mt-5">

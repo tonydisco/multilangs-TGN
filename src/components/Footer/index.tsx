@@ -12,8 +12,7 @@ import {PureImage} from '../Common/Images';
 import LocaleLink from '../Common/LinkByLocale';
 import Logos from '../Common/Logos';
 import Socials from '../Header/Socials';
-
-import './footer.scss';
+import '@/styles/footer.scss';
 
 const Line = () => (
   <div

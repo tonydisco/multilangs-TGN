@@ -5,7 +5,7 @@ import Projects from './Projects';
 import Introduce from './Introduce';
 import Construction from './Construction';
 import ProductionCapacity from './ProductionCapacity';
-import './Opening.css';
+import '@/styles/Opening.scss';
 
 const Opening = () => {
   return (

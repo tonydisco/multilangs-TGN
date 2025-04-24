@@ -1,11 +1,13 @@
 'use client';
-import {Button} from './Button';
-import {PureImage} from './Images';
-import React, {ReactNode} from 'react';
 import {ICardProps} from '@/models/interface';
 import {ImageMode} from '@/models/types';
-import Link from 'next/link';
+import {useAppContext} from '@/Providers';
 import '@/styles/cards.css';
+import {routes} from '@/utils/config';
+import React, {ReactNode} from 'react';
+import {Button} from './Button';
+import {PureImage} from './Images';
+import LocaleLink from './LinkByLocale';
 
 interface ICardBorderProps {
   children: ReactNode;
@@ -119,26 +121,52 @@ const CardNoBorderLine = (props: ICardBorderProps) => {
 
 const CardProduct = (props: {item: {title: string; image: string}}) => {
   const {item} = props;
+
+  const {locale} = useAppContext();
   return (
     <div className="tgn-product-grid-item grid-item base-card-full-border">
       <div className="tgn-product-item-content">
         <div className="tgn-product-item-header">
           <div className="tgn-product-item-title">{item.title}</div>
-          <div>
+          <div className="tgn-btn-wrapper">
             <button className="app-btn-default tgn-product-item-btn">
-              <Link href="/san-pham">
+              <LocaleLink locale={locale} href={routes.product}>
                 <div className="tgn-product-item-btn-content">
                   <PureImage
                     className="tgn-product-item-arrow"
                     url="/landing/ICON-ARROW.svg"
                   />
                 </div>
-              </Link>
+              </LocaleLink>
             </button>
           </div>
         </div>
         <div className="tgn-product-item-image-wrapper card-img-wrapper">
           <PureImage url={item.image} />
+        </div>
+        <div className="tgn-btn-wrapper-mobile">
+          <div style={{display: 'flex', alignItems: 'center', gap: 10}}>
+            <div
+              style={{
+                fontSize: 12,
+                whiteSpace: 'nowrap'
+              }}
+            >
+              Xem thêm
+            </div>
+            <button className="app-btn-default tgn-product-item-btn">
+              <LocaleLink locale={locale} href={routes.product}>
+                <div className="tgn-product-item-btn-content">
+                  <PureImage
+                    url="/landing/ICON-ARROW.svg"
+                    style={{
+                      width: 10
+                    }}
+                  />
+                </div>
+              </LocaleLink>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -185,4 +213,4 @@ const CardItem = (props: {
   );
 };
 
-export {CardBase, CardBorder, CardNoBorderLine, CardProduct, CardItem};
+export {CardBase, CardBorder, CardItem, CardNoBorderLine, CardProduct};

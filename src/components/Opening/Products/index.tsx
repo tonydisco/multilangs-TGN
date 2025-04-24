@@ -1,6 +1,7 @@
-import React from 'react';
+import {Button} from '@/components/Common/Button';
 import {PureImage} from '@/components/Common/Images';
-import Link from 'next/link';
+import {SectionTitles} from '@/components/Common/Titles';
+import {routes} from '@/utils/config';
 import ProductList from './ProductList';
 import './products.scss';
 
@@ -10,7 +11,7 @@ const Products = () => {
       <div className="container">
         <div className="tgn-products-content">
           <div className="tgn-products-info">
-            <h2 className="tgn-products-title">sản phẩm</h2>
+            <SectionTitles title="sản phẩm" />
             <p className="tgn-products-desc">
               <strong>Thế Giới Nhà</strong> cung cấp đa dạng sản phẩm vật liệu
               xây dựng, từ bê tông thương phẩm, cấu kiện bê tông đúc sẵn đến các
@@ -18,23 +19,24 @@ const Products = () => {
               lượng cao và độ bền vượt trội.
             </p>
           </div>
-          <div className="tgn-products-btn-container">
-            <button className="app-btn-default">
-              <Link href="/du-an">
-                <div className="tgn-products-btn-content">
-                  <span className="tgn-products-btn-text">
-                    Xem thêm tất cả sản phẩm
-                  </span>
-                  <PureImage
-                    style={{width: 12}}
-                    url="/landing/ICON-ARROW.svg"
-                  />
-                </div>
-              </Link>
-            </button>
+          <div className="tgn-products-btn-container tgn-btn-wrapper">
+            <Button
+              btnProps={{
+                text: 'Xem thêm tất cả sản phẩm',
+                linkTo: routes.product
+              }}
+            />
           </div>
         </div>
         <ProductList />
+        <div className="tgn-products-btn-container tgn-btn-wrapper-mobile">
+          <Button
+            btnProps={{
+              text: 'Xem thêm tất cả sản phẩm',
+              linkTo: routes.product
+            }}
+          />
+        </div>
       </div>
       <div
         style={{

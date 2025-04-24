@@ -2,13 +2,27 @@
 .tgn-partners-section {
   position: relative;
   padding: 75px 0 0 0;
-}
-
-.tgn-partners-title {
-  font-weight: 700;
-  font-size: 32px;
-  text-transform: uppercase;
-  text-align: center;
+  @media screen and (max-width: 768px) {
+    .tgn-headding-section {
+      text-align: center;
+    }
+    .tgn-partners-grid-item {
+      padding: 0;
+      height: 65px;
+    }
+    .tgn-partners-logo-container {
+      padding: 10px;
+    }
+    .grid-item {
+      flex: 1 0 calc((100% - 16px * 4) / 3);
+    }
+    .tgn-partners-grid-container {
+      margin: 0;
+    }
+    .container {
+      padding: 0;
+    }
+  }
 }
 
 .tgn-partners-grid-bottom {

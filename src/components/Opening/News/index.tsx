@@ -1,4 +1,4 @@
-import './news.css';
+import './news.scss';
 import NewsList from './NewsList';
 import CalendarList from './CalendarList';
 import {PureImage} from '@/components/Common/Images';
@@ -19,7 +19,7 @@ const News = () => {
         <CardBorder style={{height: 'auto', marginTop: 50}}>
           <div className="d-flex gap-5">
             <NewsList />
-            <div className="tgn-news-event-header">
+            <div className="tgn-news-event-header tgn-pc-only">
               <SingleTab
                 titleTab="Lịch sự kiện"
                 style={{

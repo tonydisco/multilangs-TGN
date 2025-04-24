@@ -1,5 +1,4 @@
 import React from 'react';
-import './news.css';
 
 const CalendarList = () => {
   return (

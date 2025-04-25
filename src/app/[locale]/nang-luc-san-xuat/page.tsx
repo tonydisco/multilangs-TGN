@@ -1,13 +1,11 @@
 import {CardBase} from '@/components/Common/Card';
-import {PureImage} from '@/components/Common/Images';
 import {SectionBase} from '@/components/Common/Section';
-import {BaseSlider} from '@/components/Common/Sliders';
-import {SectionTitles} from '@/components/Common/Titles';
 import {TitlePageView} from '@/components/Hero';
 import PageLayout from '@/components/PageLayout';
 import {IPageDefaultProps} from '@/models/interface';
-import {getTranslations} from 'next-intl/server';
 import '@/styles/productionCap.scss';
+import {getTranslations} from 'next-intl/server';
+import NLSXSlider from './Slider';
 
 const mockData = [
   {
@@ -59,6 +57,7 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
             key={index}
             bgImage={item.isReverse ? item.image : undefined}
             className={`section-wrapper-bg ${item.isReverse ? 'reverse' : ''}`}
+            contentClassName="tgn-content-mobile"
           >
             <CardBase
               item={{
@@ -70,40 +69,14 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
                 cardStyle: {
                   height: 500
                 },
-                className: 'card-wrapper-mobile'
+                className: 'card-inner-mobile',
+                cardClassName: 'card-wrapper-mobile'
               }}
             />
           </SectionBase>
         );
       })}
-
-      {/* <SectionBase>
-        <SectionTitles title="giấy chứng nhận" style={{textAlign: 'center'}} />
-        <BaseSlider
-          rederList={Array.from({length: 4}).map((_, i) => {
-            return (
-              <div key={i}>
-                <div
-                  style={{
-                    margin: 10
-                  }}
-                >
-                  <PureImage
-                    url={`/landing/NLSX/${i + 1}.png`}
-                    style={{
-                      width: '100%',
-                      height: 'auto',
-                      maxWidth: 300,
-                      borderRadius: 8
-                    }}
-                  />
-                </div>
-              </div>
-            );
-          })}
-          slidesToShow={4}
-        />
-      </SectionBase> */}
+      <NLSXSlider />
     </PageLayout>
   );
 }

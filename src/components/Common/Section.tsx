@@ -8,17 +8,19 @@ interface ISectionProps {
   style?: React.CSSProperties;
   contentStyle?: React.CSSProperties;
   className?: string;
+  contentClassName?: string;
 }
 
 const SectionBase = ({
   children,
   bgImage,
   style,
+  className,
   contentStyle,
-  className
+  contentClassName
 }: ISectionProps) => {
   return (
-    <div
+    <section
       className={`section-wrapper ${className ?? ''}`}
       style={{
         ...(bgImage ? {backgroundImage: `url(${bgImage})`} : {}),
@@ -26,9 +28,14 @@ const SectionBase = ({
       }}
     >
       <div className="container">
-        <div style={{padding: '150px 0', ...contentStyle}}>{children}</div>
+        <div
+          style={{padding: '100px 0 150px 0', ...contentStyle}}
+          className={contentClassName ?? ''}
+        >
+          {children}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

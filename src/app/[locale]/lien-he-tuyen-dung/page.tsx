@@ -4,6 +4,7 @@ import ContactUs from './ContactUs';
 import RecruitMent from './Recruitment';
 import {getTranslations} from 'next-intl/server';
 import {IPageDefaultProps} from '@/models/interface';
+import '@/styles/contactUs.scss';
 
 export default async function Page({params}: Readonly<IPageDefaultProps>) {
   const {locale} = await params;
@@ -11,7 +12,7 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
   return (
     <PageLayout
       title={<TitlePageView title={t('HeaderNavContactRecruitment')} />}
-      className="lhtd-wrapper"
+      className="contact-us-wrapper"
     >
       <ContactUs />
       <RecruitMent />

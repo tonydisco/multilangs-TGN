@@ -5,6 +5,7 @@ import PageLayout from '@/components/PageLayout';
 import ProjectList from './List';
 import {IPageDefaultProps} from '@/models/interface';
 import {getTranslations} from 'next-intl/server';
+import '@/styles/projects.scss';
 
 export default async function Page({params}: Readonly<IPageDefaultProps>) {
   const {locale} = await params;
@@ -12,7 +13,7 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
   return (
     <PageLayout
       title={<TitlePageView title={t('HeaderNavProjects')} />}
-      className="projects-wrapper"
+      className="projects-page-wrapper"
     >
       <SectionBase>
         <SectionTitles

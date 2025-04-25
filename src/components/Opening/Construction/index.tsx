@@ -3,7 +3,7 @@ import {SectionTitles} from '@/components/Common/Titles';
 import {ImageMode} from '@/models/types';
 import {routes} from '@/utils/config';
 import {PureImage} from '../../Common/Images';
-import './construction.scss';
+import '@/styles/construction.scss';
 
 const Construction = () => {
   return (

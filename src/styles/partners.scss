@@ -13,11 +13,15 @@
     .tgn-partners-logo-container {
       padding: 10px;
     }
+    .grid-container {
+      gap: 10px;
+    }
     .grid-item {
-      flex: 1 0 calc((100% - 16px * 4) / 3);
+      flex: 1 0 calc((100% - 10px * 2) / 3);
+      max-width: calc((100% - 10px * 2) / 3);
     }
     .tgn-partners-grid-container {
-      margin: 0;
+      padding: 0 0.75rem;
     }
     .container {
       padding: 0;
@@ -39,15 +43,8 @@
 }
 
 .tgn-partners-slider-btn {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 20px;
-  z-index: 20;
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: -50px;
+  top: 50%;
 }
 
 .tgn-partners-slider-btn-left {
@@ -60,11 +57,6 @@
 
 .tgn-transform-rotate {
   transform: rotate(180deg);
-}
-
-.tgn-partners-grid-container {
-  margin: 0 10px;
-  padding: 0 10px;
 }
 
 .tgn-partners-grid-item {

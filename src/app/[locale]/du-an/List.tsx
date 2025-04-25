@@ -43,53 +43,48 @@ const ProjectList = () => {
   const data = projectData.data.slice(startIndex, endIndex);
 
   return (
-    <div className="row align-items-center">
-      {data.map((item, index) => {
-        return (
-          <div
-            key={index}
-            className="col-4 mx-auto"
-            style={{
-              marginTop: index >= 3 ? 20 : 0
-            }}
-          >
-            <CardBorder style={{width: '100%', padding: 16}}>
-              <div
-                style={{
-                  position: 'relative',
-                  width: '100%',
-                  height: '100%',
-                  overflow: 'hidden'
-                }}
-              >
-                <PureImage
-                  url={item.image}
-                  mode="cover"
-                  style={{borderRadius: 16}}
-                />
+    <div>
+      <div className="projects-list-flex">
+        {data.map((item, index) => {
+          return (
+            <div key={index} className="projects-grid-item">
+              <CardBorder style={{width: '100%', padding: 16}}>
                 <div
                   style={{
-                    position: 'absolute',
-                    bottom: 30,
-                    left: 0,
-                    right: 0,
-                    textAlign: 'center',
-                    color: '#fff',
-                    fontSize: 18,
-                    fontWeight: 700,
-                    zIndex: 2,
-                    textTransform: 'uppercase'
+                    position: 'relative',
+                    width: '100%',
+                    height: '100%',
+                    overflow: 'hidden'
                   }}
                 >
-                  {item.title}
+                  <PureImage
+                    url={item.image}
+                    mode="cover"
+                    style={{borderRadius: 16}}
+                  />
+                  <div
+                    style={{
+                      position: 'absolute',
+                      bottom: 30,
+                      left: 0,
+                      right: 0,
+                      textAlign: 'center',
+                      color: '#fff',
+                      fontSize: 18,
+                      fontWeight: 700,
+                      zIndex: 2,
+                      textTransform: 'uppercase'
+                    }}
+                  >
+                    {item.title}
+                  </div>
+                  <div className="overlay-project"></div>
                 </div>
-                <div className="overlay-project"></div>
-              </div>
-            </CardBorder>
-          </div>
-        );
-      })}
-
+              </CardBorder>
+            </div>
+          );
+        })}
+      </div>
       <div
         style={{
           display: 'flex',

@@ -4,7 +4,7 @@ import {SectionTitles} from '@/components/Common/Titles';
 import {ImageMode} from '@/models/types';
 import {routes} from '@/utils/config';
 import React from 'react';
-import './projects.scss';
+import '@/styles/projects.scss';
 
 const Projects = () => {
   return (

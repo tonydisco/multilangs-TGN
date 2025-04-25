@@ -1,16 +1,15 @@
 'use client';
-import '@/styles/header.scss';
+import {useDebounce} from '@/hooks/common/useDebounce';
 import {ISetting} from '@/models/interface';
+import '@/styles/header.scss';
 import {Locale} from 'next-intl';
+import {useState} from 'react';
 import {PureImage} from '../Common/Images';
 import Logos from '../Common/Logos';
 import ContactBtn from './ContactBtn';
 import LanguageSwitcher from './Langs';
 import Menus from './Menus';
 import Socials from './Socials';
-import {MenuIco} from '../Common/IconScripts';
-import {useState} from 'react';
-import {useDebounce} from '@/hooks/common/useDebounce';
 
 type Props = {
   locale: Locale;
@@ -28,7 +27,7 @@ const Header = ({locale}: Readonly<Props>) => {
       <nav className="d-flex align-items-center justify-content-between p-3 nav-custom">
         <div className="nav-item">
           <div className="search-icon search-icon-responsive ">
-            <PureImage url="/icon/SEARCH.svg" />
+            <PureImage style={{width: 22}} url="/icon/SEARCH.svg" />
           </div>
         </div>
         <div className="nav-item">
@@ -62,7 +61,7 @@ const Header = ({locale}: Readonly<Props>) => {
         <div className="nav-item">
           <div className="mobile-menu">
             <button onClick={handleMenuToggle}>
-              <MenuIco />
+              <PureImage style={{width: 25}} url="/icon/HAMBURGER.svg" />
             </button>
           </div>
         </div>
@@ -83,7 +82,16 @@ const Header = ({locale}: Readonly<Props>) => {
               <Logos />
             </div>
             <div className="close-menu">
-              <button onClick={handleMenuToggle}>CLOSE</button>
+              <button
+                style={{
+                  fontWeight: 900,
+                  fontSize: 26,
+                  color: 'var(--primary-master-title-color)'
+                }}
+                onClick={handleMenuToggle}
+              >
+                X
+              </button>
             </div>
           </div>
           <div className="fade-line-element mobile-fade-line-element" />
@@ -101,12 +109,14 @@ const Header = ({locale}: Readonly<Props>) => {
               cbFunc={useDebounce(handleMenuToggle, 300)}
             />
           </ul>
+
           <div className="d-flex align-items-center gap-4 mt-5">
             <Socials
               iconSize={{
                 width: 35
               }}
             />
+            {locale && <LanguageSwitcher iconW="40px" locale={locale} />}
           </div>
         </div>
       </div>

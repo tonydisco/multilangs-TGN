@@ -1,4 +1,4 @@
-import './news.scss';
+import '@/styles/news.scss';
 import NewsList from './NewsList';
 import CalendarList from './CalendarList';
 import {PureImage} from '@/components/Common/Images';

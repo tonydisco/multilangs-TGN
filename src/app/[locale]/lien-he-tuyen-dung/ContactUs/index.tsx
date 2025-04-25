@@ -14,7 +14,7 @@ const ContactUs = () => {
       bgImage="/landing/CONTACT-US/BG.png"
       className="contact-us-wrapper"
     >
-      <div className="d-flex gap-3 align-items-stretch">
+      <div className="flex-wrapper">
         <CardBorder
           style={{
             height: 'auto',
@@ -27,7 +27,7 @@ const ContactUs = () => {
             return (
               <div key={index} style={{marginTop: 50}}>
                 <TitleInCard title={item.title} />
-                <div className="d-flex gap-3 mt-4 align-items-stretch">
+                <div className="flex-inner-item">
                   <div style={{flex: 1}}>
                     <div
                       className="contact-us-image"

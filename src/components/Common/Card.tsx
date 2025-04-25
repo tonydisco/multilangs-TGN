@@ -33,7 +33,7 @@ const CardBase = (props: {item: ICardProps}) => {
             flex: item?.flex?.left ?? 1
           }}
         >
-          <div className="d-flex flex-column justify-content-between h-100 gap-6">
+          <div className="d-flex flex-column justify-content-between h-100 gap-5">
             <div>
               <h3 className="tgn-box-title text-start tgn-base-limit-two-lines">
                 {item?.title}

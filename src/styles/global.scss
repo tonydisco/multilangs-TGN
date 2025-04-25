@@ -1,6 +1,7 @@
 /* declare variables css color */
 :root {
   --white-color: #fff;
+  --primary-master-title-color: #6e3e2f;
   --secondary-color: #925846;
   --bg-color: #eddfd8;
   --text-color: #212121;
@@ -12,6 +13,7 @@
     #925846 132.15%
   );
 }
+// $enable-important-utilities: false;
 
 body {
   background-color: var(--white-color) !important;

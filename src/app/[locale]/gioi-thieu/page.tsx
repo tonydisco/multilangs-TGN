@@ -3,6 +3,7 @@ import {HeaderTitleView} from '@/components/Hero';
 import PageLayout from '@/components/PageLayout';
 import {IPageDefaultProps} from '@/models/interface';
 import {getTranslations} from 'next-intl/server';
+import '@/styles/aboutUs.scss';
 
 export default async function Page({params}: Readonly<IPageDefaultProps>) {
   const {locale} = await params;

@@ -1,42 +1,22 @@
-import BusinessPhysolophy from './Business';
+import BusinessPhisolophy from './Business';
 import VisionMission from './VisionMission';
 import Timeline from './Timeline';
 import {SectionTitles} from '@/components/Common/Titles';
 
 const AboutUsView = () => {
   return (
-    <section className="about-us">
+    <section className="tgn-about-us">
       <div
         style={{
           background: 'url(/landing/ABOUT-US/ABOUT-US-BD.png)',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          height: '680px',
-          width: '100%',
-          position: 'relative',
-          overflow: 'hidden'
+          backgroundPosition: 'center'
         }}
+        className="tgn-about-us-wrapper"
       >
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            margin: '0 auto',
-            padding: '6rem',
-            maxWidth: '72rem'
-          }}
-        >
-          <div
-            style={{
-              backgroundColor: 'rgba(110, 62, 47, 0.8)',
-              backdropFilter: 'blur(3px)',
-              borderRadius: '24px',
-              padding: '2rem',
-              color: 'white'
-            }}
-          >
+        <div className="about-us-flex-item">
+          <div className="bg-intro">
             <SectionTitles
               title="Về chúng tôi"
               style={{color: 'white', textAlign: 'center'}}
@@ -71,7 +51,7 @@ const AboutUsView = () => {
         </div>
       </div>
       <VisionMission />
-      <BusinessPhysolophy />
+      <BusinessPhisolophy />
       <Timeline />
     </section>
   );

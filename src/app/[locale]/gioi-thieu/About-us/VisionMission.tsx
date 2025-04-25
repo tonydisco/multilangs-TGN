@@ -1,21 +1,28 @@
+import {PureImage} from '@/components/Common/Images';
 import React from 'react';
-import {PureImage} from '../../../../components/Common/Images';
+
+const mockData = [
+  {
+    title: 'Tầm nhìn',
+    description:
+      'Thế Giới Nhà định hướng phát triển thành hệ thống sản xuất và phân phối vật liệu xây dựng với hệ thống siêu thị có quy mô lớn tại Việt Nam, cung cấp đầy đủ các sản phẩm từ thô, tinh đến hoàn thiện.',
+    iconUrl: '/landing/VISION-MISSION/ICON-VISION.svg',
+    bgUrl: '/landing/VISION-MISSION/VISION.png'
+  },
+  {
+    title: 'Sứ mệnh',
+    description:
+      '"Sự hài lòng của bạn là thước đo sự tồn tại và phát triển của chúng tôi."\nThế Giới Nhà cam kết mang đến sản phẩm chất lượng, dịch vụ chuyên nghiệp. Chúng tôi luôn phấn đấu không ngừng để hướng đến mục tiêu chung đó là sự hài lòng của khách hàng, đối tác và cả công, nhân viên công ty hướng đến sự hợp tác lâu dài và bền vững.',
+    iconUrl: '/landing/VISION-MISSION/ICON-MISSION.svg',
+    bgUrl: '/landing/VISION-MISSION/MISSION.png'
+  }
+];
 
 const VisionMission = () => {
   return (
     <section className="vision-mission">
       <div className="container">
-        <div
-          style={{
-            height: '500px',
-            width: '100%',
-            position: 'relative',
-            overflow: 'hidden',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}
-        >
+        <div className="vision-mission-wrapper">
           <div
             style={{
               position: 'absolute',
@@ -28,121 +35,20 @@ const VisionMission = () => {
             <PureImage url="/landing/VISION-MISSION/GRID-VISION.png" />
           </div>
           <div
-            className="d-flex justify-content-center align-items-stretch"
+            className="d-flex justify-content-center align-items-stretch flex-item-wrapper"
             style={{gap: '1.25rem'}}
           >
-            <div
-              style={{
-                background: 'url(/landing/VISION-MISSION/VISION.png)',
-                backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
-                borderRadius: '24px',
-                flex: 1,
-                position: 'relative',
-                color: 'white',
-                padding: '1rem',
-                backgroundColor: '#6d3e2f'
-              }}
-            >
-              <div
-                style={{
-                  background:
-                    'linear-gradient(360deg, #6E3E2F 0%, rgba(146, 88, 70, 0) 97.03%)',
-                  position: 'absolute',
-                  inset: 0,
-                  width: '100%',
-                  height: '100%',
-                  borderRadius: '24px'
-                }}
-              />
-              <div style={{position: 'relative', zIndex: 2}}>
-                <div style={{width: 80, marginBottom: 40}}>
-                  <PureImage url="/landing/VISION-MISSION/ICON-VISION.svg" />
-                </div>
-                <div>
-                  <h2
-                    style={{
-                      fontSize: '1.875rem',
-                      lineHeight: '2.275rem',
-                      fontWeight: 700,
-                      textTransform: 'uppercase',
-                      marginBottom: '0.75rem'
-                    }}
-                  >
-                    tầm nhìn
-                  </h2>
-                  <div>
-                    <p
-                      style={{
-                        fontSize: '14px',
-                        fontWeight: 600
-                      }}
-                    >
-                      Trở thành TGN Group vững mạnh, phát triển bền vững trong
-                      lĩnh vực sản xuất và cung cấp bê tông thương phẩm, cấu
-                      kiện bê tông đúc sẵn và vật liệu xây dựng, khẳng định vị
-                      thế tại Việt Nam và vươn tầm khu vực.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              style={{
-                background: 'url(/landing/VISION-MISSION/MISSION.png)',
-                backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
-                borderRadius: '24px',
-                flex: 1,
-                position: 'relative',
-                color: 'white',
-                padding: '1rem',
-                backgroundColor: '#6d3e2f'
-              }}
-            >
-              <div
-                style={{
-                  background:
-                    'linear-gradient(360deg, #6E3E2F 0%, rgba(146, 88, 70, 0) 97.03%)',
-                  position: 'absolute',
-                  inset: 0,
-                  width: '100%',
-                  height: '100%',
-                  borderRadius: '24px'
-                }}
-              />
-              <div style={{position: 'relative', zIndex: 2}}>
-                <div style={{width: 80, marginBottom: 40}}>
-                  <PureImage url="/landing/VISION-MISSION/ICON-MISSION.svg" />
-                </div>
-                <div>
-                  <h2
-                    style={{
-                      fontSize: '1.875rem',
-                      lineHeight: '2.275rem',
-                      fontWeight: 700,
-                      textTransform: 'uppercase',
-                      marginBottom: '0.75rem'
-                    }}
-                  >
-                    sứ mệnh
-                  </h2>
-                  <div>
-                    <p
-                      style={{
-                        fontSize: '14px',
-                        fontWeight: 600
-                      }}
-                    >
-                      Sự hài lòng của bạn là thước đo sự tồn tại và phát triển
-                      của chúng tôi
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {mockData.map((item, index) => {
+              return (
+                <VMCard
+                  key={index}
+                  title={item.title}
+                  description={item.description}
+                  iconUrl={item.iconUrl}
+                  bgUrl={item.bgUrl}
+                />
+              );
+            })}
           </div>
         </div>
       </div>
@@ -151,3 +57,73 @@ const VisionMission = () => {
 };
 
 export default VisionMission;
+
+const VMCard = ({
+  title,
+  description,
+  iconUrl,
+  bgUrl
+}: {
+  title: string;
+  description: string;
+  iconUrl: string;
+  bgUrl: string;
+}) => {
+  return (
+    <div
+      style={{
+        background: `url(${bgUrl})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        borderRadius: '24px',
+        flex: 1,
+        position: 'relative',
+        color: 'white',
+        padding: '1rem',
+        backgroundColor: '#6d3e2f'
+      }}
+    >
+      <div
+        style={{
+          background:
+            'linear-gradient(360deg, #6E3E2F 0%, rgba(146, 88, 70, 0) 97.03%)',
+          position: 'absolute',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          borderRadius: '24px'
+        }}
+      />
+      <div style={{position: 'relative', zIndex: 2}}>
+        <div style={{width: 80, marginBottom: 40}}>
+          <PureImage url={iconUrl} />
+        </div>
+        <div>
+          <h2
+            style={{
+              fontSize: '1.875rem',
+              lineHeight: '2.275rem',
+              fontWeight: 700,
+              textTransform: 'uppercase',
+              marginBottom: '0.75rem'
+            }}
+          >
+            {title}
+          </h2>
+          <div>
+            <p
+              style={{
+                fontSize: '14px',
+                fontWeight: 600,
+                whiteSpace: 'pre-line'
+              }}
+            >
+              {description}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};

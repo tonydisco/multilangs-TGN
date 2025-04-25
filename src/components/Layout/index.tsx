@@ -1,4 +1,5 @@
 import '@/styles/global.scss';
+
 import Footer from '../Footer';
 import Header from '../Header';
 import {AppProvider} from '@/Providers';

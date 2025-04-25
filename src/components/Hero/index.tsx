@@ -51,4 +51,8 @@ const TitlePageView = ({title}: {title?: React.ReactNode | string}) => {
   );
 };
 
-export {HeaderTitleView, HeroView, TitlePageView};
+const SubPageView = ({text}: {text?: React.ReactNode | string}) => {
+  return <p className="tgn-header-title-text">{text}</p>;
+};
+
+export {HeaderTitleView, HeroView, TitlePageView, SubPageView};

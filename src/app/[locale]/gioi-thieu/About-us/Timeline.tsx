@@ -2,7 +2,9 @@
 
 import {PureImage} from '@/components/Common/Images';
 import {SectionTitles} from '@/components/Common/Titles';
-import {useRef} from 'react';
+import {useWindowDimensions} from '@/hooks/common/useWindowDimension';
+import {BREAK_POINTS} from '@/utils/config';
+import {useMemo, useRef} from 'react';
 import Slider from 'react-slick';
 interface TimelineItem {
   year: string;
@@ -33,8 +35,6 @@ const Timeline = () => {
     <section
       className="timeline-section"
       style={{
-        backgroundColor: '#f8f9fa',
-        padding: '150px 0',
         background: 'url(/landing/ABOUT-US/TIME-LINE-BG.png) no-repeat',
         backgroundSize: 'cover',
         backgroundPosition: 'center'
@@ -43,28 +43,6 @@ const Timeline = () => {
       <div>
         <div className="mb-4 container">
           <div className="text-center">
-            <div
-              style={{
-                paddingBottom: '100px',
-                position: 'relative'
-              }}
-            >
-              <h3 className="tgn-text-gradient-color" style={{fontWeight: 700}}>
-                &quot;Sự hài lòng của bạn là thước đo sự tồn tại và phát triển
-                của chúng tôi!&quot;
-              </h3>
-              <div
-                style={{
-                  maxWidth: 768,
-                  position: 'absolute',
-                  margin: '0 auto',
-                  inset: 0,
-                  top: -100
-                }}
-              >
-                <PureImage url="/logo/LOGO-BORDER.svg" />
-              </div>
-            </div>
             <SectionTitles title="lịch sử phát triển" />
           </div>
         </div>
@@ -85,6 +63,10 @@ type SlickRefType = {
 function PartnersSlider() {
   const sliderRef = useRef<SlickRefType | null>(null);
 
+  const {width} = useWindowDimensions();
+
+  const isMobile = useMemo(() => width < BREAK_POINTS.MOBILE, [width]);
+
   const onPrev = () => {
     sliderRef.current?.slickPrev();
   };
@@ -100,7 +82,7 @@ function PartnersSlider() {
   const settings = {
     focusOnSelect: true,
     infinite: true,
-    slidesToShow: 3,
+    slidesToShow: isMobile ? 1 : 3,
     slidesToScroll: 1,
     speed: 300,
     cssEase: 'linear',
@@ -122,7 +104,7 @@ function PartnersSlider() {
         }}
         className="tgn-dashed"
       >
-        <div className="position-relative container">
+        <div className="position-relative container tgn-pc-only">
           <button
             className="tgn-partners-btn"
             onClick={onPrev}

@@ -13,7 +13,7 @@ const ChildPage = async ({attribs, content, locale}: IChildPageProps) => {
   const item = content?.contents?.find((x: any) => x.language == locale) ?? {};
   const excerpt = parse(item.excerpt, {});
   return (
-    <div className={attribs.class} id={attribs.id}>
+    <div id={attribs.id}>
       <CardBase
         item={{
           title: item.title,

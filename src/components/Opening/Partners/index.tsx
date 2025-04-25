@@ -1,7 +1,7 @@
 import React from 'react';
 import PartnersSlider from './Slider';
 import {PureImage} from '@/components/Common/Images';
-import './partners.scss';
+import '@/styles/partners.scss';
 import {SectionTitles} from '@/components/Common/Titles';
 
 const Partners = () => {

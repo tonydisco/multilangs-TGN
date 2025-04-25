@@ -97,3 +97,22 @@
     }
   }
 }
+.projects-page-wrapper {
+  .projects-list-flex {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .projects-grid-item {
+    flex: 1 0 calc((100% - 20px * 2) / 3);
+    max-width: calc((100% - 20px * 2) / 3);
+  }
+  @media screen and (max-width: 768px) {
+    .projects-grid-item {
+      flex: unset;
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+}

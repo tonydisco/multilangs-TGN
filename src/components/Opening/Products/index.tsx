@@ -3,7 +3,7 @@ import {PureImage} from '@/components/Common/Images';
 import {SectionTitles} from '@/components/Common/Titles';
 import {routes} from '@/utils/config';
 import ProductList from './ProductList';
-import './products.scss';
+import '@/styles/products.scss';
 
 const Products = () => {
   return (

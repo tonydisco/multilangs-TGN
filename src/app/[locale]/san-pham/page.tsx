@@ -1,5 +1,5 @@
 import {Button} from '@/components/Common/Button';
-import {CardItem, CardNoBorderLine} from '@/components/Common/Card';
+import {CardNoBorderLine, CardProduct} from '@/components/Common/Card';
 import {PureImage} from '@/components/Common/Images';
 import {SectionBase} from '@/components/Common/Section';
 import {SectionSub, SectionTitles} from '@/components/Common/Titles';
@@ -7,6 +7,8 @@ import {TitlePageView} from '@/components/Hero';
 import PageLayout from '@/components/PageLayout';
 import {IPageDefaultProps} from '@/models/interface';
 import {getTranslations} from 'next-intl/server';
+
+import '@/styles/products.scss';
 
 export default async function Page({params}: Readonly<IPageDefaultProps>) {
   const {locale} = await params;
@@ -17,15 +19,10 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
       title={<TitlePageView title={t('HeaderNavProducts')} />}
       className="sp-wrapper"
     >
-      <SectionBase
-        style={{
-          backgroundColor: '#DDCDC5',
-          zIndex: 'unset'
-        }}
-      >
-        <div className="d-flex justify-content-end position-relative">
-          <div style={{position: 'absolute', left: 0, bottom: 20}}>
-            <CardNoBorderLine style={{width: 520, height: 'auto'}}>
+      <SectionBase className="tgn-bg-color-brown-pastel">
+        <div className=" position-relative default-flex-item">
+          <div className="item-in-flex-box">
+            <CardNoBorderLine className="card-product-default">
               <div className="d-flex flex-column justify-content-between align-items-start gap-5">
                 <div>
                   <SectionTitles
@@ -51,18 +48,12 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
               </div>
             </CardNoBorderLine>
           </div>
-          <div
-            style={{
-              width: '70%',
-              border: '10px solid rgba(255, 255, 255, 0.5)',
-              borderRadius: 24
-            }}
-          >
+          <div className="item-2-in-flex-box">
             <PureImage url="/landing/PRODUCTS/BTTP-TRUCK.png" />
           </div>
         </div>
       </SectionBase>
-      <SectionBase>
+      <SectionBase contentClassName="product-content-wrapper">
         <SectionTitles title="cấu kiện BÊ TÔNG" style={{textAlign: 'center'}} />
         <SectionSub
           style={{textAlign: 'center'}}
@@ -76,27 +67,16 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
           }
         />
 
-        <div style={{marginTop: 75}}>
-          <div
-            style={{
-              display: 'flex',
-              gap: 30,
-              flexWrap: 'wrap',
-              justifyContent: 'center'
-            }}
-          >
+        <div className="tgn-products-section tgn-production-list">
+          <div className="product-list-flex">
             {mockProducts.map((item, idx) => {
               const itemIndex = 1 + idx;
               return (
-                <CardItem
+                <CardProduct
                   item={{
                     title: item.title,
                     image: item.image,
-                    style: {
-                      height: 250,
-                      maxWidth: 300,
-                      width: '100%'
-                    }
+                    className: 'grid-item-mobile'
                   }}
                   key={`product-${itemIndex}`}
                 />
@@ -121,29 +101,16 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
             </p>
           }
         />
-
-        <div style={{marginTop: 75}}>
-          <div
-            style={{
-              display: 'flex',
-              gap: 30,
-              flexWrap: 'wrap',
-              justifyContent: 'center'
-            }}
-          >
+        <div className="tgn-products-section tgn-production-list">
+          <div className="product-list-flex">
             {mockProducts_2.map((item, idx) => {
               const itemIndex = 1 + idx;
               return (
-                <CardItem
+                <CardProduct
                   item={{
                     title: item.title,
                     image: item.image,
-                    style: {
-                      height: 250,
-                      maxWidth: 300,
-                      width: '100%'
-                    },
-                    imgMode: idx === 1 ? 'cover' : 'contain'
+                    className: 'grid-item-mobile'
                   }}
                   key={`product-${itemIndex}`}
                 />

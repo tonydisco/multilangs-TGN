@@ -4,6 +4,7 @@
   --primary-master-title-color: #6e3e2f;
   --secondary-color: #925846;
   --bg-color: #eddfd8;
+  --bg-color-brown-pastel: #ddcdc5;
   --text-color: #212121;
   --text-gray-color: #616161;
   --text-brown-color: #6d3e2f;
@@ -34,7 +35,7 @@ button {
 }
 
 .app-container {
-  max-width: 1280px;
+  max-width: 1320px;
   margin: 0px auto;
 }
 .part-container {
@@ -91,13 +92,16 @@ button {
 }
 /* Mutual class */
 .tgn-text-base-color {
-  color: #212121;
+  color: var(--text-color);
 }
 .tgn-text-gray-color {
-  color: #616161;
+  color: var(--text-gray-color);
 }
 .tgn-text-brow-color {
   color: #6d3e2f;
+}
+.tgn-bg-color-brown-pastel {
+  background-color: var(--bg-color-brown-pastel);
 }
 .tgn-text-gradient-color {
   background: linear-gradient(266.58deg, #6e3e2f -12.36%, #925846 132.15%);
@@ -128,14 +132,14 @@ button {
   font-weight: 700;
   text-transform: uppercase;
   white-space: pre-line;
-  color: #212121;
+  color: var(--text-color);
 }
 
 .tgn-pc-only {
-  display: block;
+  display: block !important;
 }
 .tgn-mobile-only {
-  display: none;
+  display: none !important;
 }
 
 /* business philosophy */
@@ -179,16 +183,18 @@ button {
     -4px -4px 8px 0px #73423366;
   transition: all 0.3s ease-in-out;
 }
-.tgn-base-limit-two-lines {
+.tgn-base-limit-lines {
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* Số dòng tối đa */
-  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
   margin: 0;
 }
-.tgn-limit-four-lines {
+.tgn-base-limit-two-lines {
+  -webkit-line-clamp: 2; /* Số dòng tối đa */
+  line-clamp: 2;
+}
+.tgn-base-limit-four-lines {
   -webkit-line-clamp: 4; /* Số dòng tối đa */
   line-clamp: 4;
 }
@@ -363,19 +369,14 @@ button {
 .grid-container {
   display: flex;
   flex-wrap: wrap; /* Cho phép các item xuống hàng khi hết chiều rộng */
-  width: 100%; /* Tổng chiều rộng của grid */
   gap: 16px; /* Khoảng cách giữa các hàng và cột */
-  margin: 0 auto; /* Căn giữa container nếu cần */
-  max-width: 1280px;
 }
 
 /* Item trong grid */
 .grid-item {
-  flex: 1 0 calc((100% - 16px * 4) / 5); /* Tính toán chiều rộng mỗi cột */
+  flex: 0 0 calc((100% - 16px * 4) / 5); /* 4 spacing between , 5 items/row, equal width */
+  max-width: calc((100% - 16px * 4) / 5);
   height: 130px; /* Chiều cao tùy chỉnh, bạn có thể thay đổi */
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .section-projects {
   z-index: 2;
@@ -508,6 +509,12 @@ button {
   width: 100%;
 }
 
+//products
+.tgn-product-grid-item {
+  overflow: hidden;
+  background-color: #fff;
+  height: auto;
+}
 @media screen and (max-width: 768px) {
   .base-video {
     width: 100%;

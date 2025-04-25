@@ -2,7 +2,7 @@
 import {ICardProps} from '@/models/interface';
 import {ImageMode} from '@/models/types';
 import {useAppContext} from '@/Providers';
-import '@/styles/cards.css';
+import '@/styles/cards.scss';
 import {routes} from '@/utils/config';
 import React, {ReactNode} from 'react';
 import {Button} from './Button';
@@ -23,9 +23,10 @@ const CardBase = (props: {item: ICardProps}) => {
       style={{
         ...item?.cardStyle
       }}
+      className={item?.cardClassName}
     >
       <div
-        className={`d-flex align-items-stretch h-100 gap-3 ${item?.isReverse ? 'flex-row-reverse' : ''} ${item?.className ?? ''}`}
+        className={`tgn-default-card-inner-style ${item?.isReverse ? 'tgn-flex-row-reverse' : ''} ${item?.className ?? ''}`}
       >
         <div
           className="field-of-production-item__content h-100 w-100"
@@ -33,17 +34,16 @@ const CardBase = (props: {item: ICardProps}) => {
             flex: item?.flex?.left ?? 1
           }}
         >
-          <div className="d-flex flex-column justify-content-between h-100 gap-5">
+          <div className="d-flex flex-column justify-content-between h-100 gap-4">
             <div>
-              <h3 className="tgn-box-title text-start tgn-base-limit-two-lines">
+              <h3 className="tgn-box-title text-start tgn-base-limit-lines tgn-base-limit-two-lines">
                 {item?.title}
               </h3>
               <div
                 style={{
-                  color: '#616161',
                   marginTop: 20
                 }}
-                className="text-start fs-12px md:fs-14px tgn-base-limit-two-lines tgn-limit-four-lines"
+                className="text-start fs-12px md:fs-14px tgn-base-limit-lines tgn-base-limit-two-lines tgn-limit-four-lines tgn-text-gray-color"
               >
                 {item?.content}
               </div>
@@ -107,7 +107,7 @@ const CardNoBorderLine = (props: ICardBorderProps) => {
 
   return (
     <div
-      className={`base-card-no-outline ${className}`}
+      className={`base-card-no-outline ${className ?? ''}`}
       style={{
         padding: 16,
         height: 300,
@@ -119,12 +119,16 @@ const CardNoBorderLine = (props: ICardBorderProps) => {
   );
 };
 
-const CardProduct = (props: {item: {title: string; image: string}}) => {
+const CardProduct = (props: {
+  item: {title: string; image: string; className?: string};
+}) => {
   const {item} = props;
 
   const {locale} = useAppContext();
   return (
-    <div className="tgn-product-grid-item grid-item base-card-full-border">
+    <div
+      className={`tgn-product-grid-item grid-item base-card-full-border ${item?.className ?? ''}`}
+    >
       <div className="tgn-product-item-content">
         <div className="tgn-product-item-header">
           <div className="tgn-product-item-title">{item.title}</div>
@@ -176,6 +180,7 @@ const CardProduct = (props: {item: {title: string; image: string}}) => {
 const CardItem = (props: {
   item: {
     title: string;
+    cardClassName?: string;
     image: string;
     style?: React.CSSProperties;
     imgMode?: ImageMode;
@@ -184,7 +189,7 @@ const CardItem = (props: {
   const {item} = props;
   return (
     <div
-      className="card-item-wrapper base-card-full-border"
+      className={`card-item-wrapper base-card-full-border ${item?.cardClassName ?? ''}`}
       style={{...item?.style}}
     >
       <div className="card-item-content">

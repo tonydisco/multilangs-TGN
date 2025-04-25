@@ -3,8 +3,9 @@ import {getJobs} from '@/apis/jobs';
 import {Button} from '@/components/Common/Button';
 import {PureImage} from '@/components/Common/Images';
 import {SectionBase} from '@/components/Common/Section';
-import {useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import JobList from './JobList';
+import {SectionTitles} from '@/components/Common/Titles';
 
 export interface IJobList {
   data: Array<any>;
@@ -71,54 +72,17 @@ const RecruitMent = () => {
   return (
     <SectionBase>
       <div>
-        <div
-          style={{
-            height: '300px',
-            width: '100%',
-            background:
-              'linear-gradient(90deg, rgba(110, 62, 47,0.7) 0%, rgba(146, 88, 70,0.7) 100%), url(/landing/LVHD/LVKD/BG.png)  no-repeat',
-            backgroundBlendMode: 'multiply',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
-            borderRadius: '24px',
-            overflow: 'hidden'
-          }}
-        >
-          <div
-            style={{
-              padding: 48,
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 20,
-              height: '100%',
-              justifyContent: 'space-evenly'
-            }}
-          >
-            <div
+        <div className="banner-style">
+          <div className="banner-inner-style">
+            <SectionTitles
+              title="Thế giới nhà Tuyển dụng"
               style={{
-                fontSize: 50,
-                fontWeight: 700,
                 color: 'white',
-                textAlign: 'center',
-                textTransform: 'uppercase'
+                textAlign: 'center'
               }}
-            >
-              Thế giới nhà Tuyển dụng
-            </div>
+            />
             <div>
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  maxWidth: 768,
-                  margin: '0 auto',
-                  backgroundColor: 'white',
-                  borderRadius: 48,
-                  padding: '10px',
-                  gap: 30
-                }}
-              >
+              <div className="job-action job-action-style">
                 <div
                   style={{
                     flex: 2,
@@ -137,68 +101,15 @@ const RecruitMent = () => {
                     placeholder="Vị trí tuyển dụng"
                   />
                 </div>
-                <div
-                  style={{
-                    display: 'flex',
-                    gap: 30,
-                    alignItems: 'center'
-                  }}
-                >
-                  <PureImage
-                    url="/icon/FADE-LINE.svg"
-                    style={{width: 'auto'}}
-                  />
-                  <div
-                    style={{
-                      textTransform: 'capitalize',
-                      display: 'flex',
-                      gap: 40,
-                      alignItems: 'center'
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: 'flex',
-                        gap: 8,
-                        alignItems: 'center'
-                      }}
-                    >
-                      <PureImage url="/icon/LOCATION.svg" style={{width: 15}} />
-                      <div style={{whiteSpace: 'nowrap'}}>địa điểm</div>
-                    </div>
-                    <PureImage url="/icon/ARROW.svg" style={{width: 10}} />
-                  </div>
-                  <Button
-                    btnProps={{
-                      content: (
-                        <div
-                          style={{
-                            display: 'flex',
-                            gap: 10,
-                            alignItems: 'center'
-                          }}
-                        >
-                          <PureImage
-                            url="/icon/SEARCH-WHITE.svg"
-                            style={{width: 20}}
-                          />
-
-                          <div style={{whiteSpace: 'nowrap', fontWeight: 500}}>
-                            Tìm kiếm
-                          </div>
-                        </div>
-                      ),
-                      onBtn: () => {
-                        console.log('clicked');
-                      },
-                      style: {
-                        width: '100%',
-                        maxWidth: 150
-                      }
-                    }}
-                  />
-                </div>
+                <ActionBtn wrapperClass="tgn-pc-only" />
               </div>
+              <ActionBtn
+                wrapperClass="tgn-mobile-only job-action-style"
+                style={{
+                  marginTop: 20
+                }}
+                isHideAsset
+              />
             </div>
           </div>
         </div>
@@ -214,3 +125,75 @@ const RecruitMent = () => {
 };
 
 export default RecruitMent;
+
+const ActionBtn = (props: {
+  wrapperClass?: string;
+  isHideAsset?: boolean;
+  style?: React.CSSProperties;
+}) => {
+  const {wrapperClass, style, isHideAsset} = props;
+  return (
+    <div className={wrapperClass} style={{...style}}>
+      <div
+        style={{
+          display: 'flex',
+          gap: 30,
+          alignItems: 'center',
+          justifyContent: 'space-between'
+        }}
+      >
+        {!isHideAsset && (
+          <PureImage url="/icon/FADE-LINE.svg" style={{width: 'auto'}} />
+        )}
+
+        <div
+          style={{
+            textTransform: 'capitalize',
+            display: 'flex',
+            gap: 40,
+            alignItems: 'center',
+            justifyContent: 'space-between'
+          }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              gap: 8,
+              alignItems: 'center'
+            }}
+          >
+            <PureImage url="/icon/LOCATION.svg" style={{width: 15}} />
+            <div style={{whiteSpace: 'nowrap'}}>địa điểm</div>
+          </div>
+          <PureImage url="/icon/ARROW.svg" style={{width: 10}} />
+        </div>
+        <Button
+          btnProps={{
+            content: (
+              <div
+                style={{
+                  display: 'flex',
+                  gap: 10,
+                  alignItems: 'center'
+                }}
+              >
+                <PureImage url="/icon/SEARCH-WHITE.svg" style={{width: 20}} />
+
+                <div style={{whiteSpace: 'nowrap', fontWeight: 500}}>
+                  Tìm kiếm
+                </div>
+              </div>
+            ),
+            onBtn: () => {
+              console.log('clicked');
+            },
+            style: {
+              width: '100%',
+              maxWidth: 150
+            }
+          }}
+        />
+      </div>
+    </div>
+  );
+};

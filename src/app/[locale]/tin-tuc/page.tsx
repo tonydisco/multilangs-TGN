@@ -7,6 +7,7 @@ import PageLayout from '@/components/PageLayout';
 import {IPageDefaultProps} from '@/models/interface';
 import {getTranslations} from 'next-intl/server';
 import NewsList from './NewsList';
+import '@/styles/news.scss';
 
 export default async function Page({params}: Readonly<IPageDefaultProps>) {
   const {locale} = await params;
@@ -15,11 +16,11 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
   return (
     <PageLayout
       title={<TitlePageView title={t('HeaderNavNews')} />}
-      className="news-wrapper"
+      className="news-page-wrapper"
     >
       <SectionBase contentStyle={{paddingBottom: 300}}>
         <CardBorder style={{height: 'auto', marginTop: 50}}>
-          <div className="d-flex gap-5">
+          <div className="news-flex-box">
             <NewsList />
             <div className="tgn-news-event-header">
               <SingleTab

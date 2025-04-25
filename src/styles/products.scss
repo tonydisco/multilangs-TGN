@@ -41,7 +41,8 @@
       text-align: center;
     }
     .grid-item {
-      flex: 1 0 calc((100% - 16px * 4) / 2);
+      flex: 1 0 calc((100% - 16px * 1) / 2);
+      max-width: calc((100% - 16px * 1) / 2);
     }
     .tgn-btn-wrapper {
       display: none;
@@ -58,6 +59,81 @@
     }
     .tgn-product-item-content {
       gap: 15px;
+    }
+    .grid-item-mobile {
+      flex: 1 0 calc((100% - 12px * 2) / 2);
+      max-width: calc((100% - 12px * 2) / 2);
+    }
+  }
+}
+.tgn-product-item-image-wrapper {
+  background-color: #dfdfdf;
+  overflow: hidden;
+  border-radius: 16px;
+  max-height: 165px;
+  height: 100%;
+}
+.sp-wrapper {
+  .default-flex-item {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .item-in-flex-box {
+    position: absolute;
+    left: 0;
+    bottom: 20px;
+  }
+  .item-2-in-flex-box {
+    width: 70%;
+    border: 10px solid rgba(255, 255, 255, 0.5);
+    border-radius: 24px;
+  }
+  .card-product-default {
+    height: auto;
+    width: 520px;
+  }
+  .product-list-flex {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .card-product-item {
+    height: 250px;
+    max-width: 300px;
+    width: 100%;
+  }
+  .tgn-production-list {
+    margin-top: 75px;
+    padding: 0;
+  }
+  @media screen and (max-width: 768px) {
+    .default-flex-item {
+      flex-direction: column-reverse;
+      gap: 30px;
+    }
+    .item-in-flex-box {
+      position: unset;
+    }
+    .card-product-default {
+      width: 100%;
+    }
+    .item-2-in-flex-box {
+      width: 100%;
+      img {
+        border-radius: 14px;
+      }
+    }
+    .product-list-flex {
+      gap: 12px;
+      justify-content: flex-start;
+    }
+    .card-product-item {
+      height: auto;
+      max-width: 190px;
+    }
+    .tgn-product-item-image-wrapper {
+      max-height: 120px;
     }
   }
 }
@@ -103,12 +179,6 @@
   padding: 50px 0;
 }
 
-.tgn-product-grid-item {
-  overflow: hidden;
-  background-color: #fff;
-  height: auto;
-}
-
 .tgn-product-item-header {
   display: flex;
   justify-content: space-between;
@@ -131,10 +201,4 @@
 
 .tgn-product-item-arrow {
   width: 12px;
-}
-
-.tgn-product-item-image-wrapper {
-  background-color: #dfdfdf;
-  overflow: hidden;
-  border-radius: 16px;
 }

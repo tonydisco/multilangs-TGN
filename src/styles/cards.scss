@@ -31,3 +31,14 @@
   overflow: hidden;
   border-radius: 16px;
 }
+
+.tgn-default-card-inner-style {
+  display: flex;
+  gap: 16px;
+  align-items: stretch;
+  height: 100%;
+}
+
+.tgn-flex-row-reverse {
+  flex-direction: row-reverse;
+}

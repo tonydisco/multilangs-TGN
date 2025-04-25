@@ -18,6 +18,7 @@ export interface ICardProps {
   cardStyle?: React.CSSProperties;
   imageStyle?: React.CSSProperties;
   className?: string;
+  cardClassName?: string;
   imgMode?: ImageMode;
   flex?: {
     left: number | string;

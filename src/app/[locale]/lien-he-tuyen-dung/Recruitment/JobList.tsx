@@ -49,15 +49,8 @@ const JobList = (props: {
 
   return (
     <div style={{paddingTop: 100}}>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'stretch',
-          gap: 25,
-          flexWrap: 'wrap'
-        }}
-      >
-        {dataByLocale.map((item, index) => {
+      <div className="flex-job-list">
+        {[...dataByLocale].map((item, index) => {
           const contents = item.contents.find(
             (content: any) => content.language === locale
           );
@@ -66,7 +59,7 @@ const JobList = (props: {
           });
 
           return (
-            <div key={index} style={{width: '32%'}}>
+            <div key={index} className="job-item">
               <CardBorder style={{height: '100%'}}>
                 <div
                   style={{
@@ -85,7 +78,7 @@ const JobList = (props: {
                         height: 'auto'
                       }}
                     />
-                    <div className="tgn-base-limit-two-lines">
+                    <div className="tgn-base-limit-lines tgn-base-limit-two-lines">
                       <span
                         style={{
                           fontSize: 16,
@@ -98,7 +91,7 @@ const JobList = (props: {
                     </div>
                     <div
                       style={{marginTop: 10}}
-                      // className="tgn-base-limit-two-lines"
+                      className="tgn-base-limit-lines tgn-base-limit-four-lines"
                     >
                       <span
                         style={{

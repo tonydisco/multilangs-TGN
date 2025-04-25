@@ -45,7 +45,7 @@ const NewsList = () => {
 
   return (
     <div className="position-relative">
-      <div style={{paddingBottom: 50}}>
+      <div>
         <NewsTabs tabs={newsTabs} />
         <div className="tgn-newslist-content">
           {data.map((item) => (
@@ -60,8 +60,7 @@ const NewsList = () => {
           ))}
         </div>
       </div>
-
-      <div className="position-absolute bottom-0" style={{left: 14}}>
+      <div className="news-pagination">
         <Pagination
           total={projectData.total}
           limit={projectData.limit}

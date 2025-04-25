@@ -10,8 +10,8 @@ import {
   routeTranslations
 } from '@/utils/config';
 
-const LanguageSwitcher = (props: {locale: string}) => {
-  const {locale} = props;
+const LanguageSwitcher = (props: {locale: string; iconW?: string}) => {
+  const {locale, iconW} = props;
   const [activedLang, setActivedLang] = useState<string>(locale);
   const {defaultLocale, locales} = useAppContext();
 
@@ -106,7 +106,7 @@ const LanguageSwitcher = (props: {locale: string}) => {
               <PureImage
                 url={item.icon}
                 style={{
-                  width: '20px',
+                  width: iconW ?? '20px',
                   height: 'auto',
                   borderRadius: '2px'
                 }}
@@ -131,7 +131,7 @@ const LanguageSwitcher = (props: {locale: string}) => {
                   <PureImage
                     url={item.icon}
                     style={{
-                      width: '20px',
+                      width: iconW ?? '20px',
                       height: 'auto',
                       borderRadius: '2px'
                     }}

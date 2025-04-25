@@ -5,7 +5,7 @@ import {Fragment} from 'react';
 import {v4 as uuid} from 'uuid';
 import {PureImage} from '../../Common/Images';
 import ProductionSlider from './Slider';
-import './productioncapacity.scss';
+import '@/styles/productioncapacity.scss';
 
 const ProductionCapacity = () => {
   return (

@@ -42,3 +42,9 @@
 .tgn-flex-row-reverse {
   flex-direction: row-reverse;
 }
+
+@media screen and (max-width: 768px) {
+  .tgn-default-card-inner-style {
+    flex-direction: column;
+  }
+}

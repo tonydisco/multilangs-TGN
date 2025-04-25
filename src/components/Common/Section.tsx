@@ -19,7 +19,7 @@ const SectionBase = ({
 }: ISectionProps) => {
   return (
     <div
-      className={`section-wrapper ${className}`}
+      className={`section-wrapper ${className ?? ''}`}
       style={{
         ...(bgImage ? {backgroundImage: `url(${bgImage})`} : {}),
         ...style

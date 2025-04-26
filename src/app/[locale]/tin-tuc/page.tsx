@@ -22,7 +22,7 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
         <CardBorder style={{height: 'auto', marginTop: 50}}>
           <div className="news-flex-box">
             <NewsList />
-            <div className="tgn-news-event-header">
+            <div className="tgn-news-events-page tgn-news-events ">
               <SingleTab
                 titleTab="Lịch sự kiện"
                 style={{

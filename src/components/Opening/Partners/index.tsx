@@ -8,7 +8,7 @@ const Partners = () => {
   return (
     <section className="tgn-partners-section">
       <div className="container">
-        <div>
+        <div style={{textAlign: 'center'}}>
           <SectionTitles title="khách hàng - đối tác" />
           <PartnersSlider />
         </div>

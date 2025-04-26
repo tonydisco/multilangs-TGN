@@ -5,7 +5,7 @@
   transition: all 0.1s ease;
 }
 .active-lang {
-  border: 1px solid #6d3e2f;
+  border: 1px solid var(--text-brown-color);
   position: absolute;
   z-index: 2;
   top: -2px;
@@ -52,7 +52,7 @@
       position: fixed;
       top: 0;
       bottom: 0;
-      background: var(--bg-color);
+      background: var(--secondary-color);
       z-index: 1000;
       height: calc(100vh);
       width: calc(100vw);

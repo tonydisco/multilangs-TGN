@@ -67,7 +67,7 @@
   }
 }
 .tgn-product-item-image-wrapper {
-  background-color: #dfdfdf;
+  background-color: var(--light-gray-color);
   overflow: hidden;
   border-radius: 16px;
   max-height: 165px;
@@ -188,7 +188,7 @@
 .tgn-product-item-title {
   font-size: 14px;
   font-weight: 700;
-  color: #000;
+  color: var(--black-color);
   text-transform: uppercase;
 }
 

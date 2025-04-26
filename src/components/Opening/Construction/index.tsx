@@ -1,11 +1,16 @@
+'use client';
 import {Button} from '@/components/Common/Button';
 import {SectionTitles} from '@/components/Common/Titles';
 import {ImageMode} from '@/models/types';
 import {routes} from '@/utils/config';
 import {PureImage} from '../../Common/Images';
 import '@/styles/construction.scss';
+import {v4 as uuid} from 'uuid';
+import {useTranslations} from 'use-intl';
 
 const Construction = () => {
+  const t = useTranslations();
+
   return (
     <section className="tgn-construction-section">
       <div className="container tgn-construction-container">
@@ -43,7 +48,7 @@ const Construction = () => {
               <div style={{marginTop: 35}}>
                 <Button
                   btnProps={{
-                    text: 'Xem thêm',
+                    text: t('Btn_ViewMore'),
                     linkTo: routes.about
                   }}
                 />
@@ -61,36 +66,23 @@ const Construction = () => {
             </div>
           </div>
           <div className="asset-position">
-            <AssetItem
-              url="/landing/CONSTRUCTION/ASSET-1.png"
-              posStyle={{left: -100, top: 10}}
-            />
-            <AssetItem
-              url="/landing/CONSTRUCTION/ASSET-2.png"
-              posStyle={{left: -40, top: -10}}
-            />
-            <AssetItem
-              url="/landing/CONSTRUCTION/ASSET-3.png"
-              posStyle={{top: -15}}
-            />
-            <AssetItem
-              url="/landing/CONSTRUCTION/ASSET-4.png"
-              posStyle={{left: 20, top: -15}}
-            />
-            <AssetItem
-              url="/landing/CONSTRUCTION/ASSET-5.png"
-              posStyle={{right: -15, bottom: 10}}
-              mode="cover"
-            />
+            {assets_1.map((item) => {
+              return (
+                <AssetItem
+                  key={uuid()}
+                  url={item.img}
+                  posStyle={{...item.posStyle}}
+                />
+              );
+            })}
           </div>
         </div>
       </div>
       <div
         style={{
-          backgroundColor: '#E8E4E3',
           overflow: 'hidden'
         }}
-        className="tgn-block-item tgn-flex-block-2"
+        className="tgn-block-item tgn-flex-block-2 tgn-bg-gray-less"
       >
         <div className="container" style={{height: '100%'}}>
           <div className="tgn-flex-item tgn-non-revers-block-2">
@@ -115,7 +107,7 @@ const Construction = () => {
                   <div style={{marginTop: 35}}>
                     <Button
                       btnProps={{
-                        text: 'Xem thêm',
+                        text: t('Btn_ViewMore'),
                         linkTo: routes.about
                       }}
                     />
@@ -134,26 +126,15 @@ const Construction = () => {
               </div>
             </div>
             <div className="asset-position asset-position-block-2">
-              <AssetItem
-                url="/landing/CONSTRUCTION/ASSET-6.png"
-                posStyle={{right: -90, top: 5}}
-              />
-              <AssetItem
-                url="/landing/CONSTRUCTION/ASSET-7.png"
-                posStyle={{right: -45, top: -5}}
-              />
-              <AssetItem
-                url="/landing/CONSTRUCTION/ASSET-8.png"
-                posStyle={{top: -5, right: -15}}
-              />
-              <AssetItem
-                url="/landing/CONSTRUCTION/ASSET-9.png"
-                posStyle={{top: -5}}
-              />
-              <AssetItem
-                url="/landing/CONSTRUCTION/ASSET-10.png"
-                posStyle={{bottom: 10}}
-              />
+              {assets_2.map((item) => {
+                return (
+                  <AssetItem
+                    key={uuid()}
+                    url={item.img}
+                    posStyle={{...item.posStyle}}
+                  />
+                );
+              })}
             </div>
             <div className="tgn-flex-full">
               <div className="tgn-block-2-right-container">
@@ -177,56 +158,21 @@ const Construction = () => {
               </div>
             </div>
             <div className="asset-position asset-position-block-3">
-              <AssetItem
-                url="/landing/CONSTRUCTION/ASSET-11.png"
-                posStyle={{left: -100, top: 10}}
-                eclStyle={{
-                  overflow: 'hidden',
-                  borderRadius: '50%',
-                  border: '3px solid rgba(146, 88, 70,0.6)'
-                }}
-                mode="cover"
-              />
-              <AssetItem
-                url="/landing/CONSTRUCTION/ASSET-12.png"
-                posStyle={{left: -40, top: -10}}
-                eclStyle={{
-                  overflow: 'hidden',
-                  borderRadius: '50%',
-                  border: '3px solid rgba(146, 88, 70,0.6)'
-                }}
-                mode="cover"
-              />
-              <AssetItem
-                url="/landing/CONSTRUCTION/ASSET-13.png"
-                posStyle={{top: -15}}
-                eclStyle={{
-                  overflow: 'hidden',
-                  borderRadius: '50%',
-                  border: '3px solid rgba(146, 88, 70,0.6)'
-                }}
-                mode="cover"
-              />
-              <AssetItem
-                url="/landing/CONSTRUCTION/ASSET-14.png"
-                posStyle={{left: 20, top: -15}}
-                eclStyle={{
-                  overflow: 'hidden',
-                  borderRadius: '50%',
-                  border: '3px solid rgba(146, 88, 70,0.6)'
-                }}
-                mode="cover"
-              />
-              <AssetItem
-                url="/landing/CONSTRUCTION/ASSET-15.png"
-                posStyle={{right: -15, bottom: 10}}
-                eclStyle={{
-                  overflow: 'hidden',
-                  borderRadius: '50%',
-                  border: '3px solid rgba(146, 88, 70,0.6)'
-                }}
-                mode="cover"
-              />
+              {assets_3.map((item) => {
+                return (
+                  <AssetItem
+                    key={uuid()}
+                    url={item.img}
+                    posStyle={{...item.posStyle}}
+                    mode="cover"
+                    eclStyle={{
+                      overflow: 'hidden',
+                      borderRadius: '50%',
+                      border: '3px solid rgba(146, 88, 70,0.6)'
+                    }}
+                  />
+                );
+              })}
             </div>
             <div
               style={{
@@ -249,7 +195,7 @@ const Construction = () => {
                 <div style={{marginTop: 35}}>
                   <Button
                     btnProps={{
-                      text: 'Xem thêm',
+                      text: t('Btn_ViewMore'),
                       linkTo: routes.about
                     }}
                   />
@@ -326,3 +272,72 @@ const AssetItem = ({
     </div>
   );
 };
+
+const assets_1 = [
+  {
+    img: '/landing/CONSTRUCTION/ASSET-1.png',
+    posStyle: {left: -100, top: 10}
+  },
+  {
+    img: '/landing/CONSTRUCTION/ASSET-2.png',
+    posStyle: {left: -40, top: -10}
+  },
+  {
+    img: '/landing/CONSTRUCTION/ASSET-3.png',
+    posStyle: {top: -15}
+  },
+  {
+    img: '/landing/CONSTRUCTION/ASSET-4.png',
+    posStyle: {left: 20, top: -15}
+  },
+  {
+    img: '/landing/CONSTRUCTION/ASSET-5.png',
+    posStyle: {right: -15, bottom: 10}
+  }
+];
+
+const assets_2 = [
+  {
+    img: '/landing/CONSTRUCTION/ASSET-6.png',
+    posStyle: {right: -90, top: 5}
+  },
+  {
+    img: '/landing/CONSTRUCTION/ASSET-7.png',
+    posStyle: {right: -45, top: -5}
+  },
+  {
+    img: '/landing/CONSTRUCTION/ASSET-8.png',
+    posStyle: {top: -5, right: -15}
+  },
+  {
+    img: '/landing/CONSTRUCTION/ASSET-9.png',
+    posStyle: {top: -5}
+  },
+  {
+    img: '/landing/CONSTRUCTION/ASSET-10.png',
+    posStyle: {bottom: 10}
+  }
+];
+
+const assets_3 = [
+  {
+    img: '/landing/CONSTRUCTION/ASSET-11.png',
+    posStyle: {left: -100, top: 10}
+  },
+  {
+    img: '/landing/CONSTRUCTION/ASSET-12.png',
+    posStyle: {left: -40, top: -10}
+  },
+  {
+    img: '/landing/CONSTRUCTION/ASSET-13.png',
+    posStyle: {top: -15}
+  },
+  {
+    img: '/landing/CONSTRUCTION/ASSET-14.png',
+    posStyle: {left: 20, top: -15}
+  },
+  {
+    img: '/landing/CONSTRUCTION/ASSET-15.png',
+    posStyle: {right: -15, bottom: 10}
+  }
+];

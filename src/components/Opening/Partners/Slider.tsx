@@ -51,7 +51,7 @@ function PartnersSlider() {
       </div>
       <Slider {...settings} ref={setSliderRef}>
         {Array.from({length: 3}).map((_, index) => {
-          const itemsPerSlide = 20;
+          const itemsPerSlide = 19;
           const startIndex = index * itemsPerSlide;
 
           return (

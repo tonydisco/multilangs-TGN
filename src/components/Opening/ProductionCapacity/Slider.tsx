@@ -5,6 +5,7 @@ import {useWindowDimensions} from '@/hooks/common/useWindowDimension';
 import {BREAK_POINTS, routes} from '@/utils/config';
 import {useMemo, useRef} from 'react';
 import Slider from 'react-slick';
+import {useTranslations} from 'use-intl';
 
 import {v4 as uuid} from 'uuid';
 // Add this type definition
@@ -14,6 +15,7 @@ type SlickRefType = {
 };
 
 function ProductionSlider() {
+  const t = useTranslations();
   const sliderRef = useRef<SlickRefType | null>(null);
 
   const {width} = useWindowDimensions();
@@ -69,7 +71,7 @@ function ProductionSlider() {
                     content: item.sub,
                     image: item.img,
                     linkTo: routes.productionCapacity,
-                    btnText: 'Xem thêm',
+                    btnText: t('Btn_ViewMore'),
                     cardStyle: {
                       padding: 16,
                       borderRadius: 16,

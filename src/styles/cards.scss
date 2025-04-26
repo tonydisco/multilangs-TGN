@@ -1,6 +1,6 @@
 .card-item-wrapper {
   overflow: hidden;
-  background-color: #fff;
+  background-color: var(--white-color);
   height: auto;
 }
 
@@ -22,12 +22,12 @@
 .card-item-title {
   font-size: 18px;
   font-weight: 700;
-  color: #000;
+  color: var(--black-color);
   text-transform: uppercase;
 }
 
 .card-image-wrapper {
-  background-color: #dfdfdf;
+  background-color: var(--white-color);
   overflow: hidden;
   border-radius: 16px;
 }

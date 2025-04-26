@@ -1,4 +1,15 @@
 #footer {
+  .footer-head-edge {
+    height: 80px;
+    background-color: var(--secondary-color);
+    width: 100%;
+    position: absolute;
+    top: -80px;
+    left: 0;
+    z-index: 1;
+    border-top-left-radius: 80px;
+    border-top-right-radius: 80px;
+  }
   .inner-container {
     display: flex;
     justify-content: space-between;
@@ -11,13 +22,21 @@
     gap: 50px;
   }
   .container-fluid-padding {
-    padding: 0 3rem;
     position: relative;
     overflow-x: hidden;
   }
+
+  .logo-flex-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
   @media screen and (max-width: 768px) {
     .inner-container {
       flex-direction: column;
+      gap: 20px;
     }
     .flex-item {
       flex-wrap: wrap;
@@ -25,6 +44,10 @@
     }
     .container-fluid-padding {
       padding: 0 0.75rem;
+    }
+    .logo-flex-box {
+      justify-content: center;
+      align-items: center;
     }
   }
 }

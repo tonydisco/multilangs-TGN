@@ -30,8 +30,8 @@ const Header = ({locale}: Readonly<Props>) => {
             <PureImage style={{width: 22}} url="/icon/SEARCH.svg" />
           </div>
         </div>
-        <div className="nav-item">
-          <div style={{maxWidth: '150px', width: '100%'}}>
+        <div className="nav-item d-flex justify-content-center">
+          <div style={{width: '150px'}}>
             <Logos />
           </div>
         </div>
@@ -85,9 +85,9 @@ const Header = ({locale}: Readonly<Props>) => {
               <button
                 style={{
                   fontWeight: 900,
-                  fontSize: 26,
-                  color: 'var(--primary-master-title-color)'
+                  fontSize: 26
                 }}
+                className="tgn-color-primary"
                 onClick={handleMenuToggle}
               >
                 X

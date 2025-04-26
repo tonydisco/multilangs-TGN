@@ -1,11 +1,14 @@
+'use client';
 import {Button} from '@/components/Common/Button';
 import {PureImage} from '@/components/Common/Images';
 import {SectionTitles} from '@/components/Common/Titles';
 import {routes} from '@/utils/config';
 import ProductList from './ProductList';
 import '@/styles/products.scss';
+import {useTranslations} from 'use-intl';
 
 const Products = () => {
+  const t = useTranslations();
   return (
     <section className="tgn-products-section">
       <div className="container">
@@ -22,7 +25,7 @@ const Products = () => {
           <div className="tgn-products-btn-container tgn-btn-wrapper">
             <Button
               btnProps={{
-                text: 'Xem thêm tất cả sản phẩm',
+                text: t('Btn_ViewMore_All_Products'),
                 linkTo: routes.product
               }}
             />
@@ -32,7 +35,7 @@ const Products = () => {
         <div className="tgn-products-btn-container tgn-btn-wrapper-mobile">
           <Button
             btnProps={{
-              text: 'Xem thêm tất cả sản phẩm',
+              text: t('Btn_ViewMore_All_Products'),
               linkTo: routes.product
             }}
           />

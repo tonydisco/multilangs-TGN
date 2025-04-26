@@ -1,3 +1,4 @@
+'use client';
 import {Button} from '@/components/Common/Button';
 import {SectionTitles} from '@/components/Common/Titles';
 import {routes} from '@/utils/config';
@@ -6,8 +7,11 @@ import {v4 as uuid} from 'uuid';
 import {PureImage} from '../../Common/Images';
 import ProductionSlider from './Slider';
 import '@/styles/productioncapacity.scss';
+import {useTranslations} from 'use-intl';
 
 const ProductionCapacity = () => {
+  const t = useTranslations();
+
   return (
     <section className="tgn-production-capacity-section">
       <div className="tgn-production-overlay">
@@ -37,7 +41,7 @@ const ProductionCapacity = () => {
             </div>
             <Button
               btnProps={{
-                text: 'Xem thêm Năng lực sản xuất',
+                text: t('Btn_ViewMore_Cap'),
                 linkTo: routes.productionCapacity
               }}
             />

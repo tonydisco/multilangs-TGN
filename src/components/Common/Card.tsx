@@ -92,8 +92,8 @@ const CardBorder = (props: ICardBorderProps) => {
     <div
       className={`base-card-full-border ${className ?? ''}`}
       style={{
-        padding: 24,
-        minHeight: 300,
+        padding: 15,
+        height: 300,
         ...style
       }}
     >
@@ -131,7 +131,9 @@ const CardProduct = (props: {
     >
       <div className="tgn-product-item-content">
         <div className="tgn-product-item-header">
-          <div className="tgn-product-item-title">{item.title}</div>
+          <div className="tgn-product-item-title tgn-base-limit-lines tgn-base-limit-two-lines">
+            {item.title}
+          </div>
           <div className="tgn-btn-wrapper">
             <button className="app-btn-default tgn-product-item-btn">
               <LocaleLink locale={locale} href={routes.product}>

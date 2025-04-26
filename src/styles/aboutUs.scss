@@ -1,6 +1,5 @@
 .tgn-about-us {
   .tgn-about-us-wrapper {
-    height: 680px;
     width: 100%;
     position: relative;
     overflow: hidden;
@@ -12,6 +11,7 @@
     margin: 0px auto;
     padding: 6rem;
     max-width: 72rem;
+    height: 100%;
   }
   .bg-intro {
     background-color: rgba(110, 62, 47, 0.8);

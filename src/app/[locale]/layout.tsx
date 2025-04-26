@@ -76,6 +76,10 @@ export default async function LocaleLayout({
           rel="stylesheet"
           href="https://tgn-api.vikiworld.vn/styles/bs-utilities.min.css"
         />
+        <link
+          rel="stylesheet"
+          href="https://tgn-api.vikiworld.vn/styles/tgn-styles.min.css"
+        />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"

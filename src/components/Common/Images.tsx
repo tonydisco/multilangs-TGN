@@ -4,12 +4,19 @@ import React from 'react';
 
 interface ILogoProps {
   url?: string;
+  alt?: string;
   mode?: ImageMode;
   className?: string;
   style?: React.CSSProperties;
 }
 
-const PureImage: React.FC<ILogoProps> = ({url, mode, className, style}) => {
+const PureImage: React.FC<ILogoProps> = ({
+  url,
+  mode,
+  className,
+  style,
+  alt
+}) => {
   return (
     <Image
       priority
@@ -26,7 +33,7 @@ const PureImage: React.FC<ILogoProps> = ({url, mode, className, style}) => {
         objectFit: mode ?? 'contain',
         ...style
       }}
-      alt={`${url}`}
+      alt={alt ?? `${url}`}
       className={className}
     />
   );

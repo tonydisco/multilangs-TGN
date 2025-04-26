@@ -77,3 +77,18 @@ export interface ISocialLink {
 export interface IPageDefaultProps {
   params: Promise<{locale: Locale; slug: string}>;
 }
+
+export interface ISliderItem {
+  description?: string;
+  name?: string;
+  title?: string;
+  id: string;
+  url: string;
+}
+export interface IPartnersProps {
+  description?: string;
+  files?: Array<ISliderItem>;
+  name?: string;
+  id: string;
+  numberOfItems?: number;
+}

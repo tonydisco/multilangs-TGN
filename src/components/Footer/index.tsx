@@ -84,24 +84,11 @@ const Footer = () => {
 
   return (
     <footer id="footer">
-      <div style={{position: 'relative'}}>
-        <div
-          style={{
-            backgroundColor: '#EDDFD8',
-            width: '100%',
-            position: 'relative'
-          }}
-        >
-          <div className="container-fluid container-fluid-padding">
+      <div className="position-relative">
+        <div className="tgn-bkg-secondary w-100 position-relative">
+          <div className="container container-fluid-padding">
             <div className="inner-container">
-              <div
-                style={{
-                  flex: 1,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: 15
-                }}
-              >
+              <div className="logo-flex-box">
                 <div style={{maxWidth: 275, marginBottom: 35}}>
                   <Logos />
                 </div>
@@ -219,19 +206,7 @@ const Footer = () => {
             <PureImage url="/landing/FOOTER.png" />
           </div>
         </div>
-        <div
-          style={{
-            height: 80,
-            backgroundColor: '#EDDFD8',
-            width: '100%',
-            position: 'absolute',
-            top: -80,
-            left: 0,
-            zIndex: 1,
-            borderTopLeftRadius: 80,
-            borderTopRightRadius: 80
-          }}
-        />
+        <div className="footer-head-edge" />
       </div>
     </footer>
   );

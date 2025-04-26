@@ -13,17 +13,31 @@
   .banner-style {
     height: 300px;
     width: 100%;
-    background:
-      linear-gradient(
-          90deg,
-          rgba(110, 62, 47, 0.7) 0%,
-          rgba(146, 88, 70, 0.7) 100%
-        )
-        0% 0% / cover no-repeat,
-      url(/landing/LVHD/LVKD/BG.png);
-    background-blend-mode: multiply;
     border-radius: 24px;
     overflow: hidden;
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(var(--rgb-primary-code), 0.5);
+      backdrop-filter: blur(2px);
+      z-index: -1;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('https://tgn-cdn.vikiworld.vn/media/tgn-town_3351140675910369280.png');
+      background-size: cover;
+      z-index: -2;
+    }
   }
   .banner-inner-style {
     padding: 48px;
@@ -51,7 +65,7 @@
     gap: 30px;
   }
   .job-action-style {
-    background-color: white;
+    background-color: var(--white-color);
     border-radius: 48px;
     padding: 10px;
   }

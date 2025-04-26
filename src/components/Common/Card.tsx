@@ -8,6 +8,7 @@ import React, {ReactNode} from 'react';
 import {Button} from './Button';
 import {PureImage} from './Images';
 import LocaleLink from './LinkByLocale';
+import {useTranslations} from 'use-intl';
 
 interface ICardBorderProps {
   children: ReactNode;
@@ -17,6 +18,8 @@ interface ICardBorderProps {
 
 const CardBase = (props: {item: ICardProps}) => {
   const {item} = props;
+
+  const t = useTranslations();
 
   return (
     <CardBorder
@@ -55,7 +58,7 @@ const CardBase = (props: {item: ICardProps}) => {
             >
               <Button
                 btnProps={{
-                  text: item?.btnText ?? 'Xem thêm',
+                  text: item?.btnText ?? t('Btn_ViewMore'),
                   linkTo: item?.linkTo
                 }}
               />
@@ -125,6 +128,9 @@ const CardProduct = (props: {
   const {item} = props;
 
   const {locale} = useAppContext();
+
+  const t = useTranslations();
+
   return (
     <div
       className={`tgn-product-grid-item grid-item base-card-full-border ${item?.className ?? ''}`}
@@ -158,7 +164,7 @@ const CardProduct = (props: {
                 whiteSpace: 'nowrap'
               }}
             >
-              Xem thêm
+              {t('Btn_ViewMore')}
             </div>
             <button className="app-btn-default tgn-product-item-btn">
               <LocaleLink locale={locale} href={routes.product}>

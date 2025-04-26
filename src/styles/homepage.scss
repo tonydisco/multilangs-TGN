@@ -3,7 +3,6 @@
   margin-bottom: 120px;
   /* Introduce Section */
   .tgn-introduce-section {
-    background-color: #fafafa;
     position: relative;
     overflow: hidden;
   }
@@ -75,7 +74,7 @@
   .tgn-introduce-stat-title {
     font-size: 32px;
     font-weight: 700;
-    color: #925846;
+    color: var(--primary-color);
     margin-top: 20px;
   }
 

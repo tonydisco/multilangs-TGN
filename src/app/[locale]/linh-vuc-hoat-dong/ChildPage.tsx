@@ -20,7 +20,7 @@ const ChildPage = async ({attribs, content, locale}: IChildPageProps) => {
           content: excerpt,
           image: content.featuredImageUrl,
           linkTo: content.slug,
-          btnText: t('ViewDetail')
+          btnText: t('Btn_ViewDetail')
         }}
       />
     </div>

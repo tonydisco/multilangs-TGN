@@ -41,7 +41,7 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
                 </div>
                 <Button
                   btnProps={{
-                    text: 'Xem thêm',
+                    text: t('Btn_ViewMore'),
                     linkTo: '/'
                   }}
                 />

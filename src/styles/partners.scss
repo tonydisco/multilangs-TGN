@@ -12,6 +12,9 @@
     }
     .tgn-partners-logo-container {
       padding: 10px;
+      img {
+        height: 50px !important;
+      }
     }
     .grid-container {
       gap: 10px;
@@ -61,7 +64,7 @@
 
 .tgn-partners-grid-item {
   overflow: hidden;
-  background-color: #fff;
+  background-color: var(--white-color);
 }
 
 .tgn-partners-logo-container {

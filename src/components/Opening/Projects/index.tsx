@@ -1,3 +1,4 @@
+'use client';
 import {Button} from '@/components/Common/Button';
 import {PureImage} from '@/components/Common/Images';
 import {SectionTitles} from '@/components/Common/Titles';
@@ -5,8 +6,10 @@ import {ImageMode} from '@/models/types';
 import {routes} from '@/utils/config';
 import React from 'react';
 import '@/styles/projects.scss';
+import {useTranslations} from 'use-intl';
 
 const Projects = () => {
+  const t = useTranslations();
   return (
     <section className="tgn-projects-section">
       <div className="tgn-projects-circle-right">
@@ -75,7 +78,7 @@ const Projects = () => {
         <div className="tgn-projects-footer">
           <Button
             btnProps={{
-              text: 'Xem thêm tất cả dự án',
+              text: t('Btn_Viewmore_All_Projects'),
               linkTo: routes.project
             }}
           />

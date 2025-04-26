@@ -1,20 +1,4 @@
 /* declare variables css color */
-:root {
-  --white-color: #fff;
-  --primary-master-title-color: #6e3e2f;
-  --secondary-color: #925846;
-  --bg-color: #eddfd8;
-  --bg-color-brown-pastel: #ddcdc5;
-  --text-color: #212121;
-  --text-gray-color: #616161;
-  --text-brown-color: #6d3e2f;
-  --text-gradient-color: linear-gradient(
-    266.58deg,
-    #6e3e2f -12.36%,
-    #925846 132.15%
-  );
-}
-// $enable-important-utilities: false;
 
 body {
   background-color: var(--white-color) !important;
@@ -95,14 +79,18 @@ button {
 .tgn-text-base-color {
   color: var(--text-color);
 }
+
 .tgn-text-gray-color {
-  color: var(--text-gray-color);
+  color: var(--gray-color);
 }
 .tgn-text-brow-color {
   color: #6d3e2f;
 }
 .tgn-bg-color-brown-pastel {
-  background-color: var(--bg-color-brown-pastel);
+  background-color: var(--secondary-color-brown-pastel);
+}
+.tgn-bg-gray-less {
+  background-color: var(--gray-less-color);
 }
 .tgn-text-gradient-color {
   background: linear-gradient(266.58deg, #6e3e2f -12.36%, #925846 132.15%);

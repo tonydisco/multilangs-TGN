@@ -80,7 +80,8 @@ const Construction = () => {
       </div>
       <div
         style={{
-          overflow: 'hidden'
+          overflow: 'hidden',
+          zIndex: 2
         }}
         className="tgn-block-item tgn-flex-block-2 tgn-bg-gray-less"
       >

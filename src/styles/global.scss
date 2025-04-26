@@ -322,6 +322,11 @@ button {
   cursor: pointer;
 }
 
+.tgn-limit-width-content {
+  max-width: 768px;
+  margin: 0 auto;
+}
+
 .block-wrapper::before {
   content: '';
   position: absolute;
@@ -382,6 +387,7 @@ button {
 .section-projects {
   z-index: 2;
 }
+
 .section-projects::after {
   content: '';
   position: absolute;

@@ -1,16 +1,27 @@
 import React from 'react';
-import PartnersSlider from './Slider';
-import {PureImage} from '@/components/Common/Images';
 import '@/styles/partners.scss';
+import PartnersSlider from './Slider';
+import {IPartnersProps} from '@/models/interface';
+import {PureImage} from '@/components/Common/Images';
 import {SectionTitles} from '@/components/Common/Titles';
 
-const Partners = () => {
+const Partners = (props: {masterData: IPartnersProps}) => {
+  const {masterData} = props;
+
   return (
     <section className="tgn-partners-section">
       <div className="container">
         <div style={{textAlign: 'center'}}>
           <SectionTitles title="khách hàng - đối tác" />
-          <PartnersSlider />
+          {(() => {
+            const sliderData = masterData?.files;
+            if (!sliderData?.length) {
+              return (
+                <div className="tgn-partners-no-data">Chưa có dữ liệu</div>
+              );
+            }
+            return <PartnersSlider sliderData={sliderData} />;
+          })()}
         </div>
       </div>
       <div className="tgn-partners-grid-bottom">

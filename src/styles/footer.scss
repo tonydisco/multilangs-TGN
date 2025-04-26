@@ -12,8 +12,10 @@
   }
   .container-fluid-padding {
     padding: 0 3rem;
+    position: relative;
+    overflow-x: hidden;
   }
-  @media screen and (max-width: 515px) {
+  @media screen and (max-width: 768px) {
     .inner-container {
       flex-direction: column;
     }

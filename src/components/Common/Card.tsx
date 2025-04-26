@@ -43,7 +43,7 @@ const CardBase = (props: {item: ICardProps}) => {
                 style={{
                   marginTop: 20
                 }}
-                className="text-start fs-12px md:fs-14px tgn-base-limit-lines tgn-base-limit-two-lines tgn-limit-four-lines tgn-text-gray-color"
+                className="text-start fs-14px tgn-base-limit-lines tgn-base-limit-two-lines tgn-limit-four-lines tgn-text-gray-color"
               >
                 {item?.content}
               </div>

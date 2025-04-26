@@ -58,7 +58,7 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
         <SectionSub
           style={{textAlign: 'center'}}
           text={
-            <p style={{maxWidth: 768, margin: '0 auto'}}>
+            <p className="tgn-limit-width-content">
               Sau thành công của bê tông thương phẩm, Thế Giới Nhà mở rộng sang
               sản xuất các sản phẩm cấu kiện bê tông đúc sẵn nhằm cung ứng giải
               pháp xây dựng đồng bộ, nâng cao chất lượng và rút ngắn thời gian
@@ -93,7 +93,7 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
         <SectionSub
           style={{textAlign: 'center'}}
           text={
-            <p style={{maxWidth: 768, margin: '0 auto'}}>
+            <p className="tgn-limit-width-content">
               Sau thành công của bê tông thương phẩm, Thế Giới Nhà mở rộng sang
               sản xuất các sản phẩm cấu kiện bê tông đúc sẵn nhằm cung ứng giải
               pháp xây dựng đồng bộ, nâng cao chất lượng và rút ngắn thời gian

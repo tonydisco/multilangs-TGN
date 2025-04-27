@@ -61,7 +61,7 @@ function PartnersSlider(props: {sliderData: Array<ISliderItem>}) {
 
           return (
             <div key={`partner-slide-${index}`}>
-              <div className="tgn-partners-grid-container grid-container">
+              <div className="tgn-flex-list-box tgn-partners-grid-container">
                 {sliderData
                   .slice(startIndex, startIndex + itemsPerSlide)
                   .map((item, idx) => {

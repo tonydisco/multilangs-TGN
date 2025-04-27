@@ -2,7 +2,7 @@
 .tgn-projects-section {
   background-color: var(--secondary-color);
   position: relative;
-  padding: 50px 30px;
+  padding: 100px 0px;
   margin: 0 30px;
   border-radius: 24px;
   overflow: hidden;
@@ -99,15 +99,16 @@
 }
 .projects-page-wrapper {
   .projects-list-flex {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
+    --projects-gap: 20px;
+    gap: var(--projects-gap);
+    & > * {
+      // 3 items per row with 2 gaps
+      --cal-project-item: calc((100% - var(--projects-gap) * 2) / 3);
+      flex: var(--cal-project-item);
+      max-width: var(--cal-project-item);
+    }
   }
-  .projects-grid-item {
-    flex: 1 0 calc((100% - 20px * 2) / 3);
-    max-width: calc((100% - 20px * 2) / 3);
-  }
+
   @media screen and (max-width: 768px) {
     .projects-grid-item {
       flex: unset;

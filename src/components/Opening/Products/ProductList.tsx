@@ -3,7 +3,7 @@ import {CardProduct} from '@/components/Common/Card';
 const ProductList = () => {
   return (
     <div className="tgn-product-list-container">
-      <div className="tgn-product-grid-container grid-container">
+      <div className="tgn-flex-list-box tgn-products-container">
         {mockProducts.map((item, idx) => {
           const itemIndex = 1 + idx;
           return (

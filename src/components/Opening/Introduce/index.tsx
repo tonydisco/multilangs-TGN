@@ -28,24 +28,23 @@ const Introduce = () => {
               </div>
             </div>
             <div className="tgn-introduce-right">
-              <div className="tgn-introduce-statistics">
-                {statistics.map((item, index) => (
+              <div className="tgn-flex-wrapper-width-pseudo">
+                {statistics.map((item) => (
                   <Fragment key={uuid()}>
-                    <div className="tgn-introduce-stat-item">
-                      <PureImage
-                        url={item.icon}
-                        style={{width: 50, height: '50px'}}
-                      />
+                    <div className="tgn-flex-item-width-pseudo">
                       <div>
-                        <h2 className="tgn-introduce-stat-title">
-                          {item.title}
-                        </h2>
-                        <p className="tgn-introduce-stat-sub">{item.sub}</p>
+                        <PureImage
+                          url={item.icon}
+                          style={{width: 50, height: '50px'}}
+                        />
+                        <div>
+                          <h2 className="tgn-introduce-stat-title">
+                            {item.title}
+                          </h2>
+                          <p className="tgn-introduce-stat-sub">{item.sub}</p>
+                        </div>
                       </div>
                     </div>
-                    {index !== statistics.length - 1 && (
-                      <div className="default-vertical-line" />
-                    )}
                   </Fragment>
                 ))}
               </div>

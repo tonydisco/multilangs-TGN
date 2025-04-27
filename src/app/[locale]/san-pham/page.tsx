@@ -68,7 +68,7 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
         />
 
         <div className="tgn-products-section tgn-production-list">
-          <div className="product-list-flex">
+          <div className="tgn-flex-list-box product-list-flex">
             {mockProducts.map((item, idx) => {
               const itemIndex = 1 + idx;
               return (
@@ -102,7 +102,7 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
           }
         />
         <div className="tgn-products-section tgn-production-list">
-          <div className="product-list-flex">
+          <div className="tgn-flex-list-box product-list-flex">
             {mockProducts_2.map((item, idx) => {
               const itemIndex = 1 + idx;
               return (

@@ -9,6 +9,7 @@
 
   .tgn-introduce-container {
     padding: 150px 0;
+    background-color: var(--alabaster-white-color);
   }
 
   .tgn-introduce-card {
@@ -54,16 +55,8 @@
 
   .tgn-introduce-statistics {
     display: flex;
-    justify-content: flex-end;
-    gap: 30px;
-  }
-
-  .tgn-introduce-stat-item {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    padding: 46px 0;
+    justify-content: center;
   }
 
   .tgn-introduce-stat-icon {
@@ -75,11 +68,12 @@
     font-size: 32px;
     font-weight: 700;
     color: var(--primary-color);
-    margin-top: 20px;
+    margin-top: 12px;
   }
 
   .tgn-introduce-stat-sub {
     font-size: 14px;
+    margin: 0;
   }
 
   .tgn-introduce-video-section {
@@ -114,10 +108,12 @@
     bottom: 0;
     width: 100%;
   }
-
+  .tgn-introduce-right {
+    flex: 2;
+  }
   @media screen and (max-width: 768px) {
     .tgn-introduce-container {
-      padding: 100px 15px;
+      padding: 75px 15px;
     }
     .tgn-introduce-card {
       flex-direction: column;
@@ -130,10 +126,6 @@
       justify-content: space-between;
     }
 
-    .tgn-introduce-stat-item {
-      width: 40%;
-      flex: unset;
-    }
     .default-vertical-line {
       &:nth-child(4) {
         display: none;
@@ -144,7 +136,7 @@
     }
 
     .tgn-introduce-video-section {
-      padding: 0 15px 150px 15px;
+      padding: 0 15px 100px 15px;
     }
     .tgn-introduce-iframe {
       position: relative !important;

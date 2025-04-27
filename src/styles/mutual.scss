@@ -1,0 +1,68 @@
+.tgn-flex-wrapper-width-pseudo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  .tgn-flex-item-width-pseudo {
+    flex: 1;
+    position: relative;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:not(:first-child) {
+      &::before {
+        content: '';
+        display: block;
+        width: 1px;
+        height: 100%;
+        background-color: var(--text-brown-color);
+        position: absolute;
+        top: 0;
+        left: 0px;
+      }
+    }
+  }
+  .flex-default {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.tgn-flex-list-box {
+  display: flex;
+  flex-wrap: wrap;
+  --item-gap: 16px;
+  // 4 items per row with 3 gaps
+  --item-width: calc((100% - var(--item-gap) * 3) / 4);
+  gap: var(--item-gap);
+  & > * {
+    flex: var(--item-width);
+    max-width: var(--item-width);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .tgn-flex-wrapper-width-pseudo {
+    flex-wrap: wrap;
+  }
+  .tgn-flex-item-width-pseudo {
+    padding: 0;
+    width: 45%;
+    flex: unset !important;
+    text-align: center;
+    align-items: flex-start;
+
+    &:not(:first-child) {
+      &::before {
+        left: -20px !important;
+      }
+    }
+    &:nth-child(odd) {
+      &::before {
+        display: none !important;
+      }
+    }
+  }
+}

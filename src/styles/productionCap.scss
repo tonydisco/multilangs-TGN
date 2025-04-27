@@ -1,9 +1,4 @@
 .nlsx-wrapper {
-  // .tgn-content-mobile {
-  //   &:last-child {
-  //     padding-bottom: 0px !important;
-  //   }
-  // }
   .tgn-slider-btn {
     position: absolute;
     top: 50%;
@@ -32,9 +27,6 @@
 
     .tgn-content-mobile {
       padding: 75px 0 !important;
-      &:last-child {
-        padding-bottom: unset !important;
-      }
     }
     .section-wrapper-bg {
       &:not(:last-child) {

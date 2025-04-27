@@ -44,7 +44,7 @@ const ProjectList = () => {
 
   return (
     <div>
-      <div className="projects-list-flex">
+      <div className="tgn-flex-list-box projects-list-flex">
         {data.map((item, index) => {
           return (
             <div key={index} className="projects-grid-item">

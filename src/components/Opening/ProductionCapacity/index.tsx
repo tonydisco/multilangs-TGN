@@ -22,11 +22,11 @@ const ProductionCapacity = () => {
           <div className="tgn-production-left">
             <div>
               <SectionTitles title="năng lực sản xuất" />
-              <div className="tgn-production-stats">
+              <div className="tgn-flex-wrapper-width-pseudo tgn-production-stats">
                 {statistics.map((item) => {
                   return (
                     <Fragment key={uuid()}>
-                      <div className="tgn-production-stat-item">
+                      <div className="tgn-flex-item-width-pseudo">
                         <div>
                           <div className="tgn-production-stat-number">
                             {item.title}

@@ -1,7 +1,15 @@
 /* Partners Component Styles */
 .tgn-partners-section {
   position: relative;
-  padding: 75px 0 0 0;
+  padding: 100px 0;
+  .tgn-partners-grid-container {
+    & > * {
+      // 5 items per row with 4 gaps
+      --cal-partner-item: calc((100% - 16px * 4) / 5);
+      flex: var(--cal-partner-item);
+      max-width: var(--cal-partner-item);
+    }
+  }
   @media screen and (max-width: 768px) {
     .tgn-headding-section {
       text-align: center;
@@ -16,15 +24,15 @@
         height: 50px !important;
       }
     }
-    .grid-container {
-      gap: 10px;
-    }
-    .grid-item {
-      flex: 1 0 calc((100% - 10px * 2) / 3);
-      max-width: calc((100% - 10px * 2) / 3);
-    }
+
     .tgn-partners-grid-container {
       padding: 0 0.75rem;
+      & > * {
+        // 3 items per row with 2 gaps
+        --cal-partner-item-mobile: calc((100% - 16px * 2) / 3);
+        flex: var(--cal-partner-item-mobile);
+        max-width: var(--cal-partner-item-mobile);
+      }
     }
     .container {
       padding: 0;

@@ -132,52 +132,52 @@ const CardProduct = (props: {
   const t = useTranslations();
 
   return (
-    <div
-      className={`tgn-product-grid-item grid-item base-card-full-border ${item?.className ?? ''}`}
-    >
-      <div className="tgn-product-item-content">
-        <div className="tgn-product-item-header">
-          <div className="tgn-product-item-title tgn-base-limit-lines tgn-base-limit-two-lines">
-            {item.title}
-          </div>
-          <div className="tgn-btn-wrapper">
-            <button className="app-btn-default tgn-product-item-btn">
-              <LocaleLink locale={locale} href={routes.product}>
-                <div className="tgn-product-item-btn-content">
-                  <PureImage
-                    className="tgn-product-item-arrow"
-                    url="/landing/ICON-ARROW.svg"
-                  />
-                </div>
-              </LocaleLink>
-            </button>
-          </div>
-        </div>
-        <div className="tgn-product-item-image-wrapper card-img-wrapper">
-          <PureImage url={item.image} />
-        </div>
-        <div className="tgn-btn-wrapper-mobile">
-          <div style={{display: 'flex', alignItems: 'center', gap: 10}}>
-            <div
-              style={{
-                fontSize: 12,
-                whiteSpace: 'nowrap'
-              }}
-            >
-              {t('Btn_ViewMore')}
+    <div className={`tgn-product-grid-item  ${item?.className ?? ''}`}>
+      <div className="base-card-full-border">
+        <div className="tgn-product-item-content">
+          <div className="tgn-product-item-header">
+            <div className="tgn-product-item-title tgn-base-limit-lines tgn-base-limit-two-lines">
+              {item.title}
             </div>
-            <button className="app-btn-default tgn-product-item-btn">
-              <LocaleLink locale={locale} href={routes.product}>
-                <div className="tgn-product-item-btn-content">
-                  <PureImage
-                    url="/landing/ICON-ARROW.svg"
-                    style={{
-                      width: 10
-                    }}
-                  />
-                </div>
-              </LocaleLink>
-            </button>
+            <div className="tgn-btn-wrapper">
+              <button className="app-btn-default tgn-product-item-btn">
+                <LocaleLink locale={locale} href={routes.product}>
+                  <div className="tgn-product-item-btn-content">
+                    <PureImage
+                      className="tgn-product-item-arrow"
+                      url="/landing/ICON-ARROW.svg"
+                    />
+                  </div>
+                </LocaleLink>
+              </button>
+            </div>
+          </div>
+          <div className="tgn-product-item-image-wrapper card-img-wrapper">
+            <PureImage url={item.image} />
+          </div>
+          <div className="tgn-btn-wrapper-mobile">
+            <div style={{display: 'flex', alignItems: 'center', gap: 10}}>
+              <div
+                style={{
+                  fontSize: 12,
+                  whiteSpace: 'nowrap'
+                }}
+              >
+                {t('Btn_ViewMore')}
+              </div>
+              <button className="app-btn-default tgn-product-item-btn">
+                <LocaleLink locale={locale} href={routes.product}>
+                  <div className="tgn-product-item-btn-content">
+                    <PureImage
+                      url="/landing/ICON-ARROW.svg"
+                      style={{
+                        width: 10
+                      }}
+                    />
+                  </div>
+                </LocaleLink>
+              </button>
+            </div>
           </div>
         </div>
       </div>

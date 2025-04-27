@@ -1,5 +1,8 @@
 /* declare variables css color */
 
+:root {
+  --alabaster-white-color: #fafafa;
+}
 body {
   background-color: var(--white-color) !important;
 }
@@ -359,19 +362,6 @@ button {
   height: 700px;
 }
 
-/* Container chính */
-.grid-container {
-  display: flex;
-  flex-wrap: wrap; /* Cho phép các item xuống hàng khi hết chiều rộng */
-  gap: 16px; /* Khoảng cách giữa các hàng và cột */
-}
-
-/* Item trong grid */
-.grid-item {
-  flex: 0 0 calc((100% - 16px * 4) / 5); /* 4 spacing between , 5 items/row, equal width */
-  max-width: calc((100% - 16px * 4) / 5);
-  height: 130px; /* Chiều cao tùy chỉnh, bạn có thể thay đổi */
-}
 .section-projects {
   z-index: 2;
 }
@@ -506,7 +496,6 @@ button {
 
 //products
 .tgn-product-grid-item {
-  overflow: hidden;
   background-color: #fff;
   height: auto;
 }
@@ -520,7 +509,7 @@ button {
   }
   .base-card-full-border {
     padding: 10px 20px;
-    height: auto !important;
+    height: 100% !important;
   }
   .base-card-no-outline {
     padding: 10px 20px;
@@ -541,3 +530,5 @@ button {
     display: block !important;
   }
 }
+
+@import './mutual.scss';

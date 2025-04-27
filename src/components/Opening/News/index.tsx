@@ -14,7 +14,7 @@ const News = () => {
         <PureImage url="/icon/CIRCLE-FULL-ICO.svg" />
       </div>
 
-      <SectionBase contentStyle={{paddingTop: 50}}>
+      <SectionBase contentClassName="tgn-news-section-content">
         <SectionTitles title="tin tức" style={{textAlign: 'center'}} />
         <CardBorder style={{height: 'auto', marginTop: 50}}>
           <div className="d-flex gap-5">

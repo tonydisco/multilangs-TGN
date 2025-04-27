@@ -26,17 +26,7 @@ const Construction = () => {
               <PureImage url="/landing/CONSTRUCTION/XE.png" />
             </div>
           </div>
-          <div
-            style={{
-              flex: 1,
-              position: 'relative',
-              height: '100%',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              flexDirection: 'column'
-            }}
-          >
+          <div className="tgn-center-block">
             <div className="tgn-absolute-block-1-item-left">
               <SectionTitles title="Lĩnh Vực Sản xuất" />
               <p style={{fontSize: 14}}>
@@ -87,15 +77,7 @@ const Construction = () => {
       >
         <div className="container" style={{height: '100%'}}>
           <div className="tgn-flex-item tgn-non-revers-block-2">
-            <div
-              style={{
-                position: 'relative',
-                flex: 1,
-                height: '100%',
-                display: 'flex',
-                alignItems: 'center'
-              }}
-            >
+            <div className="tgn-center-block">
               <div style={{position: 'relative', zIndex: 2}}>
                 <div className="part-container tgn-block-2-left-container">
                   <SectionTitles title="Lĩnh Vực kinh doanh" />
@@ -175,17 +157,7 @@ const Construction = () => {
                 );
               })}
             </div>
-            <div
-              style={{
-                zIndex: 21,
-                position: 'relative',
-                display: 'flex',
-                alignItems: 'center',
-                height: '100%',
-                flex: 1,
-                overflow: 'hidden'
-              }}
-            >
+            <div className="tgn-center-block">
               <div className="part-container tgn-absolute-block-3-item-left">
                 <SectionTitles title="Lĩnh Vực khai thác" />
                 <p style={{fontSize: 14}}>

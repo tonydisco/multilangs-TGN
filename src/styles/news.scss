@@ -1,9 +1,12 @@
 /* News Component Styles */
 .tgn-news-section {
   position: relative;
-  padding: 75px;
   overflow: hidden;
   background-color: #fff6f2;
+  padding: 100px 0;
+  .tgn-news-section-content {
+    padding: 0 !important;
+  }
 }
 
 .tgn-newslist-tabs {
@@ -210,6 +213,9 @@
   .tgn-newsitem-image-container {
     width: 100%;
     height: 200px;
+  }
+  .tgn-news-section-content {
+    padding: 0;
   }
   .news-page-wrapper {
     .base-card-full-border {

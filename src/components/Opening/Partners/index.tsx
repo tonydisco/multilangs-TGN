@@ -1,11 +1,10 @@
-import React from 'react';
-import '@/styles/partners.scss';
-import PartnersSlider from './Slider';
-import {IPartnersProps} from '@/models/interface';
 import {PureImage} from '@/components/Common/Images';
 import {SectionTitles} from '@/components/Common/Titles';
+import {IAlbumProps} from '@/models/interface';
+import '@/styles/partners.scss';
+import PartnersSlider from './Slider';
 
-const Partners = (props: {masterData: IPartnersProps}) => {
+const Partners = (props: {masterData: IAlbumProps}) => {
   const {masterData} = props;
 
   return (

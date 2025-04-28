@@ -85,7 +85,7 @@ export interface ISliderItem {
   id: string;
   url: string;
 }
-export interface IPartnersProps {
+export interface IAlbumProps {
   description?: string;
   files?: Array<ISliderItem>;
   name?: string;

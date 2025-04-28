@@ -36,7 +36,7 @@ function PartnersSlider(props: {sliderData: Array<ISliderItem>}) {
     cssEase: 'linear',
     dot: false,
     arrows: false,
-    // autoplay: true,
+    autoplay: true,
     rtl: true
   };
 

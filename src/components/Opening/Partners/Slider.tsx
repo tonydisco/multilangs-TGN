@@ -36,7 +36,7 @@ function PartnersSlider(props: {sliderData: Array<ISliderItem>}) {
     cssEase: 'linear',
     dot: false,
     arrows: false,
-    autoplay: true,
+    // autoplay: true,
     rtl: true
   };
 
@@ -74,6 +74,9 @@ function PartnersSlider(props: {sliderData: Array<ISliderItem>}) {
                           <PureImage
                             url={item.url}
                             alt={item?.title ?? item?.name}
+                            style={{
+                              height: 120
+                            }}
                           />
                         </div>
                       </div>

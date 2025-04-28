@@ -62,8 +62,8 @@ button {
   position: relative;
   width: 400px; /* Adjust width as needed */
   height: 200px; /* Adjust height as needed */
-  background-color: white;
-  border: 2px solid #6d3e2f; /* Border color matching the image */
+  background-color: var(--white-color);
+  border: 2px solid var(--text-brown-color); /* Border color matching the image */
   border-radius: 20px; /* Rounded corners */
   overflow: hidden; /* Ensures the cutout doesn't overflow */
 }
@@ -75,7 +75,7 @@ button {
   right: 0;
   width: 100px; /* Width of the cutout */
   height: 50px; /* Height of the cutout */
-  background-color: black; /* Black cutout section */
+  background-color: var(--black-color); /* Black cutout section */
   border-top-left-radius: 20px; /* Rounded corner for the cutout */
 }
 /* Mutual class */
@@ -87,7 +87,7 @@ button {
   color: var(--gray-color);
 }
 .tgn-text-brow-color {
-  color: #6d3e2f;
+  color: var(--text-brown-color);
 }
 .tgn-bg-color-brown-pastel {
   background-color: var(--secondary-color-brown-pastel);
@@ -140,7 +140,7 @@ button {
   border-radius: 4px;
   padding: 6px 10px;
   width: 200px;
-  color: white;
+  color: var(--white-color);
   font-weight: 700;
   font-style: italic;
   font-size: 16px;
@@ -168,7 +168,7 @@ button {
 .app-btn-default {
   background: linear-gradient(266.58deg, #6e3e2f -12.36%, #925846 132.15%);
   border-radius: 24px;
-  color: #fff;
+  color: var(--white-color);
   padding: 10px 18px;
   box-shadow:
     4px 4px 8px 0px #73423366,
@@ -204,11 +204,11 @@ button {
 
 .default-vertical-line {
   width: 1px;
-  background-color: #6d3e2f;
+  background-color: var(--text-brown-color);
 }
 .default-horizone-line {
   height: 1px;
-  background-color: #6d3e2f;
+  background-color: var(--text-brown-color);
   width: 100%;
 }
 
@@ -217,7 +217,7 @@ button {
   padding: 15px 30px;
   position: relative;
   z-index: 0;
-  background-color: white;
+  background-color: var(--white-color);
   border-radius: 16px;
 }
 
@@ -241,7 +241,7 @@ button {
   width: 992px;
   height: 600px;
   z-index: 0;
-  background-color: white;
+  background-color: var(--white-color);
   border-radius: 16px;
   position: relative;
 }
@@ -258,8 +258,8 @@ button {
   z-index: -1;
   background: linear-gradient(to bottom, #ffc6b5, #7c4838);
   mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
+    linear-gradient(var(--white-color) 0 0) content-box,
+    linear-gradient(var(--white-color) 0 0);
   mask-composite: exclude;
 }
 .base-card-full-border {
@@ -428,13 +428,17 @@ button {
   position: absolute;
   width: 4px;
   height: 4px;
-  background-color: #6d3e2f;
+  background-color: var(--text-brown-color);
   border-radius: 100%;
 }
 .line-w-dot::after {
   content: '';
   position: absolute;
-  background: linear-gradient(180deg, #6d3e2f 0%, rgba(109, 62, 47, 0) 100%);
+  background: linear-gradient(
+    180deg,
+    var(--text-brown-color) 0%,
+    rgba(109, 62, 47, 0) 100%
+  );
   width: 1px;
   height: 150%;
   top: 3px;
@@ -458,7 +462,7 @@ button {
 .tgn-select-box-overflow {
   position: absolute;
   right: 0;
-  background-color: #fff;
+  background-color: var(--white-color);
   border-radius: 4px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   z-index: -1;

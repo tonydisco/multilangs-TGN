@@ -25,17 +25,17 @@ const Header = ({locale}: Readonly<Props>) => {
   return (
     <header id="header">
       <nav className="d-flex align-items-center justify-content-between p-3 nav-custom">
-        <div className="nav-item">
-          <div className="search-icon search-icon-responsive ">
+        <div className="nav-item tgn-search-icon-responsive">
+          <div className="tgn-search-icon tgn-search-icon-responsive ">
             <PureImage style={{width: 22}} url="/icon/SEARCH.svg" />
           </div>
         </div>
-        <div className="nav-item d-flex justify-content-center">
+        <div className="nav-item d-flex justify-content-center ">
           <div style={{width: '150px'}}>
             <Logos />
           </div>
         </div>
-        <div>
+        <div className="menu-list-for-responsive">
           <div className="mb-3 top-nav">
             <div>
               <div className="d-flex align-items-center justify-content-end gap-3">
@@ -49,21 +49,21 @@ const Header = ({locale}: Readonly<Props>) => {
               </div>
             </div>
           </div>
-          <ul
-            style={{
-              listStyle: 'none'
-            }}
-            className="d-flex align-items-center gap-3 position-relative mb-0 mobile-responsive"
-          >
-            <Menus />
-          </ul>
-        </div>
-        <div className="nav-item">
-          <div className="mobile-menu">
-            <button onClick={handleMenuToggle}>
-              <PureImage style={{width: 25}} url="/icon/HAMBURGER.svg" />
-            </button>
+          <div className="menu-list-for-responsive">
+            <ul
+              style={{
+                listStyle: 'none'
+              }}
+              className="d-flex align-items-center gap-3 position-relative mb-0 tgn-menu-items"
+            >
+              <Menus />
+            </ul>
           </div>
+        </div>
+        <div className="tgn-mobile-menu">
+          <button onClick={handleMenuToggle}>
+            <PureImage style={{width: 25}} url="/icon/HAMBURGER.svg" />
+          </button>
         </div>
       </nav>
       <div className="fade-line-element pc-fade-line-element" />
@@ -73,7 +73,7 @@ const Header = ({locale}: Readonly<Props>) => {
           left: isMenuOpen ? 0 : '-100%'
         }}
       >
-        <div style={{padding: 24}} className="h-100">
+        <div className="menu-mobile-container">
           <div className="d-flex align-items-center justify-content-between">
             <div className="search-icon search-icon-responsive">
               <PureImage url="/icon/SEARCH.svg" />

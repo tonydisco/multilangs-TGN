@@ -3,16 +3,23 @@ import {PureImage} from '@/components/Common/Images';
 import {SectionBase} from '@/components/Common/Section';
 import {SectionTitles} from '@/components/Common/Titles';
 import {useWindowDimensions} from '@/hooks/common/useWindowDimension';
+import {IAlbumProps, ISliderItem} from '@/models/interface';
 import {BREAK_POINTS} from '@/utils/config';
 import {useMemo, useRef} from 'react';
 import Slider from 'react-slick';
-// Add this type definition
+
 type SlickRefType = {
   slickPrev: () => void;
   slickNext: () => void;
 };
 
-const NLSXSlider = () => {
+const NLSXSlider = (props: {masterData: IAlbumProps}) => {
+  const {masterData} = props;
+
+  const sliderData = useMemo(() => {
+    return masterData.files as Array<ISliderItem>;
+  }, [masterData]);
+
   const {width} = useWindowDimensions();
 
   const isMobile = useMemo(() => width < BREAK_POINTS.MOBILE, [width]);
@@ -26,7 +33,7 @@ const NLSXSlider = () => {
   const onNext = () => {
     sliderRef.current?.slickNext();
   };
-  // Update the ref callback to use const instead of reassignment
+
   const setSliderRef = (slider: SlickRefType | null) => {
     sliderRef.current = slider;
   };
@@ -42,6 +49,10 @@ const NLSXSlider = () => {
     arrows: false
   };
 
+  if (sliderData?.length === 0) {
+    return null;
+  }
+
   return (
     <SectionBase>
       <SectionTitles title="giấy chứng nhận" style={{textAlign: 'center'}} />
@@ -56,31 +67,30 @@ const NLSXSlider = () => {
           <PureImage url="/icon/ARROW-ICON.svg" />
         </button>
         <div className="container container-mobile">
-          <div>
-            <Slider {...settings} ref={setSliderRef}>
-              {Array.from({length: 4}).map((_, i) => {
-                return (
-                  <div key={i}>
-                    <div
+          <Slider {...settings} ref={setSliderRef}>
+            {sliderData?.map((slider, i) => {
+              return (
+                <div key={i}>
+                  <div
+                    style={{
+                      margin: 10
+                    }}
+                  >
+                    <PureImage
+                      url={slider.url}
                       style={{
-                        margin: 10
+                        width: '100%',
+                        height: 'auto',
+                        maxWidth: 300,
+                        borderRadius: 8
                       }}
-                    >
-                      <PureImage
-                        url={`/landing/NLSX/${i + 1}.png`}
-                        style={{
-                          width: '100%',
-                          height: 'auto',
-                          maxWidth: 300,
-                          borderRadius: 8
-                        }}
-                      />
-                    </div>
+                      alt={slider?.title ?? slider?.name}
+                    />
                   </div>
-                );
-              })}
-            </Slider>
-          </div>
+                </div>
+              );
+            })}
+          </Slider>
         </div>
       </div>
     </SectionBase>

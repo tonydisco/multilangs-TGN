@@ -6,6 +6,8 @@ import {IPageDefaultProps} from '@/models/interface';
 import '@/styles/productionCap.scss';
 import {getTranslations} from 'next-intl/server';
 import NLSXSlider from './Slider';
+import {getAlbum} from '@/apis/album';
+import {albums} from '@/utils/config';
 
 const mockData = [
   {
@@ -45,6 +47,7 @@ const mockData = [
 export default async function Page({params}: Readonly<IPageDefaultProps>) {
   const {locale} = await params;
   const t = await getTranslations({locale});
+  const certData = await getAlbum(albums.Certificates);
 
   return (
     <PageLayout
@@ -76,7 +79,7 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
           </SectionBase>
         );
       })}
-      <NLSXSlider />
+      {certData && <NLSXSlider masterData={certData} />}
     </PageLayout>
   );
 }

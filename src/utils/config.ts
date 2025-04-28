@@ -32,6 +32,11 @@ export const pageBySlug = {
   business: 'linh-vuc-hoat-dong'
 };
 
+export const albums = {
+  Certificates: 'Certificates',
+  Customers: 'Customers'
+};
+
 export const newsTabs = [
   {
     title: 'tất cả',

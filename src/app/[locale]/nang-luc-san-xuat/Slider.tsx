@@ -46,7 +46,9 @@ const NLSXSlider = (props: {masterData: IAlbumProps}) => {
     speed: 300,
     cssEase: 'linear',
     dot: false,
-    arrows: false
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 5000
   };
 
   if (sliderData?.length === 0) {

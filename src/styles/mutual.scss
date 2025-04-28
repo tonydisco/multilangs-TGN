@@ -43,6 +43,17 @@
   }
 }
 
+.fade-line-element {
+  border-bottom: 1px solid;
+  border-image-source: linear-gradient(
+    90deg,
+    transparent 0%,
+    #6d3e2f 50%,
+    transparent 100%
+  );
+  border-image-slice: 1;
+}
+
 @media screen and (max-width: 768px) {
   .tgn-flex-wrapper-width-pseudo {
     flex-wrap: wrap;

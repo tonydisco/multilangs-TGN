@@ -1,15 +1,15 @@
 'use client';
-import {useDebounce} from '@/hooks/common/useDebounce';
-import {ISetting} from '@/models/interface';
 import '@/styles/header.scss';
-import {Locale} from 'next-intl';
+import Menus from './Menus';
 import {useState} from 'react';
-import {PureImage} from '../Common/Images';
+import Socials from './Socials';
+import {Locale} from 'next-intl';
 import Logos from '../Common/Logos';
 import ContactBtn from './ContactBtn';
 import LanguageSwitcher from './Langs';
-import Menus from './Menus';
-import Socials from './Socials';
+import {PureImage} from '../Common/Images';
+import {ISetting} from '@/models/interface';
+import {useDebounce} from '@/hooks/common/useDebounce';
 
 type Props = {
   locale: Locale;
@@ -66,7 +66,7 @@ const Header = ({locale}: Readonly<Props>) => {
           </button>
         </div>
       </nav>
-      <div className="fade-line-element pc-fade-line-element" />
+      <div className="fade-line-element" />
       <div
         className="menu-mobile-overflow"
         style={{

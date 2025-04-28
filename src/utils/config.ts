@@ -4,13 +4,15 @@ export const host =
 
 export const routes = {
   home: '/',
-  about: '/gioi-thieu',
-  field: '/linh-vuc-hoat-dong',
-  productionCapacity: '/nang-luc-san-xuat',
-  product: '/san-pham',
-  project: '/du-an',
   news: '/tin-tuc',
-  contact: '/lien-he-tuyen-dung'
+  project: '/du-an',
+  about: '/gioi-thieu',
+  product: '/san-pham',
+  field: '/linh-vuc-hoat-dong',
+  contact: '/lien-he-tuyen-dung',
+  privacyPolicy: '/chinh-sach-bao-mat',
+  termsOfService: '/dieu-khoan-su-dung',
+  productionCapacity: '/nang-luc-san-xuat'
 };
 
 export const rmockRoute = [
@@ -51,12 +53,14 @@ export const dynamicRoutes = ['tin-tuc', 'san-pham'];
 export const routeTranslations: {[key: string]: {[key: string]: string}} = {
   en: {
     'du-an': 'projects',
-    'gioi-thieu': 'about',
+    'gioi-thieu': 'about-us',
     'lien-he-tuyen-dung': 'contact-us',
     'linh-vuc-hoat-dong': 'activity-areas',
     'nang-luc-san-xuat': 'production-capacity',
     'san-pham': 'products',
-    'tin-tuc': 'news'
+    'tin-tuc': 'news',
+    'dieu-khoan-su-dung': 'terms-of-service',
+    'chinh-sach-bao-mat': 'privacy-policy'
   },
   vi: {
     'du-an': 'du-an',
@@ -65,7 +69,9 @@ export const routeTranslations: {[key: string]: {[key: string]: string}} = {
     'linh-vuc-hoat-dong': 'linh-vuc-hoat-dong',
     'nang-luc-san-xuat': 'nang-luc-san-xuat',
     'san-pham': 'san-pham',
-    'tin-tuc': 'tin-tuc'
+    'tin-tuc': 'tin-tuc',
+    'dieu-khoan-su-dung': 'dieu-khoan-su-dung',
+    'chinh-sach-bao-mat': 'chinh-sach-bao-mat'
   }
 };
 
@@ -75,12 +81,14 @@ export const reverseRouteTranslations: {
 } = {
   en: {
     projects: 'du-an',
-    about: 'gioi-thieu',
+    'about-us': 'gioi-thieu',
     'contact-us': 'lien-he-tuyen-dung',
     'activity-areas': 'linh-vuc-hoat-dong',
     'production-capacity': 'nang-luc-san-xuat',
     products: 'san-pham',
-    news: 'tin-tuc'
+    news: 'tin-tuc',
+    'terms-of-service': 'dieu-khoan-su-dung',
+    'privacy-policy': 'chinh-sach-bao-mat'
   },
   vi: {
     'du-an': 'du-an',
@@ -89,7 +97,9 @@ export const reverseRouteTranslations: {
     'linh-vuc-hoat-dong': 'linh-vuc-hoat-dong',
     'nang-luc-san-xuat': 'nang-luc-san-xuat',
     'san-pham': 'san-pham',
-    'tin-tuc': 'tin-tuc'
+    'tin-tuc': 'tin-tuc',
+    'dieu-khoan-su-dung': 'dieu-khoan-su-dung',
+    'chinh-sach-bao-mat': 'chinh-sach-bao-mat'
   }
 };
 

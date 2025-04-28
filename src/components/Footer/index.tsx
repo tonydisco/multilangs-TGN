@@ -13,6 +13,7 @@ import LocaleLink from '../Common/LinkByLocale';
 import Logos from '../Common/Logos';
 import Socials from '../Header/Socials';
 import '@/styles/footer.scss';
+import {routes} from '@/utils/config';
 
 const Line = () => (
   <div
@@ -192,8 +193,12 @@ const Footer = () => {
                       flexDirection: 'column'
                     }}
                   >
-                    <div>Chính sách bảo mật</div>
-                    <div>Điều khoản sử dụng</div>
+                    <LocaleLink locale={locale} href={routes.privacyPolicy}>
+                      Chính sách bảo mật
+                    </LocaleLink>
+                    <LocaleLink locale={locale} href={routes.termsOfService}>
+                      Điều khoản sử dụng
+                    </LocaleLink>
                     <div>
                       Bản quyền © 2024 thuộc <strong>TGN</strong>
                     </div>

@@ -26,7 +26,7 @@ const CardBase = (props: {item: ICardProps}) => {
       style={{
         ...item?.cardStyle
       }}
-      className={item?.cardClassName}
+      className={item?.cardClassName ?? ''}
     >
       <div
         className={`tgn-default-card-inner-style ${item?.isReverse ? 'tgn-flex-row-reverse' : ''} ${item?.className ?? ''}`}

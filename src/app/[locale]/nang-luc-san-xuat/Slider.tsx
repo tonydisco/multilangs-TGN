@@ -48,7 +48,8 @@ const NLSXSlider = (props: {masterData: IAlbumProps}) => {
     dot: false,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 5000
+    autoplaySpeed: 5000,
+    style: {}
   };
 
   if (sliderData?.length === 0) {
@@ -59,6 +60,7 @@ const NLSXSlider = (props: {masterData: IAlbumProps}) => {
     <SectionBase>
       <SectionTitles title="giấy chứng nhận" style={{textAlign: 'center'}} />
       <div
+        suppressHydrationWarning={true}
         className="position-relative"
         style={{paddingTop: '50px', paddingBottom: '20px'}}
       >
@@ -70,9 +72,9 @@ const NLSXSlider = (props: {masterData: IAlbumProps}) => {
         </button>
         <div className="container container-mobile">
           <Slider {...settings} ref={setSliderRef}>
-            {sliderData?.map((slider, i) => {
+            {sliderData?.map((slider) => {
               return (
-                <div key={i}>
+                <div key={slider.id}>
                   <div
                     style={{
                       margin: 10
@@ -86,7 +88,7 @@ const NLSXSlider = (props: {masterData: IAlbumProps}) => {
                         maxWidth: 300,
                         borderRadius: 8
                       }}
-                      alt={slider?.title ?? slider?.name}
+                      alt={slider?.name ?? slider?.title}
                     />
                   </div>
                 </div>

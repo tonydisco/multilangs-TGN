@@ -48,17 +48,6 @@ button {
   opacity: 0.5;
 }
 
-.fade-line-element {
-  border-bottom: 1px solid;
-  border-image-source: linear-gradient(
-    90deg,
-    transparent 0%,
-    #6d3e2f 50%,
-    transparent 100%
-  );
-  border-image-slice: 1;
-}
-
 .shape {
   position: relative;
   width: 400px; /* Adjust width as needed */

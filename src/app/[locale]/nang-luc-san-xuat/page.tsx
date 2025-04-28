@@ -8,6 +8,7 @@ import {getTranslations} from 'next-intl/server';
 import NLSXSlider from './Slider';
 import {getAlbum} from '@/apis/album';
 import {albums} from '@/utils/config';
+import {Suspense} from 'react';
 
 const mockData = [
   {
@@ -79,7 +80,10 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
           </SectionBase>
         );
       })}
-      {certData && <NLSXSlider masterData={certData} />}
+      <Suspense fallback={<div className="loading">Loading...</div>}>
+        <NLSXSlider masterData={certData} />
+      </Suspense>
+      {/* {certData && <NLSXSlider masterData={certData} />} */}
     </PageLayout>
   );
 }

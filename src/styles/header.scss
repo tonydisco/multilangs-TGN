@@ -99,6 +99,7 @@
   }
 
   .tgn-menu-items {
+    gap: 1.5rem;
     & > * {
       position: relative;
       &:not(:first-child) {
@@ -110,7 +111,7 @@
           position: absolute;
           top: 0;
           bottom: 0;
-          left: -9px;
+          left: -12px;
           opacity: 0.5;
           margin: auto 0;
         }

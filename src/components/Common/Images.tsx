@@ -14,7 +14,7 @@ const PureImage: React.FC<ILogoProps> = ({
   url,
   mode,
   className,
-  style,
+  style = {},
   alt
 }) => {
   return (
@@ -33,8 +33,8 @@ const PureImage: React.FC<ILogoProps> = ({
         objectFit: mode ?? 'contain',
         ...style
       }}
-      alt={alt ?? `${url}`}
-      className={className}
+      alt={alt ? `${alt}` : `${url}`}
+      className={className ?? ''}
     />
   );
 };

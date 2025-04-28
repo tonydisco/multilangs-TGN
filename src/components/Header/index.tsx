@@ -54,7 +54,7 @@ const Header = ({locale}: Readonly<Props>) => {
               style={{
                 listStyle: 'none'
               }}
-              className="d-flex align-items-center gap-3 position-relative mb-0 tgn-menu-items"
+              className="d-flex align-items-center position-relative mb-0 tgn-menu-items"
             >
               <Menus />
             </ul>

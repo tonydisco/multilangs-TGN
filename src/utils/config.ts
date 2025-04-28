@@ -26,6 +26,12 @@ export const rmockRoute = [
   {name: 'Liên hệ - tuyển dụng', path: routes.contact}
 ];
 
+export const pageBySlug = {
+  term: 'dieu-khoan-su-dung',
+  policy: 'chinh-sach-bao-mat',
+  business: 'linh-vuc-hoat-dong'
+};
+
 export const newsTabs = [
   {
     title: 'tất cả',

@@ -4,11 +4,11 @@ import ChildPage from './ChildPage';
 import {getPage} from '@/apis/pages';
 import parse from 'html-react-parser';
 import {v4 as uuidv4} from 'uuid';
+import {pageBySlug} from '@/utils/config';
 
 export default async function Page({params}: any) {
   const {locale} = await params;
-  const pageSlug = 'linh-vuc-hoat-dong';
-  const pageContent = await getPage(pageSlug);
+  const pageContent = await getPage(pageBySlug.business);
   const content = pageContent.contents.find((x: any) => x.language == locale);
   return (
     <PageLayout

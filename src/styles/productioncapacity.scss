@@ -32,7 +32,7 @@
   }
 
   .tgn-production-stat-text {
-    font-size: 14px;
+    font-size: var(--fs-card-content);
     white-space: pre;
     margin-bottom: 0;
   }

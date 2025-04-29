@@ -35,10 +35,9 @@ const Introduce = () => {
                     <Fragment key={uuid()}>
                       <div className="tgn-flex-item-width-pseudo">
                         <div className="tgn-stat-item-content">
-                          <PureImage
-                            url={item.icon}
-                            style={{width: 50, height: 'auto', flex: 1}}
-                          />
+                          <div style={{width: 'auto', height: 50}}>
+                            <PureImage url={item.icon} />
+                          </div>
                           <div style={{flex: 2}}>
                             <h2 className="tgn-introduce-stat-title">
                               {item.title}

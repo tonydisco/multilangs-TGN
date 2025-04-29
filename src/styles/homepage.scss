@@ -1,14 +1,13 @@
 /* Main Opening Component Styles */
 .tgn-opening-section {
   margin-bottom: 120px;
-  /* Introduce Section */
   .tgn-introduce-section {
     position: relative;
     overflow: hidden;
   }
 
   .tgn-introduce-container {
-    padding: 150px 0;
+    padding: 50px 0;
     background-color: var(--alabaster-white-color);
   }
 
@@ -17,9 +16,7 @@
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
-
-    gap: 20px;
-    padding: 15px 0;
+    gap: 40px;
   }
 
   .tgn-introduce-left {
@@ -36,14 +33,8 @@
     text-align: center;
   }
 
-  .tgn-introduce-title {
-    font-weight: 700;
-    font-size: 32px;
-    text-transform: uppercase;
-  }
-
   .tgn-introduce-desc {
-    font-size: 14px;
+    font-size: var(--fs-card-content);
   }
 
   .tgn-introduce-btn {
@@ -78,7 +69,7 @@
   }
 
   .tgn-introduce-stat-sub {
-    font-size: 14px;
+    font-size: var(--fs-card-content);
     margin: 0;
   }
 
@@ -117,13 +108,17 @@
     bottom: 0;
     width: 100%;
   }
-  .tgn-introduce-right {
-    margin-top: 25px;
+
+  .tgn-flex-item-width-pseudo {
+    &:not(:first-child) {
+      &::before {
+        left: -20px;
+      }
+    }
   }
+
   @media screen and (min-width: 768px) {
     .tgn-introduce-card {
-      gap: 40px;
-      padding: 15px 25px;
       flex-direction: row;
     }
     .tgn-introduce-statistics {
@@ -131,7 +126,14 @@
     }
     .tgn-introduce-right {
       flex: 2;
-      margin: 0;
+      .tgn-flex-item-width-pseudo {
+        &:first-child {
+          padding-left: 0;
+        }
+        &:last-child {
+          padding-right: 0;
+        }
+      }
     }
     .tgn-stat-item-content {
       gap: 20px;
@@ -141,31 +143,9 @@
         height: 600px !important;
       }
     }
-    .tgn-introduce-video-section {
+    .tgn-introduce-video-section,
+    .tgn-introduce-container {
       padding: 150px 0;
     }
   }
-  // @media screen and (max-width: 768px) {
-  //   .tgn-introduce-container {
-  //     padding: 75px 15px;
-  //   }
-
-  //   .default-vertical-line {
-  //     &:nth-child(4) {
-  //       display: none;
-  //     }
-  //   }
-
-  //   .tgn-introduce-video-section {
-  //     padding: 0 15px 100px 15px;
-  //   }
-  //   .tgn-introduce-iframe {
-  //     position: relative !important;
-  //     height: 100% !important;
-  //     width: 100% !important;
-  //   }
-  //   .tgn-introduce-video-overlay {
-  //     display: none;
-  //   }
-  // }
 }

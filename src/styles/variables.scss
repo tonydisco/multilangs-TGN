@@ -135,14 +135,14 @@ svg {
 
 @media only screen and (min-width: 0) {
   :root {
-    --fs-page-title: clamp(2rem, 2vw, 2.25rem);
-    --fs-page-subtitle: clamp(0.75rem, 2vw, 1rem);
-    --fs-section-title: 24px;
-    --fs-section-subtitle: 16px;
-    --fs-section-content: 14px;
-    --fs-card-title: 16px;
-    --fs-card-subtitle: 14px;
-    --fs-card-content: 14px;
+    --fs-page-title: clamp(2rem, 2vw, 2.25rem); //32px => 36px
+    --fs-page-subtitle: clamp(1rem, 2vw, 1.25rem); // 16px => 20px
+    --fs-section-title: clamp(1.5rem, 2vw, 1.75rem); // 24px => 28px;
+    --fs-section-subtitle: clamp(1rem, 2vw, 1.25rem); // 16px => 20px;
+    --fs-section-content: clamp(1rem, 2vw, 1.25rem); // 16px => 20px
+    --fs-card-title: clamp(1rem, 2vw, 1.25rem); // 16px => 20px;
+    --fs-card-subtitle: clamp(1rem, 2vw, 1.25rem); // 16px => 20px;
+    --fs-card-content: clamp(1rem, 2vw, 1.25rem); // 16px => 20px;
   }
 
   img,
@@ -154,13 +154,13 @@ svg {
 @media only screen and (min-width: 576px) {
   :root {
     --fs-page-title: clamp(2rem, 2vw, 2.25rem);
-    --fs-page-subtitle: clamp(0.75rem, 2vw, 1rem);
-    --fs-section-title: 24px;
-    --fs-section-subtitle: 16px;
-    --fs-section-content: 14px;
-    --fs-card-title: 16px;
-    --fs-card-subtitle: 14px;
-    --fs-card-content: 14px;
+    --fs-page-subtitle: clamp(1rem, 2vw, 1.25rem);
+    --fs-section-title: clamp(1.5rem, 2vw, 1.75rem); // 24px => 28px;
+    --fs-section-subtitle: clamp(1rem, 2vw, 1.25rem); // 16px => 20px;
+    --fs-section-content: clamp(1rem, 2vw, 1.25rem); // 16px => 20px
+    --fs-card-title: clamp(1rem, 2vw, 1.25rem); // 16px => 20px;
+    --fs-card-subtitle: clamp(1rem, 2vw, 1.25rem); // 16px => 20px;
+    --fs-card-content: clamp(1rem, 2vw, 1.25rem); // 16px => 20px;
   }
 
   img,
@@ -173,12 +173,12 @@ svg {
   :root {
     --fs-page-title: clamp(2rem, 2vw, 2.25rem);
     --fs-page-subtitle: clamp(1rem, 2vw, 1.25rem);
-    --fs-section-title: 24px;
-    --fs-section-subtitle: 16px;
-    --fs-section-content: 14px;
-    --fs-card-title: 16px;
-    --fs-card-subtitle: 14px;
-    --fs-card-content: 14px;
+    --fs-section-title: clamp(1.5rem, 2vw, 1.75rem); // 24px => 28px;
+    --fs-section-subtitle: clamp(1rem, 2vw, 1.25rem); // 16px => 20px;
+    --fs-section-content: clamp(1rem, 2vw, 1.25rem); // 16px => 16px
+    --fs-card-title: clamp(1rem, 2vw, 1.25rem); // 16px => 20px;
+    --fs-card-subtitle: clamp(1rem, 2vw, 1.25rem); // 16px => 20px;
+    --fs-card-content: clamp(1rem, 2vw, 1.25rem); // 16px => 20px;
   }
 
   img,
@@ -191,24 +191,24 @@ svg {
   :root {
     --fs-page-title: clamp(3rem, 3vw, 3.25rem);
     --fs-page-subtitle: clamp(1.5rem, 2vw, 1.75rem);
-    --fs-section-title: 40px;
-    --fs-section-subtitle: 24px;
-    --fs-section-content: 16px;
-    --fs-card-title: 24px;
-    --fs-card-subtitle: 16px;
-    --fs-card-content: 14px;
+    --fs-section-title: clamp(2.5rem, 2vw, 2.75rem); // 40px => 44px;
+    --fs-section-subtitle: clamp(1.5rem, 2vw, 1.75rem); // 24px => 28px;
+    --fs-section-content: clamp(1rem, 2vw, 1.25rem); // 16px => 20px
+    --fs-card-title: clamp(1.5rem, 2vw, 1.75rem); // 24px => 28px;
+    --fs-card-subtitle: clamp(1rem, 2vw, 1.25rem); // 16px => 20px;
+    --fs-card-content: clamp(1rem, 2vw, 1.25rem); // 16px => 20px;
   }
 }
 
 @media only screen and (min-width: 1200px) {
   :root {
     --fs-page-title: clamp(4rem, 4vw, 4.25rem);
-    --fs-page-subtitle: clamp(1.5rem, 2vw, 1.75rem);
-    --fs-section-title: 40px;
-    --fs-section-subtitle: 24px;
-    --fs-section-content: 16px;
-    --fs-card-title: 24px;
-    --fs-card-subtitle: 16px;
-    --fs-card-content: 14px;
+    --fs-page-subtitle: clamp(1.5rem, 3vw, 1.75rem);
+    --fs-section-title: clamp(2.5rem, 3vw, 2.75rem); // 40px => 44px;
+    --fs-section-subtitle: clamp(1.5rem, 3vw, 1.75rem); // 24px => 28px;
+    --fs-section-content: clamp(1rem, 3vw, 1.25rem); // 16px => 20px
+    --fs-card-title: clamp(1.5rem, 3vw, 1.75rem); // 24px => 28px;
+    --fs-card-subtitle: clamp(1rem, 3vw, 1.25rem); // 16px => 20px;
+    --fs-card-content: clamp(1rem, 3vw, 1.25rem); // 16px => 20px;
   }
 }

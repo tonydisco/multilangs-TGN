@@ -1,0 +1,214 @@
+:root {
+  --fs-page-title: 68px;
+  --fs-page-subtitle: 24px;
+  --fs-section-title: 40px;
+  --fs-section-subtitle: 24px;
+  --fs-section-content: 16px;
+  --fs-card-title: 24px;
+  --fs-card-subtitle: 16px;
+  --fs-card-content: 14px;
+  --white-color: #fff;
+  --black-color: #000;
+  --rgb-primary-code: 110, 62, 47;
+  --primary-color: #6e3e2f;
+  --primary-start-color: #6e3e2f;
+  --primary-end-color: #925846;
+  --text-color: #212121;
+  --secondary-color: #eddfd8;
+  --gray-color: #616161;
+  --gray-less-color: #e8e5e3;
+  --brown-pastel-color: #ddcdc5;
+  --text-brown-color: #6d3e2f;
+  --text-inactive-color: #828282;
+  --light-gray-color: #dfdfdf;
+}
+
+img,
+svg {
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.tgn-text-page-title {
+  font-size: var(--fs-page-title, 68px);
+}
+
+.tgn-text-page-subtitle {
+  font-size: var(--fs-page-subtitle, 24px);
+}
+
+.tgn-text-section-title {
+  font-size: var(--fs-section-title, 40px);
+}
+
+.tgn-text-section-subtitle {
+  font-size: var(--fs-section-subtitle, 24px);
+}
+
+.tgn-text-section-content {
+  font-size: var(--fs-section-content, 16px);
+}
+
+.tgn-text-card-title {
+  font-size: var(--fs-card-title, 24px);
+}
+
+.tgn-text-card-subtitle {
+  font-size: var(--fs-card-subtitle, 16px);
+}
+
+.tgn-text-card-content {
+  font-size: var(--fs-card-content, 14px);
+}
+
+.tgn-color-white {
+  color: var(--white-color, #fff);
+}
+
+.tgn-color-black {
+  color: var(--black-color, #000);
+}
+
+.tgn-color-primary {
+  color: var(--primary-color);
+}
+
+.tgn-color-secondary {
+  color: var(--secondary-color);
+}
+
+.tgn-color-primary-start {
+  color: var(--primary-start-color);
+}
+
+.tgn-color-primary-end {
+  color: var(--primary-end-color);
+}
+
+.tgn-color-gray {
+  color: var(--gray-color);
+}
+
+.tgn-color-brown-pastel {
+  color: var(--brown-pastel-color);
+}
+
+.tgn-bkg-white {
+  background-color: var(--white-color, #fff);
+}
+
+.tgn-bkg-black {
+  background-color: var(--black-color, #000);
+}
+
+.tgn-bkg-primary {
+  background-color: var(--primary-color);
+}
+
+.tgn-bkg-secondary {
+  background-color: var(--secondary-color);
+}
+
+.tgn-bkg-primary-start {
+  background-color: var(--primary-start-color);
+}
+
+.tgn-bkg-primary-end {
+  background-color: var(--primary-end-color);
+}
+
+.tgn-bkg-primary-gradient {
+  background: linear-gradient(
+    266.58deg,
+    var(--primary-start-color) -12.36%,
+    var(--primary-end-color) 132.15%
+  );
+}
+
+.tgn-bkg-gray {
+  background-color: var(--gray-color);
+}
+
+.tgn-bkg-brown-pastel {
+  background-color: var(--brown-pastel-color);
+}
+
+@media only screen and (min-width: 0) {
+  :root {
+    --fs-page-title: clamp(2rem, 2vw, 2.25rem);
+    --fs-page-subtitle: clamp(0.75rem, 2vw, 1rem);
+    --fs-section-title: 24px;
+    --fs-section-subtitle: 16px;
+    --fs-section-content: 14px;
+    --fs-card-title: 16px;
+    --fs-card-subtitle: 14px;
+    --fs-card-content: 14px;
+  }
+
+  img,
+  svg {
+    max-width: 100%;
+  }
+}
+
+@media only screen and (min-width: 576px) {
+  :root {
+    --fs-page-title: clamp(2rem, 2vw, 2.25rem);
+    --fs-page-subtitle: clamp(0.75rem, 2vw, 1rem);
+    --fs-section-title: 24px;
+    --fs-section-subtitle: 16px;
+    --fs-section-content: 14px;
+    --fs-card-title: 16px;
+    --fs-card-subtitle: 14px;
+    --fs-card-content: 14px;
+  }
+
+  img,
+  svg {
+    max-width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  :root {
+    --fs-page-title: clamp(2rem, 2vw, 2.25rem);
+    --fs-page-subtitle: clamp(1rem, 2vw, 1.25rem);
+    --fs-section-title: 24px;
+    --fs-section-subtitle: 16px;
+    --fs-section-content: 14px;
+    --fs-card-title: 16px;
+    --fs-card-subtitle: 14px;
+    --fs-card-content: 14px;
+  }
+
+  img,
+  svg {
+    max-width: 100%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  :root {
+    --fs-page-title: clamp(3rem, 3vw, 3.25rem);
+    --fs-page-subtitle: clamp(1.5rem, 2vw, 1.75rem);
+    --fs-section-title: 40px;
+    --fs-section-subtitle: 24px;
+    --fs-section-content: 16px;
+    --fs-card-title: 24px;
+    --fs-card-subtitle: 16px;
+    --fs-card-content: 14px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  :root {
+    --fs-page-title: clamp(4rem, 4vw, 4.25rem);
+    --fs-page-subtitle: clamp(1.5rem, 2vw, 1.75rem);
+    --fs-section-title: 40px;
+    --fs-section-subtitle: 24px;
+    --fs-section-content: 16px;
+    --fs-card-title: 24px;
+    --fs-card-subtitle: 16px;
+    --fs-card-content: 14px;
+  }
+}

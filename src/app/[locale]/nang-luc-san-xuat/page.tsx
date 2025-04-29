@@ -1,14 +1,13 @@
+import {getAlbum} from '@/apis/album';
 import {CardBase} from '@/components/Common/Card';
 import {SectionBase} from '@/components/Common/Section';
 import {TitlePageView} from '@/components/Hero';
 import PageLayout from '@/components/PageLayout';
 import {IPageDefaultProps} from '@/models/interface';
 import '@/styles/productionCap.scss';
+import {albums} from '@/utils/config';
 import {getTranslations} from 'next-intl/server';
 import NLSXSlider from './Slider';
-import {getAlbum} from '@/apis/album';
-import {albums} from '@/utils/config';
-import {Suspense} from 'react';
 
 const mockData = [
   {
@@ -80,10 +79,7 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
           </SectionBase>
         );
       })}
-      <Suspense fallback={<div className="loading">Loading...</div>}>
-        <NLSXSlider masterData={certData} />
-      </Suspense>
-      {/* {certData && <NLSXSlider masterData={certData} />} */}
+      {certData && <NLSXSlider masterData={certData} />}
     </PageLayout>
   );
 }

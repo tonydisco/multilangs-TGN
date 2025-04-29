@@ -4,49 +4,52 @@ import {routes} from '@/utils/config';
 import {Fragment} from 'react';
 import {v4 as uuid} from 'uuid';
 import {PureImage} from '../../Common/Images';
+import {CardBorder} from '@/components/Common/Card';
 
 const Introduce = () => {
   return (
     <section className="tgn-introduce-section">
       <div className="tgn-introduce-container">
-        <div className="container base-card">
-          <div className="tgn-introduce-card">
-            <div className="tgn-introduce-left">
-              <div className="tgn-introduce-content">
-                <SectionTitles title="giới thiệu" />
-                <p className="tgn-introduce-desc">
-                  <strong>Thế Giới Nhà</strong> hệ thống Siêu thị vật liệu xây
-                  dựng hàng đầu, cung cấp giải pháp toàn diện cho mọi công
-                  trình.
-                </p>
-                <Button
-                  btnProps={{
-                    text: 'Về chúng tôi',
-                    linkTo: routes.about
-                  }}
-                />
+        <div className="container">
+          <div className="base-card">
+            <div className="tgn-introduce-card">
+              <div className="tgn-introduce-left">
+                <div>
+                  <SectionTitles title="giới thiệu" />
+                  <p className="tgn-introduce-desc">
+                    <strong>Thế Giới Nhà</strong> hệ thống Siêu thị vật liệu xây
+                    dựng hàng đầu, cung cấp giải pháp toàn diện cho mọi công
+                    trình.
+                  </p>
+                  <Button
+                    btnProps={{
+                      text: 'Về chúng tôi',
+                      linkTo: routes.about
+                    }}
+                  />
+                </div>
               </div>
-            </div>
-            <div className="tgn-introduce-right">
-              <div className="tgn-flex-wrapper-width-pseudo">
-                {statistics.map((item) => (
-                  <Fragment key={uuid()}>
-                    <div className="tgn-flex-item-width-pseudo">
-                      <div>
-                        <PureImage
-                          url={item.icon}
-                          style={{width: 50, height: '50px'}}
-                        />
-                        <div>
-                          <h2 className="tgn-introduce-stat-title">
-                            {item.title}
-                          </h2>
-                          <p className="tgn-introduce-stat-sub">{item.sub}</p>
+              <div className="tgn-introduce-right">
+                <div className="tgn-flex-wrapper-width-pseudo">
+                  {statistics.map((item) => (
+                    <Fragment key={uuid()}>
+                      <div className="tgn-flex-item-width-pseudo">
+                        <div className="tgn-stat-item-content">
+                          <PureImage
+                            url={item.icon}
+                            style={{width: 50, height: 'auto', flex: 1}}
+                          />
+                          <div style={{flex: 2}}>
+                            <h2 className="tgn-introduce-stat-title">
+                              {item.title}
+                            </h2>
+                            <p className="tgn-introduce-stat-sub">{item.sub}</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </Fragment>
-                ))}
+                    </Fragment>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -57,24 +60,25 @@ const Introduce = () => {
         <div className="tgn-introduce-video-overlay">
           <PureImage url="/landing/CONSTRUCTION/OVERLAY.svg" />
         </div>
-        <div className="tgn-introduce-video-container">
-          <div className="base-video tgn-introduce-video">
-            <iframe
-              // className="tgn-introduce-iframe"
-              src="https://www.youtube.com/embed/AJFkU1bC3C0?si=ZmPXd6J_k3iaOqPa"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-              style={{
-                position: 'absolute',
-                height: 600 - 24,
-                borderRadius: 24,
-                width: 992 - 24,
-                zIndex: 1
-              }}
-              className="tgn-introduce-iframe"
-            />
+        <div className="container">
+          <div className="tgn-introduce-video-container">
+            <CardBorder
+              style={{height: 600, maxWidth: 992, position: 'relative'}}
+            >
+              <iframe
+                src="https://www.youtube.com/embed/AJFkU1bC3C0?si=ZmPXd6J_k3iaOqPa"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+                style={{
+                  height: '100%',
+                  borderRadius: 24,
+                  width: '100%'
+                }}
+                className="tgn-introduce-iframe"
+              />
+            </CardBorder>
           </div>
         </div>
       </div>

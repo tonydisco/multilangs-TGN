@@ -27,9 +27,9 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    height: 100%;
     justify-content: space-between;
     align-items: center;
+    height: 100%;
     text-align: center;
   }
 
@@ -63,7 +63,7 @@
   }
 
   .tgn-introduce-stat-title {
-    font-size: clamp(2rem, 2vw, 2.25rem);
+    font-size: var(--fs-section-title);
     font-weight: 700;
     color: var(--primary-color);
   }
@@ -126,6 +126,9 @@
     }
     .tgn-introduce-right {
       flex: 2;
+      .tgn-flex-wrapper-width-pseudo {
+        align-items: stretch;
+      }
       .tgn-flex-item-width-pseudo {
         &:first-child {
           padding-left: 0;

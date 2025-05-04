@@ -24,7 +24,7 @@ const Header = ({locale}: Readonly<Props>) => {
 
   return (
     <header id="header">
-      <nav className="d-flex align-items-center justify-content-between p-3 nav-custom">
+      <nav className="d-flex align-items-center justify-content-between nav-custom">
         <div className="nav-item tgn-search-icon-responsive">
           <div className="tgn-search-icon tgn-search-icon-responsive ">
             <PureImage style={{width: 22}} url="/icon/SEARCH.svg" />

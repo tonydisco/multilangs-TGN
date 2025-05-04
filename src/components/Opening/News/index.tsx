@@ -19,7 +19,7 @@ const News = () => {
         <CardBorder style={{height: 'auto', marginTop: 50}}>
           <div className="d-flex gap-5">
             <NewsList />
-            <div className="tgn-news-events tgn-pc-only">
+            <div className="tgn-pc-only tgn-news-events">
               <SingleTab
                 titleTab="Lịch sự kiện"
                 style={{

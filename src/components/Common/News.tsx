@@ -65,7 +65,7 @@ const NewsItem = ({
       <div className="tgn-newsitem-content">
         <div>
           <h5 className="tgn-newsitem-title">{title}</h5>
-          <p className="tgn-newsitem-description tgn-base-limit-lines tgn-base-limit-four-lines">
+          <p className="tgn-newsitem-description tgn-base-limit-lines tgn-base-limit-two-lines">
             {shortDescription}
           </p>
         </div>

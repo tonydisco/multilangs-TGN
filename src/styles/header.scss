@@ -73,6 +73,7 @@
 }
 
 .nav-custom {
+  padding: 15px;
   & > * {
     &:last-child {
       display: flex;
@@ -85,6 +86,9 @@
 }
 
 @media screen and (min-width: 1280px) {
+  .nav-custom {
+    padding: 1rem 5rem;
+  }
   .tgn-mobile-menu {
     display: none !important;
   }

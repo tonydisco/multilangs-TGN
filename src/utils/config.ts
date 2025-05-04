@@ -39,17 +39,17 @@ export const albums = {
 
 export const newsTabs = [
   {
-    title: 'tất cả',
+    title: 'Tất cả',
     value: 'all',
     id: 'tab-all'
   },
   {
-    title: 'tin tức nổi bật',
+    title: 'Tin tức nổi bật',
     value: 'featured',
     id: 'tab-featured'
   },
   {
-    title: 'tin tức thị trường',
+    title: 'Tin tức thị trường',
     value: 'market',
     id: 'tab-market'
   }

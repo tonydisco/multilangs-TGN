@@ -22,9 +22,11 @@
   .tgn-production-left {
     flex: 1;
   }
+
   .tgn-production-stats {
     padding: 46px 0;
   }
+
   .tgn-production-stat-number {
     font-size: 32px;
     font-weight: 700;
@@ -36,6 +38,7 @@
     white-space: pre;
     margin-bottom: 0;
   }
+
   .tgn-production-btn-content {
     display: flex;
     justify-content: space-between;
@@ -55,6 +58,7 @@
     position: relative;
     z-index: 2;
   }
+
   .tgn-production-right {
     flex: 1;
     height: 100%;

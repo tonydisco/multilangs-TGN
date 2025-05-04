@@ -1,9 +1,12 @@
-import BusinessPhisolophy from './Business';
-import VisionMission from './VisionMission';
-import Timeline from './Timeline';
 import {SectionTitles} from '@/components/Common/Titles';
+import BusinessPhisolophy from './Business';
+import Timeline from './Timeline';
+import VisionMission from './VisionMission';
+import {ITimelineProps} from '@/models/interface';
 
-const AboutUsView = () => {
+const AboutUsView = (props: ITimelineProps) => {
+  const {roadMap} = props;
+
   return (
     <section className="tgn-about-us">
       <div
@@ -52,7 +55,7 @@ const AboutUsView = () => {
       </div>
       <VisionMission />
       <BusinessPhisolophy />
-      <Timeline />
+      <Timeline roadMap={roadMap} />
     </section>
   );
 };

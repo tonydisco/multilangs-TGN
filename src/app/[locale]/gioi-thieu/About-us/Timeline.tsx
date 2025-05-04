@@ -3,34 +3,18 @@
 import {PureImage} from '@/components/Common/Images';
 import {SectionTitles} from '@/components/Common/Titles';
 import {useWindowDimensions} from '@/hooks/common/useWindowDimension';
+import {ITimelineProps} from '@/models/interface';
+import {useAppContext} from '@/Providers';
 import {BREAK_POINTS} from '@/utils/config';
 import {useMemo, useRef} from 'react';
 import Slider from 'react-slick';
-interface TimelineItem {
-  year: string;
-  text: string;
-  imageSrc: string;
-}
-// Creating hardcoded timeline items since we don't have translations set up yet
-const timelineItems: TimelineItem[] = [
-  {
-    year: '2008',
-    text: 'Thế Giới Nhà được thành lập với xuất phát điểm là doanh nghiệp trẻ hoạt động trong lĩnh vực sản xuất và cung ứng bê tông thương phẩm, công suất hoạt động 60m3/giờ.',
-    imageSrc: '/landing/ABOUT-US/2008.png'
-  },
-  {
-    year: '2014',
-    text: 'Số lượng nhà máy sản xuất bê tông tăng lên 18 nhà máy tập trung chủ yếu ở khu vực Tây Nam Bộ, Đông Nam Bộ, TP. Hồ Chí Minh và khu vực Phú Quốc, đồng thời thành lập các trung tâm sản xuất.Phát triển hệ thống các nhà máy cấu kiện – sử dụng bê tông đúc sẵn.Thành lập trung tâm kỹ thuật và được Bộ Xây Dựng phê duyệt LAS-XD 38.004 với chức năng tập trung nghiên cứu và phát triển sản phẩm, đảm bảo chất lượng toàn hệ thống. ',
-    imageSrc: '/landing/ABOUT-US/2014.png'
-  },
-  {
-    year: '2017',
-    text: 'Xuất xưởng thành công lô hàng cọc dự ứng lực D600C đầu tiên ra thị trường.Công ty Cổ phần Siêu thị Vật liệu xây dựng Thế Giới Nhà được thành lập mở ra giai đoạn chuyên môn hóa, tập trung vào việc mua bán, phân phối độc quyền các sản phẩm sản xuất từ hệ thống.',
-    imageSrc: '/landing/ABOUT-US/2017.png'
-  }
-];
 
-const Timeline = () => {
+const Timeline = (props: ITimelineProps) => {
+  const {roadMap} = props;
+
+  if (!roadMap.posts) {
+    return null;
+  }
   return (
     <section
       className="timeline-section"
@@ -46,7 +30,7 @@ const Timeline = () => {
             <SectionTitles title="lịch sử phát triển" />
           </div>
         </div>
-        <PartnersSlider />
+        <PartnersSlider roadMap={roadMap} />
       </div>
     </section>
   );
@@ -60,7 +44,10 @@ type SlickRefType = {
   slickNext: () => void;
 };
 
-function PartnersSlider() {
+function PartnersSlider(props: ITimelineProps) {
+  const {roadMap} = props;
+  const {locale} = useAppContext();
+
   const sliderRef = useRef<SlickRefType | null>(null);
 
   const {width} = useWindowDimensions();
@@ -89,6 +76,7 @@ function PartnersSlider() {
     dot: false,
     arrows: false
   };
+
   return (
     <div
       className="position-relative mt-5"
@@ -134,57 +122,62 @@ function PartnersSlider() {
       <div className="container">
         <div>
           <Slider {...settings} ref={setSliderRef}>
-            {timelineItems.map((item) => (
-              <div key={item.year}>
-                <div
-                  className="position-relative"
-                  style={{
-                    margin: 30
-                  }}
-                >
-                  <div style={{marginBottom: '1.5rem'}}>
-                    <h3
-                      style={{
-                        fontSize: '2rem',
-                        fontWeight: 700,
-                        marginTop: '1rem'
-                      }}
-                      className="tgn-text-gradient-color"
-                    >
-                      {item.year}
-                    </h3>
-                  </div>
-                  <div>
-                    <div className="position-relative">
-                      <PureImage
-                        url={item.imageSrc}
-                        className="img-fluid"
-                        style={{borderRadius: 16}}
-                      />
-                      <div
+            {roadMap.posts.map((item) => {
+              const findContentsByLocale = item.contents.find(
+                (content) => content.language === locale
+              );
+              return (
+                <div key={item.id}>
+                  <div
+                    className="position-relative"
+                    style={{
+                      margin: 30
+                    }}
+                  >
+                    <div style={{marginBottom: '1.5rem'}}>
+                      <h3
                         style={{
-                          zIndex: 2,
-                          top: -75,
-                          left: -30,
-                          position: 'absolute',
-                          height: '200px'
+                          fontSize: '2rem',
+                          fontWeight: 700,
+                          marginTop: '1rem'
                         }}
+                        className="tgn-text-gradient-color"
                       >
-                        <div className="line-w-dot"></div>
+                        {item.title}
+                      </h3>
+                    </div>
+                    <div>
+                      <div className="position-relative">
+                        <PureImage
+                          url={item.featuredImageUrl}
+                          className="img-fluid"
+                          style={{borderRadius: 16}}
+                        />
+                        <div
+                          style={{
+                            zIndex: 2,
+                            top: -75,
+                            left: -30,
+                            position: 'absolute',
+                            height: '200px'
+                          }}
+                        >
+                          <div className="line-w-dot"></div>
+                        </div>
+                        <p
+                          style={{
+                            fontSize: '1rem',
+                            marginTop: '1.5rem'
+                          }}
+                        >
+                          {findContentsByLocale?.excerpt}
+                        </p>
                       </div>
-                      <p
-                        style={{
-                          fontSize: '1rem',
-                          marginTop: '1.5rem'
-                        }}
-                      >
-                        {item.text}
-                      </p>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </Slider>
         </div>
       </div>

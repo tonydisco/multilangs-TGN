@@ -92,3 +92,18 @@ export interface IAlbumProps {
   id: string;
   numberOfItems?: number;
 }
+
+export interface ITimelineProps {
+  roadMap: {
+    posts: Array<{
+      title: string;
+      id: string;
+      contents: Array<{
+        language: string;
+        title: string;
+        excerpt: string;
+      }>;
+      featuredImageUrl: string;
+    }>;
+  };
+}

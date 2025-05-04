@@ -177,10 +177,12 @@ button {
 .tgn-base-limit-two-lines {
   -webkit-line-clamp: 2; /* Số dòng tối đa */
   line-clamp: 2;
+  max-height: 3em; /* Chiều cao tối đa */
 }
 .tgn-base-limit-four-lines {
   -webkit-line-clamp: 4; /* Số dòng tối đa */
   line-clamp: 4;
+  max-height: 6em; /* Chiều cao tối đa */
 }
 
 .app-btn-default-flex {

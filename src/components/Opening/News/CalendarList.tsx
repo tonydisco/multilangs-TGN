@@ -25,7 +25,7 @@ const CalendarItem = () => {
           <div className="tgn-calendar-day">01</div>
         </div>
       </div>
-      <div className="tgn-calendar-text">
+      <div className="tgn-calendar-text tgn-base-limit-lines tgn-base-limit-two-lines">
         TGN Group - Chào Xuân 2025 Sinh nhật 16 tuổi TGN Group
       </div>
     </div>

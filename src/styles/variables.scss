@@ -137,7 +137,7 @@ svg {
   :root {
     --fs-page-title: clamp(2rem, 2vw, 2.25rem); //32px => 36px
     --fs-page-subtitle: clamp(0.75rem, 2vw, 1rem); // 14px => 16px
-    --fs-section-title: clamp(1.5rem, 2vw, 1.75rem); // 24px => 28px;
+    --fs-section-title: clamp(1.5rem, 2vw, 1.5rem); // 24px => 28px;
     --fs-section-subtitle: clamp(1rem, 2vw, 1.25rem); // 16px => 20px;
     --fs-section-content: clamp(0.75rem, 2vw, 1rem); // 14px => 16px
     --fs-card-title: clamp(1rem, 2vw, 1.25rem); // 16px => 20px;
@@ -155,7 +155,7 @@ svg {
   :root {
     --fs-page-title: clamp(2rem, 2vw, 2.25rem);
     --fs-page-subtitle: clamp(0.75rem, 2vw, 1rem);
-    --fs-section-title: clamp(1.5rem, 2vw, 1.75rem); // 24px => 28px;
+    --fs-section-title: clamp(1.5rem, 2vw, 1.5rem); // 24px => 28px;
     --fs-section-subtitle: clamp(1rem, 2vw, 1.25rem); // 16px => 20px;
     --fs-section-content: clamp(0.75rem, 2vw, 1rem); // 14px => 16px
     --fs-card-title: clamp(1rem, 2vw, 1.25rem); // 16px => 20px;
@@ -173,7 +173,7 @@ svg {
   :root {
     --fs-page-title: clamp(2rem, 2vw, 2.25rem);
     --fs-page-subtitle: clamp(1rem, 2vw, 1.25rem);
-    --fs-section-title: clamp(1.5rem, 2vw, 1.75rem); // 24px => 28px;
+    --fs-section-title: clamp(1.5rem, 2vw, 1.5rem); // 24px => 28px;
     --fs-section-subtitle: clamp(1rem, 2vw, 1.25rem); // 16px => 20px;
     --fs-section-content: clamp(0.75rem, 2vw, 1rem); // 14px => 16px
     --fs-card-title: clamp(1rem, 2vw, 1.25rem); // 16px => 20px;
@@ -189,9 +189,9 @@ svg {
 
 @media only screen and (min-width: 992px) {
   :root {
-    --fs-page-title: clamp(3rem, 3vw, 3.25rem);
+    --fs-page-title: clamp(3rem, 2vw, 3.25rem);
     --fs-page-subtitle: clamp(1.5rem, 2vw, 1.75rem);
-    --fs-section-title: clamp(2.5rem, 2vw, 2.75rem); // 40px => 44px;
+    --fs-section-title: clamp(1.5rem, 2vw, 1.5rem); // 40px => 44px;
     --fs-section-subtitle: clamp(1.5rem, 2vw, 1.75rem); // 24px => 28px;
     --fs-section-content: clamp(1rem, 2vw, 1.25rem); // 16px => 20px
     --fs-card-title: clamp(1.5rem, 2vw, 1.75rem); // 24px => 28px;
@@ -202,13 +202,13 @@ svg {
 
 @media only screen and (min-width: 1200px) {
   :root {
-    --fs-page-title: clamp(4rem, 3vw, 4.25rem);
-    --fs-page-subtitle: clamp(1.5rem, 3vw, 1.75rem);
-    --fs-section-title: clamp(2.5rem, 3vw, 2.75rem); // 40px => 44px;
-    --fs-section-subtitle: clamp(1.5rem, 3vw, 1.75rem); // 24px => 28px;
-    --fs-section-content: clamp(1rem, 3vw, 1.25rem); // 16px => 20px
-    --fs-card-title: clamp(1.5rem, 3vw, 1.75rem); // 24px => 28px;
-    --fs-card-subtitle: clamp(1rem, 3vw, 1.25rem); // 16px => 20px;
-    --fs-card-content: clamp(0.75rem, 3vw, 1rem); // 14px => 16px;
+    --fs-page-title: clamp(4rem, 2vw, 4.25rem);
+    --fs-page-subtitle: clamp(1.5rem, 2vw, 1.75rem);
+    --fs-section-title: clamp(1.5rem, 2vw, 1.5rem); // 40px => 44px;
+    --fs-section-subtitle: clamp(1.5rem, 2vw, 1.75rem); // 24px => 28px;
+    --fs-section-content: clamp(1rem, 2vw, 1.25rem); // 16px => 20px
+    --fs-card-title: clamp(1.5rem, 2vw, 1.75rem); // 24px => 28px;
+    --fs-card-subtitle: clamp(1rem, 2vw, 1.25rem); // 16px => 20px;
+    --fs-card-content: clamp(0.75rem, 2vw, 1rem); // 14px => 16px;
   }
 }

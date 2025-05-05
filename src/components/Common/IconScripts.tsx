@@ -111,3 +111,22 @@ export const MenuIco: React.FC<LocationUnderlineProps> = ({
     </svg>
   );
 };
+export const ArrowBorder: React.FC<LocationUnderlineProps> = ({
+  width = 5,
+  height = 8,
+  fill = '#212121'
+}) => {
+  return (
+    <svg
+      width={width}
+      height={height}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2.975 4.333L.195 1.768A.6.6 0 010 1.308a.6.6 0 01.196-.46C.326.726.493.666.695.666s.368.06.498.18l3.278 3.026a.579.579 0 01.196.46c0 .088-.016.17-.045.247a.557.557 0 01-.151.214L1.193 7.819a.707.707 0 01-.498.18.707.707 0 01-.5-.18.6.6 0 01-.195-.46.6.6 0 01.196-.46l2.779-2.566z"
+        fill={fill}
+      />
+    </svg>
+  );
+};

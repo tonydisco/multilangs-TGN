@@ -2,6 +2,8 @@ import {Locale} from 'next-intl';
 import {ReactNode} from 'react';
 import {ISetting, ILanguages} from './interface';
 
+export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
+
 export type TSetting = 'General' | 'SocialNetworks' | 'Media';
 
 export type ImageMode = 'contain' | 'fill' | 'cover' | 'none' | 'scale-down';
@@ -28,3 +30,12 @@ export type TRootLayout = {
   messages: any;
   setting: ISetting;
 };
+
+export type TtypeId =
+  | 'post'
+  | 'page'
+  | 'news'
+  | 'event'
+  | 'project'
+  | 'product'
+  | 'job';

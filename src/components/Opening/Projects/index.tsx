@@ -1,15 +1,50 @@
 'use client';
+import {useAppContext} from '@/Providers';
+import {getProjects} from '@/apis/projects';
 import {Button} from '@/components/Common/Button';
+import {CardBorder, ProjectCardInner} from '@/components/Common/Card';
 import {PureImage} from '@/components/Common/Images';
 import {SectionTitles} from '@/components/Common/Titles';
-import {ImageMode} from '@/models/types';
-import {routes} from '@/utils/config';
-import React from 'react';
+import {IProjects} from '@/models/interface';
 import '@/styles/projects.scss';
+import {routes} from '@/utils/config';
+import {useEffect, useMemo, useState} from 'react';
 import {useTranslations} from 'use-intl';
+
+const LIMIT_ITEMS = 5;
 
 const Projects = () => {
   const t = useTranslations();
+
+  const {locale} = useAppContext();
+
+  const [projectData, setProjectData] = useState<{
+    posts: Array<IProjects>;
+    total: number;
+  }>({
+    posts: [],
+    total: 0
+  });
+
+  useEffect(() => {
+    (async () => {
+      const projects = await getProjects({pageSize: LIMIT_ITEMS});
+      if (projects?.total > 0) {
+        setProjectData((prev) => {
+          return {
+            ...prev,
+            posts: projects.posts,
+            total: projects.total
+          };
+        });
+      }
+    })();
+  }, []);
+
+  const project_1 = useMemo(() => projectData.posts.slice(0, 2), [projectData]);
+  const project_2 = useMemo(() => projectData.posts.slice(2, 4), [projectData]);
+  const project_3 = useMemo(() => projectData.posts.slice(4, 5), [projectData]);
+
   return (
     <section className="tgn-projects-section">
       <div className="tgn-projects-circle-right">
@@ -37,17 +72,19 @@ const Projects = () => {
             <div className="tgn-projects-col-left">
               <div className="tgn-projects-col-items">
                 {project_1.map((item, index) => {
+                  const titleByLocale = item?.contents?.find(
+                    (content) => content.language === locale
+                  )?.title;
                   return (
-                    <CardProject
+                    <CardBorder
+                      style={{width: '100%', padding: 0, height: 288}}
                       key={index}
-                      title={item.title}
-                      img={item.img}
-                      style={{
-                        height: '100%'
-                      }}
-                      mode="cover"
-                      className="tgn-img-responsive"
-                    />
+                    >
+                      <ProjectCardInner
+                        title={titleByLocale}
+                        imageUrl={item.featuredImageUrl}
+                      />
+                    </CardBorder>
                   );
                 })}
               </div>
@@ -56,21 +93,38 @@ const Projects = () => {
               <div className="tgn-projects-col-right-items">
                 <div className="tgn-projects-row">
                   {project_2.map((item, index) => {
+                    const titleByLocale = item?.contents?.find(
+                      (content) => content.language === locale
+                    )?.title;
                     return (
-                      <CardProject
+                      <CardBorder
+                        style={{width: '100%', padding: 0, height: 355}}
                         key={index}
-                        title={item.title}
-                        img={item.img}
-                        className="tgn-img-responsive"
-                      />
+                      >
+                        <ProjectCardInner
+                          title={titleByLocale}
+                          imageUrl={item.featuredImageUrl}
+                        />
+                      </CardBorder>
                     );
                   })}
                 </div>
-                <CardProject
-                  title="metro line 1"
-                  img="/landing/PROJECTS/METRO.png"
-                  className="tgn-img-responsive"
-                />
+                {project_3.map((item, index) => {
+                  const titleByLocale = item?.contents?.find(
+                    (content) => content.language === locale
+                  )?.title;
+                  return (
+                    <CardBorder
+                      style={{width: '100%', padding: 0, height: 221}}
+                      key={index}
+                    >
+                      <ProjectCardInner
+                        title={titleByLocale}
+                        imageUrl={item.featuredImageUrl}
+                      />
+                    </CardBorder>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -89,70 +143,3 @@ const Projects = () => {
 };
 
 export default Projects;
-
-const CardProject = ({
-  title,
-  img,
-  style,
-  mode,
-  className
-}: {
-  title: string;
-  img: string;
-  style?: React.CSSProperties;
-  mode?: ImageMode;
-  className?: string;
-}) => {
-  return (
-    <div
-      style={{
-        borderRadius: 24,
-        overflow: 'hidden',
-        position: 'relative',
-        width: '100%',
-        ...style
-      }}
-      className={className}
-    >
-      <PureImage url={img} mode={mode} />
-      <div
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          textTransform: 'uppercase',
-          fontWeight: 700,
-          fontSize: 16,
-          color: '#fff',
-          left: 0,
-          background:
-            'linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%)',
-          width: '100%'
-        }}
-      >
-        <div style={{padding: '15px 20px'}}>{title}</div>
-      </div>
-    </div>
-  );
-};
-
-const project_1 = [
-  {
-    title: 'Đường cao tốc biên hòa - vũng tàu',
-    img: '/landing/PROJECTS/HIGH-WAY.png'
-  },
-  {
-    title: 'Đường vành đai 3',
-    img: '/landing/PROJECTS/BELT-WAY.png'
-  }
-];
-
-const project_2 = [
-  {
-    title: 'sân bay quốc tế long thành',
-    img: '/landing/PROJECTS/AIRPORT.png'
-  },
-  {
-    title: 'Vinhome central park',
-    img: '/landing/PROJECTS/VINHOME.png'
-  }
-];

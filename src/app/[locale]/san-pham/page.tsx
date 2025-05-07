@@ -42,7 +42,7 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
                 <Button
                   btnProps={{
                     text: t('Btn_ViewMore'),
-                    linkTo: '/'
+                    linkTo: '/products/be-tong-thuong-pham'
                   }}
                 />
               </div>

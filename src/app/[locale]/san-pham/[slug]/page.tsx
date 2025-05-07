@@ -7,7 +7,7 @@ import TableComponent from './Table';
 import {IPageDefaultProps} from '@/models/interface';
 
 const getProductDetail = async (slug: string) => {
-  if (slug === 'be-tong-tuoi') {
+  if (slug === 'be-tong-thuong-pham') {
     return {
       data: {
         title: 'Bê tông thương phẩm',

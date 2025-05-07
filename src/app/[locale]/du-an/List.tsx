@@ -3,10 +3,10 @@
 import {useAppContext} from '@/Providers';
 import {CardBorder, ProjectCardInner} from '@/components/Common/Card';
 import Pagination from '@/components/Common/Pagination';
-import {IGetProjectResponse} from '@/models/interface';
+import {IGetPostResponse} from '@/models/interface';
 import {useState} from 'react';
 
-const ProjectList = (props: {projects: IGetProjectResponse}) => {
+const ProjectList = (props: {projects: IGetPostResponse}) => {
   const {projects} = props;
   const {locale} = useAppContext();
 

@@ -43,9 +43,9 @@
     display: flex;
     justify-content: center;
   }
-  .tgn-news-events-page {
-    max-width: 100%;
-  }
+}
+.tgn-news-list-wrapper {
+  flex: 3;
 }
 
 /* News Component Styles */
@@ -234,8 +234,7 @@
       flex-direction: row;
     }
     .tgn-news-events-page {
-      max-width: 335px;
-      width: 100%;
+      flex: 1;
     }
     .tgn-news-events {
       padding: 0;
@@ -244,6 +243,7 @@
     .news-pagination {
       padding: 15px;
       margin-top: 1.5rem;
+      justify-content: flex-start;
     }
   }
 }

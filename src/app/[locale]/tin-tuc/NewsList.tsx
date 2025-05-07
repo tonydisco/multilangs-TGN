@@ -2,17 +2,22 @@
 
 import {NewsItem, NewsTabs} from '@/components/Common/News';
 import Pagination from '@/components/Common/Pagination';
-import {newsTabs} from '@/utils/config';
-import {newsItems} from '@/mockData';
-import React, {useState} from 'react';
+import {IGetPostResponse} from '@/models/interface';
+import {useAppContext} from '@/Providers';
+import {parseDate} from '@/utils/common';
+import {newsTabs, routes} from '@/utils/config';
+import {useState} from 'react';
 
-const NewsList = () => {
+const NewsList = (props: {news: IGetPostResponse}) => {
+  const {news} = props;
+  const {locale} = useAppContext();
+
   const [projectData, setProjectData] = useState({
-    data: newsItems,
+    data: news.posts,
     loading: false,
-    total: newsItems.length,
+    total: news.total,
     page: 1,
-    limit: 3
+    limit: 10
   });
 
   const handleNext = () => {
@@ -48,16 +53,26 @@ const NewsList = () => {
       <div>
         <NewsTabs tabs={newsTabs} />
         <div className="tgn-newslist-content">
-          {data.map((item) => (
-            <div key={item.id} className="tgn-news-item">
-              <NewsItem
-                title={item.title}
-                date={item.date}
-                imageUrl={item.imageUrl}
-                shortDescription="Trong quá trình xây dựng, việc chọn vật liệu phù hợp đóng vai trò quan trọng trong việc đảm bảo chất lượng và độ bền của công trình xây dựng. Bê tông tươi là một trong những vật liệu xây dựng phổ biến nhất hiện nay, được sử dụng rộng rãi trong các"
-              />
-            </div>
-          ))}
+          {data.map((item) => {
+            const contentByLocale = item?.contents?.find(
+              (content) => content.language === locale
+            );
+            if (contentByLocale) {
+              return (
+                <div key={item.id} className="tgn-news-item">
+                  <NewsItem
+                    locale={locale}
+                    linkTo={routes.news + `/${item.slug}`}
+                    title={contentByLocale.title}
+                    imageUrl={item.featuredImageUrl}
+                    date={parseDate(item.publicationDate)}
+                    shortDescription={contentByLocale.excerpt}
+                  />
+                </div>
+              );
+            }
+            return null;
+          })}
         </div>
       </div>
       <div className="news-pagination">

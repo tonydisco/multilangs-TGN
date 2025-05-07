@@ -121,3 +121,5 @@ export const BREAK_POINTS = {
   LARGE_LAPTOP: 1440,
   DESKTOP: 2560
 };
+
+export const LIMIT_BASE_ITEMS = 10;

@@ -20,12 +20,7 @@ const News = () => {
           <div className="d-flex gap-5">
             <NewsList />
             <div className="tgn-pc-only tgn-news-events">
-              <SingleTab
-                titleTab="Lịch sự kiện"
-                style={{
-                  padding: '16px 0'
-                }}
-              />
+              <SingleTab titleTab="Lịch sự kiện" />
               <div className="tgn-news-event-content">
                 <CalendarList />
               </div>

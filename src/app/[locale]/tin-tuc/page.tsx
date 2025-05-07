@@ -23,21 +23,13 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
           <div className="news-flex-box">
             <NewsList />
             <div className="tgn-news-events-page tgn-news-events ">
-              <SingleTab
-                titleTab="Lịch sự kiện"
-                style={{
-                  padding: '16px 0'
-                }}
-              />
+              <SingleTab titleTab="Lịch sự kiện" />
               <div className="tgn-news-event-content">
                 <CalendarList />
               </div>
-              <SingleTab
-                titleTab="tin tức khác"
-                style={{
-                  padding: '16px 0'
-                }}
-              />
+              <div style={{marginTop: 30}}>
+                <SingleTab titleTab="tin tức khác" />
+              </div>
             </div>
           </div>
         </CardBorder>

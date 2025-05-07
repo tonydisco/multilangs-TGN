@@ -87,7 +87,9 @@ const SingleTab = ({
 }) => {
   return (
     <div style={{position: 'relative', ...style}}>
-      <h3 className="tgn-news-event-title tgn-title m-0">{titleTab}</h3>
+      <h3 className="tgn-newslist-tab tgn-title m-0 tgn-news-event-title">
+        {titleTab}
+      </h3>
       <div className="tgn-news-event-line" />
     </div>
   );

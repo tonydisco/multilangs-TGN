@@ -8,10 +8,15 @@ import {IPageDefaultProps} from '@/models/interface';
 import {getTranslations} from 'next-intl/server';
 import NewsList from './NewsList';
 import '@/styles/news.scss';
+import {getNews} from '@/apis/news';
+import {getEvents} from '@/apis/events';
+import {LIMIT_BASE_ITEMS} from '@/utils/config';
 
 export default async function Page({params}: Readonly<IPageDefaultProps>) {
   const {locale} = await params;
   const t = await getTranslations({locale});
+  const news = await getNews();
+  const events = await getEvents({pageSize: LIMIT_BASE_ITEMS});
 
   return (
     <PageLayout
@@ -21,16 +26,25 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
       <SectionBase contentStyle={{paddingBottom: 300}}>
         <CardBorder style={{height: 'auto', marginTop: 50}}>
           <div className="news-flex-box">
-            <NewsList />
-            <div className="tgn-news-events-page tgn-news-events ">
-              <SingleTab titleTab="Lịch sự kiện" />
-              <div className="tgn-news-event-content">
-                <CalendarList />
-              </div>
-              <div style={{marginTop: 30}}>
-                <SingleTab titleTab="tin tức khác" />
-              </div>
+            <div className="tgn-news-list-wrapper">
+              <NewsList news={news} />
             </div>
+            {(() => {
+              if (events?.posts?.length > 0) {
+                return (
+                  <div className="tgn-news-events-page tgn-news-events ">
+                    <SingleTab titleTab="Lịch sự kiện" />
+                    <div className="tgn-news-event-content">
+                      <CalendarList events={events} />
+                    </div>
+                    <div style={{marginTop: 30}}>
+                      <SingleTab titleTab="tin tức khác" />
+                    </div>
+                  </div>
+                );
+              }
+              return null;
+            })()}
           </div>
         </CardBorder>
       </SectionBase>

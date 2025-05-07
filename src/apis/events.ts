@@ -1,11 +1,11 @@
 import {getPosts} from '.';
 import {IGetPostsOption, IGetPostResponse} from '@/models/interface';
 
-export const getProjects = async (
+export const getEvents = async (
   option?: Partial<IGetPostsOption>
 ): Promise<IGetPostResponse> => {
   const defaultOption: IGetPostsOption = {
-    typeId: 'project',
+    typeId: 'event',
     page: 1,
     pageSize: 100,
     ...option

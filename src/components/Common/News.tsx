@@ -1,6 +1,7 @@
 'use client';
 import React, {useState} from 'react';
 import {PureImage} from './Images';
+import LocaleLink from './LinkByLocale';
 
 const NewsTabs = ({
   tabs,
@@ -48,33 +49,39 @@ const NewsTabs = ({
 
 const NewsItem = ({
   title,
+  locale,
   date,
+  linkTo,
   imageUrl,
   shortDescription
 }: {
   title: string;
+  locale: string;
   date: string;
   imageUrl: string;
   shortDescription?: string;
+  linkTo: string;
 }) => {
   return (
-    <div className="tgn-newsitem-container">
-      <div className="tgn-newsitem-image-container">
-        <PureImage url={imageUrl} mode="cover" />
-      </div>
-      <div className="tgn-newsitem-content">
-        <div>
-          <h5 className="tgn-newsitem-title">{title}</h5>
-          <p className="tgn-newsitem-description tgn-base-limit-lines tgn-base-limit-two-lines">
-            {shortDescription}
-          </p>
+    <LocaleLink locale={locale} href={linkTo}>
+      <div className="tgn-newsitem-container">
+        <div className="tgn-newsitem-image-container">
+          <PureImage url={imageUrl} mode="cover" />
         </div>
-        <div className="tgn-newsitem-footer">
-          <PureImage url="/icon/ICON-CALENDAR.svg" style={{width: 12}} />
-          <div>{date}</div>
+        <div className="tgn-newsitem-content">
+          <div>
+            <h5 className="tgn-newsitem-title">{title}</h5>
+            <p className="tgn-newsitem-description tgn-base-limit-lines tgn-base-limit-two-lines">
+              {shortDescription}
+            </p>
+          </div>
+          <div className="tgn-newsitem-footer">
+            <PureImage url="/icon/ICON-CALENDAR.svg" style={{width: 12}} />
+            <div>{date}</div>
+          </div>
         </div>
       </div>
-    </div>
+    </LocaleLink>
   );
 };
 

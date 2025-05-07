@@ -1,12 +1,25 @@
+'use client';
+import {IGetPostResponse} from '@/models/interface';
+import {useAppContext} from '@/Providers';
+import {parseDate} from '@/utils/common';
+import {dayOnlyFormat, monthOnlyFormat} from '@/utils/dayjs';
 import React from 'react';
 
-const CalendarList = () => {
+const CalendarList = (props: {events: IGetPostResponse}) => {
+  const {events} = props;
+  const {locale} = useAppContext();
   return (
     <div className="tgn-calendarlist-container">
-      {[1, 2, 3, 4, 5].map((_, idx) => {
+      {events.posts.map((item) => {
+        const contentByLocale = item?.contents?.find(
+          (content) => content.language === locale
+        );
         return (
-          <div key={idx} className="tgn-calendar-item">
-            <CalendarItem />
+          <div key={item.id} className="tgn-calendar-item">
+            <CalendarItem
+              date={item.publicationDate}
+              shortDescription={contentByLocale?.excerpt}
+            />
           </div>
         );
       })}
@@ -16,17 +29,22 @@ const CalendarList = () => {
 
 export default CalendarList;
 
-const CalendarItem = () => {
+const CalendarItem = (props: {date: string; shortDescription?: string}) => {
+  const {date, shortDescription} = props;
   return (
     <div className="tgn-calendar-container">
       <div className="tgn-calendar-card">
         <div className="tgn-calendar-content">
-          <div className="tgn-calendar-month">03/2025</div>
-          <div className="tgn-calendar-day">01</div>
+          <div className="tgn-calendar-month">
+            {parseDate(date, monthOnlyFormat)}
+          </div>
+          <div className="tgn-calendar-day">
+            {parseDate(date, dayOnlyFormat)}
+          </div>
         </div>
       </div>
       <div className="tgn-calendar-text tgn-base-limit-lines tgn-base-limit-two-lines">
-        TGN Group - Chào Xuân 2025 Sinh nhật 16 tuổi TGN Group
+        {shortDescription || 'N/A'}
       </div>
     </div>
   );

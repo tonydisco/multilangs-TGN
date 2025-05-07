@@ -134,15 +134,21 @@ export interface IProjects {
   slug: string;
   featuredImageId: string;
   featuredImageUrl: string;
+  publicationDate: string;
   typeCode: string;
   stylesheets: any[];
   contents: Array<{
     language: string;
     title: string;
     excerpt: string;
+    blocks?: Array<{
+      index: number;
+      name: string;
+      content: string;
+    }>;
   }>;
 }
-export interface IGetProjectResponse {
+export interface IGetPostResponse {
   total: number;
   posts: Array<IProjects>;
 }

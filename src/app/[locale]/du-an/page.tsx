@@ -1,15 +1,19 @@
+import '@/styles/projects.scss';
+import ProjectList from './List';
 import {SectionBase} from '@/components/Common/Section';
 import {SectionTitles} from '@/components/Common/Titles';
 import {TitlePageView} from '@/components/Hero';
 import PageLayout from '@/components/PageLayout';
-import ProjectList from './List';
 import {IPageDefaultProps} from '@/models/interface';
 import {getTranslations} from 'next-intl/server';
-import '@/styles/projects.scss';
+import {getProjects} from '@/apis/projects';
 
 export default async function Page({params}: Readonly<IPageDefaultProps>) {
   const {locale} = await params;
   const t = await getTranslations({locale});
+
+  const projects = await getProjects();
+
   return (
     <PageLayout
       title={<TitlePageView title={t('HeaderNavProjects')} />}
@@ -22,7 +26,7 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
         />
 
         <div className="mt-5">
-          <ProjectList />
+          <ProjectList projects={projects} />
         </div>
       </SectionBase>
     </PageLayout>

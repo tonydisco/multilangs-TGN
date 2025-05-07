@@ -1,4 +1,5 @@
-import {apiRequest, HttpMethod} from '@/services/fetchAPI';
+import {HttpMethod} from '@/models/types';
+import {apiRequest} from '@/services/fetchAPI';
 
 interface IContactUs {
   title: 'string';

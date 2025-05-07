@@ -1,14 +1,5 @@
 import {host} from '@/utils/config';
-import {ApiResult} from '@/models/interface';
-
-export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
-
-interface ApiRequestOptions {
-  method?: HttpMethod;
-  body?: any;
-  headers?: Record<string, string>;
-  params?: Record<string, string | number | boolean | undefined>;
-}
+import {ApiRequestOptions, ApiResult} from '@/models/interface';
 
 function buildQueryString(
   params?: Record<string, string | number | boolean | undefined>

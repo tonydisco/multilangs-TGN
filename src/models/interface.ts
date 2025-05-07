@@ -1,5 +1,5 @@
 import React from 'react';
-import {ImageMode} from './types';
+import {HttpMethod, ImageMode, TtypeId} from './types';
 import {Locale} from 'next-intl';
 
 export interface ApiResult<T> {
@@ -106,4 +106,43 @@ export interface ITimelineProps {
       featuredImageUrl: string;
     }>;
   };
+}
+
+export interface IGetPostsOption {
+  language?: string;
+  page?: number;
+  pageSize?: number;
+  query?: string;
+  orderBy?: string;
+  direction?: string;
+  typeId?: TtypeId;
+  categories?: string;
+  attributes?: string;
+  [key: string]: any;
+}
+
+export interface ApiRequestOptions {
+  method?: HttpMethod;
+  body?: any;
+  headers?: Record<string, string>;
+  params?: Record<string, string | number | boolean | undefined>;
+}
+
+export interface IProjects {
+  id: string;
+  title: string;
+  slug: string;
+  featuredImageId: string;
+  featuredImageUrl: string;
+  typeCode: string;
+  stylesheets: any[];
+  contents: Array<{
+    language: string;
+    title: string;
+    excerpt: string;
+  }>;
+}
+export interface IGetProjectResponse {
+  total: number;
+  posts: Array<IProjects>;
 }

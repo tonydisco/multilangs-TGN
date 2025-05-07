@@ -226,4 +226,25 @@ const CardItem = (props: {
   );
 };
 
-export {CardBase, CardBorder, CardItem, CardNoBorderLine, CardProduct};
+const ProjectCardInner = (props: {
+  imageUrl: string;
+  title?: string;
+  titleClassName?: string;
+}) => {
+  const {imageUrl, title, titleClassName} = props;
+  return (
+    <div className="tgn-inner-card-wrapper">
+      <PureImage url={imageUrl} mode="cover" style={{borderRadius: 16}} />
+      {title && <div className={`title ${titleClassName}`}>{title}</div>}
+    </div>
+  );
+};
+
+export {
+  CardBase,
+  CardBorder,
+  CardItem,
+  CardNoBorderLine,
+  CardProduct,
+  ProjectCardInner
+};

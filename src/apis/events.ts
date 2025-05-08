@@ -8,6 +8,7 @@ export const getEvents = async (
     typeId: 'event',
     page: 1,
     pageSize: 100,
+    categories: '!Events_DevelopmentStages',
     ...option
   };
   return await getPosts<IGetPostResponse>({

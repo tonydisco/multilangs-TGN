@@ -14,6 +14,9 @@ const CalendarList = (props: {events: IGetPostResponse}) => {
         const contentByLocale = item?.contents?.find(
           (content) => content.language === locale
         );
+        if (!contentByLocale?.excerpt) {
+          return null;
+        }
         return (
           <div key={item.id} className="tgn-calendar-item">
             <CalendarItem
@@ -44,7 +47,7 @@ const CalendarItem = (props: {date: string; shortDescription?: string}) => {
         </div>
       </div>
       <div className="tgn-calendar-text tgn-base-limit-lines tgn-base-limit-two-lines">
-        {shortDescription || 'N/A'}
+        {shortDescription}
       </div>
     </div>
   );

@@ -66,7 +66,7 @@ const NewsItem = ({
     <LocaleLink locale={locale} href={linkTo}>
       <div className="tgn-newsitem-container">
         <div className="tgn-newsitem-image-container">
-          <PureImage url={imageUrl} mode="cover" />
+          <PureImage url={imageUrl} mode={imageUrl ? 'cover' : 'contain'} />
         </div>
         <div className="tgn-newsitem-content">
           <div>

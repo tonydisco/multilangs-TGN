@@ -1,0 +1,27 @@
+.news-page-details-wrapper {
+  .tgn-bkg-grayish-blue {
+    padding-bottom: 200px;
+  }
+  .news-page-details-content {
+    padding-top: 100px;
+  }
+  .news-page-details-content-inner {
+    background-color: var(--white-color);
+    padding: 24px;
+    border-radius: 24px;
+  }
+  @media screen and (min-width: 768px) {
+    .content-inner-flex {
+      display: flex;
+      gap: 24px;
+      & > div {
+        &:first-child {
+          flex: 1;
+        }
+        &:last-child {
+          flex: 0 0 350px;
+        }
+      }
+    }
+  }
+}

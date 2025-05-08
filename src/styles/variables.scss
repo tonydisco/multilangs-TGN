@@ -21,6 +21,7 @@
   --text-brown-color: #6d3e2f;
   --text-inactive-color: #828282;
   --light-gray-color: #dfdfdf;
+  --light-grayish-blue-color: #f3f5f7;
 }
 
 img,
@@ -131,6 +132,9 @@ svg {
 
 .tgn-bkg-brown-pastel {
   background-color: var(--brown-pastel-color);
+}
+.tgn-bkg-grayish-blue {
+  background-color: var(--light-grayish-blue-color);
 }
 
 @media only screen and (min-width: 0) {

@@ -1,12 +1,12 @@
 'use client';
 
-import {NewsItem, NewsTabs} from '@/components/Common/News';
-import Pagination from '@/components/Common/Pagination';
-import {IGetPostResponse} from '@/models/interface';
-import {useAppContext} from '@/Providers';
-import {parseDate} from '@/utils/common';
-import {newsTabs, routes} from '@/utils/config';
 import {useState} from 'react';
+import {parseDate} from '@/utils/common';
+import {useAppContext} from '@/Providers';
+import {LIMIT_BASE_ITEMS, newsTabs, routes} from '@/utils/config';
+import {IGetPostResponse} from '@/models/interface';
+import Pagination from '@/components/Common/Pagination';
+import {NewsItem, NewsTabs} from '@/components/Common/News';
 
 const NewsList = (props: {news: IGetPostResponse}) => {
   const {news} = props;
@@ -17,7 +17,7 @@ const NewsList = (props: {news: IGetPostResponse}) => {
     loading: false,
     total: news.total,
     page: 1,
-    limit: 10
+    limit: LIMIT_BASE_ITEMS
   });
 
   const handleNext = () => {

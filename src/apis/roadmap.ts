@@ -13,7 +13,7 @@ const defaultQuery = {
   page: 1,
   pageSize: 1000,
   typeId: 'event',
-  categories: 'DevelopmentStages',
+  categories: 'Events_DevelopmentStages',
   orderBy: 'title',
   direction: 'asc'
 };

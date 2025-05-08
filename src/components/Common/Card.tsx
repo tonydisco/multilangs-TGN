@@ -39,14 +39,14 @@ const CardBase = (props: {item: ICardProps}) => {
         >
           <div className="d-flex flex-column justify-content-between h-100 gap-4">
             <div>
-              <h3 className="tgn-box-title text-start tgn-base-limit-lines tgn-base-limit-two-lines">
+              <h3 className="tgn-text-card-title text-start tgn-base-limit-lines tgn-base-limit-two-lines">
                 {item?.title}
               </h3>
               <div
                 style={{
                   marginTop: 20
                 }}
-                className="text-start card-base-text tgn-base-limit-lines tgn-base-limit-two-lines tgn-limit-four-lines tgn-text-gray-color"
+                className="text-start tgn-text-card-content tgn-base-limit-lines tgn-base-limit-two-lines tgn-limit-four-lines tgn-text-gray-color"
               >
                 {item?.content}
               </div>

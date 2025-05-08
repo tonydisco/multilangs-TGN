@@ -70,7 +70,7 @@ const Header = ({locale}: Readonly<Props>) => {
       <div
         className="menu-mobile-overflow"
         style={{
-          left: isMenuOpen ? 0 : '-100%'
+          left: isMenuOpen ? 0 : '-100vw'
         }}
       >
         <div className="menu-mobile-container">

@@ -1,7 +1,6 @@
 import {getSettings} from '@/apis/settings';
 import {routing} from '@/i18n/routing';
 import {hasLocale, Locale} from 'next-intl';
-import {getTranslations} from 'next-intl/server';
 import {notFound} from 'next/navigation';
 import {ReactNode} from 'react';
 
@@ -23,13 +22,9 @@ const montserrat = Montserrat({
   display: 'swap' // Prevent layout shift
 });
 
-export async function generateMetadata(props: Omit<Props, 'children'>) {
-  const {locale} = await props.params;
-
-  const t = await getTranslations({locale});
-
+export async function generateMetadata() {
   return {
-    title: t('HeadTitle')
+    title: 'TGN - Thế Giới Nhà'
   };
 }
 

@@ -9,6 +9,7 @@ import {IPageDefaultProps} from '@/models/interface';
 import {getTranslations} from 'next-intl/server';
 
 import '@/styles/products.scss';
+import {routes} from '@/utils/config';
 
 export default async function Page({params}: Readonly<IPageDefaultProps>) {
   const {locale} = await params;
@@ -42,7 +43,7 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
                 <Button
                   btnProps={{
                     text: t('Btn_ViewMore'),
-                    linkTo: '/products/be-tong-thuong-pham'
+                    linkTo: routes.product + '/be-tong-thuong-pham'
                   }}
                 />
               </div>

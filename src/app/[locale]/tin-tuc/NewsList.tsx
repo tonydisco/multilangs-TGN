@@ -12,6 +12,10 @@ const NewsList = (props: {news: IGetPostResponse}) => {
   const {news} = props;
   const {locale} = useAppContext();
 
+  console.log('====================================');
+  console.log({news});
+  console.log('====================================');
+
   const [projectData, setProjectData] = useState({
     data: news.posts,
     loading: false,

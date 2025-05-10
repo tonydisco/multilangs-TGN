@@ -43,9 +43,9 @@ const NewsPage = async ({params}: Readonly<IPageDefaultProps>) => {
                     );
                   })}
                 </div>
-                <div className="news-page-relative-content-block">
+                {/* <div className="news-page-relative-content-block">
                   tin tuc moi nhat
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

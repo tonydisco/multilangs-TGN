@@ -80,12 +80,14 @@ const News = () => {
         <SectionTitles title="tin tức" style={{textAlign: 'center'}} />
         <CardBorder style={{height: 'auto', marginTop: 50}}>
           <div className="d-flex gap-5">
-            <NewsList
-              allNews={{
-                ...mixData.allNews
-              }}
-              noPagin
-            />
+            <div style={{flex: 3}}>
+              <NewsList
+                allNews={{
+                  ...mixData.allNews
+                }}
+                noPagin
+              />
+            </div>
             {(() => {
               if (mixData.events.posts.length === 0) {
                 return null;

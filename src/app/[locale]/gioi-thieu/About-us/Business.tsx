@@ -97,7 +97,7 @@ const BusinessPhisolophy = () => {
                       <div className="b-card-wrapper">
                         <div>
                           <PureImage
-                            url="/landing/BUSINESS-PHILOSOPHY/CARD.svg"
+                            url="https://tgn-cdn.vikiworld.vn/media/card_3356701766828687360.svg"
                             style={{height: 250}}
                             mode="fill"
                           />
@@ -127,7 +127,7 @@ const BusinessPhisolophy = () => {
                           }}
                         >
                           <PureImage
-                            url="/landing/BUSINESS-PHILOSOPHY/CARD.svg"
+                            url="https://tgn-cdn.vikiworld.vn/media/card_3356701766828687360.svg"
                             style={{height: 250}}
                             mode="fill"
                           />
@@ -159,7 +159,7 @@ const BusinessPhisolophy = () => {
                       <div className="b-card-wrapper">
                         <div>
                           <PureImage
-                            url="/landing/BUSINESS-PHILOSOPHY/CARD-BOTTOM.svg"
+                            url="https://tgn-cdn.vikiworld.vn/media/card-bottom_3356701766979682305.svg"
                             style={{height: 250}}
                             mode="fill"
                           />
@@ -182,7 +182,7 @@ const BusinessPhisolophy = () => {
                       <div className="b-card-wrapper">
                         <div>
                           <PureImage
-                            url="/landing/BUSINESS-PHILOSOPHY/CARD-CENTER.svg"
+                            url="https://tgn-cdn.vikiworld.vn/media/card-center_3356701767055179777.png"
                             style={{height: 178}}
                             mode="fill"
                           />
@@ -206,7 +206,7 @@ const BusinessPhisolophy = () => {
                           }}
                         >
                           <PureImage
-                            url="/landing/BUSINESS-PHILOSOPHY/CARD-BOTTOM.svg"
+                            url="https://tgn-cdn.vikiworld.vn/media/card-bottom_3356701766979682305.svg"
                             style={{height: 250}}
                             mode="fill"
                           />
@@ -234,7 +234,7 @@ const BusinessPhisolophy = () => {
                       <div style={{position: 'relative'}}>
                         <div>
                           <PureImage
-                            url="/landing/BUSINESS-PHILOSOPHY/CARD-CENTER.png"
+                            url="https://tgn-cdn.vikiworld.vn/media/card-center_3356701767055179777.png"
                             mode="fill"
                             style={{
                               width: '490px',
@@ -288,7 +288,7 @@ const AssestRenderer = () => {
         }}
       >
         <PureImage
-          url="/landing/BUSINESS-PHILOSOPHY/BUSINESS-TEXTURE-1.png"
+          url="https://tgn-cdn.vikiworld.vn/media/business-texture-1_3356701766212124674.png"
           style={{maxWidth: '35%'}}
         />
       </div>
@@ -300,7 +300,7 @@ const AssestRenderer = () => {
         }}
       >
         <PureImage
-          url="/landing/BUSINESS-PHILOSOPHY/BUSINESS-TEXTURE-2.png"
+          url="https://tgn-cdn.vikiworld.vn/media/business-texture-2_3356701766266650625.png"
           style={{width: '600px'}}
           mode="cover"
         />
@@ -315,7 +315,7 @@ const AssestRenderer = () => {
         }}
       >
         <PureImage
-          url="/landing/BUSINESS-PHILOSOPHY/BUSINESS-TEXTURE-3.png"
+          url="https://tgn-cdn.vikiworld.vn/media/business-texture-3_3356701766480560129.png"
           mode="cover"
         />
       </div>

@@ -1,3 +1,5 @@
+import {TtypeNews} from '@/models/types';
+
 export const port = process.env.PORT;
 export const host =
   process.env.NEXT_PUBLIC_API_URL ?? `http://localhost:${port}`;
@@ -37,21 +39,25 @@ export const albums = {
   Customers: 'Customers'
 };
 
-export const newsTabs = [
+export const newsTabs: Array<{
+  title: string;
+  value: TtypeNews;
+  id: TtypeNews;
+}> = [
   {
     title: 'Tất cả',
-    value: 'all',
-    id: 'tab-all'
+    value: 'News_All',
+    id: 'News_All'
   },
   {
     title: 'Tin tức nổi bật',
-    value: 'featured',
-    id: 'tab-featured'
+    value: 'News_Highlight',
+    id: 'News_Highlight'
   },
   {
     title: 'Tin tức thị trường',
-    value: 'market',
-    id: 'tab-market'
+    value: 'News_Market',
+    id: 'News_Market'
   }
 ];
 

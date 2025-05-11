@@ -1,5 +1,5 @@
 import React from 'react';
-import {HttpMethod, ImageMode, TtypeId} from './types';
+import {HttpMethod, ImageMode, TtypeId, TtypeNews} from './types';
 import {Locale} from 'next-intl';
 
 export interface ApiResult<T> {
@@ -116,7 +116,7 @@ export interface IGetPostsOption {
   orderBy?: string;
   direction?: string;
   typeId?: TtypeId;
-  categories?: string;
+  categories?: TtypeNews;
   attributes?: string;
   [key: string]: any;
 }
@@ -151,4 +151,12 @@ export interface IProjects {
 export interface IGetPostResponse {
   total: number;
   posts: Array<IProjects>;
+}
+
+export interface INewsListProps {
+  allNews: {
+    highlight: IGetPostResponse;
+    market: IGetPostResponse;
+  };
+  noPagin?: boolean;
 }

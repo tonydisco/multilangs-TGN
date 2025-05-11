@@ -7,7 +7,7 @@ export const getNews = async (
   const defaultOption: IGetPostsOption = {
     typeId: 'news',
     page: 1,
-    pageSize: 100,
+    pageSize: 1000,
     ...option
   };
   return await getPosts<IGetPostResponse>({

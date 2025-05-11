@@ -2,6 +2,7 @@
 import React, {useState} from 'react';
 import {PureImage} from './Images';
 import LocaleLink from './LinkByLocale';
+import {TtypeNews} from '@/models/types';
 
 const NewsTabs = ({
   tabs,
@@ -9,8 +10,8 @@ const NewsTabs = ({
 }: {
   tabs: Array<{
     title: string;
-    value: string;
-    id: string;
+    value: TtypeNews;
+    id: TtypeNews;
   }>;
   onCb?: (tab: string | number) => void;
 }) => {
@@ -21,6 +22,9 @@ const NewsTabs = ({
   }
 
   const handleTabClick = (index: number, id: string) => {
+    if (index === tabSelected) {
+      return;
+    }
     setTabSelected(index);
     onCb?.(id);
   };

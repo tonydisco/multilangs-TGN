@@ -39,3 +39,5 @@ export type TtypeId =
   | 'project'
   | 'product'
   | 'job';
+
+export type TtypeNews = 'News_Highlight' | 'News_Market' | 'News_All';

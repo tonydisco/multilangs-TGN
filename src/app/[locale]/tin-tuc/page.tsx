@@ -1,36 +1,22 @@
+import {getEvents} from '@/apis/events';
+import {getNews} from '@/apis/news';
 import {CardBorder} from '@/components/Common/Card';
 import {SingleTab} from '@/components/Common/News';
 import {SectionBase} from '@/components/Common/Section';
 import {TitlePageView} from '@/components/Hero';
 import CalendarList from '@/components/Opening/News/CalendarList';
+import NewsList from '@/components/Opening/News/NewsList';
 import PageLayout from '@/components/PageLayout';
 import {IPageDefaultProps} from '@/models/interface';
-import {getTranslations} from 'next-intl/server';
-import NewsList from './NewsList';
 import '@/styles/news.scss';
-import {getNews} from '@/apis/news';
-import {getEvents} from '@/apis/events';
 import {LIMIT_BASE_ITEMS} from '@/utils/config';
+import {getTranslations} from 'next-intl/server';
 
 export default async function Page({params}: Readonly<IPageDefaultProps>) {
   const {locale} = await params;
   const t = await getTranslations({locale});
-  const news = await Promise.all([
-    getNews({categories: 'News_Highlight'}),
-    getNews({categories: 'News_Market'})
-  ]).then((res) => {
-    return res.reduce((acc: any, cur) => {
-      if (cur?.posts?.length > 0) {
-        return {
-          ...acc,
-          posts: [...(acc?.posts || []), ...(cur?.posts || [])],
-          total: (acc?.total || 0) + (cur?.total || 0)
-        };
-      }
-      return acc;
-    }, []);
-  });
-  // const news = await getNews({categories: 'News_Highlight'});
+  const newHighlight = await getNews({categories: 'News_Highlight'});
+  const newMarket = await getNews({categories: 'News_Market'});
   const events = await getEvents({pageSize: LIMIT_BASE_ITEMS});
 
   return (
@@ -42,7 +28,12 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
         <CardBorder style={{height: 'auto', marginTop: 50}}>
           <div className="news-flex-box">
             <div className="tgn-news-list-wrapper">
-              <NewsList news={news} />
+              <NewsList
+                allNews={{
+                  highlight: newHighlight,
+                  market: newMarket
+                }}
+              />
             </div>
             {(() => {
               if (events?.posts?.length > 0) {

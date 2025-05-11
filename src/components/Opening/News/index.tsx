@@ -15,18 +15,30 @@ import NewsList from './NewsList';
 
 const News = () => {
   const [mixData, setMixData] = useState<{
-    news: {
-      posts: Array<IProjects>;
-      total: number;
+    allNews: {
+      highlight: {
+        posts: Array<IProjects>;
+        total: number;
+      };
+      market: {
+        posts: Array<IProjects>;
+        total: number;
+      };
     };
     events: {
       posts: Array<IProjects>;
       total: number;
     };
   }>({
-    news: {
-      posts: [],
-      total: 0
+    allNews: {
+      highlight: {
+        posts: [],
+        total: 0
+      },
+      market: {
+        posts: [],
+        total: 0
+      }
     },
     events: {
       posts: [],
@@ -37,14 +49,21 @@ const News = () => {
   useEffect(() => {
     (async () => {
       const events = await getEvents({pageSize: LIMIT_BASE_ITEMS});
-      const news = await getNews({pageSize: LIMIT_BASE_ITEMS});
-      console.log('====================================');
-      console.log({news});
-      console.log('====================================');
+      const newHighlight = await getNews({
+        pageSize: LIMIT_BASE_ITEMS,
+        categories: 'News_Highlight'
+      });
+      const newMarket = await getNews({
+        pageSize: LIMIT_BASE_ITEMS,
+        categories: 'News_Market'
+      });
       setMixData((prev) => {
         return {
           ...prev,
-          news,
+          allNews: {
+            highlight: newHighlight,
+            market: newMarket
+          },
           events
         };
       });
@@ -61,12 +80,12 @@ const News = () => {
         <SectionTitles title="tin tức" style={{textAlign: 'center'}} />
         <CardBorder style={{height: 'auto', marginTop: 50}}>
           <div className="d-flex gap-5">
-            {(() => {
-              if (mixData.news.posts.length === 0) {
-                return null;
-              }
-              return <NewsList news={mixData.news} />;
-            })()}
+            <NewsList
+              allNews={{
+                ...mixData.allNews
+              }}
+              noPagin
+            />
             {(() => {
               if (mixData.events.posts.length === 0) {
                 return null;

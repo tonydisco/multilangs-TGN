@@ -6,34 +6,33 @@ const mockData = [
     title: 'Tầm nhìn',
     description:
       'Thế Giới Nhà định hướng phát triển thành hệ thống sản xuất và phân phối vật liệu xây dựng với hệ thống siêu thị có quy mô lớn tại Việt Nam, cung cấp đầy đủ các sản phẩm từ thô, tinh đến hoàn thiện.',
-    iconUrl: '/landing/VISION-MISSION/ICON-VISION.svg',
-    bgUrl: '/landing/VISION-MISSION/VISION.png'
+    iconUrl:
+      'https://tgn-cdn.vikiworld.vn/media/icon-vision_3356663842821111809.svg',
+    bgUrl: 'https://tgn-cdn.vikiworld.vn/media/vision_3356663459696607233.png'
   },
   {
     title: 'Sứ mệnh',
     description:
       '"Sự hài lòng của bạn là thước đo sự tồn tại và phát triển của chúng tôi."\nThế Giới Nhà cam kết mang đến sản phẩm chất lượng, dịch vụ chuyên nghiệp. Chúng tôi luôn phấn đấu không ngừng để hướng đến mục tiêu chung đó là sự hài lòng của khách hàng, đối tác và cả công, nhân viên công ty hướng đến sự hợp tác lâu dài và bền vững.',
-    iconUrl: '/landing/VISION-MISSION/ICON-MISSION.svg',
-    bgUrl: '/landing/VISION-MISSION/MISSION.png'
+    iconUrl:
+      'https://tgn-cdn.vikiworld.vn/media/icon-mission_3356663842657533953.svg',
+    bgUrl: 'https://tgn-cdn.vikiworld.vn/media/mission_3356663459600138241.png'
   }
 ];
 
 const VisionMission = () => {
   return (
-    <section className="vision-mission">
+    <section
+      className="vision-mission"
+      style={{
+        backgroundImage: `url(https://tgn-cdn.vikiworld.vn/media/grid-vision_3356665451789680641.png)`,
+        backgroundPosition: '100% 100%',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'auto'
+      }}
+    >
       <div className="container">
         <div className="vision-mission-wrapper">
-          <div
-            style={{
-              position: 'absolute',
-              bottom: '-30px',
-              left: 0,
-              zIndex: -1,
-              width: '100%'
-            }}
-          >
-            <PureImage url="/landing/VISION-MISSION/GRID-VISION.png" />
-          </div>
           <div
             className="d-flex justify-content-center align-items-stretch flex-item-wrapper"
             style={{gap: '1.25rem'}}

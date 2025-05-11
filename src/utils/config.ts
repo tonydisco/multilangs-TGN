@@ -29,7 +29,8 @@ export const rmockRoute = [
 export const pageBySlug = {
   term: 'dieu-khoan-su-dung',
   policy: 'chinh-sach-bao-mat',
-  business: 'linh-vuc-hoat-dong'
+  business: 'linh-vuc-hoat-dong',
+  aboutUs: 'gioi-thieu'
 };
 
 export const albums = {

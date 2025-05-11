@@ -1,7 +1,6 @@
 'use client';
 
 import {PureImage} from '@/components/Common/Images';
-import {SectionTitles} from '@/components/Common/Titles';
 import {useWindowDimensions} from '@/hooks/common/useWindowDimension';
 import {ITimelineProps} from '@/models/interface';
 import {useAppContext} from '@/Providers';
@@ -15,25 +14,7 @@ const Timeline = (props: ITimelineProps) => {
   if (!roadMap.posts) {
     return null;
   }
-  return (
-    <section
-      className="timeline-section"
-      style={{
-        background: 'url(/landing/ABOUT-US/TIME-LINE-BG.png) no-repeat',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
-      }}
-    >
-      <div>
-        <div className="mb-4 container">
-          <div className="text-center">
-            <SectionTitles title="lịch sử phát triển" />
-          </div>
-        </div>
-        <PartnersSlider roadMap={roadMap} />
-      </div>
-    </section>
-  );
+  return <PartnersSlider roadMap={roadMap} />;
 };
 
 export default Timeline;

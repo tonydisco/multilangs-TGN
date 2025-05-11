@@ -1,9 +1,4 @@
-.tgn-about-us {
-  .tgn-about-us-wrapper {
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-  }
+.tgn-about-us{
   .about-us-flex-item {
     display: flex;
     justify-content: center;
@@ -11,7 +6,7 @@
     margin: 0px auto;
     padding: 6rem;
     max-width: 72rem;
-    height: 100%;
+    height: auto;
   }
   .bg-intro {
     background-color: rgba(var(--rgb-primary-code), 0.8);
@@ -20,8 +15,10 @@
     padding: 2rem;
     color: var(--white-color);
   }
+}
 
-  //   vision-mission
+
+  // vision-mission
   .vision-mission {
     .vision-mission-wrapper {
       height: 500px;
@@ -56,16 +53,15 @@
   }
 
   @media screen and (max-width: 768px) {
-    .tgn-about-us-wrapper {
-      height: auto;
-      padding: 0;
+    .tgn-about-us {
+      .about-us-flex-item {
+        padding: 1rem 15px;
+      }
+      .bg-intro {
+        padding: 1rem;
+      }
     }
-    .about-us-flex-item {
-      padding: 1rem 15px;
-    }
-    .bg-intro {
-      padding: 1rem;
-    }
+    
     .vision-mission {
       .vision-mission-wrapper {
         height: auto;
@@ -90,4 +86,3 @@
       margin-top: 12px;
     }
   }
-}

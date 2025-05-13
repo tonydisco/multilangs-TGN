@@ -123,8 +123,8 @@ export const reverseRouteTranslations: {
 
 export const BREAK_POINTS = {
   MOBILE: 768,
-  TABLET: 1024,
-  LAPTOP: 1296,
+  TABLET: 992,
+  LAPTOP: 1280,
   LARGE_LAPTOP: 1440,
   DESKTOP: 2560
 };

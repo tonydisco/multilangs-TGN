@@ -1,15 +1,16 @@
-import {HeaderTitleView, TitlePageView} from '@/components/Hero';
+import {getPage} from '@/apis/pages';
+import {getRoadMap} from '@/apis/roadmap';
+import {HeaderTitleView} from '@/components/Hero';
 import PageLayout from '@/components/PageLayout';
 import {IPageDefaultProps} from '@/models/interface';
-import {getTranslations} from 'next-intl/server';
 import '@/styles/aboutUs.scss';
-import {getRoadMap} from '@/apis/roadmap';
-import {getPage} from '@/apis/pages';
 import {pageBySlug} from '@/utils/config';
 import parse from 'html-react-parser';
-import {v4 as uuidv4} from 'uuid';
+import {getTranslations} from 'next-intl/server';
 import {Fragment} from 'react';
+import {v4 as uuidv4} from 'uuid';
 import Timeline from './About-us/Timeline';
+// import AboutUsView from './About-us';
 
 export default async function Page({params}: Readonly<IPageDefaultProps>) {
   const {locale} = await params;
@@ -37,6 +38,7 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
         });
         return <Fragment key={uuidv4()}>{html}</Fragment>;
       })}
+      {/* <AboutUsView roadMap={roadMap} /> */}
     </PageLayout>
   );
 }

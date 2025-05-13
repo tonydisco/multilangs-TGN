@@ -28,10 +28,7 @@ const SectionBase = ({
       }}
     >
       <div className="container">
-        <div
-          style={{padding: '100px 0 150px 0', ...contentStyle}}
-          className={contentClassName ?? ''}
-        >
+        <div style={{...contentStyle}} className={contentClassName ?? ''}>
           {children}
         </div>
       </div>

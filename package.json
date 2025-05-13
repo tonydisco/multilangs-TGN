@@ -12,6 +12,7 @@
     "test:playwright": "playwright test",
     "test:jest": "jest",
     "build": "next build",
+    "export": "next export",
     "start": "next start"
   },
   "dependencies": {

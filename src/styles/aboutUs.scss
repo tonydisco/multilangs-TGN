@@ -97,11 +97,6 @@
     max-height: 95px;
     height: 100%;
   }
-  .about-us-wrapper {
-    & > *:last-child {
-      padding-bottom: 100px;
-    }
-  }
 }
 @media screen and (min-width: 1280px) {
   .tgn-business-card-center {

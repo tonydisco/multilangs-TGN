@@ -11,7 +11,6 @@ const NewsPage = async ({params}: Readonly<IPageDefaultProps>) => {
   const t = await getTranslations({locale});
 
   const pageData = await getPage(slug);
-  console.log({pageData});
 
   if (!pageData?.contents?.length) {
     return <NotFoundPage />;

@@ -4,6 +4,8 @@ import Pagination from '@/components/Common/Pagination';
 import {useAppContext} from '@/Providers';
 import {useMemo} from 'react';
 import {IJobList} from '.';
+import LocaleLink from '@/components/Common/LinkByLocale';
+import {routes} from '@/utils/config';
 
 const attributesMapping = ['Job.SalaryRange', 'Job.Location'];
 
@@ -172,7 +174,10 @@ const JobList = (props: {
                           }
                         )}
                       </div>
-                      <div>
+                      <LocaleLink
+                        href={routes.contact + `/${item.slug}`}
+                        locale={locale}
+                      >
                         <div
                           style={{
                             borderBottom: '1px solid #6d3e2f',
@@ -194,7 +199,7 @@ const JobList = (props: {
                             url="/icon/ARROW-BROW.svg"
                           />
                         </div>
-                      </div>
+                      </LocaleLink>
                     </div>
                   </div>
                 </div>

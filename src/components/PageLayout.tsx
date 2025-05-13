@@ -15,7 +15,9 @@ export default function PageLayout({
   css
 }: Readonly<Props>) {
   return (
-    <div className={`wrapper-overflow ${className ?? ''}`}>
+    <div
+      className={`wrapper-overflow wrapper-for-lastchild ${className ?? ''}`}
+    >
       {css?.length && <style>{css}</style>}
       <HeroView title={title} />
       {children}

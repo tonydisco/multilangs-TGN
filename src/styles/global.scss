@@ -18,6 +18,12 @@ body {
   margin-right: auto;
 }
 
+.wrapper-for-lastchild {
+  & > *:last-child {
+    padding-bottom: 100px;
+  }
+}
+
 @media (min-width: 640px) {
   .container {
     max-width: 640px !important;

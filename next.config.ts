@@ -19,7 +19,8 @@ const config: NextConfig = {
         hostname: 'tgn-cdn.vikiworld.vn'
       }
     ]
-  }
+  },
+  output: 'export'
 };
 
 export default withNextIntl(config);

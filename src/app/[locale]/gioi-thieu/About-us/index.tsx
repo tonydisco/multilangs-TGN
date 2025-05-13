@@ -58,7 +58,12 @@ const AboutUsView = (props: ITimelineProps) => {
       </section>
       <VisionMission />
       <BusinessPhisolophy />
-      <Timeline roadMap={roadMap} />
+      <section className="tgn-about-us-timeline">
+        <div style={{padding: '75px 0 0', textAlign: 'center'}}>
+          <SectionTitles title="Lịch sử phát triển" />
+        </div>
+        <Timeline roadMap={roadMap} />
+      </section>
     </>
   );
 };

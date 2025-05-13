@@ -9,11 +9,11 @@ import {v4 as uuid} from 'uuid';
 import {CardBorder} from '@/components/Common/Card';
 import {useTranslations} from 'next-intl';
 
-const BusinessPhysolophy = () => {
+const BusinessPhisolophy = () => {
   const {width} = useWindowDimensions();
   const t = useTranslations();
 
-  const isMobile = useMemo(() => width < BREAK_POINTS.TABLET, [width]);
+  const isMobile = useMemo(() => width < BREAK_POINTS.LAPTOP, [width]);
 
   return (
     <section className="business-phylosophy">
@@ -199,7 +199,7 @@ const BusinessPhysolophy = () => {
   );
 };
 
-export default BusinessPhysolophy;
+export default BusinessPhisolophy;
 
 const AssestRenderer = () => {
   return (

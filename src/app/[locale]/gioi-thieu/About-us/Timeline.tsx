@@ -79,17 +79,17 @@ function PartnersSlider(props: ITimelineProps) {
             onClick={onPrev}
             style={{
               position: 'absolute',
-              top: -13,
-              left: -50
+              top: -10,
+              left: -30
             }}
           >
             <PureImage url="/icon/ARROW-ICON.svg" />
           </button>
           <button
-            className="tgn-partners-btn-prev"
+            className="tgn-partners-btn"
             style={{
-              top: -13,
-              right: -50,
+              top: -10,
+              right: -30,
               position: 'absolute',
               transform: 'rotate(180deg)'
             }}

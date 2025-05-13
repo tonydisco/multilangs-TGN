@@ -90,7 +90,7 @@ const Footer = () => {
           <div className="container container-fluid-padding">
             <div className="inner-container">
               <div className="logo-flex-box">
-                <div style={{maxWidth: 275, marginBottom: 35}}>
+                <div style={{maxWidth: 275, marginBottom: 35, width: '100%'}}>
                   <Logos />
                 </div>
                 <div>

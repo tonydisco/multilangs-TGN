@@ -8,13 +8,10 @@ import {Button} from '@/components/Common/Button';
 const JobDetail = (props: {data: any}) => {
   const {data} = props;
 
-  console.log('====================================');
-  console.log({data});
-  console.log('====================================');
   return (
     <>
       <div style={{padding: '100px 0'}}>
-        <RecruitmentBanner onUpdateQuery={() => {}} btnStatus={true} />
+        <RecruitmentBanner onUpdateQuery={() => {}} btnStatus={false} />
       </div>
       <div className="tgn-container-content-inner">
         <SectionTitles title={data.title} />

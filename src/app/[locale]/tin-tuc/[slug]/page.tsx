@@ -28,7 +28,7 @@ const NewsPage = async ({params}: Readonly<IPageDefaultProps>) => {
       <div className="tgn-bkg-grayish-blue">
         <div className="news-page-details-content">
           <div className="container">
-            <div className="news-page-details-content-inner">
+            <div className="tgn-container-content-inner">
               <div className="content-inner-flex">
                 <div className="news-page-details-content-block">
                   {dataByLocale?.blocks?.map((block: any, index: number) => {

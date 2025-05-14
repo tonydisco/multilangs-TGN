@@ -155,8 +155,9 @@ const JobList = (props: {
                           overflowY: 'hidden'
                         }}
                       >
-                        {getAttributesMapping?.map(
-                          (tag: any, index: number) => {
+                        {getAttributesMapping
+                          ?.reverse()
+                          ?.map((tag: any, index: number) => {
                             return (
                               <div
                                 key={index}
@@ -171,8 +172,7 @@ const JobList = (props: {
                                 {tag?.value}
                               </div>
                             );
-                          }
-                        )}
+                          })}
                       </div>
                       <LocaleLink
                         href={routes.contact + `/${item.slug}`}

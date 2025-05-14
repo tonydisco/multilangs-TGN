@@ -21,6 +21,8 @@ export const getJobs = async (options?: {
   pageSize?: number;
   typeId?: string;
   attributes?: string;
+  query?: string;
+  categories?: string;
 }) => {
   const params = {
     page: 1,

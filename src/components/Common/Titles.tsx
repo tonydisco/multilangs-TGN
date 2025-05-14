@@ -38,4 +38,7 @@ const SectionSub = ({
   );
 };
 
-export {SectionTitles, SectionSub};
+const TitleInCard = ({title}: {title: string}) =>
+  title ? <div style={{fontSize: 20, fontWeight: 600}}>{title}</div> : null;
+
+export {SectionTitles, SectionSub, TitleInCard};

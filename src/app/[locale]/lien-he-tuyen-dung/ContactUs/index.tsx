@@ -1,20 +1,22 @@
 import {CardBorder} from '@/components/Common/Card';
 import {PureImage} from '@/components/Common/Images';
 import {SectionBase} from '@/components/Common/Section';
-import {SectionSub, SectionTitles} from '@/components/Common/Titles';
+import {
+  SectionSub,
+  SectionTitles,
+  TitleInCard
+} from '@/components/Common/Titles';
 import Socials from '@/components/Header/Socials';
 import React from 'react';
 import ContactForm from './ContactForm';
 
-const TitleInCard = ({title}: {title: string}) =>
-  title ? <div style={{fontSize: 20, fontWeight: 600}}>{title}</div> : null;
 const ContactUs = () => {
   return (
     <SectionBase
       bgImage="/landing/CONTACT-US/BG.png"
       className="contact-us-wrapper"
     >
-      <div className="flex-wrapper">
+      <div className="flex-wrapper" style={{padding: '100px 0'}}>
         <CardBorder
           style={{
             height: 'auto',

@@ -1,18 +1,13 @@
 import {getPage} from '@/apis/pages';
 import {SectionBase} from '@/components/Common/Section';
-import {SectionTitles} from '@/components/Common/Titles';
 import NotFoundPage from '@/components/NotFoundPage';
-import PageLayout from '@/components/PageLayout';
 import {IPageDefaultProps} from '@/models/interface';
+import JobDetail from './Detail';
 
 const JobDescription = async ({params}: Readonly<IPageDefaultProps>) => {
   const {slug, locale} = await params;
 
   const pageData = await getPage(slug);
-
-  console.log('====================================');
-  console.log({pageData});
-  console.log('====================================');
 
   if (!pageData?.contents?.length) {
     return <NotFoundPage />;
@@ -23,20 +18,12 @@ const JobDescription = async ({params}: Readonly<IPageDefaultProps>) => {
   );
 
   return (
-    <PageLayout className="job-page-details-wrapper">
-      <SectionBase style={{paddingTop: 100}}>
-        <SectionTitles title={dataByLocale.title} />
-        {dataByLocale?.blocks?.map((block: any, index: number) => {
-          return (
-            <section
-              key={index}
-              className="job-page-details-content"
-              dangerouslySetInnerHTML={{__html: block.content}}
-            />
-          );
-        })}
-      </SectionBase>
-    </PageLayout>
+    <SectionBase
+      contentClassName="wrapper-for-lastchild"
+      className="tgn-bkg-grayish-blue"
+    >
+      <JobDetail data={dataByLocale} />
+    </SectionBase>
   );
 };
 export default JobDescription;

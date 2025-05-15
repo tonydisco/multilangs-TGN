@@ -249,6 +249,158 @@ const ProjectCardInner = (props: {
     </div>
   );
 };
+const CardJob = (props: {
+  featuredImageUrl: string;
+  title: string;
+  slug: string;
+  contents: any;
+  attributesMapping: any;
+  onClick?: () => void;
+  className?: string;
+}) => {
+  const {featuredImageUrl, title, contents, attributesMapping, slug} = props;
+
+  const {locale} = useAppContext();
+  return (
+    <CardBorder style={{height: '100%'}}>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          height: '100%'
+        }}
+      >
+        <div>
+          <PureImage
+            url={featuredImageUrl}
+            style={{
+              width: '180px',
+              marginBottom: 28,
+              height: 'auto'
+            }}
+          />
+          <div className="tgn-base-limit-lines tgn-base-limit-two-lines">
+            <span
+              style={{
+                fontSize: 16,
+                fontWeight: 700
+              }}
+            >
+              Vị trí:{' '}
+            </span>
+            <span>{title}</span>
+          </div>
+          <div
+            style={{marginTop: 10}}
+            className="tgn-base-limit-lines tgn-base-limit-four-lines"
+          >
+            <span
+              style={{
+                fontSize: 16,
+                fontWeight: 700
+              }}
+            >
+              Yêu cầu:{' '}
+            </span>
+            {contents?.blocks?.map((block: any, idx: number) => {
+              if (idx === 0) {
+                return (
+                  <span
+                    key={idx}
+                    style={{
+                      fontSize: 14,
+                      fontWeight: 400,
+                      whiteSpace: 'break-spaces'
+                    }}
+                  >
+                    {block?.content}
+                  </span>
+                );
+              }
+              return (
+                <div
+                  key={idx}
+                  style={{
+                    fontSize: 14,
+                    fontWeight: 400,
+                    whiteSpace: 'break-spaces',
+                    marginTop: 10
+                  }}
+                >
+                  {block?.content}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        <div>
+          <div
+            className="default-horizone-line"
+            style={{opacity: 0.3, margin: '20px 0'}}
+          />
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              gap: 20
+            }}
+          >
+            <div
+              style={{
+                display: 'flex',
+                gap: 10,
+                overflowX: 'auto',
+                overflowY: 'hidden'
+              }}
+            >
+              {attributesMapping?.map((tag: any, index: number) => {
+                return (
+                  <div
+                    key={index}
+                    style={{
+                      backgroundColor: '#F2F2F2',
+                      padding: '5px 10px',
+                      borderRadius: 36,
+                      fontSize: 13,
+                      whiteSpace: 'nowrap'
+                    }}
+                  >
+                    {tag?.value}
+                  </div>
+                );
+              })}
+            </div>
+            <LocaleLink href={routes.contact + `/${slug}`} locale={locale}>
+              <div
+                style={{
+                  borderBottom: '1px solid #6d3e2f',
+                  display: 'flex',
+                  alignItems: 'center'
+                }}
+              >
+                <span
+                  className="tgn-text-brow-color"
+                  style={{
+                    fontWeight: 600,
+                    whiteSpace: 'nowrap'
+                  }}
+                >
+                  Chi tiết
+                </span>
+                <PureImage
+                  style={{width: 20, marginLeft: 10}}
+                  url="/icon/ARROW-BROW.svg"
+                />
+              </div>
+            </LocaleLink>
+          </div>
+        </div>
+      </div>
+    </CardBorder>
+  );
+};
 
 export {
   CardBase,
@@ -256,5 +408,6 @@ export {
   CardItem,
   CardNoBorderLine,
   CardProduct,
-  ProjectCardInner
+  ProjectCardInner,
+  CardJob
 };

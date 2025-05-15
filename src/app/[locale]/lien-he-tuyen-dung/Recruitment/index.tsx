@@ -1,41 +1,13 @@
 'use client';
-import {getJobs} from '@/apis/jobs';
+import Nodata from '@/components/Common/Nodata';
 import {SectionBase} from '@/components/Common/Section';
-import {useEffect, useState} from 'react';
+import {useJobs} from '@/hooks/APIs/useJobs';
+import {IJobList} from '@/models/interface';
 import {RecruitmentBanner} from './Banner';
 import JobList from './JobList';
-import Nodata from '@/components/Common/Nodata';
 
-export interface IJobList {
-  data: Array<any>;
-  loading: boolean;
-  total: number;
-  page: number;
-  limit: number;
-}
 const RecruitMent = () => {
-  const [jobList, setJobList] = useState<IJobList>({
-    data: [],
-    loading: false,
-    total: 0,
-    page: 1,
-    limit: 1000
-  });
-
-  useEffect(() => {
-    (async () => {
-      const rest = await getJobs();
-      if (rest.isSuccess) {
-        setJobList((prev: IJobList) => {
-          return {
-            ...prev,
-            data: rest.result.posts,
-            total: rest?.result?.total
-          };
-        });
-      }
-    })();
-  }, []);
+  const {jobList, setJobList, onGetJobs} = useJobs();
 
   const handleNext = () => {
     if (jobList.page * jobList.limit < jobList.total) {
@@ -72,20 +44,11 @@ const RecruitMent = () => {
     console.log('====================================');
     console.log(txt);
     console.log('====================================');
-    const rest = await getJobs({
+    await onGetJobs({
       page: jobList.page,
       pageSize: jobList.limit,
       query: txt
     });
-    if (rest.isSuccess) {
-      setJobList((prev: IJobList) => {
-        return {
-          ...prev,
-          data: rest.result.posts,
-          total: rest?.result?.total
-        };
-      });
-    }
   };
 
   return (

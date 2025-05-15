@@ -16,14 +16,15 @@ interface IGetjobs {
   title: string;
   slug: string;
 }
-export const getJobs = async (options?: {
+export interface IQueryJobs {
   page?: number;
   pageSize?: number;
   typeId?: string;
   attributes?: string;
   query?: string;
   categories?: string;
-}) => {
+}
+export const getJobs = async (options?: IQueryJobs) => {
   const params = {
     page: 1,
     pageSize: 1000,

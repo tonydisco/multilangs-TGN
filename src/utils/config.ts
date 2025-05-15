@@ -130,3 +130,4 @@ export const BREAK_POINTS = {
 };
 
 export const LIMIT_BASE_ITEMS = 10;
+export const attributesMapping = ['Job.SalaryRange', 'Job.Location'];

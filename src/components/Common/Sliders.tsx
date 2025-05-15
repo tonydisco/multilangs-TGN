@@ -10,7 +10,7 @@ type SlickRefType = {
 };
 
 interface IBaseSliderProps {
-  rederList: any;
+  renderList: Array<any>;
   slidesToShow?: number;
   slidesToScroll?: number;
   speed?: number;
@@ -18,7 +18,7 @@ interface IBaseSliderProps {
 }
 
 const BaseSlider = ({
-  rederList,
+  renderList,
   slidesToShow = 3,
   slidesToScroll = 1,
   speed = 300,
@@ -91,7 +91,7 @@ const BaseSlider = ({
       <div className="container">
         <div>
           <Slider {...settings} ref={setSliderRef}>
-            {rederList}
+            {renderList}
           </Slider>
         </div>
       </div>

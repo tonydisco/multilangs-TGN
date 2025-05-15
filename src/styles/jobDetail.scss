@@ -1,9 +1,74 @@
 .job-page-details-content {
   white-space: pre-line;
 }
+.job-detail-color {
+  color: var(--gray-color);
+}
+
+.attribute-flex-col-content {
+  flex-direction: row;
+  display: flex;
+  gap: 30px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+  & > .job-detail-attribute {
+    flex: 1 1 45%;
+    max-width: 50%;
+    box-sizing: border-box;
+  }
+}
+.attribute-flex-content {
+  display: flex;
+  gap: 20px;
+}
+.attribute-flex-content-wrapper {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  & > .job-detail-attribute {
+    flex: 1 1 45%;
+    max-width: 50%;
+    box-sizing: border-box;
+  }
+}
+.job-detail-flex-content {
+  & > *:first-child {
+    margin-bottom: 30px;
+  }
+}
+.job-detail-item-inner {
+  font-size: 13px;
+}
 @media screen and (min-width: 768px) {
   .wrapper-for-lastchild {
     padding-bottom: 200px;
     line-height: 1.5rem;
+  }
+  .job-detail-flex-content {
+    display: flex;
+    gap: 20px;
+    & > *:first-child {
+      flex: 3.5;
+    }
+  }
+  .attribute-flex-content-wrapper {
+    flex-wrap: nowrap;
+    & > .job-detail-attribute {
+      flex: unset;
+      max-width: 100%;
+    }
+  }
+  .job-detail-item-inner {
+    font-size: 16px;
+  }
+  .attribute-flex-col-content {
+    flex-direction: column;
+    gap: 30px;
+    & > .job-detail-attribute {
+      flex: unset;
+      max-width: 100%;
+    }
   }
 }

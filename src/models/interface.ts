@@ -161,3 +161,11 @@ export interface INewsListProps {
   };
   noPagin?: boolean;
 }
+
+export interface IJobList {
+  data: Array<any>;
+  loading: boolean;
+  total: number;
+  page: number;
+  limit: number;
+}

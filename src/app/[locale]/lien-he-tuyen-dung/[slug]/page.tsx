@@ -13,16 +13,12 @@ const JobDescription = async ({params}: Readonly<IPageDefaultProps>) => {
     return <NotFoundPage />;
   }
 
-  const dataByLocale = pageData?.contents?.find(
-    (item: any) => item.language === locale
-  );
-
   return (
     <SectionBase
       contentClassName="wrapper-for-lastchild"
       className="tgn-bkg-grayish-blue"
     >
-      <JobDetail data={dataByLocale} />
+      <JobDetail data={pageData} locale={locale} />
     </SectionBase>
   );
 };

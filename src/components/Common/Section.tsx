@@ -1,7 +1,5 @@
 import React from 'react';
 
-import '@/styles/sections.css';
-
 interface ISectionProps {
   children: React.ReactNode;
   bgImage?: string;

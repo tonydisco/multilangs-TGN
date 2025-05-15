@@ -42,11 +42,18 @@ body {
   }
 }
 
+@media (min-width: 1344px) {
+  .container {
+    max-width: 1280px !important;
+  }
+}
+
 @media (min-width: 1536px) {
   .container {
     max-width: 1536px !important;
   }
 }
+
 a {
   text-decoration: none !important;
   color: inherit !important;
@@ -59,6 +66,12 @@ button {
   font: inherit;
   color: inherit;
   cursor: pointer;
+}
+
+.business-areas-wrapper {
+  & > *:last-child {
+    padding-bottom: 0;
+  }
 }
 
 .app-container {
@@ -119,7 +132,7 @@ button {
   color: var(--text-brown-color);
 }
 .tgn-bg-color-brown-pastel {
-  background-color: var(--secondary-color-brown-pastel);
+  background-color: var(--brown-pastel-color);
 }
 .tgn-bg-gray-less {
   background-color: var(--gray-less-color);

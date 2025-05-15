@@ -1,4 +1,7 @@
-.nlsx-wrapper {
+.production-capacity-wrapper {
+  .center-section-wrapper {
+    min-height: 900px;
+  }
   .tgn-slider-btn {
     position: absolute;
     top: 50%;
@@ -16,6 +19,7 @@
     left: 0px;
     right: 0px;
   }
+
   @media screen and (max-width: 768px) {
     .card-inner-mobile {
       flex-direction: column !important;

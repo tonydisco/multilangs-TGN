@@ -48,8 +48,7 @@ const NLSXSlider = (props: {masterData: IAlbumProps}) => {
     dot: false,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 5000,
-    style: {}
+    autoplaySpeed: 5000
   };
 
   if (sliderData?.length === 0) {
@@ -57,7 +56,7 @@ const NLSXSlider = (props: {masterData: IAlbumProps}) => {
   }
 
   return (
-    <SectionBase>
+    <SectionBase className="center-section-wrapper">
       <SectionTitles title="giấy chứng nhận" style={{textAlign: 'center'}} />
       <div
         suppressHydrationWarning={true}
@@ -77,7 +76,11 @@ const NLSXSlider = (props: {masterData: IAlbumProps}) => {
                 <div key={slider.id}>
                   <div
                     style={{
-                      margin: 10
+                      margin: 10,
+                      height: 405,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
                     }}
                   >
                     <PureImage

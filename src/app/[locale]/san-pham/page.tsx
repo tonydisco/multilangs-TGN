@@ -20,7 +20,7 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
       title={<TitlePageView title={t('HeaderNavProducts')} />}
       className="sp-wrapper"
     >
-      <SectionBase className="tgn-bg-color-brown-pastel">
+      <SectionBase className="tgn-bg-color-brown-pastel d-flex align-items-center">
         <div className=" position-relative default-flex-item">
           <div className="item-in-flex-box">
             <CardNoBorderLine className="card-product-default">
@@ -86,7 +86,7 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
           </div>
         </div>
       </SectionBase>
-      <SectionBase contentStyle={{paddingTop: 0}}>
+      <SectionBase className="product-content-wrapper">
         <SectionTitles
           title="các sản phẩm khác"
           style={{textAlign: 'center'}}

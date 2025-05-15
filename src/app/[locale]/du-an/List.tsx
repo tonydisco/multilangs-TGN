@@ -61,6 +61,7 @@ const ProjectList = (props: {projects: IGetPostResponse}) => {
                   title={titleByLocale}
                   imageUrl={item.featuredImageUrl}
                   titleClassName="text-center"
+                  imgMode={item?.featuredImageUrl ? 'cover' : 'contain'}
                 />
               </CardBorder>
             </div>

@@ -10,7 +10,7 @@ export interface ApiResult<T> {
   data: object;
 }
 export interface ICardProps {
-  title: string;
+  title: string | React.ReactNode;
   content: React.ReactNode;
   image: string;
   linkTo: string;
@@ -19,6 +19,7 @@ export interface ICardProps {
   imageStyle?: React.CSSProperties;
   className?: string;
   cardClassName?: string;
+  desClassName?: string;
   imgMode?: ImageMode;
   flex?: {
     left: number | string;

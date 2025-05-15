@@ -14,7 +14,7 @@ import {albums} from '@/utils/config';
 export default async function IndexPage() {
   const customerData = await getAlbum(albums.Customers);
   return (
-    <PageLayout>
+    <PageLayout className="landing-wrapper">
       <section className="tgn-opening-section">
         <Introduce />
         <Construction />

@@ -39,14 +39,19 @@ const CardBase = (props: {item: ICardProps}) => {
         >
           <div className="d-flex flex-column justify-content-between h-100 gap-4">
             <div>
-              <h3 className="tgn-text-card-title text-start tgn-base-limit-lines tgn-base-limit-two-lines">
-                {item?.title}
-              </h3>
+              {typeof item?.title === 'string' ? (
+                <h3 className="tgn-text-card-title text-start tgn-base-limit-lines tgn-base-limit-two-lines">
+                  {item?.title}
+                </h3>
+              ) : (
+                item?.title
+              )}
+
               <div
                 style={{
                   marginTop: 20
                 }}
-                className="text-start tgn-text-card-content tgn-base-limit-lines tgn-base-limit-two-lines tgn-limit-four-lines tgn-text-gray-color"
+                className={`text-start tgn-text-card-content tgn-base-limit-lines tgn-base-limit-two-lines tgn-limit-four-lines tgn-text-gray-color ${item?.desClassName ?? ''} `}
               >
                 {item?.content}
               </div>
@@ -229,12 +234,17 @@ const CardItem = (props: {
 const ProjectCardInner = (props: {
   imageUrl: string;
   title?: string;
+  imgMode?: ImageMode;
   titleClassName?: string;
 }) => {
-  const {imageUrl, title, titleClassName} = props;
+  const {imageUrl, title, titleClassName, imgMode} = props;
   return (
     <div className="tgn-inner-card-wrapper">
-      <PureImage url={imageUrl} mode="cover" style={{borderRadius: 16}} />
+      <PureImage
+        url={imageUrl}
+        mode={imgMode ?? 'cover'}
+        style={{borderRadius: 16}}
+      />
       {title && <div className={`title ${titleClassName}`}>{title}</div>}
     </div>
   );

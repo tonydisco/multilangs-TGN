@@ -1,3 +1,30 @@
+.section-wrapper {
+  position: relative;
+  z-index: 1;
+  min-height: 660px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.center-section-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.section-wrapper-bg {
+  position: relative;
+}
+.section-wrapper-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: rgba(255, 255, 255, 0.8);
+}
+
 .wrapper-for-lastchild {
   & > *:last-child {
     padding-bottom: 100px;

@@ -13,7 +13,7 @@ export default async function Page({params}: any) {
   return (
     <PageLayout
       title={<TitlePageView title={content?.title} />}
-      className="page-wrapper"
+      className="business-areas-wrapper"
     >
       {content.blocks?.map((block: any) => {
         const html = parse(block.content, {

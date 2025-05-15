@@ -68,7 +68,7 @@
   }
   .pd-hero {
     position: relative;
-    height: 550px;
+    height: calc(100vh - 220px);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: right;

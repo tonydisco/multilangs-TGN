@@ -8,6 +8,7 @@ import '@/styles/productionCap.scss';
 import {albums} from '@/utils/config';
 import {getTranslations} from 'next-intl/server';
 import NLSXSlider from './Slider';
+import {SectionTitles} from '@/components/Common/Titles';
 
 const mockData = [
   {
@@ -52,14 +53,14 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
   return (
     <PageLayout
       title={<TitlePageView title={t('HeaderNavProductionCapacity')} />}
-      className="nlsx-wrapper"
+      className="production-capacity-wrapper"
     >
       {mockData.map((item, index) => {
         return (
           <SectionBase
             key={index}
             bgImage={item.isReverse ? item.image : undefined}
-            className={`section-wrapper-bg ${item.isReverse ? 'reverse' : ''}`}
+            className={`center-section-wrapper section-wrapper-bg ${item.isReverse ? 'reverse' : ''}`}
             contentClassName="tgn-content-mobile"
           >
             <CardBase
@@ -73,7 +74,9 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
                   height: 500
                 },
                 className: 'card-inner-mobile',
-                cardClassName: 'card-wrapper-mobile'
+                cardClassName: 'card-wrapper-mobile',
+                title: <SectionTitles title={item.title} />,
+                desClassName: 'tgn-base-limit-four-lines'
               }}
             />
           </SectionBase>

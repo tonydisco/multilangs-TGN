@@ -19,7 +19,11 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
       title={<TitlePageView title={t('HeaderNavProjects')} />}
       className="projects-page-wrapper"
     >
-      <SectionBase>
+      <SectionBase
+        contentStyle={{
+          padding: '100px 0'
+        }}
+      >
         <SectionTitles
           title="các dự án đã thực hiện"
           style={{textAlign: 'center'}}

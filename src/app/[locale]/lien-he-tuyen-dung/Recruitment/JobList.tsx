@@ -29,12 +29,12 @@ const JobList = (props: {
     [jobList, startIndex]
   );
   const data = useMemo(
-    () => jobList.data.slice(startIndex, endIndex),
+    () => jobList?.data?.slice(startIndex, endIndex),
     [jobList, startIndex, endIndex]
   );
 
   const dataByLocale = useMemo(() => {
-    return data.map((item) => {
+    return data?.map((item) => {
       const found = item.contents.find(
         (content: any) => content.language === locale
       );
@@ -48,7 +48,7 @@ const JobList = (props: {
   return (
     <div style={{paddingTop: 100}}>
       <div className="flex-job-list">
-        {[...dataByLocale].map((item, index) => {
+        {dataByLocale?.map((item, index) => {
           const contents = item.contents.find(
             (content: any) => content.language === locale
           );

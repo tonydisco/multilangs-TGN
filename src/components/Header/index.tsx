@@ -24,6 +24,7 @@ const Header = ({locale}: Readonly<Props>) => {
     setIsMenuOpen((prev) => !prev);
   };
   const handleSearchToggle = () => {
+    setIsMenuOpen(false);
     setIsSearching((prev) => !prev);
   };
 

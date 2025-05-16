@@ -21,17 +21,6 @@ const OtherJob = () => {
       };
     });
   }, [locale, jobList]);
-  const slideToShow = useMemo(() => {
-    if (dataByLocale.length > 4) {
-      return 4;
-    } else if (dataByLocale.length > 2) {
-      return 3;
-    } else if (dataByLocale.length > 1) {
-      return 2;
-    } else {
-      return 1;
-    }
-  }, [dataByLocale]);
 
   const slideList = useMemo(
     () =>

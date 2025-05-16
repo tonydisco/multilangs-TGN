@@ -16,7 +16,11 @@ const JobDetail = (props: {data: any; locale: string}) => {
   return (
     <>
       <div style={{padding: '100px 0'}}>
-        <RecruitmentBanner onUpdateQuery={() => {}} btnStatus={false} />
+        <RecruitmentBanner
+          onUpdateQuery={() => {}}
+          btnStatus={false}
+          isSearch={false}
+        />
       </div>
       <div className="job-detail-flex-content">
         <div className="tgn-container-content-inner">

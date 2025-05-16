@@ -10,6 +10,7 @@ import '@/styles/recruitmentBannerStyle.scss';
 interface IRecruitmentBannerProps {
   onUpdateQuery: (query: string) => void;
   btnStatus?: boolean;
+  isSearch?: boolean;
 }
 interface ILocation {
   displayIndex: number;
@@ -23,7 +24,7 @@ interface ISearchStr {
 }
 
 const RecruitmentBanner = (props: IRecruitmentBannerProps) => {
-  const {onUpdateQuery, btnStatus} = props;
+  const {onUpdateQuery, btnStatus, isSearch = true} = props;
   const [searchStr, setSearchStr] = useState<ISearchStr>({
     txt: '',
     location: ''
@@ -83,52 +84,54 @@ const RecruitmentBanner = (props: IRecruitmentBannerProps) => {
             textAlign: 'center'
           }}
         />
-        <div>
-          <div className="job-action job-action-style">
-            <div
-              style={{
-                flex: 2,
-                width: '100%'
-              }}
-            >
-              <input
+        {isSearch && (
+          <div>
+            <div className="job-action job-action-style">
+              <div
                 style={{
-                  border: 'none',
-                  backgroundColor: 'transparent',
-                  outline: 'none',
-                  width: '100%',
-                  height: '100%',
-                  padding: ' 10px 20px'
+                  flex: 2,
+                  width: '100%'
                 }}
-                placeholder="Vị trí tuyển dụng"
-                value={searchStr.txt}
-                onChange={onChange}
+              >
+                <input
+                  style={{
+                    border: 'none',
+                    backgroundColor: 'transparent',
+                    outline: 'none',
+                    width: '100%',
+                    height: '100%',
+                    padding: ' 10px 20px'
+                  }}
+                  placeholder="Vị trí tuyển dụng"
+                  value={searchStr.txt}
+                  onChange={onChange}
+                />
+              </div>
+              <ActionBtn
+                onBtn={onSearch}
+                btnStatus={btnStatus}
+                wrapperClass="tgn-pc-only"
+                locationOptions={locations}
+                id="tgn-recruitment-location-select"
+                onSelect={onSelectLocation}
+                searchStr={searchStr}
               />
             </div>
             <ActionBtn
+              style={{
+                marginTop: 20
+              }}
+              isHideAsset
               onBtn={onSearch}
               btnStatus={btnStatus}
-              wrapperClass="tgn-pc-only"
-              locationOptions={locations}
+              wrapperClass="tgn-mobile-only job-action-style"
               id="tgn-recruitment-location-select"
               onSelect={onSelectLocation}
+              locationOptions={locations}
               searchStr={searchStr}
             />
           </div>
-          <ActionBtn
-            style={{
-              marginTop: 20
-            }}
-            isHideAsset
-            onBtn={onSearch}
-            btnStatus={btnStatus}
-            wrapperClass="tgn-mobile-only job-action-style"
-            id="tgn-recruitment-location-select"
-            onSelect={onSelectLocation}
-            locationOptions={locations}
-            searchStr={searchStr}
-          />
-        </div>
+        )}
       </div>
     </div>
   );

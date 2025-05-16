@@ -65,9 +65,9 @@ const Introduce = () => {
               style={{height: 600, maxWidth: 992, position: 'relative'}}
             >
               <iframe
-                src="https://www.youtube.com/embed/AJFkU1bC3C0?si=ZmPXd6J_k3iaOqPa"
+                src="https://drive.google.com/file/d/1S_tGLHmqv0fTpAep4czoWVjqVP9_Dhe7/preview"
+                allow="autoplay; fullscreen"
                 title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
                 style={{

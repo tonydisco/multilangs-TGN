@@ -56,6 +56,11 @@
 }
 
 @media screen and (max-width: 768px) {
+  .tgn-products-section {
+    .base-card-full-border {
+      padding: 0 !important;
+    }
+  }
   .grid-item {
     flex: 1 0 calc((100% - 16px * 1) / 2);
     max-width: calc((100% - 16px * 1) / 2);
@@ -70,9 +75,7 @@
     width: 20px;
     height: 20px;
   }
-  .base-card-full-border {
-    padding: 0 !important;
-  }
+
   .tgn-product-item-content {
     gap: 15px;
   }

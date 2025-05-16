@@ -72,7 +72,7 @@ const Introduce = () => {
                 allowFullScreen
                 style={{
                   height: '100%',
-                  borderRadius: 24,
+                  borderRadius: 16,
                   width: '100%'
                 }}
                 className="tgn-introduce-iframe"

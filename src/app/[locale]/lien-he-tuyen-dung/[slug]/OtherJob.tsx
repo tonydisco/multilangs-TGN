@@ -1,10 +1,10 @@
+import {useMemo} from 'react';
+import {useAppContext} from '@/Providers';
+import {useJobs} from '@/hooks/APIs/useJobs';
+import {attributesMapping} from '@/utils/config';
 import {CardJob} from '@/components/Common/Card';
 import {BaseSlider} from '@/components/Common/Sliders';
 import {SectionTitles} from '@/components/Common/Titles';
-import {useJobs} from '@/hooks/APIs/useJobs';
-import {useAppContext} from '@/Providers';
-import {attributesMapping} from '@/utils/config';
-import {useMemo} from 'react';
 
 const OtherJob = () => {
   const {jobList} = useJobs();
@@ -24,7 +24,7 @@ const OtherJob = () => {
 
   const slideList = useMemo(
     () =>
-      [...dataByLocale].map((item, index) => {
+      dataByLocale.map((item, index) => {
         const contents = item.contents.find(
           (content: any) => content.language === locale
         );
@@ -34,7 +34,7 @@ const OtherJob = () => {
 
         return (
           <div key={index} className="job-item">
-            <div style={{margin: 10}}>
+            <div className="job-item-margin">
               <CardJob
                 slug={item.slug}
                 title={item.tittle}
@@ -49,12 +49,12 @@ const OtherJob = () => {
     [dataByLocale, locale]
   );
   return (
-    <>
-      <SectionTitles title="các công việc khác" />
-      <div>
-        <BaseSlider renderList={slideList} />
-      </div>
-    </>
+    <BaseSlider
+      total={dataByLocale?.length}
+      controllerType="custom"
+      renderList={slideList}
+      slideTitle={<SectionTitles title="các công việc khác" />}
+    />
   );
 };
 

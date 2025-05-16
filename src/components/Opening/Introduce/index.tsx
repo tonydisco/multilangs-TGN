@@ -64,8 +64,21 @@ const Introduce = () => {
             <CardBorder
               style={{height: 600, maxWidth: 992, position: 'relative'}}
             >
+              {/* <iframe
+                src="https://drive.google.com/file/d/1S_tGLHmqv0fTpAep4czoWVjqVP9_Dhe7/preview?autoplay=1"
+                allow="autoplay; fullscreen"
+                title="YouTube video player"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+                style={{
+                  height: '100%',
+                  borderRadius: 16,
+                  width: '100%'
+                }}
+                className="tgn-introduce-iframe"
+              /> */}
               <iframe
-                src="https://drive.google.com/file/d/1S_tGLHmqv0fTpAep4czoWVjqVP9_Dhe7/preview"
+                src="https://drive.google.com/file/d/1eguQwqXwv7UcCcVUyEybIuEkosHrhS1G/preview"
                 allow="autoplay; fullscreen"
                 title="YouTube video player"
                 referrerPolicy="strict-origin-when-cross-origin"

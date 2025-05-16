@@ -5,6 +5,7 @@ import {useJobs} from '@/hooks/APIs/useJobs';
 import {IJobList} from '@/models/interface';
 import {RecruitmentBanner} from './Banner';
 import JobList from './JobList';
+import Loading from '@/components/Common/Loading';
 
 const RecruitMent = () => {
   const {jobList, setJobList, onGetJobs} = useJobs();
@@ -59,9 +60,13 @@ const RecruitMent = () => {
       />
       {(() => {
         if (jobList.loading) {
-          return <div className="loading-style" />;
+          return (
+            <div className="mt-5">
+              <Loading />
+            </div>
+          );
         }
-        if (!jobList.data.length) {
+        if (!jobList?.data?.length) {
           return (
             <div className="no-data-style">
               <Nodata />

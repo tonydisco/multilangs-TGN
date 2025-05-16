@@ -7,6 +7,18 @@
   z-index: 1000;
 }
 
+.search-icon {
+  cursor: pointer;
+}
+
+.search-overlay-bg {
+  position: fixed;
+  inset: 0;
+  transition: all 0.3s ease;
+  z-index: 10;
+  opacity: 1;
+}
+
 .tgn-mobile-menu {
   display: block;
 }
@@ -48,6 +60,7 @@
   top: 0;
   bottom: 0;
   transition: all 0.3s ease;
+  z-index: 9;
 }
 .menu-mobile-container {
   overflow: hidden;

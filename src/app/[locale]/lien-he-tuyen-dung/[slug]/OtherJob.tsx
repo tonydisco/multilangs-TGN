@@ -5,13 +5,14 @@ import {attributesMapping} from '@/utils/config';
 import {CardJob} from '@/components/Common/Card';
 import {BaseSlider} from '@/components/Common/Sliders';
 import {SectionTitles} from '@/components/Common/Titles';
+import Loading from '@/components/Common/Loading';
 
 const OtherJob = () => {
   const {jobList} = useJobs();
   const {locale} = useAppContext();
 
   const dataByLocale = useMemo(() => {
-    return jobList?.data.map((item) => {
+    return jobList?.data?.map((item) => {
       const found = item.contents.find(
         (content: any) => content.language === locale
       );
@@ -24,7 +25,7 @@ const OtherJob = () => {
 
   const slideList = useMemo(
     () =>
-      dataByLocale.map((item, index) => {
+      dataByLocale?.map((item, index) => {
         const contents = item.contents.find(
           (content: any) => content.language === locale
         );
@@ -45,9 +46,16 @@ const OtherJob = () => {
             </div>
           </div>
         );
-      }),
+      }) ?? [],
     [dataByLocale, locale]
   );
+  if (!dataByLocale?.length) {
+    return (
+      <div className="mt-5">
+        <Loading />
+      </div>
+    );
+  }
   return (
     <BaseSlider
       total={dataByLocale?.length}

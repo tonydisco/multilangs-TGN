@@ -1,7 +1,7 @@
 'use client';
 import '@/styles/header.scss';
 import Menus from './Menus';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import Socials from './Socials';
 import {Locale} from 'next-intl';
 import Logos from '../Common/Logos';
@@ -10,6 +10,7 @@ import LanguageSwitcher from './Langs';
 import {PureImage} from '../Common/Images';
 import {ISetting} from '@/models/interface';
 import {useDebounce} from '@/hooks/common/useDebounce';
+import Searching from '../SearchGlobal';
 
 type Props = {
   locale: Locale;
@@ -17,16 +18,65 @@ type Props = {
 };
 const Header = ({locale}: Readonly<Props>) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
 
   const handleMenuToggle = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen((prev) => !prev);
   };
+  const handleSearchToggle = () => {
+    setIsSearching((prev) => !prev);
+  };
+
+  useEffect(() => {
+    if (isMenuOpen || isSearching) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
+
+    // Cleanup on component unmount
+    return () => {
+      document.body.classList.remove('no-scroll');
+    };
+  }, [isMenuOpen, isSearching]);
 
   return (
     <header id="header">
+      {isSearching && (
+        <div className="search-overlay-bg">
+          <div
+            style={{
+              backgroundColor: 'rgba(0,0,0,.85)',
+              width: '100vw',
+              height: '100vh',
+              transition: 'all 0.3s ease',
+              position: 'relative'
+            }}
+          >
+            <Searching onClose={handleSearchToggle} />
+            <div
+              onClick={handleSearchToggle}
+              style={{
+                position: 'absolute',
+                right: 0,
+                top: 0,
+                padding: 20,
+                zIndex: 100,
+                color: '#fff',
+                cursor: 'pointer'
+              }}
+            >
+              X
+            </div>
+          </div>
+        </div>
+      )}
       <nav className="d-flex align-items-center justify-content-between nav-custom">
         <div className="nav-item tgn-search-icon-responsive">
-          <div className="tgn-search-icon tgn-search-icon-responsive ">
+          <div
+            className="tgn-search-icon tgn-search-icon-responsive"
+            onClick={handleSearchToggle}
+          >
             <PureImage style={{width: 22}} url="/icon/SEARCH.svg" />
           </div>
         </div>
@@ -39,7 +89,7 @@ const Header = ({locale}: Readonly<Props>) => {
           <div className="mb-3 top-nav">
             <div>
               <div className="d-flex align-items-center justify-content-end gap-3">
-                <div className="search-icon">
+                <div className="search-icon" onClick={handleSearchToggle}>
                   <PureImage url="/icon/SEARCH.svg" />
                 </div>
                 <ContactBtn />
@@ -75,7 +125,10 @@ const Header = ({locale}: Readonly<Props>) => {
       >
         <div className="menu-mobile-container">
           <div className="d-flex align-items-center justify-content-between">
-            <div className="search-icon search-icon-responsive">
+            <div
+              className="search-icon search-icon-responsive"
+              onClick={handleSearchToggle}
+            >
               <PureImage url="/icon/SEARCH.svg" />
             </div>
             <div style={{maxWidth: 80, width: '100%'}}>

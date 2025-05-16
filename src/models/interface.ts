@@ -163,7 +163,7 @@ export interface INewsListProps {
 }
 
 export interface IJobList {
-  data: Array<any>;
+  data: Array<any> | null;
   loading: boolean;
   total: number;
   page: number;

@@ -15,6 +15,7 @@ interface IBaseSliderProps {
   slidesToScroll?: number;
   speed?: number;
   cssEase?: string;
+  controllerType?: 'default' | 'custom';
 }
 
 const BaseSlider = ({
@@ -22,16 +23,17 @@ const BaseSlider = ({
   slidesToShow = 3,
   slidesToScroll = 1,
   speed = 300,
-  cssEase = 'linear'
-}: Readonly<IBaseSliderProps>) => {
+  cssEase = 'linear',
+  controllerType
+}: IBaseSliderProps) => {
   const sliderRef = useRef<SlickRefType | null>(null);
 
   const onPrev = () => {
-    sliderRef.current?.slickPrev();
+    sliderRef.current?.slickNext();
   };
 
   const onNext = () => {
-    sliderRef.current?.slickNext();
+    sliderRef.current?.slickPrev();
   };
   // Update the ref callback to use const instead of reassignment
   const setSliderRef = (slider: SlickRefType | null) => {
@@ -40,60 +42,92 @@ const BaseSlider = ({
 
   const settings = {
     focusOnSelect: true,
-    infinite: true,
+    infinite: slidesToShow > 3,
     slidesToShow: slidesToShow,
     slidesToScroll: slidesToScroll,
     speed: speed,
     cssEase: cssEase,
     dot: false,
-    arrows: false
+    arrows: false,
+    vertical: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
+
+  const btnNavLeft = (
+    <button
+      className="tgn-partners-btn"
+      onClick={onNext}
+      style={{width: 25, height: 25}}
+    >
+      <PureImage url="/icon/ARROW-ICON.svg" />
+    </button>
+  );
+  const btnNavRight = (
+    <button
+      className="tgn-partners-btn-prev"
+      style={{
+        transform: 'rotate(180deg)',
+        width: 25,
+        height: 25
+      }}
+      onClick={onPrev}
+    >
+      <PureImage url="/icon/ARROW-ICON.svg" />
+    </button>
+  );
   return (
     <div
       className="position-relative mt-5"
       style={{paddingTop: '30px', paddingBottom: '20px'}}
     >
-      <div
-        style={{
-          position: 'absolute',
-          top: '50%',
-          left: 0,
-          right: 0
-        }}
-      >
-        <div className="position-relative container">
-          <button
-            className="tgn-partners-btn"
-            onClick={onNext}
-            style={{
-              position: 'absolute',
-              top: -13,
-              left: -50
-            }}
-          >
-            <PureImage url="/icon/ARROW-ICON.svg" />
-          </button>
-          <button
-            className="tgn-partners-btn-prev"
-            style={{
-              top: -13,
-              right: -50,
-              position: 'absolute',
-              transform: 'rotate(180deg)'
-            }}
-            onClick={onPrev}
-          >
-            <PureImage url="/icon/ARROW-ICON.svg" />
-          </button>
+      {controllerType === 'default' ? (
+        <div
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: 0,
+            right: 0
+          }}
+        >
+          <div className="position-relative container">
+            {btnNavLeft}
+            {btnNavRight}
+          </div>
         </div>
-      </div>
+      ) : (
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            right: 0
+          }}
+        >
+          <div style={{display: 'flex', gap: 30, alignItems: 'center'}}>
+            {btnNavLeft}
+            {btnNavRight}
+          </div>
+        </div>
+      )}
 
       <div className="container">
-        <div>
-          <Slider {...settings} ref={setSliderRef}>
-            {renderList}
-          </Slider>
-        </div>
+        <Slider {...settings} ref={setSliderRef}>
+          {renderList}
+        </Slider>
       </div>
     </div>
   );

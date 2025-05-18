@@ -63,7 +63,12 @@ const Introduce = () => {
         <div className="container">
           <div className="tgn-introduce-video-container">
             <CardBorder
-              style={{height: 600, maxWidth: 992, position: 'relative'}}
+              style={{
+                height: 600,
+                maxWidth: 992,
+                position: 'relative',
+                aspectRatio: '16/9'
+              }}
             >
               <VideoIntro />
             </CardBorder>

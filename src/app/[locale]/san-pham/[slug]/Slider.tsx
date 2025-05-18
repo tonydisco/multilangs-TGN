@@ -18,7 +18,6 @@ const Slider = (props: {
   const [defaultSliderIndex, setDefaultSliderIndex] = useState(0);
 
   const onPrev = () => {
-    console.log('prev');
     if (defaultSliderIndex === 0) {
       setDefaultSliderIndex(mockData.image.length - 1);
     } else {
@@ -27,8 +26,6 @@ const Slider = (props: {
   };
 
   const onNext = () => {
-    console.log('next');
-
     if (defaultSliderIndex === mockData.image.length - 1) {
       setDefaultSliderIndex(0);
     } else {

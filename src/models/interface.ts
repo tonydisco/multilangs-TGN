@@ -103,6 +103,9 @@ export interface ITimelineProps {
         language: string;
         title: string;
         excerpt: string;
+        blocks: Array<{
+          content: string;
+        }>,
       }>;
       featuredImageUrl: string;
     }>;

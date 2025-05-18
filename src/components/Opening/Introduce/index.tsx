@@ -1,10 +1,11 @@
 import {Button} from '@/components/Common/Button';
+import {CardBorder} from '@/components/Common/Card';
 import {SectionTitles} from '@/components/Common/Titles';
 import {routes} from '@/utils/config';
 import {Fragment} from 'react';
 import {v4 as uuid} from 'uuid';
 import {PureImage} from '../../Common/Images';
-import {CardBorder} from '@/components/Common/Card';
+import VideoIntro from './VideoIntro';
 
 const Introduce = () => {
   return (
@@ -62,34 +63,13 @@ const Introduce = () => {
         <div className="container">
           <div className="tgn-introduce-video-container">
             <CardBorder
-              style={{height: 600, maxWidth: 992, position: 'relative'}}
+              style={{
+                height: 550,
+                maxWidth: 992,
+                position: 'relative'
+              }}
             >
-              {/* <iframe
-                src="https://drive.google.com/file/d/1S_tGLHmqv0fTpAep4czoWVjqVP9_Dhe7/preview?autoplay=1"
-                allow="autoplay; fullscreen"
-                title="YouTube video player"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-                style={{
-                  height: '100%',
-                  borderRadius: 16,
-                  width: '100%'
-                }}
-                className="tgn-introduce-iframe"
-              /> */}
-              <iframe
-                src="https://drive.google.com/file/d/1eguQwqXwv7UcCcVUyEybIuEkosHrhS1G/preview"
-                allow="autoplay; fullscreen"
-                title="YouTube video player"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-                style={{
-                  height: '100%',
-                  borderRadius: 16,
-                  width: '100%'
-                }}
-                className="tgn-introduce-iframe"
-              />
+              <VideoIntro />
             </CardBorder>
           </div>
         </div>

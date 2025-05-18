@@ -93,8 +93,26 @@
     position: relative;
     justify-content: center;
     .base-card-full-border {
-      height: 280px !important;
+      height: 240px !important;
       padding: 0 !important;
+    }
+    .thumnail-video {
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 100%;
+      backdrop-filter: blur(3px);
+      width: 100px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .control-video {
+        width: 50px !important;
+        height: 50px !important;
+        position: relative;
+        position: relative;
+        left: 5px;
+        top: 3px;
+      }
     }
   }
 
@@ -152,6 +170,16 @@
       .base-card-full-border {
         height: 600px !important;
         padding: 16px !important;
+      }
+      .thumnail-video {
+        width: 150px;
+        height: 150px;
+        .control-video {
+          width: 85px !important;
+          height: 85px !important;
+          left: 10px;
+          top: 5px;
+        }
       }
     }
     .tgn-introduce-video-section,

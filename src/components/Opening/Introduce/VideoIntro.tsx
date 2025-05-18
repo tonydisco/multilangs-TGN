@@ -46,7 +46,7 @@ const VideoIntro = () => {
         poster="/landing/THUMB.png"
         onClick={handlePlay}
       >
-        <source src="/video/TGN_FULL.mp4" type="video/mp4" />
+        <source src="/video/TGN_FULL_45mb.webm" type="video/webm" />
       </video>
       {thumb && (
         <div

@@ -36,10 +36,8 @@ const Slider = (props: {
     }
   };
 
-  console.log({defaultSliderIndex});
-
   return (
-    <div className="pd-flex-item-default">
+    <div className="pd-flex-item-default pd-slider-wrapper">
       <div className="pd-slider">
         {mockData.image.map((item, index) => (
           <div

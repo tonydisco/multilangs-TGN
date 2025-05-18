@@ -3,7 +3,7 @@ import Nodata from '@/components/Common/Nodata';
 import {SectionBase} from '@/components/Common/Section';
 import {useJobs} from '@/hooks/APIs/useJobs';
 import {IJobList} from '@/models/interface';
-import {RecruitmentBanner} from './Banner';
+import {ISearchStr, RecruitmentBanner} from './Banner';
 import JobList from './JobList';
 import Loading from '@/components/Common/Loading';
 
@@ -41,14 +41,17 @@ const RecruitMent = () => {
     });
   };
 
-  const onSearchRecruitment = async (txt: string) => {
+  const onSearchRecruitment = async (search: ISearchStr) => {
+    if (!search.query && !search.attributes) {
+      return;
+    }
     console.log('====================================');
-    console.log(txt);
+    console.log(search);
     console.log('====================================');
     await onGetJobs({
       page: jobList.page,
       pageSize: jobList.limit,
-      query: txt
+      ...search
     });
   };
 

@@ -4,11 +4,10 @@ import {Button} from '@/components/Common/Button';
 import {PureImage} from '@/components/Common/Images';
 import {SectionTitles} from '@/components/Common/Titles';
 import {useCallback, useEffect, useState} from 'react';
-
 import '@/styles/recruitmentBannerStyle.scss';
 
 interface IRecruitmentBannerProps {
-  onUpdateQuery: (query: string) => void;
+  onUpdateQuery: (search: ISearchStr) => void;
   btnStatus?: boolean;
   isSearch?: boolean;
 }
@@ -18,33 +17,33 @@ interface ILocation {
   value: string;
   title?: string;
 }
-interface ISearchStr {
-  txt: string;
-  location: string;
+export interface ISearchStr {
+  query: string;
+  attributes: string;
 }
 
 const RecruitmentBanner = (props: IRecruitmentBannerProps) => {
   const {onUpdateQuery, btnStatus, isSearch = true} = props;
   const [searchStr, setSearchStr] = useState<ISearchStr>({
-    txt: '',
-    location: ''
+    query: '',
+    attributes: ''
   });
   const [locations, setLocations] = useState<ILocation[]>([]);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchStr((prev) => ({
       ...prev,
-      txt: e.target.value
+      query: e.target.value
     }));
   };
   const onSearch = useCallback(() => {
-    onUpdateQuery(searchStr.txt);
+    onUpdateQuery(searchStr);
   }, [onUpdateQuery, searchStr]);
 
   const onSelectLocation = (item: IOptions) => {
     setSearchStr((prev) => ({
       ...prev,
-      location: item.value
+      attributes: item.value
     }));
   };
 
@@ -103,7 +102,7 @@ const RecruitmentBanner = (props: IRecruitmentBannerProps) => {
                     padding: ' 10px 20px'
                   }}
                   placeholder="Vị trí tuyển dụng"
-                  value={searchStr.txt}
+                  value={searchStr.query}
                   onChange={onChange}
                 />
               </div>
@@ -197,7 +196,7 @@ const ActionBtn = (props: {
           >
             <PureImage url="/icon/LOCATION.svg" style={{width: 15}} />
             <div style={{whiteSpace: 'nowrap'}}>
-              {searchStr?.location || 'địa điểm'}
+              {searchStr?.attributes || 'địa điểm'}
             </div>
           </div>
           <PureImage url="/icon/ARROW.svg" style={{width: 10}} />

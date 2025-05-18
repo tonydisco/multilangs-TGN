@@ -66,42 +66,7 @@
       padding-bottom: 150px;
     }
   }
-  .pd-hero {
-    position: relative;
-    height: calc(100vh - 220px);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: right;
-    background-color: var(--alabaster-white-color);
-    width: 100%;
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      background-image: url('https://tgn-cdn.vikiworld.vn/media/grid-detail-product_3354486784137363458.png');
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: top left;
-      width: 90%;
-    }
 
-    .pd-hero-content {
-      padding: 100px 0px;
-      display: flex;
-      justify-content: space-between;
-      gap: 80px;
-      position: relative;
-      z-index: 2;
-      & > div {
-        flex: 1;
-        .tgn-title-page {
-          text-align: left;
-        }
-      }
-    }
-  }
   .pd-content {
     padding: 150px 0px;
     .pd-number {

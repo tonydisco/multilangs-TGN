@@ -39,15 +39,25 @@ const HeaderTitleView = (props: {text?: string}) => {
   );
 };
 
-const TitlePageView = ({title}: {title?: React.ReactNode | string}) => {
+const TitlePageView = ({
+  title,
+  className
+}: {
+  title?: React.ReactNode | string;
+  className?: string;
+}) => {
   return (
-    <div>
+    <>
       {typeof title === 'string' ? (
-        <h2 className="tgn-title-page">{title}</h2>
+        <h2
+          className={`tgn-title-page tgn-text-page-title ${className ?? ''} `}
+        >
+          {title}
+        </h2>
       ) : (
         title
       )}
-    </div>
+    </>
   );
 };
 

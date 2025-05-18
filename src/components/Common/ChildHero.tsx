@@ -1,8 +1,9 @@
 import React from 'react';
 import {TitlePageView} from '../Hero';
 import {PureImage} from './Images';
+import '@/styles/childHeroPage.scss';
 
-const ProductDetailHero = (props: {
+const ChildHero = (props: {
   title?: string;
   imageUrl?: string;
   className?: string;
@@ -11,17 +12,17 @@ const ProductDetailHero = (props: {
   const {title, imageUrl} = props;
   return (
     <div
-      className="pd-hero"
+      className="child-page-hero"
       style={{
         backgroundImage: `url(${imageUrl})`
       }}
     >
-      <div className="container">
-        <div className="pd-hero-content">
-          <div style={{paddingTop: 10}}>
+      <div className="container h-100">
+        <div className="child-page-hero-content h-100">
+          <div className="child-hero-title">
             <TitlePageView title={title} />
             <div
-              className="pd-flex-item-default pd-flex-item-column-default"
+              className="child-page-flex-item-default child-page-flex-item-column-default see-more-line"
               style={{
                 width: 'max-content',
                 alignItems: 'center',
@@ -43,4 +44,4 @@ const ProductDetailHero = (props: {
   );
 };
 
-export default ProductDetailHero;
+export default ChildHero;

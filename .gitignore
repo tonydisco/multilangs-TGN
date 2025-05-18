@@ -7,3 +7,6 @@ tsconfig.tsbuildinfo
 /playwright/.cache/
 out
 messages/en.d.json.ts
+public/video/TGN_FULL.mov
+public/video/TGN_FULL.mp4
+public/video/TGN_FULL_45mb.webm

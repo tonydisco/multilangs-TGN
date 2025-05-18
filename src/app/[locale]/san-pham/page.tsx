@@ -77,7 +77,8 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
                   item={{
                     title: item.title,
                     image: item.image,
-                    className: 'grid-item-mobile'
+                    className: 'grid-item-mobile',
+                    linkTo: item.linkTo
                   }}
                   key={`product-${itemIndex}`}
                 />
@@ -127,47 +128,57 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
 const mockProducts = [
   {
     title: 'cống btct rung ép',
-    image: '/landing/PRODUCTS/PRODUCT_ICO_2.png'
+    image: '/landing/PRODUCTS/PRODUCT_ICO_2.png',
+    linkTo: routes.product
   },
   {
     title: 'cọc bê tông ly tâm dự ứng lực',
-    image: '/landing/PRODUCTS/PRODUCT_ICO_3.png'
+    image: '/landing/PRODUCTS/PRODUCT_ICO_3.png',
+    linkTo: routes.product + '/coc-betong-ly-tam-du-ung-luc'
   },
   {
     title: 'gạch terrazzo',
-    image: '/landing/PRODUCTS/PRODUCT_ICO_5.png'
+    image: '/landing/PRODUCTS/PRODUCT_ICO_5.png',
+    linkTo: routes.product
   },
   {
     title: 'gạch không nung',
-    image: '/landing/PRODUCTS/PRODUCT_ICO_6.png'
+    image: '/landing/PRODUCTS/PRODUCT_ICO_6.png',
+    linkTo: routes.product
   },
   {
     title: 'gạch tự chèn',
-    image: '/landing/PRODUCTS/PRODUCT_ICO_7.png'
+    image: '/landing/PRODUCTS/PRODUCT_ICO_7.png',
+    linkTo: routes.product
   },
   {
     title: 'các sản phẩm cấu kiện BT KHÁC',
-    image: '/landing/PRODUCTS/PRODUCT_ICO_8.png'
+    image: '/landing/PRODUCTS/PRODUCT_ICO_8.png',
+    linkTo: routes.product
   },
 
   {
     title: 'sản phẩm khác',
-    image: '/landing/PRODUCTS/PRODUCT_ICO_11.png'
+    image: '/landing/PRODUCTS/PRODUCT_ICO_11.png',
+    linkTo: routes.product
   }
 ];
 
 const mockProducts_2 = [
   {
     title: 'gạch tuynel',
-    image: '/landing/PRODUCTS/PRODUCT_ICO_4.png'
+    image: '/landing/PRODUCTS/PRODUCT_ICO_4.png',
+    linkTo: routes.product
   },
 
   {
     title: 'sản phẩm khai thác mỏ',
-    image: '/landing/PRODUCTS/PRODUCT_ICO_9.png'
+    image: '/landing/PRODUCTS/PRODUCT_ICO_9.png',
+    linkTo: routes.product
   },
   {
     title: 'sản phẩm phân phối khác',
-    image: '/landing/PRODUCTS/PRODUCT_ICO_10.png'
+    image: '/landing/PRODUCTS/PRODUCT_ICO_10.png',
+    linkTo: routes.product
   }
 ];

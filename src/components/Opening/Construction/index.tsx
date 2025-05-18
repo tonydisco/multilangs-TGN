@@ -15,16 +15,8 @@ const Construction = () => {
     <section className="tgn-construction-section">
       <div className="container tgn-construction-container">
         <div className="tgn-block-item tgn-flex-item tgn-flex-block-1">
-          <div className="tgn-flex-full">
-            <div className="tgn-absolute-assets tgn-absolute-assets-1">
-              <PureImage url="/landing/CONSTRUCTION/MACHINE.png" />
-            </div>
-            <div className="tgn-absolute-assets tgn-absolute-assets-2">
-              <PureImage url="/landing/CONSTRUCTION/NHA.png" />
-            </div>
-            <div className="tgn-absolute-assets tgn-absolute-assets-3">
-              <PureImage url="/landing/CONSTRUCTION/XE.png" />
-            </div>
+          <div style={{height: 450, maxWidth: 650, width: '100%'}}>
+            <PureImage url="https://tgn-cdn.vikiworld.vn/media/linh-vuc-san-xuat_3359196557554483200.png" />
           </div>
           <div className="tgn-center-block">
             <div className="tgn-absolute-block-1-item-left">
@@ -120,8 +112,13 @@ const Construction = () => {
               })}
             </div>
             <div className="tgn-flex-full">
-              <div className="tgn-block-2-right-container">
-                <PureImage url="/landing/CONSTRUCTION/SHOW-ROOM.png" />
+              <div
+                className="tgn-block-2-right-container"
+                style={{
+                  maxWidth: 650
+                }}
+              >
+                <PureImage url="https://tgn-cdn.vikiworld.vn/media/show-room_3359196192062832642.png" />
               </div>
             </div>
           </div>
@@ -137,7 +134,10 @@ const Construction = () => {
           <div className="tgn-flex-item tgn-non-revers-block-3">
             <div className="block-wrapper tgn-flex-full tgn-block-3-left-container">
               <div className="block-3-img-inner">
-                <PureImage url="/landing/CONSTRUCTION/MODA.png" mode="cover" />
+                <PureImage
+                  url="https://tgn-cdn.vikiworld.vn/media/moda_3359196154863550466.png"
+                  mode="cover"
+                />
               </div>
             </div>
             <div className="asset-position asset-position-block-3">

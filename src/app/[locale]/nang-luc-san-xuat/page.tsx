@@ -5,7 +5,7 @@ import {TitlePageView} from '@/components/Hero';
 import PageLayout from '@/components/PageLayout';
 import {IPageDefaultProps} from '@/models/interface';
 import '@/styles/productionCap.scss';
-import {albums} from '@/utils/config';
+import {albums, routes} from '@/utils/config';
 import {getTranslations} from 'next-intl/server';
 import NLSXSlider from './Slider';
 import {SectionTitles} from '@/components/Common/Titles';
@@ -16,7 +16,7 @@ const mockData = [
     content:
       'Thế Giới Nhà sở hữu 19  trạm trộn hiện đại, sẵn sàng cung cấp bê tông thương phẩm đạt tiêu chuẩn chất lượng cao.',
     image: '/landing/NLSX/SXBT.png',
-    linkTo: '/',
+    linkTo: routes.productionCapacity + '/be-tong-thuong-pham',
     isReverse: true
   },
   {
@@ -24,7 +24,7 @@ const mockData = [
     content:
       'Thế Giới Nhà sở hữu 9 nhà máy cấu kiện bê tông đúc sẵn với công nghệ tiên tiến, đáp ứng yêu cầu kỹ thuật và tiến độ xây dựng.',
     image: '/landing/NLSX/SXCK.png',
-    linkTo: '/',
+    linkTo: routes.productionCapacity + '/be-tong-thuong-pham',
     isReverse: false
   },
   {
@@ -32,7 +32,7 @@ const mockData = [
     content:
       'Thế Giới Nhà sở hữu hệ thống kiểm định đạt chuẩn, kiểm soát chặt chẽ chất lượng sản phẩm từ nguyên liệu đầu vào đến thành phẩm, đảm bảo độ đánh giá kết quả chính xác và nhanh chóng.',
     image: '/landing/NLSX/KDCL.png',
-    linkTo: '/',
+    linkTo: routes.productionCapacity + '/be-tong-thuong-pham',
     isReverse: true
   },
   {
@@ -40,7 +40,7 @@ const mockData = [
     content:
       'Thế Giới Nhà đầu tư đồng bộ máy móc, thiết bị tiên tiến nhằm nâng cao năng suất, tối ưu quy trình sản xuất và thi công.',
     image: '/landing/NLSX/TTB.png',
-    linkTo: '/',
+    linkTo: routes.productionCapacity + '/be-tong-thuong-pham',
     isReverse: false
   }
 ];

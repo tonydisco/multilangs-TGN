@@ -1,0 +1,70 @@
+.child-page-hero {
+  position: relative;
+  height: calc(100vh - 255px);
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  background-position: bottom;
+  background-color: var(--alabaster-white-color);
+  width: 100%;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-image: url('https://tgn-cdn.vikiworld.vn/media/grid-detail-product_3354486784137363458.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top left;
+    width: 90%;
+  }
+
+  .child-page-hero-content {
+    padding: 0px;
+    position: relative;
+    z-index: 2;
+    .tgn-title-page {
+      text-align: center;
+    }
+  }
+  .see-more-line {
+    display: none;
+  }
+  .child-hero-title {
+    padding: 24px 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    height: calc(100vh - 220px);
+    background-size: calc(100% - 325px) calc(100%);
+    background-position: right;
+    .child-page-hero-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 80px;
+      & > div {
+        flex: 1;
+        .tgn-title-page {
+          text-align: left;
+        }
+      }
+    }
+    .child-page-flex-item-default {
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .child-page-flex-item-column-default {
+      flex-direction: column;
+    }
+    .child-hero-title {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      justify-content: space-evenly;
+      padding: 0;
+    }
+  }
+}

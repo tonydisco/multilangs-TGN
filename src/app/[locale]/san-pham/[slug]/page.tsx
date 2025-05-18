@@ -1,10 +1,10 @@
-import ProductDetailHero from '@/components/Common/ProductDetailHero';
 import NotFoundPage from '@/components/NotFoundPage';
 import '@/styles/productDetail.scss';
 import Other from './Other';
 import Slider from './Slider';
 import TableComponent from './Table';
 import {IPageDefaultProps} from '@/models/interface';
+import ChildHero from '@/components/Common/ChildHero';
 
 const getProductDetail = async (slug: string) => {
   if (slug === 'be-tong-thuong-pham') {
@@ -35,7 +35,7 @@ const ProductDetail = async ({params}: Readonly<IPageDefaultProps>) => {
 
   return (
     <section className="product-detail">
-      <ProductDetailHero title={data.title} imageUrl={data.imageUrl} />
+      <ChildHero title={data.title} imageUrl={data.imageUrl} />
       <div className="pd-content">
         <div className="container">
           <Slider mockData={mockData} />

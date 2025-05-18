@@ -25,6 +25,7 @@ interface IBaseSliderProps {
 
 const BaseSlider = ({
   renderList,
+  slidesToShow = MAX_SLIDES_TO_SHOW,
   slidesToScroll = 1,
   speed = 300,
   cssEase = 'linear',
@@ -40,8 +41,8 @@ const BaseSlider = ({
     if (width <= 768) {
       return 1;
     }
-    return MAX_SLIDES_TO_SHOW;
-  }, [width]);
+    return slidesToShow ?? MAX_SLIDES_TO_SHOW;
+  }, [width, slidesToShow]);
 
   const onPrev = () => {
     sliderRef.current?.slickNext();

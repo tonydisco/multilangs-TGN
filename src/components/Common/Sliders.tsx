@@ -1,8 +1,7 @@
 'use client';
-import {ReactNode, useMemo, useRef} from 'react';
-import {PureImage} from './Images';
-import Slider from 'react-slick';
 import {useWindowDimensions} from '@/hooks/common/useWindowDimension';
+import {ReactNode, useMemo, useRef} from 'react';
+import Slider from 'react-slick';
 import FontAwIcons from './FontAwIcons';
 
 const MAX_SLIDES_TO_SHOW = 3;

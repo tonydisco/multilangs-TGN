@@ -49,7 +49,7 @@ const Projects = () => {
     <section className="tgn-projects-section">
       <div className="tgn-projects-circle-right">
         <div className="gn-projects-circle-container">
-          <PureImage url="/landing/PROJECTS/HAlF-CIRCLE-ICON.png" />
+          <PureImage url="/landing/HAlF-CIRCLE-ICON.png" />
         </div>
       </div>
       <div className="container">

@@ -12,13 +12,14 @@
     right: 10px;
     transform: rotate(180deg);
   }
-
-  .pd-flex-item-default {
-    display: flex;
-    align-items: stretch;
-    justify-content: space-between;
-    gap: 40px;
+  .pd-slider-wrapper {
+    & > * {
+      &:nth-child(2) {
+        padding-top: 32px;
+      }
+    }
   }
+
   .pd-flex-item-column-default {
     flex-direction: column;
   }
@@ -50,6 +51,10 @@
       height: 1px;
       background-color: var(--primary-color);
     }
+    .pd-flex-item-default {
+      display: flex;
+      justify-content: space-between;
+    }
   }
   .pd-table-data {
     thead {
@@ -68,15 +73,14 @@
   }
 
   .pd-content {
-    padding: 150px 0px;
+    padding: 75px 0px;
     .pd-number {
       list-style: decimal;
     }
     .pd-slider {
-      flex: 2;
       border-radius: 16px;
       overflow: hidden;
-      height: 485px;
+      height: 320px;
       position: relative;
       .pd-slider-item {
         position: absolute;
@@ -98,6 +102,50 @@
     .pd-content-detail-item {
       &:not(:first-child) {
         padding-top: 2rem;
+      }
+      table {
+        thead {
+          th {
+            white-space: nowrap;
+          }
+        }
+      }
+      .base-card-full-border {
+        .pd-flex-item-default {
+          gap: 10px;
+        }
+      }
+    }
+    .pd-table-data {
+      overflow-x: auto;
+    }
+  }
+  .other-product {
+    display: none;
+  }
+  @media screen and (min-width: 768px) {
+    .other-product {
+      display: block;
+    }
+    .pd-flex-item-default {
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      gap: 40px;
+      & > * {
+        &:nth-child(1) {
+          flex: 1;
+        }
+        &:nth-child(2) {
+          padding-top: unset;
+        }
+      }
+    }
+    .pd-content {
+      padding: 150px 0px;
+      .pd-slider {
+        flex: 2;
+        height: 555px;
       }
     }
   }

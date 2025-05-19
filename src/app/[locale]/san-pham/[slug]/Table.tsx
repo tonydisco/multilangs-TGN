@@ -1,29 +1,35 @@
 import React from 'react';
 
-const TableComponent = () => {
+const TableComponent = (props: {
+  tableHeader: {
+    title: string;
+    width: string;
+    key: string;
+  }[];
+  tableData: {
+    [key: string]: any;
+  }[];
+}) => {
+  const {tableHeader, tableData} = props;
   return (
     <table style={{borderCollapse: 'collapse', width: '100%'}}>
       <thead>
         <tr>
-          <th className="p-2">STT</th>
-          <th className="p-2">Tên vật tư</th>
-          <th className="p-2">ĐVT</th>
-          <th className="p-2">Độ sụt (cm)</th>
-          <th className="p-2">Cường độ chịu nén (Mpa)</th>
-          <th className="p-2">Cấp độ bền (B)</th>
-          <th className="p-2">Cấp độ bền (C)</th>
+          {tableHeader.map((item, index) => (
+            <th className="p-2" key={index}>
+              {item.title}
+            </th>
+          ))}
         </tr>
       </thead>
       <tbody>
-        {tableData.map((row) => (
-          <tr key={row.stt}>
-            <td className="p-2">{row.stt}</td>
-            <td className="p-2">{row.tenVatTu}</td>
-            <td className="p-2">{row.dvt}</td>
-            <td className="p-2">{row.doSut}</td>
-            <td className="p-2">{row.cuongDo}</td>
-            <td className="p-2">{row.capDoBenB}</td>
-            <td className="p-2">{row.capDoBenC}</td>
+        {tableData.map((item: any, index) => (
+          <tr key={index}>
+            {tableHeader.map((header, headerIndex) => (
+              <td key={headerIndex} className="p-2">
+                {item[header.key]}
+              </td>
+            ))}
           </tr>
         ))}
       </tbody>
@@ -31,9 +37,71 @@ const TableComponent = () => {
   );
 };
 
-export default TableComponent;
+const tableHeader_2 = [
+  {
+    title: 'Bê tông',
+    width: '35%',
+    key: 'betong'
+  },
+  {
+    title: 'Xi măng PCB40, cường độ 80MPa',
+    width: '65%',
+    key: 'xiMang'
+  }
+];
+const tableHeader_1 = [
+  {
+    title: 'STT',
+    width: '5%',
+    key: 'stt'
+  },
+  {
+    title: 'Tên vật tư',
+    width: '25%',
+    key: 'tenVatTu'
+  },
+  {
+    title: 'ĐVT',
+    width: '10%',
+    key: 'dvt'
+  },
+  {
+    title: 'Độ sụt (cm)',
+    width: '10%',
+    key: 'doSut'
+  },
+  {
+    title: 'Cường độ chịu nén (Mpa)',
+    width: '15%',
+    key: 'cuongDo'
+  },
+  {
+    title: 'Cấp độ bền (B)',
+    width: '15%',
+    key: 'capDoBenB'
+  },
+  {
+    title: 'Cấp độ bền (C)',
+    width: '15%',
+    key: 'capDoBenC'
+  }
+];
 
-const tableData = [
+const tableData_2 = [
+  {
+    betong: 'Thép dự ứng lực',
+    xiMang: 'TCVN 6284-3:1997 (ISO 6394/3:1991)'
+  },
+  {
+    betong: 'Thép đai',
+    xiMang: 'TCVN 6288:1997 (ISO 10544:1992)'
+  },
+  {
+    betong: 'Thép tấm',
+    xiMang: 'XCT34 SS400 hoặc JIS 3101:2000'
+  }
+];
+const tableData_1 = [
   {
     stt: 1,
     tenVatTu: 'Bê tông xi măng M100',
@@ -152,3 +220,5 @@ const tableData = [
     capDoBenC: ''
   }
 ];
+
+export {TableComponent, tableHeader_1, tableData_1, tableHeader_2, tableData_2};

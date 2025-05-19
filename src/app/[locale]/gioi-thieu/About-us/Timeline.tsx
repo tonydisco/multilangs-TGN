@@ -104,9 +104,10 @@ function PartnersSlider(props: ITimelineProps) {
         <div>
           <Slider {...settings} ref={setSliderRef}>
             {roadMap.posts.map((item) => {
-              const findContentsByLocale = item.contents.find(
-                (content) => content.language === locale
-              );
+              const content = item.contents.find((c) => c.language === locale);
+              const displayContent = content?.blocks.length
+                ? content?.blocks[0].content
+                : content?.excerpt;
               return (
                 <div key={item.id}>
                   <div
@@ -150,9 +151,10 @@ function PartnersSlider(props: ITimelineProps) {
                             fontSize: '1rem',
                             marginTop: '1.5rem'
                           }}
-                        >
-                          {findContentsByLocale?.excerpt}
-                        </p>
+                          dangerouslySetInnerHTML={{
+                            __html: displayContent || ''
+                          }}
+                        ></p>
                       </div>
                     </div>
                   </div>

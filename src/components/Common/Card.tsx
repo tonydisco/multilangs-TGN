@@ -128,7 +128,7 @@ const CardNoBorderLine = (props: ICardBorderProps) => {
 };
 
 const CardProduct = (props: {
-  item: {title: string; image: string; className?: string};
+  item: {title: string; image: string; className?: string; linkTo?: string};
 }) => {
   const {item} = props;
 
@@ -146,7 +146,10 @@ const CardProduct = (props: {
             </div>
             <div className="tgn-btn-wrapper">
               <button className="app-btn-default tgn-product-item-btn">
-                <LocaleLink locale={locale} href={routes.product}>
+                <LocaleLink
+                  locale={locale}
+                  href={item?.linkTo ?? routes.product}
+                >
                   <div className="tgn-product-item-btn-content">
                     <PureImage
                       className="tgn-product-item-arrow"

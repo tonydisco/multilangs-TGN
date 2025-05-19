@@ -49,7 +49,7 @@ const Projects = () => {
     <section className="tgn-projects-section">
       <div className="tgn-projects-circle-right">
         <div className="gn-projects-circle-container">
-          <PureImage url="/landing/PROJECTS/HAlF-CIRCLE-ICON.png" />
+          <PureImage url="https://tgn-cdn.vikiworld.vn/media/half-circle-icon_3359343419523596288.png" />
         </div>
       </div>
       <div className="container">
@@ -65,7 +65,7 @@ const Projects = () => {
         <div className="position-relative">
           <div className="tgn-projects-circle-left">
             <div className="tgn-projects-circle-left-container">
-              <PureImage url="/landing/PROJECTS/FULL-CIRCLE-ICON.png" />
+              <PureImage url="https://tgn-cdn.vikiworld.vn/media/full-circle-icon_3359343686008700930.png" />
             </div>
           </div>
           <div className="tgn-projects-grid ">

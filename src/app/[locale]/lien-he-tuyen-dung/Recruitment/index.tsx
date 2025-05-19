@@ -51,7 +51,8 @@ const RecruitMent = () => {
     await onGetJobs({
       page: jobList.page,
       pageSize: jobList.limit,
-      ...search
+      ...search,
+      attributes: `Job.Location:${search.attributes}`
     });
   };
 

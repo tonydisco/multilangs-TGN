@@ -8,6 +8,30 @@ import NotFoundPage from '@/components/NotFoundPage';
 import {IPageDefaultProps} from '@/models/interface';
 import '@/styles/childPage.scss';
 
+const ChilCard = (props: {
+  title?: string;
+  blocks?: string[];
+  imgUrl: string;
+  className?: string;
+}) => {
+  const {title, blocks, imgUrl, className = ''} = props;
+  return (
+    <div className={`child-page-img-slider-wrapper ${className}`}>
+      <div className="child-page-img-slider">
+        <PureImage url={imgUrl} mode="cover" />
+      </div>
+      <div className="child-page-list-content">
+        {title && <TitleInCard title={title} />}
+        {blocks && (
+          <ul className="child-page-list-blocks">
+            {blocks?.map((block, index) => <li key={index}>{block}</li>)}
+          </ul>
+        )}
+      </div>
+    </div>
+  );
+};
+
 const Page = async ({params}: Readonly<IPageDefaultProps>) => {
   const {slug} = await params;
   const {data} = await getChilPageDetail(slug);
@@ -19,6 +43,7 @@ const Page = async ({params}: Readonly<IPageDefaultProps>) => {
   return (
     <section className="wrapper-for-lastchild">
       <ChildHero title={data.title} imageUrl={data.imageUrl} />
+
       <>
         {data?.contents?.length > 0 ? (
           <>
@@ -29,36 +54,85 @@ const Page = async ({params}: Readonly<IPageDefaultProps>) => {
                     title={item.title}
                     style={{textAlign: 'center', padding: '20px 0'}}
                   />
+                  {item?.sub && (
+                    <div className="tgn-text-gray-color py-3 text-center child-section-description">
+                      {item.sub}
+                    </div>
+                  )}
                   <div>
-                    <BaseSlider
-                      total={item.contents.length}
-                      renderList={item.contents.map((slide, index) => {
+                    {(() => {
+                      if (item.type === 'slide') {
                         return (
-                          <div key={index}>
-                            <div style={{margin: 10}}>
-                              <div className="child-page-img-slider-wrapper">
-                                <div className="child-page-img-slider">
-                                  <PureImage url={slide.imgUrl} mode="cover" />
+                          <BaseSlider
+                            total={item.contents.length}
+                            renderList={item.contents.map((slide, index) => {
+                              return (
+                                <div key={index}>
+                                  <div className="child-page-img-slider-margin">
+                                    <ChilCard
+                                      title={slide.title}
+                                      imgUrl={slide.imgUrl}
+                                      blocks={slide.blocks}
+                                    />
+                                  </div>
                                 </div>
-                                <div className="child-page-list-content">
-                                  {slide.title && (
-                                    <TitleInCard title={slide.title} />
-                                  )}
-                                  {slide.blocks.length > 0 && (
-                                    <ul className="child-page-list-blocks">
-                                      {slide.blocks.map((block, index) => (
-                                        <li key={index}>{block}</li>
-                                      ))}
-                                    </ul>
-                                  )}
+                              );
+                            })}
+                            slidesToShow={2}
+                          />
+                        );
+                      }
+                      if (item.type === 'grid') {
+                        return (
+                          <div className="row row-cols-1 row-cols-md-2 g-4">
+                            {item?.contents?.map((slide, index) => {
+                              return (
+                                <div key={index} className="col mb-4">
+                                  <ChilCard
+                                    title={slide.title}
+                                    imgUrl={slide.imgUrl}
+                                    blocks={slide.blocks}
+                                  />
                                 </div>
-                              </div>
-                            </div>
+                              );
+                            })}
                           </div>
                         );
-                      })}
-                      slidesToShow={2}
-                    />
+                      }
+                      //   return (
+                      //     <div>
+                      //       <div
+                      //         className={`d-flex align-items-center justify-content-between`}
+                      //       >
+                      //         <div className="child-page-list-content">
+                      //           {<TitleInCard title={item.title} />}
+                      //           {item.sub && (
+                      //             <div
+                      //               className="tgn-text-gray-color py-3 text-center child-section-description"
+                      //               key={index}
+                      //             >
+                      //               {item.sub}
+                      //             </div>
+                      //           )}
+                      //         </div>
+                      //         <div>
+                      //           {item?.contents?.map((slide, index) => {
+                      //             return (
+                      //               <div key={index}>
+                      //                 <div className="child-page-img-slider">
+                      //                   <PureImage
+                      //                     url={slide.imgUrl}
+                      //                     mode="cover"
+                      //                   />
+                      //                 </div>
+                      //               </div>
+                      //             );
+                      //           })}
+                      //         </div>
+                      //       </div>
+                      //     </div>
+                      //   );
+                    })()}
                   </div>
                 </SectionBase>
               );
@@ -84,6 +158,7 @@ const getChilPageDetail = async (slug: string) => {
         contents: [
           {
             title: 'Trung tâm sản xuất đông nam',
+            type: 'slide',
             sub: '',
             contents: [
               {
@@ -118,6 +193,7 @@ const getChilPageDetail = async (slug: string) => {
           {
             title: 'Trung tâm sản xuất Sài Gòn',
             sub: '',
+            type: 'slide',
             contents: [
               {
                 title: 'NHÀ MÁY RẠch CHIẾC - TP. HỒ CHÍ MINH',
@@ -151,6 +227,7 @@ const getChilPageDetail = async (slug: string) => {
           {
             title: 'Trung tâm sản xuất tây nam',
             sub: '',
+            type: 'slide',
             contents: [
               {
                 title: 'NHÀ MÁY TÂN UYÊN – BÌNH DƯƠNG',
@@ -191,7 +268,8 @@ const getChilPageDetail = async (slug: string) => {
         title: 'phòng kiểm định chất lượng',
         contents: [
           {
-            title: 'Phòng thí nghiệm của TGN Group',
+            title: 'Phòng thí nghiệm của TGN',
+            type: 'slide',
             sub: 'Trang bị đầy đủ các thiết bị, dụng cụ đáp ứng cho việc thử nghiệm đảm bảo đánh giá kết quả chính xác và nhanh chóng, từ đơn giản đến phức tạp bao gồm Máy thử nén 300-500 kN, Máy nén mẫu bê tông 2000kN, máy thử thấm bê tông, Máy thử kéo – nén – uốn,…',
             contents: [
               {
@@ -205,6 +283,19 @@ const getChilPageDetail = async (slug: string) => {
                 blocks: [],
                 imgUrl:
                   'https://tgn-cdn.vikiworld.vn/media/phong-thi-nghiem-cua-tgn-group_3359409619867795457.png'
+              }
+            ]
+          },
+          {
+            title: 'Hệ thống LAS-XD 38.004',
+            type: 'single',
+            sub: 'Được đầu tư nghiêm túc với đội ngũ nhân sự dày dặn kinh nghiệm, được đào tạo chuyên môn và quản lý bởi các Tiến sĩ - Thạc sĩ - Kỹ sư chuyên ngành công nghệ vật liệu, công trình giao thông, xây dựng cầu đường, không ngừng học hỏi, nghiên cứu sáng tạo và đưa ra các giải pháp phù hợp cho từng nhu cầu.',
+            contents: [
+              {
+                title: '',
+                blocks: [],
+                imgUrl:
+                  'https://tgn-cdn.vikiworld.vn/media/he-thong-las-xd-38004_3359504727552294912.png'
               }
             ]
           }
@@ -222,6 +313,7 @@ const getChilPageDetail = async (slug: string) => {
           {
             title: 'Trung tâm sản xuất cống bê tông',
             sub: '',
+            type: 'slide',
             contents: [
               {
                 title: 'NHÀ MÁY ĐẤT ĐỎ - BÀ RỊA VŨNG tàu',
@@ -244,6 +336,7 @@ const getChilPageDetail = async (slug: string) => {
           {
             title: 'Trung tâm sản xuất cọc bê tông',
             sub: '',
+            type: 'slide',
             contents: [
               {
                 title: 'NHÀ MÁY LONG HẬU – LONG AN',
@@ -257,6 +350,46 @@ const getChilPageDetail = async (slug: string) => {
                 title: 'NHÀ MÁY NHƠN TRẠCH – ĐỒNG NAI',
                 blocks: [
                   'Địa điểm: Lô 7, đường 5C, KCN Nhơn Trạch 2, Xã Phú Hội, Huyện Nhơn Trạch, Đồng Nai'
+                ],
+                imgUrl:
+                  'https://tgn-cdn.vikiworld.vn/media/be-tong-tuoi_3354484960617562112.png'
+              }
+            ]
+          },
+          {
+            title: 'Trung tâm sản xuất gạch',
+            sub: '',
+            type: 'grid',
+            contents: [
+              {
+                title: 'NHÀ MÁY gạch tự chèn ĐỨC HOÀ – LONG AN',
+                blocks: [
+                  'Địa điểm: Lô A101, đường số 1, KCN Thái Hòa, Ấp Tân Hòa, Xã Đức Lập Hạ, Huyện Đức Hòa, Tỉnh Long An'
+                ],
+                imgUrl:
+                  'https://tgn-cdn.vikiworld.vn/media/be-tong-tuoi_3354484960617562112.png'
+              },
+              {
+                title: 'NHÀ MÁY gạch terrazzo NHƠN TRẠCH – ĐỒNG NAI',
+                blocks: [
+                  'Địa điểm: Lô 7, đường 5C, KCN Nhơn Trạch 2, Xã Phú Hội, Huyện Nhơn Trạch, Đồng Nai'
+                ],
+                imgUrl:
+                  'https://tgn-cdn.vikiworld.vn/media/be-tong-tuoi_3354484960617562112.png'
+              },
+              {
+                title:
+                  'NHÀ MÁY gạch không nung và gạch terrazzo LONG HẬU – LONG AN',
+                blocks: [
+                  'Địa điểm: Lô C.02 - C.03, đường số 3, KCN Long Hậu, Xã Long Hậu, Huyện Cần Giuộc, Tỉnh Long An'
+                ],
+                imgUrl:
+                  'https://tgn-cdn.vikiworld.vn/media/be-tong-tuoi_3354484960617562112.png'
+              },
+              {
+                title: 'NHÀ MÁY GẠCH TUYNEL LONG THÀNH - ĐỒNG NAI',
+                blocks: [
+                  'Địa điểm: Khu phố Tân Mai, Phường Phước Tân, Thành phố Biên Hoà, Tỉnh Đồng Nai'
                 ],
                 imgUrl:
                   'https://tgn-cdn.vikiworld.vn/media/be-tong-tuoi_3354484960617562112.png'

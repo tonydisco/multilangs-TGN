@@ -45,9 +45,6 @@ const RecruitMent = () => {
     if (!search.query && !search.attributes) {
       return;
     }
-    console.log('====================================');
-    console.log(search);
-    console.log('====================================');
     await onGetJobs({
       page: jobList.page,
       pageSize: jobList.limit,

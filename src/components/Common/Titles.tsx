@@ -8,7 +8,7 @@ interface ITitlesProps {
 const SectionTitles = ({title, style}: ITitlesProps) => {
   return (
     <h2
-      className="position-relative tgn-text-base-color tgn-headding-section"
+      className="position-relative tgn-text-base-color tgn-headding-section mb-0"
       style={{
         ...style
       }}

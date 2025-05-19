@@ -1,6 +1,8 @@
+'use client';
+import {useLazyImage} from '@/hooks/common/useLazyLoadImage';
 import {ImageMode} from '@/models/types';
 import Image from 'next/image';
-import React from 'react';
+import React, {ComponentPropsWithoutRef} from 'react';
 
 interface ILogoProps {
   url?: string;
@@ -17,8 +19,12 @@ const PureImage: React.FC<ILogoProps> = ({
   style = {},
   alt
 }) => {
+  const imgRef = useLazyImage();
+
   return (
     <Image
+      ref={imgRef}
+      data-src={url}
       priority
       src={url ?? '/logo/LOGO.svg'}
       width={0}

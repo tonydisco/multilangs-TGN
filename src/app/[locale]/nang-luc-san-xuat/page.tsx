@@ -24,7 +24,9 @@ const mockData = [
     content:
       'Thế Giới Nhà sở hữu 9 nhà máy cấu kiện bê tông đúc sẵn với công nghệ tiên tiến, đáp ứng yêu cầu kỹ thuật và tiến độ xây dựng.',
     image: '/landing/NLSX/SXCK.png',
-    linkTo: routes.productionCapacity + '/be-tong-thuong-pham',
+    linkTo:
+      routes.productionCapacity +
+      '/he-thong-nha-may-san-xuat-san-pham-cau-kien-be-tong',
     isReverse: false
   },
   {
@@ -32,7 +34,7 @@ const mockData = [
     content:
       'Thế Giới Nhà sở hữu hệ thống kiểm định đạt chuẩn, kiểm soát chặt chẽ chất lượng sản phẩm từ nguyên liệu đầu vào đến thành phẩm, đảm bảo độ đánh giá kết quả chính xác và nhanh chóng.',
     image: '/landing/NLSX/KDCL.png',
-    linkTo: routes.productionCapacity + '/be-tong-thuong-pham',
+    linkTo: routes.productionCapacity + '/phong-kiem-dinh-chat-luong',
     isReverse: true
   },
   {
@@ -40,7 +42,7 @@ const mockData = [
     content:
       'Thế Giới Nhà đầu tư đồng bộ máy móc, thiết bị tiên tiến nhằm nâng cao năng suất, tối ưu quy trình sản xuất và thi công.',
     image: '/landing/NLSX/TTB.png',
-    linkTo: routes.productionCapacity + '/be-tong-thuong-pham',
+    linkTo: routes.productionCapacity + '/he-thong-trang-thiet-bi',
     isReverse: false
   }
 ];

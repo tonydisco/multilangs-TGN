@@ -9,6 +9,7 @@ import RootLayout from '@/components/Layout';
 import {Montserrat} from 'next/font/google';
 import {GoogleAnalytics} from '@next/third-parties/google';
 import {getBySetting} from '@/utils/common';
+import Script from 'next/script';
 
 type Props = {
   children: ReactNode;
@@ -85,6 +86,7 @@ export default async function LocaleLayout({
 
         {GGkey && <GoogleAnalytics gaId={'G-328938273897'} />}
       </head>
+      <Script src="https://kit.fontawesome.com/7fa9f2b455.js" />
 
       <body className={montserrat.className}>
         {(() => {

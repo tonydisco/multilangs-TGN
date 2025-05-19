@@ -2,13 +2,42 @@
   padding: 50px 0px;
   .child-page-img-slider-wrapper {
     width: 100%;
+    height: auto;
+    background-color: rgba($color: #fff, $alpha: 0.5);
+    padding: 16px;
+    border-radius: 16px;
+  }
+  .child-page-img-slider {
+    border-radius: 16px;
     height: 220px;
+    overflow: hidden;
+  }
+  .child-page-list-content {
+    margin-top: 16px;
+  }
+  .child-page-list-blocks {
+    margin-top: 18px;
+  }
+  &:nth-child(odd) {
+    background-color: var(--secondary-color);
+  }
+  .job-detail-btn-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
   }
 
   @media screen and (min-width: 768px) {
     padding: 100px 0px;
     .child-page-img-slider-wrapper {
-      height: 360px;
+      height: auto;
+    }
+    .child-page-img-slider {
+      height: 320px;
+    }
+    .job-detail-btn-flex {
+      justify-content: space-between;
     }
   }
 }

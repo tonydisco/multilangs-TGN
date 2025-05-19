@@ -3,6 +3,7 @@ import {ReactNode, useMemo, useRef} from 'react';
 import {PureImage} from './Images';
 import Slider from 'react-slick';
 import {useWindowDimensions} from '@/hooks/common/useWindowDimension';
+import FontAwIcons from './FontAwIcons';
 
 const MAX_SLIDES_TO_SHOW = 3;
 
@@ -89,26 +90,22 @@ const BaseSlider = ({
     <button
       className="tgn-partners-btn"
       onClick={onNext}
-      style={{width: 25, height: 25}}
+      style={{height: 'auto'}}
     >
-      <PureImage url="/icon/ARROW-ICON.svg" />
+      <FontAwIcons iconName="fa-solid fa-circle-chevron-left tgn-text-gradient-color" />
     </button>
   );
   const btnNavRight = (
     <button
       className="tgn-partners-btn-prev"
-      style={{
-        transform: 'rotate(180deg)',
-        width: 25,
-        height: 25
-      }}
       onClick={onPrev}
+      style={{height: 'auto'}}
     >
-      <PureImage url="/icon/ARROW-ICON.svg" />
+      <FontAwIcons iconName="fa-solid fa-circle-chevron-right tgn-text-gradient-color" />
     </button>
   );
   return (
-    <div className="job-detail-slider-wrapper">
+    <div className="job-detail-slider-wrapper position-relative">
       {(() => {
         if (controllerType === 'custom') {
           if (_slideToShow === 1) {
@@ -125,7 +122,7 @@ const BaseSlider = ({
             <>
               <div className="job-detail-flex-slider">
                 {slideTitle}
-                <div className="job-detai-btn-flex">
+                <div className="job-detail-btn-flex">
                   {btnNavLeft}
                   {btnNavRight}
                 </div>
@@ -139,7 +136,7 @@ const BaseSlider = ({
                 right: 0
               }}
             >
-              <div className="job-detai-btn-flex">
+              <div className="job-detail-btn-flex">
                 {btnNavLeft}
                 {btnNavRight}
               </div>
@@ -147,15 +144,8 @@ const BaseSlider = ({
           );
         }
         return (
-          <div
-            style={{
-              position: 'absolute',
-              top: '50%',
-              left: 0,
-              right: 0
-            }}
-          >
-            <div className="position-relative container">
+          <div className="controller-btns-slider">
+            <div className="position-relative job-detail-btn-flex">
               {btnNavLeft}
               {btnNavRight}
             </div>

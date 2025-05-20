@@ -20,14 +20,16 @@ const ChilCard = (props: {
       <div className="child-page-img-slider">
         <PureImage url={imgUrl} mode="cover" />
       </div>
-      <div className="child-page-list-content">
-        {title && <TitleInCard title={title} />}
-        {blocks && (
-          <ul className="child-page-list-blocks">
-            {blocks?.map((block, index) => <li key={index}>{block}</li>)}
-          </ul>
-        )}
-      </div>
+      {title && (
+        <div className="child-page-list-content">
+          <TitleInCard title={title} />
+          {blocks && (
+            <ul className="child-page-list-blocks">
+              {blocks?.map((block, index) => <li key={index}>{block}</li>)}
+            </ul>
+          )}
+        </div>
+      )}
     </div>
   );
 };

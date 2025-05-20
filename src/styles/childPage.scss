@@ -1,5 +1,6 @@
 .child-page-container {
   padding: 50px 0px;
+
   .child-page-img-slider-wrapper {
     width: 100%;
     height: auto;
@@ -19,18 +20,20 @@
   .child-page-list-blocks {
     margin-top: 18px;
   }
-  &:nth-child(odd) {
-    background-color: var(--secondary-color);
-  }
   .job-detail-btn-flex {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
+    padding: 20px 0;
   }
   .child-section-description {
     max-width: 768px;
     margin: 0 auto;
+  }
+  .child-page-img-section {
+    border-radius: 16px;
+    overflow: hidden;
   }
 
   @media screen and (min-width: 768px) {
@@ -43,9 +46,33 @@
     }
     .job-detail-btn-flex {
       justify-content: space-between;
+      padding: 0;
     }
     .child-page-img-slider-margin {
       margin: 10px;
     }
+    .child-page-img-section {
+      max-height: 550px;
+      height: 100%;
+    }
+    .child-page-flex-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 50px;
+      & > * {
+        flex: 1;
+      }
+    }
+  }
+}
+
+.child-page-container-odd {
+  &:nth-child(odd) {
+    background-color: var(--secondary-color);
+  }
+}
+.child-page-container-even {
+  &:nth-child(even) {
+    background-color: var(--secondary-color);
   }
 }

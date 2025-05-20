@@ -32,6 +32,27 @@ const ChilCard = (props: {
   );
 };
 
+const ChildSectionTitle = (props: {
+  title?: string;
+  sub?: string;
+  className?: string;
+}) => {
+  const {title, sub} = props;
+  return (
+    <>
+      <SectionTitles
+        title={title}
+        style={{textAlign: 'center', padding: '20px 0'}}
+      />
+      {sub && (
+        <div className="tgn-text-gray-color py-3 text-center child-section-description">
+          {sub}
+        </div>
+      )}
+    </>
+  );
+};
+
 const Page = async ({params}: Readonly<IPageDefaultProps>) => {
   const {slug} = await params;
   const {data} = await getChilPageDetail(slug);
@@ -48,21 +69,21 @@ const Page = async ({params}: Readonly<IPageDefaultProps>) => {
         {data?.contents?.length > 0 ? (
           <>
             {data.contents.map((item, index) => {
+              const classByBgType = 'child-page-container-' + data.bgType;
+
               return (
-                <SectionBase key={index} className={`child-page-container`}>
-                  <SectionTitles
-                    title={item.title}
-                    style={{textAlign: 'center', padding: '20px 0'}}
-                  />
-                  {item?.sub && (
-                    <div className="tgn-text-gray-color py-3 text-center child-section-description">
-                      {item.sub}
-                    </div>
-                  )}
-                  <div>
-                    {(() => {
-                      if (item.type === 'slide') {
-                        return (
+                <>
+                  {(() => {
+                    if (item.type === 'slide') {
+                      return (
+                        <SectionBase
+                          key={index}
+                          className={`child-page-container ${classByBgType ?? ''}`}
+                        >
+                          <ChildSectionTitle
+                            title={item.title}
+                            sub={item.sub}
+                          />
                           <BaseSlider
                             total={item.contents.length}
                             renderList={item.contents.map((slide, index) => {
@@ -80,10 +101,20 @@ const Page = async ({params}: Readonly<IPageDefaultProps>) => {
                             })}
                             slidesToShow={2}
                           />
-                        );
-                      }
-                      if (item.type === 'grid') {
-                        return (
+                        </SectionBase>
+                      );
+                    }
+                    if (item.type === 'grid') {
+                      return (
+                        <SectionBase
+                          key={index}
+                          className={`child-page-container ${classByBgType ?? ''}`}
+                        >
+                          <ChildSectionTitle
+                            title={item.title}
+                            sub={item.sub}
+                          />
+
                           <div className="row row-cols-1 row-cols-md-2 g-4">
                             {item?.contents?.map((slide, index) => {
                               return (
@@ -97,44 +128,45 @@ const Page = async ({params}: Readonly<IPageDefaultProps>) => {
                               );
                             })}
                           </div>
-                        );
-                      }
-                      //   return (
-                      //     <div>
-                      //       <div
-                      //         className={`d-flex align-items-center justify-content-between`}
-                      //       >
-                      //         <div className="child-page-list-content">
-                      //           {<TitleInCard title={item.title} />}
-                      //           {item.sub && (
-                      //             <div
-                      //               className="tgn-text-gray-color py-3 text-center child-section-description"
-                      //               key={index}
-                      //             >
-                      //               {item.sub}
-                      //             </div>
-                      //           )}
-                      //         </div>
-                      //         <div>
-                      //           {item?.contents?.map((slide, index) => {
-                      //             return (
-                      //               <div key={index}>
-                      //                 <div className="child-page-img-slider">
-                      //                   <PureImage
-                      //                     url={slide.imgUrl}
-                      //                     mode="cover"
-                      //                   />
-                      //                 </div>
-                      //               </div>
-                      //             );
-                      //           })}
-                      //         </div>
-                      //       </div>
-                      //     </div>
-                      //   );
-                    })()}
-                  </div>
-                </SectionBase>
+                        </SectionBase>
+                      );
+                    }
+                    return (
+                      <SectionBase
+                        key={index}
+                        className={`child-page-container ${classByBgType ?? ''}`}
+                      >
+                        <div className="child-page-flex-content">
+                          <div>
+                            <SectionTitles title={item.title} />
+                            {item.sub && (
+                              <div
+                                className="tgn-text-gray-color py-3 child-section-description"
+                                key={index}
+                              >
+                                {item.sub}
+                              </div>
+                            )}
+                          </div>
+                          <div>
+                            {item?.contents?.map((slide, index) => {
+                              return (
+                                <div key={index}>
+                                  <div className="child-page-img-section">
+                                    <PureImage
+                                      url={slide.imgUrl}
+                                      mode="cover"
+                                    />
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      </SectionBase>
+                    );
+                  })()}
+                </>
               );
             })}
           </>
@@ -152,6 +184,7 @@ const getChilPageDetail = async (slug: string) => {
   if (slug === 'be-tong-thuong-pham') {
     return {
       data: {
+        bgType: 'odd',
         title: 'hệ thống nhà máy sản xuất bê tông thương phẩm',
         imageUrl:
           'https://tgn-cdn.vikiworld.vn/media/be-tong-thuong-pham_3354343302689193984.png',
@@ -266,6 +299,8 @@ const getChilPageDetail = async (slug: string) => {
     return {
       data: {
         title: 'phòng kiểm định chất lượng',
+        bgType: 'even',
+
         contents: [
           {
             title: 'Phòng thí nghiệm của TGN',
@@ -308,6 +343,7 @@ const getChilPageDetail = async (slug: string) => {
   if (slug === 'he-thong-nha-may-san-xuat-san-pham-cau-kien-be-tong') {
     return {
       data: {
+        bgType: 'odd',
         title: 'hệ thống nhà máy sản xuất sản phẩm cấu kiện bê tông',
         contents: [
           {
@@ -405,6 +441,7 @@ const getChilPageDetail = async (slug: string) => {
   if (slug === 'he-thong-trang-thiet-bi') {
     return {
       data: {
+        bgType: 'even',
         title: 'Hệ thống trang-thiết bị',
         contents: [],
         imageUrl:

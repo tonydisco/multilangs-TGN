@@ -37,7 +37,7 @@ export const apiRequest = async <T>(
         'Content-Type': 'application/json',
         ...headers
       },
-      cache: 'no-cache',
+      cache: 'force-cache',
       ...options
     };
 

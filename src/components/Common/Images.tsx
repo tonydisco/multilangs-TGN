@@ -1,8 +1,8 @@
 'use client';
-import {useLazyImage} from '@/hooks/common/useLazyLoadImage';
-import {ImageMode} from '@/models/types';
+import React from 'react';
 import Image from 'next/image';
-import React, {ComponentPropsWithoutRef} from 'react';
+import {ImageMode} from '@/models/types';
+import {useLazyImage} from '@/hooks/common/useLazyLoadImage';
 
 interface ILogoProps {
   url?: string;

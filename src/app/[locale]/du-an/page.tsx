@@ -28,7 +28,6 @@ export default async function Page({params}: Readonly<IPageDefaultProps>) {
               const blockCode = domNode.attribs['data-auto-block-code'];
               const arr = blockCode.split('](');
               const code = arr[0].replace('[', '');
-              console.dir(blockCode);
               if (code.toUpperCase() === 'PROJECTS')
                 return <ProjectList projects={projects} />;
             }

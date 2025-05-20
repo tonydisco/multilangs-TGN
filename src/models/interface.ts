@@ -141,6 +141,11 @@ export interface IProjects {
   publicationDate: string;
   typeCode: string;
   stylesheets: any[];
+  categories: Array<{
+    id: string;
+    name: string;
+    slug: string
+  }>;
   contents: Array<{
     language: string;
     title: string;

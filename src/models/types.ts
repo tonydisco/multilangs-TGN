@@ -38,7 +38,8 @@ export type TtypeId =
   | 'event'
   | 'project'
   | 'product'
-  | 'job';
+  | 'job'
+  | 'factory';
 
 export type TtypeNews =
   | 'News_Highlight'

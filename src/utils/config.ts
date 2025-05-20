@@ -33,7 +33,8 @@ export const pageBySlug = {
   policy: 'chinh-sach-bao-mat',
   business: 'linh-vuc-hoat-dong',
   aboutUs: 'gioi-thieu',
-  projects: "du-an"
+  projects: "du-an",
+  productionCapacity: "nang-luc-san-xuat"
 };
 
 export const albums = {

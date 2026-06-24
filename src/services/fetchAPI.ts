@@ -37,7 +37,7 @@ export const apiRequest = async <T>(
         'Content-Type': 'application/json',
         ...headers
       },
-      cache: 'force-cache',
+      next: {revalidate: 300},
       ...options
     };
 
